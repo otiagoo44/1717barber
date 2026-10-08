@@ -1,0 +1,35 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "targets": 42,
+      "minimumTargetHeight": 44,
+      "faqCount": 7
+    },
+    {
+      "path": "/rulos",
+      "targets": 23,
+      "minimumTargetHeight": 44,
+      "faqCount": 7
+    },
+    {
+      "path": "/productos",
+      "targets": 18,
+      "minimumTargetHeight": 44,
+      "faqCount": 0
+    }
+  ],
+  "motion": {
+    "supported": true,
+    "progress": {
+      "initial": "matrix(0, 0, 0, 1, 0, 0)",
+      "final": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "reducedProgressHidden": true
+  },
+  "overlays": [
+    "Menú",
+    "Lightbox"
+  ],
+  "status": "passed"
+}

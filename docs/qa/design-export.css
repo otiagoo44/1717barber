@@ -1,0 +1,31 @@
+:root {
+  --color-primary: #c49a3c;
+  --color-background: #080808;
+  --color-surface: #171715;
+  --color-paper: #f4f0e8;
+  --color-muted: #b5b2aa;
+  --color-ink: #080808;
+  --color-line: #66645f;
+  --font-display: "Barlow Condensed";
+  --font-heading: "Barlow Condensed";
+  --font-body: "Barlow";
+  --font-label: "Barlow";
+  --text-display: 96px;
+  --text-heading: 56px;
+  --text-body: 18px;
+  --text-label: 14px;
+  --tracking-display: -0.02em;
+  --tracking-label: 0.08em;
+  --font-weight-display: 600;
+  --font-weight-heading: 600;
+  --font-weight-body: 400;
+  --font-weight-label: 600;
+  --radius-none: 0px;
+  --radius-control: 2px;
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 40px;
+  --spacing-xl: 64px;
+  --spacing-section: 112px;
+}

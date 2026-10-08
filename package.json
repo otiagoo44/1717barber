@@ -1,0 +1,16 @@
+{
+  "name": "1717-barberia",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "design:lint": "node .agents/skills/google-design-md/scripts/google-cli/index.mjs lint DESIGN.md"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
