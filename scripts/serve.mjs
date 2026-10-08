@@ -9,6 +9,8 @@ const types = {
   ".js": "text/javascript; charset=utf-8",
   ".svg": "image/svg+xml",
   ".webp": "image/webp",
+  ".avif": "image/avif",
+  ".jpg": "image/jpeg",
   ".woff2": "font/woff2",
   ".txt": "text/plain",
   ".xml": "application/xml",

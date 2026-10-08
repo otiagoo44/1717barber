@@ -15,7 +15,22 @@ import { escape as e, price, rulosPrice } from "./utils.mjs";
 import { image, placeholder, wa, link, arrow } from "./components.mjs";
 
 export function hero(rulos = false) {
-  return `<section class="hero wrap ${rulos ? "rulos-hero" : ""}" id="hero"><div class="hero-copy"><p class="eyebrow">${rulos ? "RULOS 17:17 · LUQUE" : "17:17 BARBERÍA · LUQUE"}</p><h1>${rulos ? "Tu look.<br>Otra textura." : "Tu próximo look<br>empieza acá."}</h1><p class="hero-description">${rulos ? "Rulos 17:17. Mirá el trabajo, elegí tu referencia y consultanos." : "Cortes, rulos, color y cuidado para llevar tu estilo más lejos."}</p>${rulos ? `<div class="hero-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong></div>` : ""}<div class="actions">${wa(rulos ? "Consultar disponibilidad" : "Reservar turno", rulos ? "RULOS" : "GENERAL", rulos ? "rulos" : "")}${link(rulos ? "Mirar resultados" : "Conocer Rulos 17:17", rulos ? "#resultados-rulos" : "/rulos", "text-link")}</div><p class="hero-hours">Luque <span>·</span> Lun–Sáb <span>·</span> 8:00–21:00</p></div><div class="hero-visual"><figure class="hero-main">${image("hero", { eager: true })}<figcaption><span>RULOS 17:17</span><span>Trabajo publicado</span></figcaption></figure>${rulos ? "" : `<figure class="hero-inset">${image("heroCut", { eager: true })}<figcaption>CORTES 17:17</figcaption></figure>`}<span class="hero-stamp" aria-hidden="true">17:17</span></div></section>`;
+  const title = rulos
+    ? ["Rulos.", "Otra textura."]
+    : ["Tu próximo", "look empieza", "acá."];
+  const offer = `<div class="hero-offer"><span>${rulos ? "RULOS PERMANENTES" : "SERVICIO DESTACADO / RULOS 17:17"}</span><strong>${rulosPrice()}</strong></div>`;
+  const actions = `<div class="actions">${wa(rulos ? "Consultar disponibilidad" : "Reservar turno", rulos ? "RULOS" : "GENERAL", rulos ? "rulos" : "")}${rulos ? "" : link("Ver Rulos", "/rulos")}</div>`;
+  return `<section class="hero wrap ${rulos ? "rulos-hero" : ""}" id="inicio">
+  <div class="hero-copy"><p class="eyebrow">17:17 BARBERÍA · LUQUE</p>
+   <h1>${title.map((t) => '<span class="hero-line"><span>' + t + "</span></span>").join("")}</h1>
+   <p class="hero-description">${rulos ? "Mirá el resultado. Consultá por tu cabello." : "Cortes, rulos, color y cuidado. Tu estilo, en 17:17."}</p>
+   ${rulos ? offer + actions : actions + offer}<p class="hero-hours">Luque · Lun–Sáb · 8:00–21:00</p>
+  </div>
+  <div class="hero-visual"><figure class="hero-main"><div class="image-crop">${image("hero", { eager: true, classes: "parallax-image" })}</div><figcaption><span>RULOS 17:17</span><span>Trabajo publicado</span></figcaption></figure>
+   ${rulos ? "" : `<figure class="hero-inset">${image("heroCut", { eager: true, priority: false, sizes: "(max-width:600px) 116px, 174px" })}<figcaption>CORTES 17:17</figcaption></figure>`}<span class="hero-stamp" aria-hidden="true">17:17</span>
+  </div>
+  <div class="hero-track" aria-hidden="true"><span>ESTILO PROPIO</span><i></i><span>LUQUE / PY</span></div>
+ </section>`;
 }
 
 export function resultTile(item, index, interactive = false) {
@@ -24,21 +39,12 @@ export function resultTile(item, index, interactive = false) {
   return `<figure class="result-tile ${m.src ? "" : "is-pending"}" data-category="${e(item.category)}" data-result-index="${index}">${interactive && m.src ? `<button class="photo-trigger" data-photo-src="${e(m.src)}" data-photo-alt="${e(m.alt)}" data-photo-title="${e(item.title)}" aria-label="Ampliar: ${e(item.title)}">${content}<span class="photo-open" aria-hidden="true">↗</span></button>` : `<div class="result-media">${content}</div>`}<figcaption><span>${e(item.title)}</span><small>${m.src ? e(item.category) : "Foto pendiente"}</small></figcaption></figure>`;
 }
 
-export function immediateResults() {
-  return `<section class="section wrap immediate-results" id="resultados"><div class="section-heading"><h2>Primero mirá<br>nuestro trabajo.</h2>${link("Ver más trabajos en Instagram", business.instagram)}</div><div class="editorial-grid">${[results[0], results[1], results[3], results[2], results[4], results[5]].map((r, i) => resultTile(r, i)).join("")}</div></section>`;
-}
-
-export function reels(items = rulosReels.slice(0, 3)) {
-  return `<div class="reel-grid">${items
-    .map((r) => {
-      const m = { id: r.id, type: "reel", ratio: "9/16", label: r.title };
-      return `<figure class="reel-item">${r.url ? `<a class="reel-facade" href="${e(r.url)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ${e(r.title)} en Instagram">${r.thumbnail ? `<img src="${e(r.thumbnail)}" alt="${e(r.title)}" width="360" height="640" loading="lazy">` : placeholder({ ...m, label: "Video de rulos" })}<span class="reel-play" aria-hidden="true">↗</span></a>` : placeholder(m)}<figcaption>${r.url ? "Ver en Instagram" : "Reel real pendiente"}</figcaption></figure>`;
-    })
-    .join("")}</div>`;
+export function reels(items = [rulosReels[3], rulosReels[4], rulosReels[1]]) {
+  return `<div class="reel-sequence" data-reel-sequence><div class="reel-toolbar"><span class="eyebrow">RULOS / EN MOVIMIENTO</span><div class="reel-controls"><span class="reel-position" aria-live="polite">01 / ${String(items.length).padStart(2, "0")}</span><button data-reel-prev aria-label="Reel anterior">←</button><button data-reel-next aria-label="Reel siguiente">→</button></div></div><div class="reel-grid" tabindex="0" role="region" aria-label="Secuencia de reels de rulos; usá flechas o deslizá">${items.map((r, i) => `<figure class="reel-item" data-reel-index="${i}"><div class="reel-frame"><span class="reel-number" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>${r.url ? `<a class="reel-facade" href="${e(r.url)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ${e(r.title)} en Instagram">${r.thumbnail ? `<img src="${e(r.thumbnail)}" alt="${e(r.thumbnailAlt || r.title)}" width="480" height="853" loading="lazy">` : placeholder({ id: r.id, type: "reel", ratio: "9/16", label: "Video de rulos" })}<span class="reel-play" aria-hidden="true">↗</span></a>` : placeholder({ id: r.id, type: "reel", ratio: "9/16", label: "Reel de rulos pendiente" })}</div><figcaption>${r.url ? "Ver en Instagram" : "URL y thumbnail pendientes"}</figcaption></figure>`).join("")}</div><div class="reel-progress" aria-hidden="true"><i></i></div></div>`;
 }
 
 export function featuredRulos() {
-  return `<section class="featured-rulos" id="rulos"><div class="wrap feature-layout"><div class="feature-photo">${image("rulos")}</div><div class="feature-copy"><p class="eyebrow">SERVICIO DESTACADO</p><h2>Rulos<span>17:17</span></h2><p>Una nueva textura.<br>Tu misma actitud.</p><div class="feature-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong></div><div class="actions">${wa("Consultar por rulos", "RULOS", "rulos")}${link("Ver todos los resultados", "/rulos#resultados-rulos")}</div><div class="feature-reels">${reels()}</div></div></div></section>`;
+  return `<section class="featured-rulos" id="rulos"><div class="wrap feature-layout"><div class="feature-copy"><p class="eyebrow">01 / SERVICIO DESTACADO</p><h2>Rulos<span>17:17</span></h2><div class="feature-price"><span>Rulos permanentes</span><strong><small>Gs.</small> ${rulosPrice().replace("Gs. ", "")}</strong></div><p>Una nueva textura.<br>Tu misma actitud.</p><div class="actions">${wa("Consultar por rulos", "RULOS", "rulos")}${link("Ver Rulos", "/rulos")}</div></div><div class="feature-panels"><figure class="feature-photo"><div class="image-crop">${image("rulos", { classes: "parallax-image" })}</div><figcaption><span>01 / RESULTADO REAL</span><span>17:17</span></figcaption></figure><figure class="feature-detail">${image("rulos2")}<figcaption>02 / Fotograma real del reel</figcaption></figure></div></div></section>`;
 }
 
 export function servicesSection() {
@@ -63,7 +69,7 @@ const waHref = (s) => whatsappLink({ intent: s.intent, service: s.id });
 
 export function gallery({ rulos = false } = {}) {
   const items = rulos ? results.filter((r) => r.category === "Rulos") : results;
-  return `<section class="section wrap portfolio" id="${rulos ? "resultados-rulos" : "galeria"}"><div class="section-heading"><div><h2>${rulos ? "Rulos hechos<br>en 17:17." : "Resultados hechos<br>en 17:17."}</h2><p>Fotos de trabajos publicados. Nuevos resultados, próximamente.</p></div>${link("Instagram 17:17", business.instagram)}</div>${rulos ? "" : `<div class="filters" role="group" aria-label="Filtrar resultados">${["Todos", "Rulos", "Cortes", "Color"].map((c, i) => `<button data-gallery-filter="${c}" aria-pressed="${i === 0}">${c}</button>`).join("")}</div><p class="sr-only" data-gallery-status aria-live="polite">6 resultados</p>`}<div class="portfolio-grid">${items.map((r, i) => resultTile(r, i, true)).join("")}</div><div class="portfolio-foot">${rulos ? "" : link(generalReel.title, generalReel.url)}<span>Las fotos se abren para ver el detalle.</span></div></section>`;
+  return `<section class="section wrap portfolio" id="${rulos ? "resultados-rulos" : "galeria"}"><div class="section-heading"><div><h2>${rulos ? "Rulos hechos<br>en 17:17." : "El trabajo<br>habla primero."}</h2><p>Fotos de trabajos publicados. Nuevos resultados, próximamente.</p></div>${link("Instagram 17:17", business.instagram)}</div>${rulos ? "" : `<div class="filters" role="group" aria-label="Filtrar resultados">${["Todos", "Rulos", "Cortes", "Color"].map((c, i) => `<button data-gallery-filter="${c}" aria-pressed="${i === 0}">${c}</button>`).join("")}</div><p class="sr-only" data-gallery-status aria-live="polite">6 resultados</p>`}<div class="portfolio-grid editorial-grid">${items.map((r, i) => resultTile(r, i, true)).join("")}</div><div class="portfolio-foot">${rulos ? "" : link(generalReel.title, generalReel.url)}<span>Las fotos se abren para ver el detalle.</span></div></section>`;
 }
 
 export function socialProof(items = testimonials, rulos = false) {
@@ -75,7 +81,7 @@ export function socialProof(items = testimonials, rulos = false) {
 }
 
 export function team() {
-  return `<section class="section wrap team-section" id="nosotros"><div class="section-heading"><h2>Los que están<br>detrás de 17:17.</h2><p>Dos personas. Un lugar para tu próximo look.</p></div><div class="team-layout"><figure class="team-context">${image("team")}<figcaption>El equipo, frente a 17:17.</figcaption></figure><div class="founder-grid">${founders.map((f, i) => `<article class="founder-profile">${f.image ? `<img class="founder-photo" src="${e(f.image)}" alt="Retrato de ${e(f.name || "integrante de 17:17")}" width="480" height="600" loading="lazy">` : placeholder({ id: f.placeholders.image, type: "portrait", label: `Conocé a ${i === 0 ? "la primera" : "la segunda"} persona`, ratio: "4/5" })}<h3 data-placeholder="${f.placeholders.name}">${e(f.name || "Nombre pendiente")}</h3><p class="founder-role">${e(f.role || "Rol pendiente")} · ${e(f.specialty || "Especialidad pendiente")}</p><p data-placeholder="${f.placeholders.bio}">${e(f.bio || "Pronto, su historia contada en sus propias palabras.")}</p></article>`).join("")}</div></div></section>`;
+  return `<section class="section wrap team-section" id="nosotros"><div class="section-heading"><div><p class="eyebrow">05 / LAS PERSONAS</p><h2>Hermanos.<br>Cofundadores.</h2></div><p>Jonatan y Esteban. Los dos detrás de 17:17.</p></div><div class="team-layout"><figure class="team-context"><div class="image-crop">${image("team")}</div><figcaption>Una barbería fundada entre hermanos.</figcaption></figure><div class="founder-grid">${founders.map((f) => `<article class="founder-profile"><div class="portrait-frame">${f.image ? `<img class="founder-photo" src="${e(f.image)}" alt="Retrato de ${e(f.name)}" width="480" height="600" loading="lazy">` : placeholder({ id: f.placeholders.image, type: "portrait", label: `Retrato de ${f.name} pendiente`, ratio: "4/5" })}</div><div class="profile-copy"><h3>${e(f.name)}</h3><p class="founder-role">${e(f.role)}</p><p>${e(f.specialty || "Especialidad pendiente")}</p><p data-placeholder="${f.placeholders.bio}">${e(f.bio || "Su historia, pendiente de confirmar.")}</p></div></article>`).join("")}</div></div></section>`;
 }
 
 export function productCard(p) {
@@ -87,5 +93,9 @@ export function featuredProducts() {
 }
 
 export function location() {
-  return `<section class="section wrap location-section" id="ubicacion"><div class="location-photo">${image("local")}</div><div class="location-copy"><span class="eyebrow">LUQUE, PARAGUAY</span><h2>Donde<br>pasa todo.</h2><address>${e(business.address)}<br>${e(business.city)}</address><dl><div><dt>Horarios</dt><dd>Lunes–Sábado<br>8:00–21:00</dd></div><div><dt>WhatsApp</dt><dd>${link(business.phone, whatsappLink())}</dd></div></dl><div class="actions">${link("Cómo llegar", business.maps, "button outline")}${wa("Reservar")}</div><p class="location-note">Abrí la dirección en Google Maps.</p></div></section>`;
+  return `<section class="section wrap location-section" id="ubicacion"><div class="location-photo image-crop">${image("local", { classes: "parallax-image" })}</div><div class="location-copy"><span class="eyebrow">LUQUE, PARAGUAY</span><h2>Donde<br>pasa todo.</h2><address>${e(business.address)}<br>${e(business.city)}</address><dl><div><dt>Horarios</dt><dd>Lunes–Sábado<br>8:00–21:00</dd></div><div><dt>WhatsApp</dt><dd>${link(business.phone, whatsappLink())}</dd></div></dl><div class="actions">${link("Cómo llegar", business.maps, "button outline")}${wa("Reservar")}</div><p class="location-note">Abrí la dirección en Google Maps.</p></div></section>`;
+}
+
+export function rulosProof() {
+  return `<section class="section wrap rulos-proof" id="prueba-rulos-home"><div class="section-heading"><div><p class="eyebrow">04 / RULOS EN PRIMER PLANO</p><h2>La textura.<br>El movimiento.</h2></div>${link("Ver los 5 reels de rulos", "/rulos#reels-rulos")}</div>${reels()}${socialProof().replace('<section class="section wrap social-proof"', '<section class="social-proof"')}</section>`;
 }

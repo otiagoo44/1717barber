@@ -11,23 +11,23 @@ colors:
   line: "#66645F"
 typography:
   display:
-    fontFamily: Barlow Condensed
-    fontSize: 96px
-    fontWeight: 600
+    fontFamily: Archivo Black
+    fontSize: 112px
+    fontWeight: 400
     lineHeight: 0.98
     letterSpacing: -0.02em
   heading:
-    fontFamily: Barlow Condensed
-    fontSize: 56px
-    fontWeight: 600
+    fontFamily: Archivo Black
+    fontSize: 64px
+    fontWeight: 400
     lineHeight: 1.05
   body:
-    fontFamily: Barlow
+    fontFamily: Inter
     fontSize: 18px
     fontWeight: 400
     lineHeight: 1.6
   label:
-    fontFamily: Barlow
+    fontFamily: Inter
     fontSize: 14px
     fontWeight: 600
     lineHeight: 1.4
@@ -67,9 +67,9 @@ components:
 
 Sitio comercial de una barbería real de Luque. Editorial urbano, fotografía de trabajos, tipografía directa y navegación corta. Preservar la identidad publicada: negro #080808, marfil #F4F0E8 y ocre #C49A3C; no introducir oro metálico ni una paleta de otra marca. Rulos es la oferta destacada, no la identidad completa del negocio.
 
-Taste: variance 7, motion 3, density 3. Composición variada y espaciosa; feedback y entradas de 380ms, sin esperar para leer o reservar. Se prioriza contenido visible sin JavaScript. Tema oscuro propio de la identidad existente, sin selector de temas innecesario.
+Taste: variance 7, motion 7, density 3. Segunda pasada sobre la base existente: composición editorial, Rulos como primera categoría visual y motion rico pero funcional. Se conserva contenido visible sin JavaScript y reserva disponible desde el primer frame. El lienzo oscuro de marca alterna con el spread marfil de Rulos para crear jerarquía; no hay selector de temas.
 
-Referencia de catálogo elegida: Nike (análisis local leído completo). Tomar escala de titulares, protagonismo de imagen, catálogo plano sin sombras y contraste entre campaña y utilidades. Descartar fuentes propietarias, logo, paleta exacta, botones pill, ecommerce, badges promocionales y animación de contracción agresiva.
+Dos referencias del catálogo: Nike y BMW M. Tomar escala, fotografía como composición, bandas amplias y poco chrome. Descartar fuentes, logos, paletas, tricolor, ecommerce, thin body, pills, membresías y claims. Skin Expert sirve como referencia de disciplina: continuidad, aire y cambios de composición; no trasladar paleta, serif, formas beauty ni componentes.
 
 Referencias del cliente: Gentlemen Barber Clubs, fotografía humana y espacio real; Boardroom, claridad del CTA y separación de ofertas. No copiar símbolos, tipografías, textos, colores ni claims. Balls: el navegador capturó un fondo vacío; no atribuir principios visuales no observados. URLs y capturas en docs/REDESIGN_1717_REPORT.md.
 
@@ -81,17 +81,17 @@ Pares se verifican con lint oficial y medición de la interfaz. Texto sobre foto
 
 ## Typography
 
-Conservar Barlow y Barlow Condensed; retirar Cormorant del sistema para pasar de estética clásica a barber culture contemporánea. Ambas familias tienen SIL OFL 1.1, verificada en el repositorio oficial Google Fonts. Alojar fuentes localmente. Titulares con presencia, cuerpo 18px, mínimo 14px para metadatos. H1 mobile aproximadamente 56px, desktop 96–100px. No cortar letras, no titulares convertidos en imágenes. Ancho de lectura máximo 56ch.
+Comparación renderizada en docs/qa/second-pass: Barlow Condensed + Manrope, Archivo Black + Inter, Outfit + Work Sans. Elegida Archivo Black: masa tipográfica editorial y precio con protagonismo; Inter variable 400–600 para UI legible. Rechazar la continuidad excesiva de Barlow y la suavidad geométrica de Outfit. Barlow Condensed se conserva exclusivamente para el wordmark existente. Fuentes Latin locales, font-display swap, licencias OFL oficiales incluidas. H1 mobile 42–50px compuesto en tres líneas; desktop hasta 112px. Body 18px, labels 14px. Ancho de lectura 48ch.
 
 ## Layout
 
-Contenedor de 1280px; gutters de 20px mobile y 48px desktop. Ritmo de 64px mobile y 112px desktop. Hero de texto más fotografía; resultados editoriales de seis slots, rulos en gran composición, servicios en filas, portfolio filtrable, prueba social en espacio reservado, fundadores en dos perfiles, catálogo abierto y local con dirección. Evitar repetir la misma familia de layout. Mobile pensado desde 375px, no sólo comprimido.
+Contenedor 1280px, gutters 20px mobile / 48px desktop. Home en diez capítulos: hero compuesto → Rulos → trabajo real → servicios → reels/prueba → equipo → productos → local → FAQ breve → cierre. Una sola galería, no duplicación de evidencia. Nav: Inicio, Rulos, Servicios, Nosotros y Reservar. Productos y ubicación se descubren en el recorrido. Back link visible en secundarias; logo siempre /. Rulos usa texto sticky desktop y secuencia fotográfica en flujo natural; mobile desactiva sticky. Ratios mixtos, offsets y captions fuera de frame. Evitar repetición de rectángulos uniformes.
 
 ## Elevation & Depth
 
 Profundidad por fotografías y cambio de escala. Sin glassmorphism, sombras flotantes ni 3D. Z-index: header 20, menú 30, dialog nativo en top layer. No CTA fijo inferior: el CTA del header permanece accesible sin tapar contenido.
 
-Textura SVG estática de 160px a opacidad 0.018, sin bloquear eventos. Progreso de lectura de 2px con scroll timeline nativo donde se soporta, sin fallback que genere trabajo continuo. Entrada por IntersectionObserver desde 8px/opacity 0.9: nunca ocultar contenido. Reduced-motion desactiva entradas, progreso y transiciones. Ninguna intro, cursor personalizado ni animación que postergue la reserva.
+Profundidad por capas fotográficas y offsets, sin efecto de textura global. Progreso de secuencia de reels de 1px ligado al scroll nativo. No se mantiene el límite anterior de motion 3 ni de entradas de 8px. Ver MOTION PHILOSOPHY y docs/MOTION_SYSTEM.md.
 
 ## Shapes
 
@@ -99,11 +99,13 @@ Fotografías rectangulares, ratios reservados 3:4, 4:5, 1:1 y 9:16. Controles ca
 
 ## Components
 
-Botones 52px de alto, targets al menos 44px. Enlaces para navegar/WhatsApp; botones para filtros, menú y lightbox. Focus de 2px con offset; no ocultarlo. Menú nativo dialog con foco, Escape, cierre exterior y retorno de foco. Lightbox nativo dialog con anterior/siguiente, flechas, Escape y swipe. FAQ usa details/summary. Imágenes eager sólo en hero, lazy en galerías con width/height. Reels: fachada reservada, enlace exacto si confirmado; si falta URL, placeholder sin botón de reproducción falso.
+Botones 54px de alto, targets al menos 44px. Enlaces para navegar/WhatsApp; botones para filtros, menú y lightbox. Focus de 3px con offset; no ocultarlo. Menú nativo dialog con foco, Escape, cierre exterior y retorno de foco. Lightbox nativo dialog con anterior/siguiente, flechas, Escape y swipe. FAQ usa details/summary. Imágenes eager sólo en hero, lazy en galerías con width/height. Reels: fachada reservada, enlace exacto si confirmado; si falta URL, placeholder sin botón de reproducción falso.
 
-Datos en src/data.mjs. null significa contenido no confirmado. No renderizar precios/stock/claims de productos desconocidos. Testimonios sólo publicados al confirmar quote, name y source. Campos de fundadores pendientes, sin inferir nombres por una foto.
+Datos en src/data.mjs. null significa contenido no confirmado. No renderizar precios/stock/claims de productos desconocidos. Testimonios sólo publicados al confirmar quote, name y source. Jonatan y Esteban son hermanos y cofundadores confirmados: retratos del mismo ratio, nombres del mismo tamaño y perfiles paralelos sin offsets que jerarquicen a uno. Especialidades y bios siguen pendientes. La foto conjunta no asigna identidades individuales.
 
-Cierre de conversión sobre {colors.primary}, texto {colors.ink}, CTA oscuro con texto {colors.paper}; reutiliza el ocre de marca sin acabados metálicos. Padding 40px desktop / 20px mobile. La flecha del CTA se desplaza sólo 2px en hover de puntero fino. Fuentes, tokens y reglas se combinan en un CSS durante el build para evitar @import en producción.
+Logo oficial recibido en JPG de 150×150px: círculo por CSS, sin alterar el archivo ni recrear la identidad. Reservar sus dimensiones y evitar ampliarlo más allá de su resolución. Pedir SVG o PNG de mayor calidad. Los cinco reels tienen URLs confirmadas y portadas auténticas locales; la home selecciona dos resultados terminados y un proceso, /rulos conserva los cinco en el orden recibido. No convertir esas portadas pequeñas en fotografías principales.
+
+Cierre de conversión sobre {colors.primary}, texto {colors.ink}, CTA oscuro con texto {colors.paper}; reutiliza el ocre de marca sin acabados metálicos. Padding horizontal 48px desktop / 20px mobile. La flecha del CTA se desplaza 3px en hover de puntero fino. Fuentes, tokens y reglas se combinan en un CSS durante el build para evitar @import en producción.
 
 ## Do's and Don'ts
 
@@ -111,7 +113,13 @@ Cierre de conversión sobre {colors.primary}, texto {colors.ink}, CTA oscuro con
 - Mantener los siete precios verificados, rulos Gs. 180.000 desde una sola fuente.
 - Preservar dirección, horario, WhatsApp, Instagram y enlace Maps.
 - No inventar prueba, duración, permanencia, coordenadas, ratings, personas o stock.
-- No cargar iframes sociales/mapa al inicio; no instalar animación ni analytics.
+- No cargar iframes sociales/mapa al inicio ni analytics. Una biblioteca de motion sería válida si se justifica; esta implementación se resuelve con CSS, IntersectionObserver y Web Animations API.
 - No ocultar contenido a la espera de reveal. Reduced-motion cancela scroll suave y transiciones.
 - No extender fotos pequeñas ni repetir la misma imagen dentro de un grid.
 - Documentar límites reales del QA; no presentar simulación móvil como prueba física.
+
+## MOTION PHILOSOPHY
+
+Motion 7/10: entrada → reposo → transición → entrada. Hero con líneas, máscara fotográfica, segundo plano y metadata escalonados; CTA siempre legible y clickeable. Headings por máscara, fotografías por clip, listas por stagger, precios por wipe y metadata por dissolve. Scroll-linked parallax sólo en hero, Rulos y local, desplazamiento visual ≤6%. Un storytelling sticky importante por página, sólo ≥1024px; no rueda interceptada. Filmstrip 9:16 con scroll nativo, controles, teclado e indicador. Page transitions nativas entre documentos del mismo origen, fallback normal. Sin loops obligatorios, loaders, intro bloqueante, cursor sustituto ni testimonios ficticios. Reduced-motion: estado final inmediato, sin parallax, sticky ni secuencias. Ningún contenido opacity:0 por defecto. Tokens de duración/easing/distancia en public/assets/motion.css; documentación normativa en docs/MOTION_SYSTEM.md.
+
+Implementación: hero por animaciones CSS agrupadas con una sola clase; reveals de scroll por WAAPI. Parallax desde 900px, sticky desde 1024px. Metadata/CTA mantienen opacity ≥.85 incluso durante entrada para conservar contraste. Reduced-motion elimina animaciones CSS y cancela WAAPI/transiciones activas. Containment de layout/style en capítulos normales, sin alturas estimadas ni content-visibility; hero y sticky fuera de containment. Mobile conserva motion y amplía descripciones/fichas de productos a 14px.

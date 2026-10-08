@@ -47,6 +47,10 @@ test("WhatsApp codifica intención y producto sin mezclar mensajes", () => {
     );
 });
 test("Sin prueba, stock ni información técnica inventada", () => {
+  assert.deepEqual(
+    rulosReels.map((r) => r.id),
+    Array.from({ length: 5 }, (_, i) => `REEL_RULOS_0${i + 1}`),
+  );
   assert.ok(
     products.every(
       (p) =>
@@ -56,11 +60,47 @@ test("Sin prueba, stock ni información técnica inventada", () => {
         p.hold === null,
     ),
   );
-  assert.ok(founders.every((f) => !f.name && !f.bio));
+  assert.deepEqual(
+    founders.map((f) => f.name),
+    ["Jonatan", "Esteban"],
+  );
+  assert.ok(founders.every((f) => f.role === "Cofundador" && !f.bio));
   assert.ok(testimonials.every((t) => !t.quote && !t.name));
-  assert.ok(rulosReels.every((r) => !r.url));
+  assert.deepEqual(
+    rulosReels.map((r) => new URL(r.url).pathname.split("/")[2]),
+    ["DeDQr0cuhey", "Dd903THBe7y", "DdrxU3CBZ2A", "Dcl55RjxJrK", "DceM8azzYuV"],
+  );
   const sources = results.map((r) => media[r.media].src).filter(Boolean);
   assert.equal(new Set(sources).size, sources.length);
+});
+test("Recorrido enfocado y regreso al inicio en páginas secundarias", () => {
+  const home = renderPage("home");
+  const ids = [
+    "inicio",
+    "rulos",
+    "galeria",
+    "servicios",
+    "prueba-rulos-home",
+    "nosotros",
+    "productos",
+    "ubicacion",
+    "faq",
+    "reservar",
+  ];
+  const positions = ids.map((id) => home.indexOf(`id="${id}"`));
+  assert.ok(positions.every((n, i) => n >= 0 && (!i || n > positions[i - 1])));
+  assert.equal((home.match(/class="reel-item"/g) || []).length, 3);
+  assert.equal(
+    (renderPage("rulos").match(/class="reel-item"/g) || []).length,
+    5,
+  );
+  for (const name of ["home", "rulos", "productos"]) {
+    const html = renderPage(name),
+      nav = html.match(/<nav class="desktop-nav".*?<\/nav>/)[0];
+    assert.equal((nav.match(/<a /g) || []).length, 4);
+    assert.ok(html.includes('href="/" aria-label="17:17'));
+    if (name !== "home") assert.ok(html.includes("Volver a 17:17"));
+  }
 });
 test("Tres páginas estáticas con semántica, SEO y carga ligera", async () => {
   for (const name of ["home", "rulos", "productos"]) {

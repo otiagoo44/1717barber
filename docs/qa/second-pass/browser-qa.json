@@ -1,0 +1,1472 @@
+{
+  "date": "2026-10-08T21:59:05.593Z",
+  "pages": [
+    {
+      "path": "/",
+      "width": 375,
+      "metrics": {
+        "scrollWidth": 375,
+        "width": 375,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 255.0999999642372
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 270.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 268.39999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 318.5999999642372
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 343.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 307.7000000476837
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 317.80000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/corte-600.avif",
+            "bytes": 25699,
+            "duration": 343.7999999523163
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 142.0999999642372
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/favicon.svg",
+            "bytes": 545,
+            "duration": 339.19999998807907
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "metrics": {
+        "scrollWidth": 390,
+        "width": 390,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 35.200000047683716
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 35.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 35.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 35.10000002384186
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 48.89999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 33.90000003576279
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 35.39999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/corte-600.avif",
+            "bytes": 25699,
+            "duration": 52.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 72.20000004768372
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/",
+      "width": 430,
+      "metrics": {
+        "scrollWidth": 430,
+        "width": 430,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 22.399999976158142
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 22
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 22.399999976158142
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 22
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 20.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 21.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 298.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/corte-600.avif",
+            "bytes": 25699,
+            "duration": 355.4000000357628
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 147.5
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/",
+      "width": 768,
+      "metrics": {
+        "scrollWidth": 768,
+        "width": 768,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 53.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 53.799999952316284
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 53.59999996423721
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 58.10000002384186
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 66.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 53.60000002384186
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 58.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/corte-600.avif",
+            "bytes": 25699,
+            "duration": 69.29999995231628
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/favicon.svg",
+            "bytes": 545,
+            "duration": 84.39999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 72.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-reel04-600.avif",
+            "bytes": 28124,
+            "duration": 72.69999998807907
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/",
+      "width": 1024,
+      "metrics": {
+        "scrollWidth": 1024,
+        "width": 1024,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 53.89999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 54.799999952316284
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 54.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 66.10000002384186
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 53.59999996423721
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 45.80000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 49.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/corte-600.avif",
+            "bytes": 25699,
+            "duration": 60.90000003576279
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 40.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-reel04-600.avif",
+            "bytes": 28124,
+            "duration": 49.69999998807907
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "metrics": {
+        "scrollWidth": 1440,
+        "width": 1440,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 27.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 28.599999964237213
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 30.399999976158142
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 30.900000035762787
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 41.10000002384186
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 25.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 42.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/corte-600.avif",
+            "bytes": 25699,
+            "duration": 46.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 24
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/rulos",
+      "width": 375,
+      "metrics": {
+        "scrollWidth": 375,
+        "width": 375,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 43.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 43.09999996423721
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 45.90000003576279
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 45.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 64.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 41.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 50.39999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 21.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-reel04-600.avif",
+            "bytes": 28124,
+            "duration": 20.5
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/rulos",
+      "width": 390,
+      "metrics": {
+        "scrollWidth": 390,
+        "width": 390,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 18.100000023841858
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 17.600000023841858
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 17.900000035762787
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 19.200000047683716
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 30.099999964237213
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 16.400000035762787
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 19.099999964237213
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 17.100000023841858
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-reel04-600.avif",
+            "bytes": 28124,
+            "duration": 17.100000023841858
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/rulos",
+      "width": 430,
+      "metrics": {
+        "scrollWidth": 430,
+        "width": 430,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 20
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 19.900000035762787
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 20.100000023841858
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 25.099999964237213
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 28.80000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 23.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 25.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 19
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/rulos",
+      "width": 768,
+      "metrics": {
+        "scrollWidth": 768,
+        "width": 768,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 26.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 24.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 24.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 24.399999976158142
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 33.80000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 23.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 27.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 34.39999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-reel04-600.avif",
+            "bytes": 28124,
+            "duration": 33.90000003576279
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/favicon.svg",
+            "bytes": 545,
+            "duration": 32.5
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/rulos",
+      "width": 1024,
+      "metrics": {
+        "scrollWidth": 1024,
+        "width": 1024,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 34
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 32.90000003576279
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 33.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 33
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 32.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 43.89999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 33.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 11.099999964237213
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-reel04-600.avif",
+            "bytes": 28124,
+            "duration": 10.899999976158142
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/rulos",
+      "width": 1440,
+      "metrics": {
+        "scrollWidth": 1440,
+        "width": 1440,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 30.799999952316284
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 30.299999952316284
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 30.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 30.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 46.10000002384186
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 29.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/hero-rulos-600.avif",
+            "bytes": 23594,
+            "duration": 32.60000002384186
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+            "bytes": 24813,
+            "duration": 16.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/media/rulos-reel04-600.avif",
+            "bytes": 28124,
+            "duration": 16.600000023841858
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/productos",
+      "width": 375,
+      "metrics": {
+        "scrollWidth": 375,
+        "width": 375,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 31.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 29.700000047683716
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 29.600000023841858
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 29.399999976158142
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 33.80000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 28.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/favicon.svg",
+            "bytes": 545,
+            "duration": 18
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/productos",
+      "width": 390,
+      "metrics": {
+        "scrollWidth": 390,
+        "width": 390,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 38.09999996423721
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 38
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 38.10000002384186
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 38.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 41.39999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 35.69999998807907
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/productos",
+      "width": 430,
+      "metrics": {
+        "scrollWidth": 430,
+        "width": 430,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 24.600000023841858
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 23.900000035762787
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 24.099999964237213
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 24.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 24.30000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 23.200000047683716
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/productos",
+      "width": 768,
+      "metrics": {
+        "scrollWidth": 768,
+        "width": 768,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 41.89999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 41.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 40.89999997615814
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 41
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 41.5
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 38.19999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/favicon.svg",
+            "bytes": 545,
+            "duration": 25.19999998807907
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/productos",
+      "width": 1024,
+      "metrics": {
+        "scrollWidth": 1024,
+        "width": 1024,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 18.600000023841858
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 21.600000023841858
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 28.799999952316284
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 26.599999964237213
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 18.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 29.899999976158142
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    },
+    {
+      "path": "/productos",
+      "width": 1440,
+      "metrics": {
+        "scrollWidth": 1440,
+        "width": 1440,
+        "h1": 1,
+        "iframes": 0,
+        "assets": [
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+            "bytes": 18904,
+            "duration": 40.80000001192093
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+            "bytes": 48556,
+            "duration": 44.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/fonts/barlow-condensed-600-latin.woff2",
+            "bytes": 22608,
+            "duration": 64.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.css",
+            "bytes": 45356,
+            "duration": 81.10000002384186
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/brand-logo.jpg",
+            "bytes": 2327,
+            "duration": 64.69999998807907
+          },
+          {
+            "name": "http://127.0.0.1:4174/assets/site.js",
+            "bytes": 14841,
+            "duration": 82.29999995231628
+          }
+        ],
+        "overflowElements": []
+      },
+      "axeViolations": []
+    }
+  ],
+  "interactions": [
+    "Menú: abrir/cerrar, Escape, navegación por ancla, foco atrapado y restaurado.",
+    "Filtros de galería: Todos/Rulos/Cortes/Color, estado aria y resultados.",
+    "Lightbox: botones, flechas, Escape, exterior, focus trap, retorno de foco y swipe emulado.",
+    "FAQ: click y teclado con details nativo.",
+    "Filtros productos: cuatro categorías y estados aria.",
+    "Sin JS: contenido, enlaces y FAQ renderizados. Menú y filtros requieren JS."
+  ],
+  "ctaClicks": [
+    {
+      "path": "/",
+      "clicks": [
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "17:17 BARBERÍA",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#inicio",
+          "text": "Inicio",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#rulos",
+          "text": "Rulos",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#servicios",
+          "text": "Servicios",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#nosotros",
+          "text": "Nosotros",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "Reservar turno↗",
+          "intent": "GENERAL"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "Reservar turno↗",
+          "intent": "GENERAL"
+        },
+        {
+          "href": "http://127.0.0.1:4174/rulos",
+          "text": "Ver Rulos↗",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Rulos%2017%3A17%20en%20la%20web%20y%20quiero%20consultar%20disponibilidad.",
+          "text": "Consultar por rulos↗",
+          "intent": "RULOS"
+        },
+        {
+          "href": "http://127.0.0.1:4174/rulos",
+          "text": "Ver Rulos↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/1717barberia",
+          "text": "Instagram 17:17↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/reel/DYDKRodJRS7/",
+          "text": "Ver un trabajo publicado↗",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Rulos%2017%3A17%20en%20la%20web%20y%20quiero%20consultar%20disponibilidad.",
+          "text": "01Rulos permanentesDestacadoGs. 180.000↗",
+          "intent": "RULOS"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20quiero%20consultar%20un%20turno%20para%20corte.",
+          "text": "02Corte masculinoGs. 30.000↗",
+          "intent": "CORTE"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20el%20servicio%20de%20tinte%20y%20quiero%20consultar.",
+          "text": "03TinteGs. 200.000↗",
+          "intent": "TINTE"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20quiero%20consultar%20un%20turno%20para%20barba.",
+          "text": "04BarbaGs. 30.000↗",
+          "intent": "BARBA"
+        },
+        {
+          "href": "http://127.0.0.1:4174/rulos#reels-rulos",
+          "text": "Ver los 5 reels de rulos↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/reel/Dcl55RjxJrK/",
+          "text": "↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/reel/DceM8azzYuV/",
+          "text": "↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/reel/Dd903THBe7y/",
+          "text": "↗",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/productos",
+          "text": "Ver todos los productos↗",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Iconic%20Men%20Cream%20Pomade%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+          "text": "Consultar↗",
+          "intent": "PRODUCTO_ICONIC"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Hair%20Wax%20Matte%20Look%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+          "text": "Consultar↗",
+          "intent": "PRODUCTO_MATTE"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Polvo%20Texturizador%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+          "text": "Consultar↗",
+          "intent": "PRODUCTO_POLVO"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Matte%20Pomade%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+          "text": "Consultar↗",
+          "intent": "PRODUCTO_MANIFESTO"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "0983 402 497↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.google.com/maps/search/Cap.+Dado+esquina+Gobernador+Irala+Luque+Paraguay",
+          "text": "Cómo llegar↗",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "Reservar↗",
+          "intent": "GENERAL"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "Consultar por WhatsApp↗",
+          "intent": "GENERAL"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "Reservar por WhatsApp↗",
+          "intent": "GENERAL"
+        },
+        {
+          "href": "https://www.google.com/maps/search/Cap.+Dado+esquina+Gobernador+Irala+Luque+Paraguay",
+          "text": "Cómo llegar↗",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "17:17BARBERÍA · LUQUE",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "Inicio↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/1717barberia",
+          "text": "@1717barberia↗",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "0983 402 497↗",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#inicio",
+          "text": "Volver al inicio ↑",
+          "intent": null
+        }
+      ]
+    },
+    {
+      "path": "/rulos",
+      "clicks": [
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "17:17 BARBERÍA",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#inicio",
+          "text": "Inicio",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/rulos",
+          "text": "Rulos",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#servicios",
+          "text": "Servicios",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#nosotros",
+          "text": "Nosotros",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "Reservar turno↗",
+          "intent": "GENERAL"
+        },
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "← Volver a 17:17",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Rulos%2017%3A17%20en%20la%20web%20y%20quiero%20consultar%20disponibilidad.",
+          "text": "Consultar disponibilidad↗",
+          "intent": "RULOS"
+        },
+        {
+          "href": "https://www.instagram.com/1717barberia",
+          "text": "Instagram 17:17↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/1717barberia",
+          "text": "Ver Instagram↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/reel/DeDQr0cuhey/",
+          "text": "↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/reel/Dd903THBe7y/",
+          "text": "↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/reel/DdrxU3CBZ2A/",
+          "text": "↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/reel/Dcl55RjxJrK/",
+          "text": "↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/reel/DceM8azzYuV/",
+          "text": "↗",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Rulos%2017%3A17%20en%20la%20web%20y%20quiero%20consultar%20disponibilidad.",
+          "text": "Consultar por mi cabello↗",
+          "intent": "RULOS"
+        },
+        {
+          "href": "http://127.0.0.1:4174/productos",
+          "text": "Conocer el catálogo de productos↗",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "Consultar por WhatsApp↗",
+          "intent": "GENERAL"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Rulos%2017%3A17%20en%20la%20web%20y%20quiero%20consultar%20disponibilidad.",
+          "text": "Consultar por rulos↗",
+          "intent": "RULOS"
+        },
+        {
+          "href": "https://www.google.com/maps/search/Cap.+Dado+esquina+Gobernador+Irala+Luque+Paraguay",
+          "text": "Cómo llegar↗",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "17:17BARBERÍA · LUQUE",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "Inicio↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/1717barberia",
+          "text": "@1717barberia↗",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "0983 402 497↗",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#inicio",
+          "text": "Volver al inicio ↑",
+          "intent": null
+        }
+      ]
+    },
+    {
+      "path": "/productos",
+      "clicks": [
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "17:17 BARBERÍA",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#inicio",
+          "text": "Inicio",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/rulos",
+          "text": "Rulos",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#servicios",
+          "text": "Servicios",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#nosotros",
+          "text": "Nosotros",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "Reservar turno↗",
+          "intent": "GENERAL"
+        },
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "← Volver a 17:17",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Iconic%20Men%20Cream%20Pomade%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+          "text": "Consultar↗",
+          "intent": "PRODUCTO_ICONIC"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Hair%20Wax%20Matte%20Look%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+          "text": "Consultar↗",
+          "intent": "PRODUCTO_MATTE"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Polvo%20Texturizador%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+          "text": "Consultar↗",
+          "intent": "PRODUCTO_POLVO"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Matte%20Pomade%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+          "text": "Consultar↗",
+          "intent": "PRODUCTO_MANIFESTO"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20One%20in%20a%20Million%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+          "text": "Consultar↗",
+          "intent": "PRODUCTO_MILLION"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2C%20vi%20Producto%20para%20barba%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+          "text": "Consultar↗",
+          "intent": "PRODUCTO_BARBA"
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "Reservar por WhatsApp↗",
+          "intent": "GENERAL"
+        },
+        {
+          "href": "https://www.google.com/maps/search/Cap.+Dado+esquina+Gobernador+Irala+Luque+Paraguay",
+          "text": "Cómo llegar↗",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "17:17BARBERÍA · LUQUE",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/",
+          "text": "Inicio↗",
+          "intent": null
+        },
+        {
+          "href": "https://www.instagram.com/1717barberia",
+          "text": "@1717barberia↗",
+          "intent": null
+        },
+        {
+          "href": "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20disponibilidad%20para%20reservar%20un%20turno.",
+          "text": "0983 402 497↗",
+          "intent": null
+        },
+        {
+          "href": "http://127.0.0.1:4174/#inicio",
+          "text": "Volver al inicio ↑",
+          "intent": null
+        }
+      ]
+    }
+  ],
+  "externalChecks": [
+    {
+      "requested": "https://wa.me/595983402497",
+      "final": "https://api.whatsapp.com/send/?phone=595983402497&text&type=phone_number&app_absent=0",
+      "status": 200
+    },
+    {
+      "requested": "https://www.instagram.com/1717barberia",
+      "final": "https://www.instagram.com/1717barberia",
+      "status": 200
+    },
+    {
+      "requested": "https://www.google.com/maps/search/Cap.+Dado+esquina+Gobernador+Irala+Luque+Paraguay",
+      "final": "https://www.google.com/maps/search/Cap.+Dado+esquina+Gobernador+Irala+Luque+Paraguay",
+      "status": 200
+    }
+  ],
+  "limitations": [
+    "Viewport y touch emulados en Chrome, no dispositivo físico.",
+    "Clicks externos interceptados para verificar destino y mensaje sin enviar una conversación."
+  ],
+  "reducedMotion": {
+    "matches": true,
+    "scroll": "auto",
+    "transitions": "0s"
+  },
+  "consoleErrors": [],
+  "abortedRequests": [
+    {
+      "url": "http://127.0.0.1:4174/assets/media/corte.webp",
+      "reason": "net::ERR_ABORTED"
+    }
+  ],
+  "failedRequests": [],
+  "status": "passed"
+}

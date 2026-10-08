@@ -1,0 +1,65 @@
+[
+  {
+    "id": "REEL_RULOS_01",
+    "url": "https://www.instagram.com/reel/DeDQr0cuhey/",
+    "source": "Public Instagram embed EmbeddedMediaImage",
+    "originalWidth": 576,
+    "originalHeight": 1024,
+    "thumbnail": "public/assets/media/reel-rulos-01.webp",
+    "width": 480,
+    "height": 853,
+    "bytes": 17770
+  },
+  {
+    "id": "REEL_RULOS_02",
+    "url": "https://www.instagram.com/reel/Dd903THBe7y/",
+    "source": "Public Instagram embed EmbeddedMediaImage",
+    "originalWidth": 576,
+    "originalHeight": 1024,
+    "thumbnail": "public/assets/media/reel-rulos-02.webp",
+    "width": 480,
+    "height": 853,
+    "bytes": 44744
+  },
+  {
+    "id": "REEL_RULOS_03",
+    "url": "https://www.instagram.com/reel/DdrxU3CBZ2A/",
+    "source": "Public Instagram embed EmbeddedMediaImage",
+    "originalWidth": 720,
+    "originalHeight": 1280,
+    "thumbnail": "public/assets/media/reel-rulos-03.webp",
+    "width": 480,
+    "height": 853,
+    "bytes": 35740
+  },
+  {
+    "id": "REEL_RULOS_04",
+    "url": "https://www.instagram.com/reel/Dcl55RjxJrK/",
+    "source": "Public Instagram embed EmbeddedMediaImage",
+    "originalWidth": 1170,
+    "originalHeight": 2080,
+    "thumbnail": "public/assets/media/reel-rulos-04.webp",
+    "width": 480,
+    "height": 853,
+    "bytes": 28486,
+    "resultStill": {
+      "mediaId": "RULOS_RESULTADO_02",
+      "sourceWidth": 1170,
+      "sourceHeight": 2080,
+      "webp": "public/assets/media/rulos-reel04.webp",
+      "avif": "public/assets/media/rulos-reel04.avif",
+      "note": "Original published cover frame, not an enlarged 480px facade thumbnail; original creator rounded frame retained."
+    }
+  },
+  {
+    "id": "REEL_RULOS_05",
+    "url": "https://www.instagram.com/reel/DceM8azzYuV/",
+    "source": "Public Instagram embed EmbeddedMediaImage",
+    "originalWidth": 720,
+    "originalHeight": 1280,
+    "thumbnail": "public/assets/media/reel-rulos-05.webp",
+    "width": 480,
+    "height": 853,
+    "bytes": 35466
+  }
+]

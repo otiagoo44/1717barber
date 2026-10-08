@@ -1,27 +1,224 @@
 (() => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  // El contenido siempre es visible; el movimiento sólo acompaña su entrada.
-  if (!reducedMotion.matches && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
+  // Keep native navigation opt-in stable. A preference change can interrupt a
+  // transition; skip its animation and handle the expected rejected ready state.
+  function handlePageTransition(event) {
+    const transition = event.viewTransition;
+    if (!transition) return;
+    transition.ready.catch(() => {});
+    if (reducedMotion.matches) transition.skipTransition();
+  }
+  window.addEventListener("pagereveal", handlePageTransition);
+  window.addEventListener("pageswap", handlePageTransition);
+  // Defaults are the final state. WAAPI never gates content or reservation.
+  const animations = new Set();
+  const ease = "cubic-bezier(.16,1,.3,1)";
+  function enter(target, type = "text", delay = 0) {
+    if (reducedMotion.matches || !target.animate) return;
+    const frames =
+      type === "photo"
+        ? [
+            { clipPath: "inset(0 12% 0 0)", opacity: 0.8 },
+            { clipPath: "inset(0 0% 0 0)", opacity: 1 },
+          ]
+        : type === "number"
+          ? [
+              { clipPath: "inset(0 0 30% 0)", transform: "translateY(12px)" },
+              { clipPath: "inset(0)", transform: "none" },
+            ]
+          : type === "headline"
+            ? [
+                {
+                  clipPath: "inset(0 0 30% 0)",
+                  transform: "translateY(20px)",
+                  opacity: 0.9,
+                },
+                { clipPath: "inset(0)", transform: "none", opacity: 1 },
+              ]
+            : type === "meta"
+              ? [{ opacity: 0.85 }, { opacity: 1 }]
+              : [
+                  { transform: "translateY(28px)", opacity: 0.75 },
+                  { transform: "none", opacity: 1 },
+                ];
+    const animation = target.animate(frames, {
+      duration: type === "photo" ? 720 : 650,
+      delay,
+      easing: ease,
+      fill: "backwards",
+    });
+    animations.add(animation);
+    animation.finished
+      .then(() => animations.delete(animation))
+      .catch(() => animations.delete(animation));
+  }
+  // One style mutation starts the complete entrance; CSS batches its layout.
+  // Per-element animate() during initial parsing made ten expensive flushes.
+  if (!reducedMotion.matches) document.documentElement.classList.add("motion-ready");
+  let observer;
+  if ("IntersectionObserver" in window) {
+    observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(({ target, isIntersecting }) => {
           if (!isIntersecting) return;
-          target.classList.add("entered");
+          const type = target.matches("h2")
+            ? "headline"
+            : target.matches(
+                  ".image-crop,.result-media,.photo-trigger,.portrait-frame,.reel-frame",
+                )
+              ? "photo"
+              : target.matches(".feature-price strong,.profile-number")
+                ? "number"
+                : target.matches("figcaption,.service-number")
+                  ? "meta"
+                  : "text";
+          enter(target, type, Number(target.dataset.motionDelay || 0));
           observer.unobserve(target);
         });
       },
-      { threshold: 0.12 },
+      { threshold: 0.08, rootMargin: "0px 0px 40px 0px" },
     );
     document
-      .querySelectorAll("main section:not(.hero) h2, .editorial-grid figure")
-      .forEach((target) => observer.observe(target));
-    window.addEventListener("pagehide", () => observer.disconnect(), {
-      once: true,
-    });
-    reducedMotion.addEventListener("change", (event) => {
-      if (event.matches) observer.disconnect();
+      .querySelectorAll(
+        "main section:not(.hero) h2,.feature-photo .image-crop,.feature-detail,.portfolio .photo-trigger,.portfolio .result-media,.feature-price strong,.service-row,.portrait-frame,.profile-number,.reel-frame,.product-info,.location-photo,.process-list li",
+      )
+      .forEach((el, i) => {
+        if (el.matches(".service-row,.reel-frame,.process-list li"))
+          el.dataset.motionDelay = (i % 3) * 70;
+        observer.observe(el);
+      });
+    const header = document.querySelector(".site-header");
+    const navObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(({ target, isIntersecting }) => {
+          if (target.id === "inicio")
+            header.classList.toggle("scrolled", !isIntersecting);
+          if (!isIntersecting || document.body.dataset.page !== "home") return;
+          document
+            .querySelectorAll(".desktop-nav a,.menu-dialog nav a")
+            .forEach((a) => {
+              const active = a.hash === "#" + target.id;
+              if (active) a.setAttribute("aria-current", "location");
+              else a.removeAttribute("aria-current");
+            });
+        });
+      },
+      { rootMargin: "-10% 0px -60% 0px", threshold: 0 },
+    );
+    ["inicio", "rulos", "servicios", "nosotros"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) navObserver.observe(el);
     });
   }
+  function settleMotion() {
+    document.documentElement.classList.remove("motion-ready");
+    animations.forEach((a) => a.cancel());
+    animations.clear();
+  }
+  reducedMotion.addEventListener("change", (event) => {
+    if (event.matches) {
+      settleMotion();
+      const transition = document.activeViewTransition;
+      if (transition) {
+        transition.ready.catch(() => {});
+        transition.skipTransition();
+      }
+    }
+  });
+  window.addEventListener("pagehide", settleMotion);
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) settleMotion();
+  });
+  document.querySelectorAll("[data-reel-sequence]").forEach((sequence) => {
+    const track = sequence.querySelector(".reel-grid"),
+      items = [...track.children],
+      prev = sequence.querySelector("[data-reel-prev]"),
+      next = sequence.querySelector("[data-reel-next]"),
+      position = sequence.querySelector(".reel-position"),
+      progress = sequence.querySelector(".reel-progress i");
+    let active = 0,
+      scheduled = false,
+      points = [];
+    // The trailing inset lets the last frame align and have its own 05 / 05 state.
+    function resize() {
+      // Batch reads before writes; no forced layout during initial hero entry.
+      const width = track.clientWidth,
+        itemWidth = items[0].clientWidth,
+        gap = parseFloat(getComputedStyle(track).gap),
+        origin = items[0].offsetLeft;
+      points = items.map((item) => item.offsetLeft - origin);
+      track.style.setProperty(
+        "--reel-tail",
+        Math.max(0, width - itemWidth - gap) + "px",
+      );
+      update();
+    }
+    function update() {
+      if (!points.length) return;
+      const left = track.scrollLeft;
+      active = points.reduce(
+        (best, point, i) =>
+          Math.abs(point - left) < Math.abs(points[best] - left) ? i : best,
+        0,
+      );
+      position.textContent =
+        String(active + 1).padStart(2, "0") +
+        " / " +
+        String(items.length).padStart(2, "0");
+      prev.disabled = active === 0;
+      next.disabled = active === items.length - 1;
+      progress.style.transform = "scaleX(" + (active + 1) / items.length + ")";
+    }
+    function move(direction) {
+      if (!points.length) resize();
+      const index = Math.max(0, Math.min(items.length - 1, active + direction));
+      track.scrollTo({
+        left: points[index],
+        behavior: reducedMotion.matches ? "instant" : "smooth",
+      });
+    }
+    prev.addEventListener("click", () => move(-1));
+    next.addEventListener("click", () => move(1));
+    track.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        move(event.key === "ArrowLeft" ? -1 : 1);
+      }
+    });
+    track.addEventListener(
+      "scroll",
+      () => {
+        if (!scheduled) {
+          scheduled = true;
+          requestAnimationFrame(() => {
+            scheduled = false;
+            update();
+          });
+        }
+      },
+      { passive: true },
+    );
+    prev.disabled = true;
+    function initialize() {
+      if ("ResizeObserver" in window) new ResizeObserver(resize).observe(track);
+      else {
+        window.addEventListener("resize", resize);
+        requestAnimationFrame(resize);
+      }
+    }
+    if ("IntersectionObserver" in window) {
+      const near = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            near.disconnect();
+            initialize();
+          }
+        },
+        { rootMargin: "300px" },
+      );
+      near.observe(track);
+    } else initialize();
+  });
   // Mantener el ciclo de Tab dentro de ambos dialogs, incluso en el último control.
   document.querySelectorAll("dialog").forEach((dialog) =>
     dialog.addEventListener("keydown", (event) => {
@@ -85,7 +282,7 @@
       .querySelectorAll("nav a")
       .forEach((a) => a.addEventListener("click", () => closeDialog(menu)));
     window
-      .matchMedia("(min-width:1101px)")
+      .matchMedia("(min-width:900px)")
       .addEventListener("change", (event) => {
         if (event.matches && menu.open) closeDialog(menu);
       });

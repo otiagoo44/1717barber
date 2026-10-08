@@ -10,12 +10,12 @@ const browser = await puppeteer.launch({
   headless: true,
 });
 const page = await browser.newPage();
-const out = "docs/qa/after";
+const out = process.env.QA_OUT || "docs/qa/second-pass/after";
 await mkdir(out, { recursive: true });
 const base = process.env.QA_URL || "http://127.0.0.1:4174";
 try {
   for (const path of ["", "rulos", "productos"])
-    for (const width of [375, 390, 430, 768, 1440]) {
+    for (const width of [375, 390, 430, 768, 1024, 1440]) {
       await page.setViewport({
         width,
         height: 900,
@@ -29,11 +29,16 @@ try {
       });
       await page.evaluate(async () => {
         for (let y = 0; y < document.body.scrollHeight; y += 800) {
-          window.scrollTo(0, y);
-          await new Promise((r) => setTimeout(r, 60));
+          window.scrollTo({ top: y, behavior: "instant" });
+          await new Promise((r) => setTimeout(r, 100));
         }
-        window.scrollTo(0, 0);
+        [...document.images].forEach((img) => (img.loading = "eager"));
+        await Promise.all(
+          [...document.images].map((img) => img.decode().catch(() => {})),
+        );
+        window.scrollTo({ top: 0, behavior: "instant" });
       });
+      await new Promise((r) => setTimeout(r, 800));
       await page.screenshot({
         path: `${out}/${path || "home"}-${width}-full.png`,
         fullPage: true,
@@ -52,9 +57,10 @@ try {
       { name: "prefers-reduced-motion", value: "reduce" },
     ]);
     for (const id of [
-      "resultados",
+      "galeria",
       "rulos",
       "servicios",
+      "prueba-rulos-home",
       "nosotros",
       "productos",
       "ubicacion",
@@ -67,8 +73,13 @@ try {
             90,
         );
       }, id);
+      await new Promise((r) => setTimeout(r, 180));
       await page.screenshot({ path: `${out}/section-${id}-${width}.png` });
     }
+    await page.$eval(".founder-grid", (el) =>
+      el.scrollIntoView({ block: "center", behavior: "instant" }),
+    );
+    await page.screenshot({ path: `${out}/founders-equal-${width}.png` });
   }
 } finally {
   await browser.close();

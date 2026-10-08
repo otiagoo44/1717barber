@@ -1,0 +1,173 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "targets": 47,
+      "minimumTargetHeight": 44,
+      "faqCount": 5,
+      "entranceAnimations": [
+        {
+          "target": "site-header",
+          "duration": 650
+        },
+        {
+          "target": "eyebrow",
+          "duration": 650
+        },
+        {
+          "target": "",
+          "duration": 650
+        },
+        {
+          "target": "",
+          "duration": 650
+        },
+        {
+          "target": "",
+          "duration": 650
+        },
+        {
+          "target": "actions",
+          "duration": 650
+        },
+        {
+          "target": "",
+          "duration": 650
+        },
+        {
+          "target": "hero-hours",
+          "duration": 650
+        },
+        {
+          "target": "image-crop",
+          "duration": 720
+        },
+        {
+          "target": "hero-inset",
+          "duration": 650
+        }
+      ]
+    },
+    {
+      "path": "/rulos",
+      "targets": 31,
+      "minimumTargetHeight": 44,
+      "faqCount": 6,
+      "entranceAnimations": [
+        {
+          "target": "site-header",
+          "duration": 650
+        },
+        {
+          "target": "eyebrow",
+          "duration": 650
+        },
+        {
+          "target": "",
+          "duration": 650
+        },
+        {
+          "target": "",
+          "duration": 650
+        },
+        {
+          "target": "",
+          "duration": 650
+        },
+        {
+          "target": "actions",
+          "duration": 650
+        },
+        {
+          "target": "hero-hours",
+          "duration": 650
+        },
+        {
+          "target": "image-crop",
+          "duration": 720
+        }
+      ]
+    },
+    {
+      "path": "/productos",
+      "targets": 21,
+      "minimumTargetHeight": 44,
+      "faqCount": 0,
+      "entranceAnimations": [
+        {
+          "target": "site-header",
+          "duration": 650
+        }
+      ]
+    }
+  ],
+  "motion": {
+    "scroll": {
+      "linked": true,
+      "initialTransform": "matrix(1.14, 0, 0, 1.14, 0, -3.91304)",
+      "laterTransform": "matrix(1.14, 0, 0, 1.14, 0, 17.8261)",
+      "desktopSticky": "sticky",
+      "revealSamples": 56,
+      "fastScrollAndReturn": "passed"
+    },
+    "pageTransition": {
+      "nativeSupported": true,
+      "pagerevealHasTransition": true,
+      "ready": true,
+      "navigation": "passed"
+    },
+    "backNavigation": "passed",
+    "reels": {
+      "count": 5,
+      "buttons": "passed",
+      "keyboard": "passed",
+      "touch": "passed",
+      "indicator": "05 / 05",
+      "media": [
+        {
+          "url": "https://www.instagram.com/reel/DeDQr0cuhey/",
+          "complete": true,
+          "width": 480
+        },
+        {
+          "url": "https://www.instagram.com/reel/Dd903THBe7y/",
+          "complete": true,
+          "width": 480
+        },
+        {
+          "url": "https://www.instagram.com/reel/DdrxU3CBZ2A/",
+          "complete": true,
+          "width": 480
+        },
+        {
+          "url": "https://www.instagram.com/reel/Dcl55RjxJrK/",
+          "complete": true,
+          "width": 480
+        },
+        {
+          "url": "https://www.instagram.com/reel/DceM8azzYuV/",
+          "complete": true,
+          "width": 480
+        }
+      ]
+    },
+    "reduced": {
+      "animations": 0,
+      "scroll": "auto",
+      "parallax": "none",
+      "sticky": "static",
+      "transition": "0s"
+    },
+    "preferenceChangedDuringAnimation": "passed"
+  },
+  "overlays": [
+    "Menu",
+    "Lightbox"
+  ],
+  "limitations": [
+    "Chrome desktop and touch emulation; no physical device.",
+    "Reels open the supplied Instagram URLs; playback depends on Instagram and is not hosted locally."
+  ],
+  "consoleErrors": [],
+  "status": "passed"
+}

@@ -19,10 +19,15 @@ const styles = await Promise.all([
   readFile("public/assets/fonts/fonts.css", "utf8"),
   readFile("public/assets/tokens.css", "utf8"),
   readFile("public/assets/site.css", "utf8"),
+  readFile("public/assets/motion.css", "utf8"),
 ]);
 await writeFile(
   "dist/assets/site.css",
-  styles.join("\n").replace('@import url("/assets/fonts/fonts.css");', ""),
+  styles.join("\n")
+    .replace('@import url("/assets/fonts/fonts.css");', "")
+    .replace(/\/\*[\s\S]*?\*\//g," ")
+    .replace(/\s+/g," ")
+    .replace(/\s*([{};])\s*/g,"$1").trim(),
 );
 for (const [name, path] of [
   ["home", "index.html"],

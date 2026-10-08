@@ -16,7 +16,7 @@ const browser = await puppeteer.launch({
   headless: true,
 });
 const base = process.env.QA_URL || "http://127.0.0.1:4174";
-const out = "docs/qa";
+const out = process.env.QA_OUT || "docs/qa/second-pass";
 await mkdir(out, { recursive: true });
 const report = {
   date: new Date().toISOString(),
@@ -41,7 +41,7 @@ try {
     failed.push({ url: request.url(), reason: request.failure()?.errorText }),
   );
   for (const path of ["/", "/rulos", "/productos"]) {
-    for (const width of [375, 390, 430, 768, 1440]) {
+    for (const width of [375, 390, 430, 768, 1024, 1440]) {
       await page.setViewport({
         width,
         height: 900,
@@ -55,16 +55,28 @@ try {
         width: innerWidth,
         h1: document.querySelectorAll("h1").length,
         iframes: document.querySelectorAll("iframe").length,
-        assets: performance
-          .getEntriesByType("resource")
-          .map((r) => ({
-            name: r.name,
-            bytes: r.transferSize,
-            duration: r.duration,
-          })),
+        assets: performance.getEntriesByType("resource").map((r) => ({
+          name: r.name,
+          bytes: r.transferSize,
+          duration: r.duration,
+        })),
         overflowElements: [...document.querySelectorAll("main *")]
           .filter((el) => {
             const r = el.getBoundingClientRect();
+            // Deliberate crops/parallax and a bounded filmstrip may exceed their
+            // own frame; the containing viewport must never exceed the page.
+            let parent = el.parentElement;
+            while (parent && parent !== document.querySelector("main")) {
+              const style = getComputedStyle(parent),
+                box = parent.getBoundingClientRect();
+              if (
+                ["hidden", "auto", "scroll"].includes(style.overflowX) &&
+                box.left >= -1 &&
+                box.right <= innerWidth + 1
+              )
+                return false;
+              parent = parent.parentElement;
+            }
             return r.width > 0 && (r.right > innerWidth + 1 || r.left < -1);
           })
           .map((el) => el.tagName + "." + el.className),

@@ -15,6 +15,7 @@ export const media = {
     id: "HERO_FOTO_PRINCIPAL",
     type: "hero",
     src: "/assets/media/hero-rulos.webp",
+    avif: "/assets/media/hero-rulos.avif",
     width: 1200,
     height: 1200,
     alt: "Rulos y degradado lateral en un trabajo publicado por 17:17",
@@ -24,6 +25,7 @@ export const media = {
     id: "HERO_CORTE",
     type: "result",
     src: "/assets/media/corte.webp",
+    avif: "/assets/media/corte.avif",
     width: 1200,
     height: 1600,
     alt: "Corte masculino con diseño lateral realizado en 17:17",
@@ -33,6 +35,7 @@ export const media = {
     id: "RULOS_RESULTADO_01",
     type: "result",
     src: "/assets/media/rulos.webp",
+    avif: "/assets/media/rulos.avif",
     width: 1200,
     height: 1600,
     alt: "Detalle de rulos y corte lateral realizado en 17:17",
@@ -41,14 +44,19 @@ export const media = {
   rulos2: {
     id: "RULOS_RESULTADO_02",
     type: "result",
-    src: null,
-    label: "Próximo resultado de rulos",
-    ratio: "3/4",
+    src: "/assets/media/rulos-reel04.webp",
+    avif: "/assets/media/rulos-reel04.avif",
+    width: 1170,
+    height: 2080,
+    alt: "Resultado de rulos de un cliente frente al espejo, fotograma real de un reel de 17:17",
+    position: "50% 40%",
+    source: "https://www.instagram.com/reel/Dcl55RjxJrK/",
   },
   corte: {
     id: "CORTE_RESULTADO_01",
     type: "result",
     src: "/assets/media/corte.webp",
+    avif: "/assets/media/corte.avif",
     width: 1200,
     height: 1600,
     alt: "Corte con línea de diseño en el lateral realizado en 17:17",
@@ -65,6 +73,7 @@ export const media = {
     id: "COLOR_RESULTADO_01",
     type: "result",
     src: "/assets/media/color.webp",
+    avif: "/assets/media/color.avif",
     width: 1200,
     height: 1600,
     alt: "Tinte rojo en la parte superior y corte lateral realizado en 17:17",
@@ -81,6 +90,7 @@ export const media = {
     id: "EQUIPO_EXISTENTE",
     type: "portrait",
     src: "/assets/media/equipo.webp",
+    avif: "/assets/media/equipo.avif",
     width: 1144,
     height: 1600,
     alt: "Foto publicada del equipo de 17:17 frente a la barbería",
@@ -90,6 +100,7 @@ export const media = {
     id: "LOCAL_FOTO_01",
     type: "result",
     src: "/assets/media/local.webp",
+    avif: "/assets/media/local.avif",
     width: 960,
     height: 1280,
     alt: "Estación de lavado y espejo en el interior de 17:17",
@@ -100,7 +111,11 @@ export const results = [
   { media: "rulos", category: "Rulos", title: "Rulos + corte lateral" },
   { media: "corte", category: "Cortes", title: "Corte con diseño" },
   { media: "color", category: "Color", title: "Color en primer plano" },
-  { media: "rulos2", category: "Rulos", title: "Rulos · nueva foto pendiente" },
+  {
+    media: "rulos2",
+    category: "Rulos",
+    title: "Rulos · fotograma real del reel",
+  },
   {
     media: "corte2",
     category: "Cortes",
@@ -206,13 +221,12 @@ export const products = [
 }));
 export const founders = [1, 2].map((n) => ({
   id: "FUNDADOR_0" + n,
-  name: null,
-  role: null,
+  name: n === 1 ? "Jonatan" : "Esteban",
+  role: "Cofundador",
   specialty: null,
   bio: null,
   image: null,
   placeholders: {
-    name: `FUNDADOR_0${n}_NOMBRE_PENDIENTE`,
     bio: `FUNDADOR_0${n}_BIO_PENDIENTE`,
     image: `FUNDADOR_0${n}_FOTO_PENDIENTE`,
   },
@@ -243,11 +257,26 @@ export const rulosTestimonialVideo = {
   ...testimonialVideo,
   id: "VIDEO_TESTIMONIAL_RULOS_PENDIENTE",
 };
-export const rulosReels = [1, 2, 3, 4, 5].map((n) => ({
-  id: `REEL_RULOS_0${n}_PENDIENTE`,
-  url: null,
-  thumbnail: null,
-  title: `Rulos en movimiento · ${String(n).padStart(2, "0")}`,
+const reelCodes = [
+  "DeDQr0cuhey",
+  "Dd903THBe7y",
+  "DdrxU3CBZ2A",
+  "Dcl55RjxJrK",
+  "DceM8azzYuV",
+];
+const reelAlt = [
+  "Presentación de un trabajo en un reel de rulos.",
+  "Cliente con rodillos durante el proceso de rulos.",
+  "Trabajo de rulos en proceso en la barbería.",
+  "Resultado de rulos frente al espejo de 17:17.",
+  "Resultado de rulos de un cliente en la barbería.",
+];
+export const rulosReels = reelCodes.map((code, i) => ({
+  id: `REEL_RULOS_0${i + 1}`,
+  url: `https://www.instagram.com/reel/${code}/`,
+  thumbnail: `/assets/media/reel-rulos-0${i + 1}.webp`,
+  thumbnailAlt: reelAlt[i],
+  title: `Rulos en movimiento · ${String(i + 1).padStart(2, "0")}`,
 }));
 export const generalReel = {
   url: "https://www.instagram.com/reel/DYDKRodJRS7/",
