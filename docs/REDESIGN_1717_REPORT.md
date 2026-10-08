@@ -205,4 +205,8 @@ La simulación local todavía sitúa LCP de Home/Rulos alrededor de 2.8s; no afi
 
 ### Git y preparación de publicación
 
+Inline reel playback: los cinco reels confirmados se reproducen dentro de la página mediante un único embed oficial montado bajo demanda. El diálogo conserva foco, Escape, cierre exterior, enlace de respaldo a Instagram y desmontaje del iframe. La carga inicial sigue sin iframes ni embeds sociales.
+
+Refinamiento visual posterior a las capturas: se eliminó la miniatura diagonal del hero, se retiró el titular cruzando el encuadre y se dejó una sola fotografía dominante con el texto en una columna propia. También se quitó el bloque numérico negro de cada portada; el contador permanece solamente en la barra de control.
+
 Trabajo sobre `feat/redesign-1717`, conservando el commit previo y la base funcional. `main` permanece en `c08044f3800f0203097596f548fc152377e81d13`; no merge. Preview local: http://127.0.0.1:4174/. No se ejecutó deploy remoto manual. La publicación comercial definitiva todavía requiere completar/confirmar el material listado y el dominio oficial; los pendientes visibles son honestos y reemplazables desde datos centrales.

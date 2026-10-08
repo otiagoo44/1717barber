@@ -85,7 +85,7 @@ Comparación renderizada en docs/qa/second-pass: Barlow Condensed + Manrope, Arc
 
 ## Layout
 
-Contenedor 1280px, gutters 20px mobile / 48px desktop. Home en diez capítulos: hero compuesto → Rulos → trabajo real → servicios → reels/prueba → equipo → productos → local → FAQ breve → cierre. Una sola galería, no duplicación de evidencia. Nav: Inicio, Rulos, Servicios, Nosotros y Reservar. Productos y ubicación se descubren en el recorrido. Back link visible en secundarias; logo siempre /. Rulos usa texto sticky desktop y secuencia fotográfica en flujo natural; mobile desactiva sticky. Ratios mixtos, offsets y captions fuera de frame. Evitar repetición de rectángulos uniformes.
+Contenedor editorial máximo 1600px, gutters 20px mobile / 48px desktop. El ancho crece en viewports amplios para evitar columnas encajadas por zoom del navegador. Home en diez capítulos → Rulos → trabajo real → servicios → reels/prueba → equipo → productos → local → FAQ breve → cierre. Una sola galería, no duplicación de evidencia. Nav: Inicio, Rulos, Servicios, Nosotros y Reservar. Productos y ubicación se descubren en el recorrido. Back link visible en secundarias; logo siempre /. Rulos usa texto sticky desktop y secuencia fotográfica en flujo natural; mobile desactiva sticky. Ratios mixtos, offsets y captions fuera de frame. Evitar repetición de rectángulos uniformes.
 
 ## Elevation & Depth
 

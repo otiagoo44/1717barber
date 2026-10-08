@@ -264,6 +264,16 @@ try {
   assert.equal(new Set(reelMedia.map((r) => r.url)).size, 5);
   assert.ok(reelMedia.every((r) => r.complete && r.width > 0));
   report.motion.reels.media = reelMedia;
+  await page.click(seq + " .reel-facade");
+  assert.ok(await page.$eval("#reel-player", (el) => el.open));
+  assert.match(
+    await page.$eval("#reel-player iframe", (el) => el.src),
+    /instagram\.com\/reel\/[^/]+\/embed\//,
+  );
+  await page.keyboard.press("Escape");
+  assert.equal(await page.$eval("#reel-player", (el) => el.open), false);
+  assert.equal(await page.$eval("#reel-player", (el) => el.querySelector("iframe")), null);
+  report.motion.reels.inlinePlayer = "passed: facade, embed, Escape y desmontaje del iframe";
   await setMotionPreference([
     { name: "prefers-reduced-motion", value: "reduce" },
   ]);

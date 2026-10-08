@@ -10,6 +10,8 @@ Vista local: http://127.0.0.1:4174. `npm run build` genera `dist/`, `index.html`
 
 ## Editar contenido
 
+Los cinco reels reales usan una portada local y un reproductor oficial que se monta dentro de la pagina solo despues de tocarla. Al cerrar el dialogo el iframe se desmonta; el enlace exacto a Instagram queda disponible como respaldo.
+
 `src/data.mjs` centraliza precios, medios, servicios, productos, testimonios, fundadores y respuestas. Los campos `null` son pendientes explícitos. Cada placeholder tiene un ID estable. Después de editar, ejecutar `npm run build` y refrescar el navegador.
 
 - Medios: completar `src`, `alt`, `width`, `height`, `position`; guardar la versión WebP y la variante `-600.webp` en `public/assets/media/`. `avif` es opcional y habilita picture con fallback WebP y variante `-600.avif`. Los originales siguen en `img/`. `scripts/optimize-media.mjs` utiliza Sharp desde el directorio externo de herramientas.

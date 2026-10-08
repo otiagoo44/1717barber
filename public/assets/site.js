@@ -220,6 +220,67 @@
     } else initialize();
   });
   // Mantener el ciclo de Tab dentro de ambos dialogs, incluso en el último control.
+  const reelFacades = [...document.querySelectorAll(".reel-facade[href]")];
+  if (reelFacades.length) {
+    const player = document.createElement("dialog");
+    player.id = "reel-player";
+    player.className = "reel-player";
+    player.setAttribute("aria-labelledby", "reel-player-title");
+    player.innerHTML = `<div class="reel-player-bar"><div><p class="eyebrow">RULOS / EN MOVIMIENTO</p><h2 id="reel-player-title">Reel de 17:17</h2></div><button type="button" data-reel-player-close aria-label="Cerrar reproductor">Cerrar <span aria-hidden="true">×</span></button></div><div class="reel-player-stage"><div class="reel-player-frame" data-reel-player-frame></div></div><div class="reel-player-footer"><span data-reel-player-status aria-live="polite">Reproducción dentro de la página</span><a class="text-link" data-reel-player-external target="_blank" rel="noopener noreferrer">Abrir en Instagram <span aria-hidden="true" class="arrow">↗</span></a></div>`;
+    document.body.append(player);
+    const frame = player.querySelector("[data-reel-player-frame]"),
+      title = player.querySelector("#reel-player-title"),
+      status = player.querySelector("[data-reel-player-status]"),
+      external = player.querySelector("[data-reel-player-external]"),
+      close = player.querySelector("[data-reel-player-close]");
+    let reelOpener = null;
+    function showReel(facade) {
+      reelOpener = facade;
+      const url = facade.href,
+        code = url.match(/\/reel\/([^/?#]+)/)?.[1];
+      if (!code) return;
+      frame.replaceChildren();
+      title.textContent = facade.getAttribute("aria-label")?.replace(/^Reproducir\s+/i, "") || "Reel de 17:17";
+      external.href = url;
+      status.textContent = "Cargando reel dentro de la página…";
+      const iframe = document.createElement("iframe");
+      iframe.title = title.textContent;
+      iframe.loading = "eager";
+      iframe.allow = "autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share";
+      iframe.setAttribute("allowfullscreen", "");
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.src = `https://www.instagram.com/reel/${code}/embed/`;
+      iframe.addEventListener("load", () => {
+        status.textContent = "Reel listo para reproducir";
+      });
+      iframe.addEventListener("error", () => {
+        status.textContent = "Instagram no pudo cargar el reproductor. Usá el enlace para abrirlo.";
+      });
+      frame.append(iframe);
+      openDialog(player);
+      close.focus();
+    }
+    function clearReel() {
+      frame.replaceChildren();
+      status.textContent = "Reproducción dentro de la página";
+      reelOpener?.focus({ preventScroll: true });
+      reelOpener = null;
+    }
+    reelFacades.forEach((facade) => {
+      facade.setAttribute("aria-label", facade.getAttribute("aria-label").replace(/^Ver\s+/i, "Reproducir "));
+      facade.addEventListener("click", (event) => {
+        event.preventDefault();
+        showReel(facade);
+      });
+    });
+    close.addEventListener("click", () => closeDialog(player));
+    player.addEventListener("close", clearReel);
+    player.addEventListener("click", (event) => {
+      if (event.target !== player) return;
+      const r = player.getBoundingClientRect();
+      if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closeDialog(player);
+    });
+  }
   document.querySelectorAll("dialog").forEach((dialog) =>
     dialog.addEventListener("keydown", (event) => {
       if (event.key !== "Tab") return;

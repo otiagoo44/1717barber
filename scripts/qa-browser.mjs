@@ -131,7 +131,7 @@ try {
     await page.emulateMediaFeatures([
       { name: "prefers-reduced-motion", value: "reduce" },
     ]);
-    const anchors = await page.$$("a:not(.skip-link)");
+    const anchors = await page.$$("a:not(.skip-link):not(.reel-facade)");
     for (let i = 0; i < anchors.length; i++) {
       const a = anchors[i];
       const visible = await a.evaluate(

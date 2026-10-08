@@ -29,6 +29,8 @@ IntersectionObserver ejecuta una entrada por elemento al aproximarse al viewport
 
 Reels 9:16 con overflow local y scroll snap natural; flechas, teclado y touch. Indicador 01/05 y línea de progreso corresponden al frame más cercano. El espacio final permite al quinto frame ocupar su posición completa. Sin video descargado al inicio; URL confirmada abre Instagram, sin embed pesado. Los pendientes no simulan un botón de play.
 
+La actualizacion de reels mantiene la carga inicial en cero iframes. La portada abre un unico embed oficial dentro de un dialogo 9:16, con enlace de respaldo a Instagram, y el iframe se desmonta al cerrar para detener la reproduccion y liberar recursos.
+
 ## Hover / tap
 
 CTA: cambio de superficie, flecha 3px, tap scale .97. Links: underline de mayor contraste. Nav: línea de sección activa. Fotos: zoom 1.035 sólo dentro del crop. Productos: imagen o silueta de placeholder se mueve 7px, no levanta toda la ficha con shadow. FAQ: signo rota al expandir. Ninguna información depende de hover.

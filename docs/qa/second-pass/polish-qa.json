@@ -104,10 +104,10 @@
   "motion": {
     "scroll": {
       "linked": true,
-      "initialTransform": "matrix(1.14, 0, 0, 1.14, 0, -3.91304)",
-      "laterTransform": "matrix(1.14, 0, 0, 1.14, 0, 17.8261)",
+      "initialTransform": "matrix(1.14, 0, 0, 1.14, 0, -1.3946)",
+      "laterTransform": "matrix(1.14, 0, 0, 1.14, 0, 18.8496)",
       "desktopSticky": "sticky",
-      "revealSamples": 56,
+      "revealSamples": 53,
       "fastScrollAndReturn": "passed"
     },
     "pageTransition": {
@@ -149,7 +149,8 @@
           "complete": true,
           "width": 480
         }
-      ]
+      ],
+      "inlinePlayer": "passed: facade, embed, Escape y desmontaje del iframe"
     },
     "reduced": {
       "animations": 0,
