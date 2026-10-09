@@ -210,3 +210,38 @@ Inline reel playback: los cinco reels confirmados se reproducen dentro de la pá
 Refinamiento visual posterior a las capturas: se eliminó la miniatura diagonal del hero, se retiró el titular cruzando el encuadre y se dejó una sola fotografía dominante con el texto en una columna propia. También se quitó el bloque numérico negro de cada portada; el contador permanece solamente en la barra de control.
 
 Trabajo sobre `feat/redesign-1717`, conservando el commit previo y la base funcional. `main` permanece en `c08044f3800f0203097596f548fc152377e81d13`; no merge. Preview local: http://127.0.0.1:4174/. No se ejecutó deploy remoto manual. La publicación comercial definitiva todavía requiere completar/confirmar el material listado y el dominio oficial; los pendientes visibles son honestos y reemplazables desde datos centrales.
+
+## THIRD PASS — REFINAMIENTO MINIMALISTA Y CIERRE
+
+Esta sección reemplaza las decisiones visuales y las métricas de las pasadas anteriores. El pedido vigente fue simplificar y elevar la landing según el análisis recibido el 8 de octubre de 2026. Se conserva la tipografía Inter de esta pasada; la exploración para recuperar o comparar la tipografía anterior queda deliberadamente pendiente para una iteración posterior.
+
+### Cambios realizados
+
+- Se eliminó la segunda imagen del hero, el titular sobrepuesto y la miniatura diagonal. El hero ahora tiene una sola fotografía real, una columna de copy y una acción primaria clara.
+- Se redujo la navegación a Inicio, Rulos, Servicios, Nosotros, Ubicación y Reservar. El logo oficial circular vuelve a `/`; Productos queda como acceso dentro del recorrido y del footer.
+- Se adelantaron servicios y precios, se quitó la numeración decorativa y se retiraron testimonios, fichas de producto y preguntas sin información confirmada.
+- Rulos conserva el primer bloque destacado, Gs. 180.000, dos resultados reales y la landing `/rulos`. Los cinco reels viven allí; la home no duplica embeds ni portadas.
+- Productos quedó como catálogo de consulta, sin tarjetas vacías ni stock/precios inventados.
+- Jonatan y Esteban aparecen como hermanos y cofundadores con el mismo peso visual y una foto conjunta real.
+- El fotograma de reel se recorta mediante CSS en la galería y en el lightbox para eliminar el contorno negro incorporado en la captura, sin editar el resultado del cabello.
+- FAQ ahora sólo publica respuestas verificadas: reserva, corte, rulos, ubicación, horarios y consulta de productos.
+
+### Skills y dirección
+
+Se leyeron `awesome-design-md`, `google-design-md`, `impeccable`, `taste` y `ui-ux-pro-max`. La referencia elegida para esta pasada fue BMW Corporate del catálogo local de Awesome Design MD: alineación, ritmo, jerarquía y superficies planas. Se descartaron paleta, tipografía propietaria, tricolor, patrones de configurador y componentes de ecommerce. DESIGN.md manda sobre las recomendaciones genéricas. Taste se ajustó a variance 4, motion 3 y density 3. UI UX Pro Max aportó principios de grilla, responsive images, object-fit, ratio reservado y foco visible; la búsqueda específica de landing no devolvió un resultado aplicable y no se inventó una recomendación.
+
+### Reproductor y límite de verificación
+
+El click de cada portada monta sólo entonces el embed oficial `https://www.instagram.com/reel/{id}/embed/`; el diálogo tiene foco, Escape, cierre, retorno al origen y enlace de respaldo. La prueba aislada confirmó los cinco URLs, apertura/cierre, desmontaje del iframe y retorno de foco. La prueba contra Instagram real agotó el tiempo del proveedor en el navegador automatizado, por lo que no se declara reproducción verificada: el resultado depende de Instagram, cookies, permisos y disponibilidad del embed.
+
+### QA de esta pasada
+
+- `npm run build`: PASS. `npm test`: 6/6 PASS. `npm run design:lint`: 0 errores, 0 advertencias y 1 información de resumen. `node --check public/assets/site.js` y `git diff --check`: PASS.
+- QA Chrome en `/`, `/rulos` y `/productos` a 375, 390, 430, 768, 1024 y 1440px: 18 combinaciones, sin overflow, un H1, cero placeholders públicos, cero iframes iniciales, imágenes locales completas y Axe sin violaciones en el alcance ejecutado. Resultado en `docs/qa/refinement/qa.json`.
+- Menú mobile, Escape, retorno de foco, filtros de galería, lightbox, navegación por flechas, FAQ, links de WhatsApp contextual, Instagram, Maps, reduced motion y render sin JavaScript fueron comprobados. Los clicks externos se interceptaron para no enviar mensajes.
+- Lighthouse local separado: Home 84/100 performance, 100 accessibility, 100 best practices, 100 SEO; Rulos 95/100, 100, 100, 92; Productos 100/100 en las cuatro categorías. LCP 2.56s / 2.19s / 1.51s, TBT 423ms / 195ms / 0ms y CLS 0. Son métricas de laboratorio local, no datos de usuarios. Rulos conserva un warning de SEO sobre anchors no crawlables y la Home queda por encima del objetivo ideal de LCP; validar con CDN y dominio final.
+- Las capturas y boards revisados se encuentran en `docs/qa/refinement/`; no se incluyen imágenes temporales de QA en el commit. El JSON de resultados sí queda como trazabilidad.
+
+### Publicación y pendientes
+
+La rama de trabajo es `feat/refine-1717-elegant`. Después de este cierre se integrará en `main` y se hará push, sin modificar otras ediciones del cliente. Quedan para una siguiente tanda: comparar la tipografía anterior contra Inter, recibir retratos individuales/bios, testimonios, fotos definitivas de productos y local, respuestas técnicas verificadas de rulos y reemplazar las portadas por videos originales si 17:17 los facilita.

@@ -22,6 +22,7 @@ export function whatsappLink({ intent = "GENERAL", service, product } = {}) {
     INFANTIL: "Hola, quiero consultar un turno para corte infantil.",
     CEJAS: "Hola, quiero consultar por perfilado de cejas.",
     LAVADO: "Hola, quiero consultar por lavado.",
+    PRODUCTOS: "Hola 17:17, quiero consultar por productos de styling y cuidado. ¿Qué opciones y precios tienen disponibles?",
   };
   const message = product
     ? `Hola, vi ${product.name} en la web de 17:17. ¿Tienen disponible?`

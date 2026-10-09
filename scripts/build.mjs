@@ -34,7 +34,7 @@ for (const [name, path] of [
   ["rulos", "rulos/index.html"],
   ["productos", "productos/index.html"],
 ]) {
-  const html = renderPage(name, siteUrl);
+  const html = renderPage(name, siteUrl).replace(/^[ \t]+$/gm, "");
   const folder = path.split("/").slice(0, -1).join("/");
   if (folder) {
     await mkdir(folder, { recursive: true });

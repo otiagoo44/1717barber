@@ -8,7 +8,7 @@ export const business = {
   hours: "Lunes–Sábado · 8:00–21:00",
   instagram: "https://www.instagram.com/1717barberia",
   maps: "https://www.google.com/maps/search/Cap.+Dado+esquina+Gobernador+Irala+Luque+Paraguay",
-  siteUrl: null, // Confirmar dominio o definir SITE_URL / VERCEL_PROJECT_PRODUCTION_URL al build.
+  siteUrl: "https://1717barber.vercel.app", // URL publicada en el análisis de Tiago.
 };
 export const media = {
   hero: {
@@ -114,7 +114,7 @@ export const results = [
   {
     media: "rulos2",
     category: "Rulos",
-    title: "Rulos · fotograma real del reel",
+    title: "Rulos frente al espejo",
   },
   {
     media: "corte2",
@@ -213,6 +213,7 @@ export const products = [
 ].map((p) => ({
   ...p,
   image: null,
+  verified: false,
   price: null,
   availability: "Consultar",
   shine: null,
@@ -301,33 +302,13 @@ export const rulosProcess = [
   copy: null,
 }));
 export const homeFaq = [
-  [
-    "¿Necesito reservar?",
-    "Recomendamos reservar por WhatsApp para consultar un horario disponible.",
-  ],
-  [
-    "¿Cuánto cuesta el corte?",
-    `El corte masculino cuesta Gs. ${services.find((s) => s.id === "corte").price.toLocaleString("es-PY")}.`,
-  ],
-  [
-    "¿Cuánto cuestan los rulos?",
-    `Los rulos permanentes cuestan Gs. ${services.find((s) => s.id === "rulos").price.toLocaleString("es-PY")}.`,
-  ],
-  ["¿Qué incluye el servicio de rulos?", null],
-  ["¿Cuánto tarda el servicio?", null],
-  ["¿Cómo tengo que cuidar los rulos?", null],
-  [
-    "¿Venden productos para el cabello?",
-    "Podés consultar por los productos de styling y cuidado. Confirmá precio y disponibilidad por WhatsApp.",
-  ],
+  ["¿Cómo reservo un turno?", "Escribinos por WhatsApp al 0983 402 497 e indicá qué servicio querés. Consultamos el horario disponible y coordinamos tu turno."],
+  ["¿Cuánto cuesta el corte?", `El corte masculino cuesta Gs. ${services.find(s => s.id === "corte").price.toLocaleString("es-PY")}.`],
+  ["¿Cuánto cuestan los rulos permanentes?", `Los rulos permanentes cuestan Gs. ${services.find(s => s.id === "rulos").price.toLocaleString("es-PY")}. Para conocer los detalles del servicio, consultanos antes de reservar.`],
+  ["¿Dónde queda la barbería?", `Estamos en ${business.address}, ${business.city}. Encontrás el enlace a Google Maps en la sección de ubicación.`],
+  ["¿Qué días y horarios atienden?", "Atendemos de lunes a sábado, de 8:00 a 21:00."],
+  ["¿Puedo consultar por productos para el cabello?", "Sí. Escribinos por los productos de styling y cuidado que buscás. Te confirmamos las opciones, el precio y la disponibilidad por WhatsApp."]
 ];
-export const rulosFaq = [
-  "¿Necesito determinado largo?",
-  "¿Se puede hacer en cualquier cabello?",
-  "¿Cuánto dura?",
-  "¿Cuánto tarda?",
-  "¿Qué cuidados necesita?",
-  "¿Incluye corte?",
-]
-  .map((q) => [q, null])
-  .concat([homeFaq[0]]);
+export const rulosFaq = [homeFaq[2], homeFaq[0], homeFaq[3], homeFaq[4]];
+// Campos técnicos por validar: largo, compatibilidad, duración, tiempo,
+// cuidados e inclusión de corte. No publicar FAQ sin una respuesta confirmada.

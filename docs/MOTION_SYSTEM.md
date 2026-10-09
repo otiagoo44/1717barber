@@ -1,64 +1,41 @@
-# 17:17 — Motion system
+# Motion system · 17:17
+
+Dirección vigente: tercera pasada, 8 octubre 2026. Sustituye el sistema anterior 7/10. Ahora 3/10: una interfaz sobria con feedback y entradas breves.
 
 ## Principios
 
-Motion rico pero funcional: entrada, reposo, transición e interacción. El movimiento orienta la mirada hacia Rulos y revela el trabajo; reservar nunca depende de que una animación termine. Scroll nativo, sin Lenis, GSAP, Framer, AOS, autoplay ni eventos de rueda interceptados. Una zona sticky en la home; ninguna en mobile. Defaults visibles y finales, también sin JavaScript.
+La reserva nunca espera una animación. El contenido base siempre es visible. La fotografía y la jerarquía llevan el recorrido; el movimiento acompaña. JavaScript nativo, CSS e IntersectionObserver; cero dependencias runtime añadidas.
 
-## Tokens
+## Durations / easings
 
-| Token | Valor | Uso |
-| --- | --- | --- |
-| fast | 160ms | Color y estados táctiles |
-| base | 360ms | Flechas, underline, indicador de reels |
-| enter | 650ms | Headline, lista, metadata, precio |
-| photo | 720ms | Clip reveal de medios |
-| easing.standard | cubic-bezier(.2,.65,.3,1) | Progreso y controles |
-| easing.enter | cubic-bezier(.16,1,.3,1) | Entradas y hover |
-| distance.sm | 12px | Precio y transición de página |
-| distance.md | 28px | Línea y fila |
-
-Tokens CSS y coreografía del hero en `public/assets/motion.css`; reveals WAAPI en `public/assets/site.js`. Una sola clase activa todas las entradas CSS del hero para agrupar el cálculo de estilos; se sustituyeron diez llamadas iniciales a animate() tras medir su costo. Stagger de lista 70ms, máximo 140ms; líneas hero 85ms. No animar precios desde cero.
+Tokens en public/assets/motion.css: fast 160ms, base 240ms, enter 420ms; cubic-bezier(.2,.7,.2,1). Desplazamiento máximo 8px; hover de imágenes 1.025. Sin will-change global ni animaciones de layout.
 
 ## Entrance
 
-Header dissolve → eyebrow a 60ms → líneas del hero a 100/185/270ms → máscara de fotografía a 160ms → precio a 260ms → acciones y metadata a 300/390ms → segunda fotografía a 340ms. No intro, loader o pantalla bloqueante. Las acciones conservan opacity ≥ .85 y siguen clickeables; fotografía comienza con el 88% del encuadre disponible. El mínimo de opacity se elevó tras detectar contraste insuficiente durante frames de entrada. Headline tiene wrapper de recorte, los títulos de sección usan máscara inferior, el precio wipe y metadata dissolve. El inset conserva su rotación de composición.
+Hero copy y foto: fade desde .85 y desplazamiento vertical de 8px; foto con delay 80ms. CTA disponible desde el primer frame. Sólo una ejecución. Navegación back/pagehide cancela animaciones pendientes.
 
 ## Scroll
 
-IntersectionObserver ejecuta una entrada por elemento al aproximarse al viewport. Headline: clip + desplazamiento 20px. Foto: clip lateral. Servicios/proceso: stagger. El observador no añade opacity:0 al DOM. Parallax sólo en hero, Rulos destacado y local: CSS view timeline, desplazamiento entre −5% y +5%, scale 1.14 para cubrir los bordes. Sin soporte de timelines la imagen queda estática. La home usa texto sticky de Rulos en desktop; tablet pequeña/mobile y reduced-motion usan flujo normal. No pinning de página o scroll hijacking.
+Títulos, foto destacada, equipo y filas de servicios aparecen una vez al entrar. Sin parallax, pinning, máscaras extensas ni loops. La secuencia de reels usa scroll horizontal nativo, touch, botones, teclado, snap y progreso. Geometría cacheada al acercarse al track; ResizeObserver actualiza al cambiar ancho.
 
-Reels 9:16 con overflow local y scroll snap natural; flechas, teclado y touch. Indicador 01/05 y línea de progreso corresponden al frame más cercano. El espacio final permite al quinto frame ocupar su posición completa. Sin video descargado al inicio; URL confirmada abre Instagram, sin embed pesado. Los pendientes no simulan un botón de play.
+Barra de reserva mobile: visible cuando no hay CTA sólido de WhatsApp en la zona útil del viewport. No duplica el botón de hero. Header y safe area considerados; espacio inferior reservado. Se oculta al abrir un diálogo.
 
-La actualizacion de reels mantiene la carga inicial en cero iframes. La portada abre un unico embed oficial dentro de un dialogo 9:16, con enlace de respaldo a Instagram, y el iframe se desmonta al cerrar para detener la reproduccion y liberar recursos.
+## Hover / touch
 
-## Hover / tap
-
-CTA: cambio de superficie, flecha 3px, tap scale .97. Links: underline de mayor contraste. Nav: línea de sección activa. Fotos: zoom 1.035 sólo dentro del crop. Productos: imagen o silueta de placeholder se mueve 7px, no levanta toda la ficha con shadow. FAQ: signo rota al expandir. Ninguna información depende de hover.
+Botones cambian superficie, tap desplaza 1px; enlaces subrayan; fotografía amplía 2.5% sólo dentro del encuadre y con puntero fino. No información dependiente de hover. Reels con botón de play sobrio. FAQ rota el signo al expandirse.
 
 ## Page transition
 
-Cross-document View Transition API con `@view-transition { navigation: auto }` entre `/`, `/rulos`, `/productos` del mismo origen. Root dissolve/translate de salida 180ms y entrada 320ms. Header compartido mantiene continuidad mediante `view-transition-name: header`. Navegación HTML real, sin interceptar enlaces o back. Fallback: navegación normal del navegador. Soporte progresivo; no se exige a navegadores sin API.
-
-[MDN cross-document transitions](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API/Using), [MDN @view-transition](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40view-transition), [MDN animation-timeline](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-timeline).
+View Transition nativa cross-document, dissolve 180ms. Navegación HTML real, sin router o bloqueo. Fallback normal en navegadores sin soporte. Capturar ready rejection cuando una preferencia interrumpe la transición.
 
 ## Reduced motion
 
-`prefers-reduced-motion: reduce`: sin animaciones CSS, transiciones, smooth scroll, parallax, sticky o transición de página. WAAPI no inicia secuencias; un cambio de preferencia durante la animación cancela las activas. Estado final inmediato. Pagehide/pageshow cancelan entradas pendientes para evitar contenido retenido al volver. Menú, filtros, lightbox, FAQ, reels y WhatsApp siguen funcionando.
+Estado final inmediato, sin animaciones CSS/WAAPI, transiciones ni scroll suave. Cambiar la preferencia cancela animaciones activas. Funcionalidad, CTA, filtros, diálogos y secuencia de reels no dependen de animar.
 
-El opt-in nativo de navegación permanece estable; CSS elimina las animaciones de sus pseudo-elementos y JS salta una transición activa si cambia la preferencia. Se maneja el rechazo esperado de `ready` al saltarla, en lugar de cambiar `navigation` durante una transición y provocar InvalidStateError. [MDN ViewTransition.ready](https://developer.mozilla.org/en-US/docs/Web/API/ViewTransition/ready) documenta este estado. QA comprueba cero animaciones y navegación funcional con reduced-motion.
+## Reproductor
+
+Cinco URLs confirmadas; portadas locales, cero iframe inicial. Un iframe oficial sólo al abrir un reel; desmontaje al cerrar para liberar recursos y detener reproducción. Foco al control de cierre, Escape y retorno al enlace de origen. El estado load indica que respondió el frame, no demuestra reproducción: Instagram puede limitarla. Conservar enlace alternativo.
 
 ## Anti-patterns
 
-No opacity:0 por defecto, animation lock, wheel hijacking, pinning mobile, counters monetarios, texto rebotando, cursores propios, cinco videos simultáneos, scroll parallax en todas las fotos, filtros/blur/shadows continuos, will-change global o dependencias de motion duplicadas. No animaciones de carga que retrasen la reserva.
-
-## Adaptaciones de rendimiento
-
-Parallax solamente desde 900px; mobile conserva máscaras, coreografía de entrada, reveals, microinteracciones y filmstrip táctil. Sticky solamente desde 1024px. Se evita medir la geometría de reels durante la entrada del hero: IntersectionObserver inicializa el track al acercarse y ResizeObserver recalcula sus puntos. El scroll usa puntos cacheados y requestAnimationFrame, sin reflow repetido.
-
-Se probó content-visibility:auto para reducir trabajo inicial, pero se retiró después de detectar clicks perdidos al cambiar la geometría de secciones durante el salto. La estabilidad de navegación y controles tiene prioridad. Imágenes AVIF con fallback WebP, tamaños responsivos, portadas lazy y fuentes locales mantienen bajo el peso. No se agregó biblioteca de motion.
-
-Los capítulos en flujo normal utilizan contain:layout style para aislar trabajo de layout sin saltarse contenido ni estimar alturas. Hero y spread sticky quedan fuera. No se usa size containment: las alturas siguen calculándose desde el contenido real.
-
-## QA
-
-Resultados reproducibles en `docs/qa/second-pass/polish-qa.json` y `browser-qa.json`. Capturas normales, estados de entrada, menú, lightbox y recorrido completo en `docs/qa/second-pass/after`. Chrome real con viewports/touch emulados; no equivale a una prueba física de iOS/Android. Las cinco fachadas tienen URLs y portadas auténticas confirmadas; abren Instagram. Su reproducción y eventual login dependen de Instagram, no de un reproductor alojado en la web.
+No opacity:0 persistente, rueda interceptada, scroll hijacking, fondos animados, precios contando, cinco videos en autoplay, texto sobre fotografías o animaciones que tapen el CTA. No temporizadores para revelar contenido esencial.

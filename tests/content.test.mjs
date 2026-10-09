@@ -78,9 +78,8 @@ test("Recorrido enfocado y regreso al inicio en páginas secundarias", () => {
   const ids = [
     "inicio",
     "rulos",
-    "galeria",
     "servicios",
-    "prueba-rulos-home",
+    "galeria",
     "nosotros",
     "productos",
     "ubicacion",
@@ -89,7 +88,7 @@ test("Recorrido enfocado y regreso al inicio en páginas secundarias", () => {
   ];
   const positions = ids.map((id) => home.indexOf(`id="${id}"`));
   assert.ok(positions.every((n, i) => n >= 0 && (!i || n > positions[i - 1])));
-  assert.equal((home.match(/class="reel-item"/g) || []).length, 3);
+  assert.equal((home.match(/class="reel-item"/g) || []).length, 0);
   assert.equal(
     (renderPage("rulos").match(/class="reel-item"/g) || []).length,
     5,
@@ -97,8 +96,9 @@ test("Recorrido enfocado y regreso al inicio en páginas secundarias", () => {
   for (const name of ["home", "rulos", "productos"]) {
     const html = renderPage(name),
       nav = html.match(/<nav class="desktop-nav".*?<\/nav>/)[0];
-    assert.equal((nav.match(/<a /g) || []).length, 4);
+    assert.equal((nav.match(/<a /g) || []).length, 5);
     assert.ok(html.includes('href="/" aria-label="17:17'));
+    assert.doesNotMatch(html, /data-placeholder|Respuesta pendiente|Especialidad pendiente|Foto de producto pendiente|hero-inset/);
     if (name !== "home") assert.ok(html.includes("Volver a 17:17"));
   }
 });
@@ -133,7 +133,7 @@ test("Tokens publicados corresponden a DESIGN.md", async () => {
     /^  ([\w-]+): "(#[0-9A-Fa-f]{6})"$/gm,
   ))
     assert.ok(
-      css.toLowerCase().includes(`--color-${name}: ${hex.toLowerCase()}`),
+      css.toLowerCase().includes(`--color-${name.toLowerCase()}: ${hex.toLowerCase()}`),
       name,
     );
 });

@@ -1,0 +1,52 @@
+{
+  "reels": [
+    {
+      "number": 1,
+      "src": "https://www.instagram.com/reel/DeDQr0cuhey/embed/",
+      "loaded": true,
+      "videoPlaying": false,
+      "text": "External embed isolated for dialog QA.",
+      "video": [],
+      "closeAndFocus": true
+    },
+    {
+      "number": 2,
+      "src": "https://www.instagram.com/reel/Dd903THBe7y/embed/",
+      "loaded": true,
+      "videoPlaying": false,
+      "text": "External embed isolated for dialog QA.",
+      "video": [],
+      "closeAndFocus": true
+    },
+    {
+      "number": 3,
+      "src": "https://www.instagram.com/reel/DdrxU3CBZ2A/embed/",
+      "loaded": true,
+      "videoPlaying": false,
+      "text": "External embed isolated for dialog QA.",
+      "video": [],
+      "closeAndFocus": true
+    },
+    {
+      "number": 4,
+      "src": "https://www.instagram.com/reel/Dcl55RjxJrK/embed/",
+      "loaded": true,
+      "videoPlaying": false,
+      "text": "External embed isolated for dialog QA.",
+      "video": [],
+      "closeAndFocus": true
+    },
+    {
+      "number": 5,
+      "src": "https://www.instagram.com/reel/DceM8azzYuV/embed/",
+      "loaded": true,
+      "videoPlaying": false,
+      "text": "External embed isolated for dialog QA.",
+      "video": [],
+      "closeAndFocus": true
+    }
+  ],
+  "errors": [],
+  "mode": "isolated shell with external iframe fixture; not a playback test",
+  "escape": true
+}

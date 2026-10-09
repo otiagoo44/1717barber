@@ -1,134 +1,48 @@
 (() => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  // Keep native navigation opt-in stable. A preference change can interrupt a
-  // transition; skip its animation and handle the expected rejected ready state.
+  const animations = new Set();
   function handlePageTransition(event) {
     const transition = event.viewTransition;
     if (!transition) return;
     transition.ready.catch(() => {});
     if (reducedMotion.matches) transition.skipTransition();
   }
-  window.addEventListener("pagereveal", handlePageTransition);
-  window.addEventListener("pageswap", handlePageTransition);
-  // Defaults are the final state. WAAPI never gates content or reservation.
-  const animations = new Set();
-  const ease = "cubic-bezier(.16,1,.3,1)";
-  function enter(target, type = "text", delay = 0) {
-    if (reducedMotion.matches || !target.animate) return;
-    const frames =
-      type === "photo"
-        ? [
-            { clipPath: "inset(0 12% 0 0)", opacity: 0.8 },
-            { clipPath: "inset(0 0% 0 0)", opacity: 1 },
-          ]
-        : type === "number"
-          ? [
-              { clipPath: "inset(0 0 30% 0)", transform: "translateY(12px)" },
-              { clipPath: "inset(0)", transform: "none" },
-            ]
-          : type === "headline"
-            ? [
-                {
-                  clipPath: "inset(0 0 30% 0)",
-                  transform: "translateY(20px)",
-                  opacity: 0.9,
-                },
-                { clipPath: "inset(0)", transform: "none", opacity: 1 },
-              ]
-            : type === "meta"
-              ? [{ opacity: 0.85 }, { opacity: 1 }]
-              : [
-                  { transform: "translateY(28px)", opacity: 0.75 },
-                  { transform: "none", opacity: 1 },
-                ];
-    const animation = target.animate(frames, {
-      duration: type === "photo" ? 720 : 650,
-      delay,
-      easing: ease,
-      fill: "backwards",
-    });
-    animations.add(animation);
-    animation.finished
-      .then(() => animations.delete(animation))
-      .catch(() => animations.delete(animation));
-  }
-  // One style mutation starts the complete entrance; CSS batches its layout.
-  // Per-element animate() during initial parsing made ten expensive flushes.
+  window.addEventListener("pagereveal",handlePageTransition);
+  window.addEventListener("pageswap",handlePageTransition);
   if (!reducedMotion.matches) document.documentElement.classList.add("motion-ready");
-  let observer;
   if ("IntersectionObserver" in window) {
-    observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(({ target, isIntersecting }) => {
-          if (!isIntersecting) return;
-          const type = target.matches("h2")
-            ? "headline"
-            : target.matches(
-                  ".image-crop,.result-media,.photo-trigger,.portrait-frame,.reel-frame",
-                )
-              ? "photo"
-              : target.matches(".feature-price strong,.profile-number")
-                ? "number"
-                : target.matches("figcaption,.service-number")
-                  ? "meta"
-                  : "text";
-          enter(target, type, Number(target.dataset.motionDelay || 0));
-          observer.unobserve(target);
-        });
-      },
-      { threshold: 0.08, rootMargin: "0px 0px 40px 0px" },
-    );
-    document
-      .querySelectorAll(
-        "main section:not(.hero) h2,.feature-photo .image-crop,.feature-detail,.portfolio .photo-trigger,.portfolio .result-media,.feature-price strong,.service-row,.portrait-frame,.profile-number,.reel-frame,.product-info,.location-photo,.process-list li",
-      )
-      .forEach((el, i) => {
-        if (el.matches(".service-row,.reel-frame,.process-list li"))
-          el.dataset.motionDelay = (i % 3) * 70;
-        observer.observe(el);
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(({target,isIntersecting}) => {
+        if (!isIntersecting) return;
+        observer.unobserve(target);
+        if (reducedMotion.matches || !target.animate) return;
+        const animation = target.animate([{opacity:.85,transform:"translateY(8px)"},{opacity:1,transform:"none"}], {duration:420,easing:"cubic-bezier(.2,.7,.2,1)"});
+        animations.add(animation);
+        animation.finished.then(() => animations.delete(animation)).catch(() => animations.delete(animation));
       });
-    const header = document.querySelector(".site-header");
-    const navObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(({ target, isIntersecting }) => {
-          if (target.id === "inicio")
-            header.classList.toggle("scrolled", !isIntersecting);
-          if (!isIntersecting || document.body.dataset.page !== "home") return;
-          document
-            .querySelectorAll(".desktop-nav a,.menu-dialog nav a")
-            .forEach((a) => {
-              const active = a.hash === "#" + target.id;
-              if (active) a.setAttribute("aria-current", "location");
-              else a.removeAttribute("aria-current");
-            });
-        });
-      },
-      { rootMargin: "-10% 0px -60% 0px", threshold: 0 },
-    );
-    ["inicio", "rulos", "servicios", "nosotros"].forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) navObserver.observe(el);
-    });
+    }, {threshold:.12});
+    document.querySelectorAll("main section:not(.hero) h2,.feature-photo,.service-row,.team-photo").forEach(el => observer.observe(el));
+    // A floating action is useful only when an in-flow WhatsApp CTA isn't visible.
+    const visibleActions = new Set();
+    const bookingObserver = new IntersectionObserver(entries => {
+      entries.forEach(({target,isIntersecting}) => isIntersecting ? visibleActions.add(target) : visibleActions.delete(target));
+      document.body.classList.toggle("booking-visible", visibleActions.size === 0);
+    }, {rootMargin:"-96px 0px -80px 0px"});
+    document.querySelectorAll("main .button[data-intent]:not(.outline)").forEach(el => bookingObserver.observe(el));
   }
   function settleMotion() {
     document.documentElement.classList.remove("motion-ready");
-    animations.forEach((a) => a.cancel());
+    animations.forEach(a => a.cancel());
     animations.clear();
   }
-  reducedMotion.addEventListener("change", (event) => {
-    if (event.matches) {
-      settleMotion();
-      const transition = document.activeViewTransition;
-      if (transition) {
-        transition.ready.catch(() => {});
-        transition.skipTransition();
-      }
-    }
+  reducedMotion.addEventListener("change",e => {
+    if (!e.matches) return;
+    settleMotion();
+    const transition = document.activeViewTransition;
+    if (transition) { transition.ready.catch(() => {}); transition.skipTransition(); }
   });
-  window.addEventListener("pagehide", settleMotion);
-  window.addEventListener("pageshow", (event) => {
-    if (event.persisted) settleMotion();
-  });
+  window.addEventListener("pagehide",settleMotion);
+  window.addEventListener("pageshow",e => {if(e.persisted) settleMotion();});
   document.querySelectorAll("[data-reel-sequence]").forEach((sequence) => {
     const track = sequence.querySelector(".reel-grid"),
       items = [...track.children],
@@ -251,7 +165,7 @@
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
       iframe.src = `https://www.instagram.com/reel/${code}/embed/`;
       iframe.addEventListener("load", () => {
-        status.textContent = "Reel listo para reproducir";
+        status.textContent = "Usá el control del video. Si Instagram limita la reproducción, abrilo con el enlace de abajo.";
       });
       iframe.addEventListener("error", () => {
         status.textContent = "Instagram no pudo cargar el reproductor. Usá el enlace para abrirlo.";
@@ -261,6 +175,7 @@
       close.focus();
     }
     function clearReel() {
+      document.body.classList.remove("modal-open");
       frame.replaceChildren();
       status.textContent = "Reproducción dentro de la página";
       reelOpener?.focus({ preventScroll: true });
@@ -286,7 +201,7 @@
       if (event.key !== "Tab") return;
       const controls = [
         ...dialog.querySelectorAll(
-          'a[href],button:not([disabled]),summary,[tabindex="0"]',
+          'a[href],button:not([disabled]),iframe,summary,[tabindex="0"]',
         ),
       ].filter((el) => el.getClientRects().length);
       const first = controls[0],
@@ -393,6 +308,8 @@
     const img = new Image();
     img.src = photo.dataset.photoSrc;
     img.alt = photo.dataset.photoAlt;
+    holder.classList.toggle("is-frame", photo.dataset.photoCrop === "frame");
+    img.style.objectPosition = photo.dataset.photoPosition || "center";
     holder.append(img);
     lightbox.querySelector("#lightbox-title").textContent =
       photo.dataset.photoTitle;
