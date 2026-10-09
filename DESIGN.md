@@ -100,7 +100,7 @@ CTA sólido ocre: Reservar por WhatsApp, o Consultar por rulos en contexto. Expl
 
 Jonatan y Esteban comparten foto y peso tipográfico, ambos cofundadores. No asignar identidades en la foto. Datos desconocidos siguen en src/data.mjs fuera de la UI. Testimonios requieren quote/name/source; productos requieren imagen y ficha verificada. /productos conserva consulta sin afirmar stock.
 
-Cinco reels con portadas auténticas, scroll horizontal nativo, controles y reproductor Instagram bajo demanda. Cero iframe/script social al inicio. Enlace alternativo ante límites del proveedor; un load de iframe no confirma reproducción. Imágenes responsive AVIF/WebP con dimensiones, hero eager/high priority.
+Cinco reels con portadas auténticas, scroll horizontal nativo y reproductor HTML video bajo demanda. Los MP4 públicos de 17:17 se sirven desde /assets/videos; no se necesita iframe, login ni script de Instagram. No se descarga video al inicio. Controles nativos, sonido y playsinline; al cerrar se pausa, se libera el src y se devuelve el foco. Enlace opcional a la publicación original. Imágenes responsive AVIF/WebP con dimensiones, hero eager/high priority.
 
 ## Do's and Don'ts
 
@@ -114,4 +114,4 @@ Cinco reels con portadas auténticas, scroll horizontal nativo, controles y repr
 
 ## MOTION PHILOSOPHY
 
-Movimiento 6/10: entrada escalonada del H1 (720ms, 80ms entre líneas), encuadre de foto (1100ms, escala 1.045 a 1), reveals de sección (600–780ms, hasta 180ms de stagger), transición de filtros (780ms), respuestas de botones/servicios (180–320ms), apertura de FAQ/dialog y barra de reserva (320ms). Curva cubic-bezier(.16,1,.3,1), máximo desplazamiento 24px. Progreso de lectura CSS bajo @supports. Sin loops ni scroll forzado. Reduced motion cancela CSS y WAAPI, con contenido estático disponible. El HTML base siempre es visible sin JS. Ver docs/MOTION_SYSTEM.md.
+Movimiento 6/10: entrada escalonada del H1 (720ms, 80ms entre líneas), encuadre de foto (1100ms, escala 1.045 a 1), reveals de sección (650–800ms, hasta 140ms de stagger), transición de resultados nuevos en filtros (800ms), respuestas de botones/servicios (180–320ms), apertura de FAQ/dialog y barra de reserva (320ms). Curva cubic-bezier(.16,1,.3,1), máximo desplazamiento 28px. Sólo contenido debajo del viewport se prepara antes de entrar; nunca se atenúa contenido ya visible. Progreso de lectura CSS bajo @supports. Sin loops ni scroll forzado. Reduced motion cancela CSS y WAAPI, con contenido estático disponible. El HTML base siempre es visible sin JS. Ver docs/MOTION_SYSTEM.md.

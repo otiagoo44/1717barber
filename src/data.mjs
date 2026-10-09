@@ -275,6 +275,7 @@ const reelAlt = [
 export const rulosReels = reelCodes.map((code, i) => ({
   id: `REEL_RULOS_0${i + 1}`,
   url: `https://www.instagram.com/reel/${code}/`,
+  video: `/assets/videos/${code}.mp4`,
   thumbnail: `/assets/media/reel-rulos-0${i + 1}.webp`,
   thumbnailAlt: reelAlt[i],
   title: `Rulos en movimiento · ${String(i + 1).padStart(2, "0")}`,

@@ -17,6 +17,7 @@
 @keyframes shine{to{transform:translateX(120%)}}
 @keyframes reading-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media(prefers-reduced-motion:no-preference){
+  .reveal-pending{opacity:0;transform:translateY(28px)}
   .motion-ready .hero-copy>.eyebrow{animation:enter 520ms var(--ease-standard) both}
   .motion-ready .hero-line{animation:title-enter var(--motion-enter) var(--ease-standard) both}
   .motion-ready .hero-line:nth-child(2){animation-delay:80ms}
@@ -43,6 +44,7 @@
 @view-transition{navigation:auto}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:180ms}
 @media(prefers-reduced-motion:reduce){
+  .reveal-pending{opacity:1;transform:none}
   @view-transition{navigation:none}
   ::view-transition-old(root),::view-transition-new(root){animation:none}
   *,*::before,*::after{animation:none!important;transition:none!important}

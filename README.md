@@ -10,7 +10,7 @@ Vista local: http://127.0.0.1:4174. `npm run build` genera `dist/`, `index.html`
 
 ## Editar contenido
 
-Los cinco reels reales usan una portada local y un reproductor oficial que se monta dentro de la pagina solo despues de tocarla. Al cerrar el dialogo el iframe se desmonta; el enlace exacto a Instagram queda disponible como respaldo.
+Los cinco reels reales usan portadas locales y MP4 en `public/assets/videos`. Un reproductor HTML nativo se monta dentro de la página al tocar la portada: reproduce con sonido, controles y `playsinline`, sin iframe ni login de Instagram. Al cerrar se pausa el video, se libera su fuente y se devuelve el foco. No se descarga video durante la carga inicial. Cada publicación original conserva un enlace opcional. Fuentes, hashes y metadatos: `docs/qa/reels-motion-fix/video-sources.json`. Prueba real de reproducción: `scripts/qa-reels-native.mjs`; prueba cuadro a cuadro contra parpadeos: `scripts/qa-scroll-entry.mjs`.
 
 `src/data.mjs` centraliza precios, medios, servicios, productos, testimonios, fundadores y respuestas. Los campos `null` son pendientes explícitos. Cada placeholder tiene un ID estable. Después de editar, ejecutar `npm run build` y refrescar el navegador.
 

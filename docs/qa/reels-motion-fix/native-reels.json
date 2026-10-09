@@ -1,0 +1,91 @@
+{
+  "reels": [
+    {
+      "width": 390,
+      "number": 1,
+      "src": "http://127.0.0.1:4175/assets/videos/DeDQr0cuhey.mp4",
+      "time": 0.833783,
+      "duration": 36.545351,
+      "muted": false,
+      "controls": true,
+      "inline": true,
+      "frames": 30,
+      "closeAndFocus": true
+    },
+    {
+      "width": 390,
+      "number": 2,
+      "src": "http://127.0.0.1:4175/assets/videos/Dd903THBe7y.mp4",
+      "time": 0.826676,
+      "duration": 34.200136,
+      "muted": false,
+      "controls": true,
+      "inline": true,
+      "frames": 30,
+      "closeAndFocus": true
+    },
+    {
+      "width": 390,
+      "number": 3,
+      "src": "http://127.0.0.1:4175/assets/videos/DdrxU3CBZ2A.mp4",
+      "time": 0.830636,
+      "duration": 39.099546,
+      "muted": false,
+      "controls": true,
+      "inline": true,
+      "frames": 30,
+      "closeAndFocus": true
+    },
+    {
+      "width": 390,
+      "number": 4,
+      "src": "http://127.0.0.1:4175/assets/videos/Dcl55RjxJrK.mp4",
+      "time": 0.812403,
+      "duration": 39.981905,
+      "muted": false,
+      "controls": true,
+      "inline": true,
+      "frames": 29,
+      "closeAndFocus": true
+    },
+    {
+      "width": 390,
+      "number": 5,
+      "src": "http://127.0.0.1:4175/assets/videos/DceM8azzYuV.mp4",
+      "time": 0.821489,
+      "duration": 37.47415,
+      "muted": false,
+      "controls": true,
+      "inline": true,
+      "frames": 30,
+      "closeAndFocus": true
+    },
+    {
+      "width": 1440,
+      "number": 1,
+      "src": "http://127.0.0.1:4175/assets/videos/DeDQr0cuhey.mp4",
+      "time": 0.819268,
+      "duration": 36.545351,
+      "muted": false,
+      "controls": true,
+      "inline": true,
+      "frames": 29,
+      "closeAndFocus": true
+    },
+    {
+      "width": 844,
+      "number": 1,
+      "src": "http://127.0.0.1:4175/assets/videos/DeDQr0cuhey.mp4",
+      "time": 0.838857,
+      "duration": 36.545351,
+      "muted": false,
+      "controls": true,
+      "inline": true,
+      "frames": 30,
+      "closeAndFocus": true
+    }
+  ],
+  "errors": [],
+  "mode": "Real local MP4 playback; no mocked media",
+  "passed": true
+}

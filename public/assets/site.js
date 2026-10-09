@@ -3,11 +3,12 @@
   const animations = new Set();
   const elementAnimations = new WeakMap();
   function reveal(target, delay = 0, photo = false) {
+    target.classList.remove("reveal-pending");
     if (reducedMotion.matches || !target.animate) return;
     elementAnimations.get(target)?.cancel();
     const animation = target.animate(
-      [{opacity:photo ? .65 : .25,transform:`translateY(${photo ? 20 : 16}px)`},{opacity:1,transform:"none"}],
-      {duration:photo ? 780 : 600,delay,easing:"cubic-bezier(.16,1,.3,1)",fill:"backwards"},
+      [{opacity:0,transform:"translateY(28px)"},{opacity:1,transform:"none"}],
+      {duration:photo ? 800 : 650,delay,easing:"cubic-bezier(.22,1,.36,1)",fill:"backwards"},
     );
     animations.add(animation);
     elementAnimations.set(target,animation);
@@ -27,10 +28,21 @@
       entries.forEach(({target,isIntersecting},i) => {
         if (!isIntersecting) return;
         observer.unobserve(target);
-        reveal(target,Math.min(i,3)*60,target.matches("figure"));
+        if (target.classList.contains("reveal-pending")) reveal(target,Math.min(i,2)*70,target.matches("figure"));
       });
-    }, {threshold:.12,rootMargin:"0px 0px -24px 0px"});
-    document.querySelectorAll("main section:not(.hero) h2,.feature-photo,.service-row,.team-photo,.location-photo,.result-tile,.founder-names>div,.product-teaser,.consultation").forEach(el => observer.observe(el));
+    }, {threshold:0,rootMargin:"0px 0px -32px 0px"});
+    // Prepare only content below the fold, before it can be seen. Never dim
+    // content already on screen (including hash links and restored scroll).
+    const upcoming = [...document.querySelectorAll("main section:not(.hero) h2,.feature-photo,.service-row,.team-photo,.location-photo,.result-tile,.founder-names>div")]
+      .filter(el => el.getBoundingClientRect().top >= innerHeight);
+    if (!reducedMotion.matches) upcoming.forEach(el => {
+      el.classList.add("reveal-pending");
+      observer.observe(el);
+    });
+    document.addEventListener("focusin",event => {
+      const target = event.target.closest(".reveal-pending");
+      if (target) {target.classList.remove("reveal-pending");observer.unobserve(target);}
+    });
     // A floating action is useful only when an in-flow WhatsApp CTA isn't visible.
     const visibleActions = new Set();
     document.body.classList.add("booking-managed");
@@ -44,6 +56,7 @@
     document.documentElement.classList.remove("motion-ready");
     animations.forEach(a => a.cancel());
     animations.clear();
+    document.querySelectorAll(".reveal-pending").forEach(el => el.classList.remove("reveal-pending"));
   }
   reducedMotion.addEventListener("change",e => {
     if (!e.matches) return;
@@ -144,48 +157,49 @@
     } else initialize();
   });
   // Mantener el ciclo de Tab dentro de ambos dialogs, incluso en el último control.
-  const reelFacades = [...document.querySelectorAll(".reel-facade[href]")];
+  const reelFacades = [...document.querySelectorAll(".reel-facade[data-reel-source]")];
   if (reelFacades.length) {
     const player = document.createElement("dialog");
     player.id = "reel-player";
     player.className = "reel-player";
     player.setAttribute("aria-labelledby", "reel-player-title");
-    player.innerHTML = `<div class="reel-player-bar"><div><p class="eyebrow">RULOS / EN MOVIMIENTO</p><h2 id="reel-player-title">Reel de 17:17</h2></div><button type="button" data-reel-player-close aria-label="Cerrar reproductor">Cerrar <span aria-hidden="true">×</span></button></div><div class="reel-player-stage"><div class="reel-player-frame" data-reel-player-frame></div></div><div class="reel-player-footer"><span data-reel-player-status aria-live="polite">Reproducción dentro de la página</span><a class="text-link" data-reel-player-external target="_blank" rel="noopener noreferrer">Abrir en Instagram <span aria-hidden="true" class="arrow">↗</span></a></div>`;
+    player.innerHTML = `<div class="reel-player-bar"><div><p class="eyebrow">RULOS / EN MOVIMIENTO</p><h2 id="reel-player-title">Reel de 17:17</h2></div><button type="button" data-reel-player-close aria-label="Cerrar reproductor">Cerrar <span aria-hidden="true">×</span></button></div><div class="reel-player-stage"><div class="reel-player-frame" data-reel-player-frame></div></div><div class="reel-player-footer"><span data-reel-player-status aria-live="polite">Reproducción dentro de la página</span><a class="text-link" data-reel-player-external target="_blank" rel="noopener noreferrer">Publicación original en Instagram <span aria-hidden="true" class="arrow">↗</span></a></div>`;
     document.body.append(player);
     const frame = player.querySelector("[data-reel-player-frame]"),
       title = player.querySelector("#reel-player-title"),
       status = player.querySelector("[data-reel-player-status]"),
       external = player.querySelector("[data-reel-player-external]"),
       close = player.querySelector("[data-reel-player-close]");
-    external.href = reelFacades[0].href;
+    external.href = reelFacades[0].dataset.reelSource;
     let reelOpener = null;
     function showReel(facade) {
       reelOpener = facade;
-      const url = facade.href,
-        code = url.match(/\/reel\/([^/?#]+)/)?.[1];
-      if (!code) return;
       frame.replaceChildren();
       title.textContent = facade.getAttribute("aria-label")?.replace(/^Reproducir\s+/i, "") || "Reel de 17:17";
-      external.href = url;
-      status.textContent = "Cargando reel dentro de la página…";
-      const iframe = document.createElement("iframe");
-      iframe.title = title.textContent;
-      iframe.loading = "eager";
-      iframe.allow = "autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share";
-      iframe.setAttribute("allowfullscreen", "");
-      iframe.referrerPolicy = "strict-origin-when-cross-origin";
-      iframe.src = `https://www.instagram.com/reel/${code}/embed/`;
-      iframe.addEventListener("load", () => {
-        status.textContent = "Usá el control del video. Si Instagram limita la reproducción, abrilo con el enlace de abajo.";
-      });
-      iframe.addEventListener("error", () => {
-        status.textContent = "Instagram no pudo cargar el reproductor. Usá el enlace para abrirlo.";
-      });
-      frame.append(iframe);
+      external.href = facade.dataset.reelSource;
+      status.textContent = "Cargando video…";
+      const video = document.createElement("video");
+      video.controls = true;
+      video.playsInline = true;
+      video.preload = "none";
+      video.poster = facade.querySelector("img").src;
+      video.src = facade.href;
+      video.setAttribute("aria-label",title.textContent);
+      const announce = text => {if(video.isConnected) status.textContent = text;};
+      video.addEventListener("playing", () => announce("Reproduciendo · 17:17 Barbería"));
+      video.addEventListener("pause", () => announce("Video en pausa"));
+      video.addEventListener("ended", () => announce("Volvé a reproducirlo cuando quieras."));
+      video.addEventListener("error", () => announce("No se pudo cargar el video. Cerrá y volvé a intentarlo."));
+      frame.append(video);
       openDialog(player);
       close.focus();
+      video.play().catch(() => {
+        if (!video.error) announce("Tocá reproducir para comenzar.");
+      });
     }
     function clearReel() {
+      const video = frame.querySelector("video");
+      if (video) {video.pause();video.removeAttribute("src");video.load();}
       document.body.classList.remove("modal-open");
       frame.replaceChildren();
       status.textContent = "Reproducción dentro de la página";
@@ -193,6 +207,7 @@
       reelOpener = null;
     }
     reelFacades.forEach((facade) => {
+      facade.setAttribute("aria-haspopup", "dialog");
       facade.setAttribute("aria-label", facade.getAttribute("aria-label").replace(/^Ver\s+/i, "Reproducir "));
       facade.addEventListener("click", (event) => {
         event.preventDefault();
@@ -212,7 +227,7 @@
       if (event.key !== "Tab") return;
       const controls = [
         ...dialog.querySelectorAll(
-          'a[href],button:not([disabled]),iframe,summary,[tabindex="0"]',
+          'a[href],button:not([disabled]),video[controls],summary,[tabindex="0"]',
         ),
       ].filter((el) => el.getClientRects().length);
       const first = controls[0],
@@ -285,10 +300,12 @@
           b.setAttribute("aria-pressed", String(b === button)),
         );
         document.querySelectorAll(itemSelector).forEach((item) => {
+          const wasHidden = item.hidden;
           item.hidden =
             value !== "Todos" && item.getAttribute(categoryAttribute) !== value;
           if (!item.hidden) {
-            reveal(item,count*45,true);
+            // Existing visible results stay steady; only new results enter.
+            if (wasHidden || item.classList.contains("reveal-pending")) reveal(item,count*45,true);
             count++;
           }
         });

@@ -14,6 +14,7 @@ const types = {
   ".woff2": "font/woff2",
   ".txt": "text/plain",
   ".xml": "application/xml",
+  ".mp4": "video/mp4",
 };
 createServer(async (req, res) => {
   try {

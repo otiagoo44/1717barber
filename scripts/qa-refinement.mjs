@@ -104,9 +104,13 @@ try {
   assert.ok(destinations.some(u=>u.includes('wa.me/595983402497')));
   assert.ok(destinations.some(u=>u.includes('google.com/maps/')));
   assert.ok(destinations.some(u=>u.includes('instagram.com/1717barberia')));
+  await page.goto(base+'/rulos',{waitUntil:'networkidle0'});
+  const originalReels = await page.evaluate(() => [...document.querySelectorAll('[data-reel-source]')].map(el => el.dataset.reelSource));
+  assert.equal(originalReels.length, 5);
+  assert.ok(originalReels.every(u => u.includes('instagram.com/reel/')));
   for(const u of destinations.filter(u=>u.includes('wa.me'))){assert.equal(new URL(u).pathname,'/595983402497');assert.ok(new URL(u).searchParams.get('text'));}
   report.clickedDestinations=[...new Set(destinations)];
-  report.interactions.push('All visible links clicked with interception; WhatsApp number/messages, Maps and Instagram destinations validated');
+  report.interactions.push('All visible links clicked with interception; WhatsApp number/messages, Maps and Instagram profile destinations validated; five reel sources verified separately');
   await page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
   await page.goto(base+'/rulos',{waitUntil:'networkidle0'});
   await page.click('[data-reel-next]'); await sleep(200);

@@ -1,0 +1,132 @@
+[
+  {
+    "id": "REEL_RULOS_01",
+    "source": "https://www.instagram.com/reel/DeDQr0cuhey/",
+    "file": "public/assets/videos/DeDQr0cuhey.mp4",
+    "downloaded": "2026-10-09",
+    "bytes": 4122272,
+    "sha256": "3d6d990f9d00ce61b9a688344d46e981bd01bfca0922882a5e0f62a0fdc6ec0b",
+    "fastStart": true,
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 576,
+        "height": 1024
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio"
+      }
+    ],
+    "format": {
+      "duration": "36.545351"
+    }
+  },
+  {
+    "id": "REEL_RULOS_02",
+    "source": "https://www.instagram.com/reel/Dd903THBe7y/",
+    "file": "public/assets/videos/Dd903THBe7y.mp4",
+    "downloaded": "2026-10-09",
+    "bytes": 5167203,
+    "sha256": "a102462558e7a3a3ea126f8025dbdf8b0a99a8849f455f6641747733be31ee82",
+    "fastStart": true,
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 576,
+        "height": 1024
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio"
+      }
+    ],
+    "format": {
+      "duration": "34.200136"
+    }
+  },
+  {
+    "id": "REEL_RULOS_03",
+    "source": "https://www.instagram.com/reel/DdrxU3CBZ2A/",
+    "file": "public/assets/videos/DdrxU3CBZ2A.mp4",
+    "downloaded": "2026-10-09",
+    "bytes": 5403123,
+    "sha256": "fb91d5381c010269d2ea67eec80c4bd21cbe0ca88f5e9d76ac92d856f4438f11",
+    "fastStart": true,
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio"
+      }
+    ],
+    "format": {
+      "duration": "39.099546"
+    }
+  },
+  {
+    "id": "REEL_RULOS_04",
+    "source": "https://www.instagram.com/reel/Dcl55RjxJrK/",
+    "file": "public/assets/videos/Dcl55RjxJrK.mp4",
+    "downloaded": "2026-10-09",
+    "bytes": 7599447,
+    "sha256": "16eccabaadfa0195aae8f0b371ab98cf54a45b4c0fe7b5a517505c04d42a85f3",
+    "fastStart": true,
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio"
+      }
+    ],
+    "format": {
+      "duration": "39.981905"
+    }
+  },
+  {
+    "id": "REEL_RULOS_05",
+    "source": "https://www.instagram.com/reel/DceM8azzYuV/",
+    "file": "public/assets/videos/DceM8azzYuV.mp4",
+    "downloaded": "2026-10-09",
+    "bytes": 7208077,
+    "sha256": "4bfdf52d87d1948fd22b5a1662f1afcc735dcf45e47d0329255ce14a0f5d0858",
+    "fastStart": true,
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio"
+      }
+    ],
+    "format": {
+      "duration": "37.474150"
+    }
+  }
+]
