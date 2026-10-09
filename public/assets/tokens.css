@@ -1,4 +1,6 @@
 :root {
+  --font-display: "Archivo Black", Arial, sans-serif;
+  --font-body: Inter, Arial, sans-serif;
   --color-primary: #c49a3c;
   --color-background: #080808;
   --color-surface: #171715;

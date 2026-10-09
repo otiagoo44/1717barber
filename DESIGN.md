@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: 17:17 · Claridad editorial
+name: 17:17 · Carácter y movimiento
 colors:
   primary: "#C49A3C"
   background: "#080808"
@@ -12,17 +12,17 @@ colors:
   paperMuted: "#59564F"
 typography:
   display:
-    fontFamily: Inter
-    fontSize: 76px
-    fontWeight: 500
-    lineHeight: 1.05
-    letterSpacing: -0.055em
+    fontFamily: Archivo Black
+    fontSize: 72px
+    fontWeight: 400
+    lineHeight: 1.08
+    letterSpacing: -0.045em
   heading:
-    fontFamily: Inter
-    fontSize: 48px
-    fontWeight: 500
-    lineHeight: 1.12
-    letterSpacing: -0.04em
+    fontFamily: Archivo Black
+    fontSize: 46px
+    fontWeight: 400
+    lineHeight: 1.15
+    letterSpacing: -0.035em
   body:
     fontFamily: Inter
     fontSize: 17px
@@ -68,17 +68,17 @@ components:
 
 ## Overview
 
-17:17 Barbería, Luque. Presentación minimalista y editorial, apoyada en trabajo real, precios claros y una acción comercial: consultar/reservar por WhatsApp. Esta tercera pasada sustituye la dirección anterior de collages, offsets, titulares pesados y motion 7. Taste: variance 4, motion 3, density 3.
+17:17 Barbería, Luque. Presentación editorial, apoyada en trabajo real, precios claros y una acción comercial: consultar/reservar por WhatsApp. Se conserva el orden actual y se recupera Archivo Black, confirmado por el usuario. Público local que llega desde Instagram en celular. Taste: variance 5, motion 6, density 3.
 
 Una referencia de sistema: BMW Corporate del catálogo local Awesome Design MD. Sólo alineación, ritmo, fotografía sobria, tipografía legible y jerarquía de CTA; no paleta, fuentes propietarias, componentes o identidad. Las anteriores referencias de landings dejan de regir.
 
 ## Colors
 
-Preservar negro {colors.background}, marfil {colors.paper} y ocre {colors.primary}. Ocre en CTA y pequeños acentos. Rulos usa una única banda marfil para destacar la oferta; esta decisión de marca prevalece sobre la heurística de tema único de Taste. Texto secundario en {colors.muted} sobre oscuro, {colors.paperMuted} sobre claro. Divisores decorativos de opacidad baja; controles en {colors.line}. Sin gradientes, glows ni overlays que ensucien la fotografía.
+Preservar negro {colors.background}, marfil {colors.paper} y ocre {colors.primary}. Ocre en CTA, palabra final del hero y pequeños acentos. Rulos usa una única banda marfil para destacar la oferta; esta decisión de marca prevalece sobre la heurística de tema único de Taste. Texto secundario en {colors.muted} sobre oscuro, {colors.paperMuted} sobre claro. Divisores decorativos de opacidad baja; controles en {colors.line}. Sin glows ni overlays que ensucien la fotografía. Reflejo blanco tenue sólo en hover de botones.
 
 ## Typography
 
-Inter variable local 400–600 como única familia de interfaz. Archivo Black se retira por su masa excesiva; Barlow Condensed queda fuera de la UI para reducir ruido. La personalidad pasa a la escala, el espacio y el logo oficial. Inter 500 en titulares, 400 en body y 500/600 en acciones y precios. H1 44–76px; H2 34–48px. Texto 16–18px, metadatos mínimo 13px. Párrafos de hasta 48ch. Fuente OFL existente, Latin, font-display swap y una sola precarga.
+Archivo Black local 400 en H1/H2, recuperada de la versión anterior por pedido explícito. Inter variable local 400–600 para texto, acciones y precios. H1 36–76px según viewport, H2 30–46px, línea 1.08/1.15 y tracking -0.045/-0.035em. Hero en tres líneas deliberadas con la última palabra ocre; Rulos en dos. Texto 16–18px y párrafos hasta 48ch. Fuentes OFL locales con font-display swap y dos precargas. No forzar la fuente display en precios ni controles.
 
 ## Layout
 
@@ -88,7 +88,7 @@ Nav: Inicio, Rulos, Servicios, Nosotros, Ubicación y Reservar. Logo oficial ún
 
 ## Elevation & Depth
 
-Planos limpios y divisores, sin sombras decorativas. Ninguna foto flotante ni rotada. Header sticky opaco; diálogos nativos en top layer. Barra WhatsApp mobile con safe area y espacio inferior reservado. Diálogos ocultan la barra y bloquean el scroll sólo mientras están abiertos.
+Planos limpios y divisores, sin sombras decorativas. Ninguna foto flotante ni rotada. Header sticky de 80px con progreso de lectura ocre como mejora progresiva; diálogos nativos en top layer. Barra WhatsApp mobile con safe area y espacio inferior reservado. Diálogos ocultan la barra y bloquean el scroll sólo mientras están abiertos.
 
 ## Shapes
 
@@ -114,4 +114,4 @@ Cinco reels con portadas auténticas, scroll horizontal nativo, controles y repr
 
 ## MOTION PHILOSOPHY
 
-Movimiento 3/10: entrada breve, reposo y feedback. Duraciones 160/240/420ms; easing cubic-bezier(.2,.7,.2,1); desplazamiento máximo 8px, hover fotográfico 1.025. Sin parallax, pinning, loops, counters o máscaras amplias. Native View Transition de 180ms como mejora progresiva con fallback normal. Reduced motion: estado final inmediato y scroll instantáneo. El HTML/CSS base siempre es visible sin JS. Ver docs/MOTION_SYSTEM.md.
+Movimiento 6/10: entrada escalonada del H1 (720ms, 80ms entre líneas), encuadre de foto (1100ms, escala 1.045 a 1), reveals de sección (600–780ms, hasta 180ms de stagger), transición de filtros (780ms), respuestas de botones/servicios (180–320ms), apertura de FAQ/dialog y barra de reserva (320ms). Curva cubic-bezier(.16,1,.3,1), máximo desplazamiento 24px. Progreso de lectura CSS bajo @supports. Sin loops ni scroll forzado. Reduced motion cancela CSS y WAAPI, con contenido estático disponible. El HTML base siempre es visible sin JS. Ver docs/MOTION_SYSTEM.md.

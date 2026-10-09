@@ -1,0 +1,74 @@
+{
+  "sizes": [
+    {
+      "route": "/",
+      "width": 320,
+      "overflow": false,
+      "font": "\"Archivo Black\", Arial, sans-serif",
+      "ctaVisible": true
+    },
+    {
+      "route": "/rulos",
+      "width": 320,
+      "overflow": false,
+      "font": "\"Archivo Black\", Arial, sans-serif",
+      "ctaVisible": true
+    },
+    {
+      "route": "/productos",
+      "width": 320,
+      "overflow": false,
+      "font": "\"Archivo Black\", Arial, sans-serif",
+      "ctaVisible": true
+    },
+    {
+      "route": "/",
+      "width": 360,
+      "overflow": false,
+      "font": "\"Archivo Black\", Arial, sans-serif",
+      "ctaVisible": true
+    },
+    {
+      "route": "/rulos",
+      "width": 360,
+      "overflow": false,
+      "font": "\"Archivo Black\", Arial, sans-serif",
+      "ctaVisible": true
+    },
+    {
+      "route": "/productos",
+      "width": 360,
+      "overflow": false,
+      "font": "\"Archivo Black\", Arial, sans-serif",
+      "ctaVisible": true
+    },
+    {
+      "route": "/",
+      "width": 844,
+      "overflow": false,
+      "font": "\"Archivo Black\", Arial, sans-serif",
+      "ctaVisible": false
+    },
+    {
+      "route": "/rulos",
+      "width": 844,
+      "overflow": false,
+      "font": "\"Archivo Black\", Arial, sans-serif",
+      "ctaVisible": false
+    },
+    {
+      "route": "/productos",
+      "width": 844,
+      "overflow": false,
+      "font": "\"Archivo Black\", Arial, sans-serif",
+      "ctaVisible": false
+    }
+  ],
+  "checks": [
+    "Rapid gallery filters settle on all four photos; live reduced-motion cancels every animation",
+    "Booking appears after hero; hidden while menu is open",
+    "No-JS floating booking stays available"
+  ],
+  "errors": [],
+  "passed": true
+}

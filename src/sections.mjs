@@ -5,7 +5,7 @@ import { image, wa, link, arrow } from "./components.mjs";
 export function hero(rulos = false) {
   return `<section class="hero wrap ${rulos ? "rulos-hero" : ""}" id="inicio">
     <div class="hero-copy"><p class="eyebrow">17:17 BARBERÍA · LUQUE</p>
-    <h1>${rulos ? "Rulos con<br>tu estilo." : "Tu próximo look<br>empieza acá."}</h1>
+    <h1>${rulos ? '<span class="hero-line">Rulos con</span> <span class="hero-line hero-accent">tu estilo.</span>' : '<span class="hero-line">Tu próximo</span> <span class="hero-line">look empieza</span> <span class="hero-line hero-accent">acá.</span>'}</h1>
     <p class="hero-description">${rulos ? "Rulos permanentes. Mirá nuestros trabajos y consultá por el resultado que tenés en mente." : "Rulos permanentes, cortes y color.<br>Encontrá tu estilo en 17:17."}</p>
     ${rulos ? `<div class="hero-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong></div>` : ""}
     <div class="actions">${wa(rulos ? "Consultar por rulos" : "Reservar por WhatsApp", rulos ? "RULOS" : "GENERAL", rulos ? "rulos" : "")}${rulos ? link("Ver los videos", "#reels-rulos") : link("Conocer Rulos 17:17", "/rulos")}</div>

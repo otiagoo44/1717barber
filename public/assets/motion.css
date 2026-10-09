@@ -1,12 +1,49 @@
-/* Functional motion. Content has its final state without JavaScript. */
-:root{--motion-fast:160ms;--motion-base:240ms;--motion-enter:420ms;--ease-standard:cubic-bezier(.2,.7,.2,1)}
-.button,.text-link,.desktop-nav a,.reel-play,.reel-progress i,.faq-list summary span{transition:transform var(--motion-fast) var(--ease-standard),color var(--motion-fast),background-color var(--motion-fast),border-color var(--motion-fast)}
-@keyframes enter{from{opacity:.85;transform:translateY(8px)}to{opacity:1;transform:none}}
-.motion-ready .hero-copy{animation:enter var(--motion-enter) var(--ease-standard) both}
-.motion-ready .hero-visual{animation:enter var(--motion-enter) var(--ease-standard) 80ms both}
+﻿/* Progressive enhancement: resting HTML is always visible and usable. */
+:root{--motion-fast:180ms;--motion-base:320ms;--motion-enter:720ms;--ease-standard:cubic-bezier(.16,1,.3,1)}
+.button,.text-link,.desktop-nav a,.reel-play,.reel-progress i,.faq-list summary span,.filters button{transition:transform var(--motion-base) var(--ease-standard),color var(--motion-fast),background-color var(--motion-fast),border-color var(--motion-fast)}
+.button{position:relative;overflow:hidden;isolation:isolate}
+.button::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);transform:translateX(-120%)}
+.button .arrow,.service-row .arrow{transition:transform var(--motion-base) var(--ease-standard)}
+.service-row{position:relative;isolation:isolate}
+.service-row::before{content:"";position:absolute;inset:0 -12px;background:var(--color-surface);z-index:-1;opacity:0;transform:scaleX(.96);transform-origin:left;transition:opacity var(--motion-base),transform var(--motion-base) var(--ease-standard)}
+.service-name{transition:transform var(--motion-base) var(--ease-standard),color var(--motion-fast)}
+.photo-open{transition:transform var(--motion-base) var(--ease-standard),background-color var(--motion-fast)}
+.desktop-nav a::after{content:"";height:1px;background:var(--color-primary);position:absolute;bottom:2px;left:0;right:0;transform:scaleX(0);transform-origin:left;transition:transform var(--motion-base) var(--ease-standard)}
+.desktop-nav a[aria-current]::after{transform:scaleX(1)}
+.mobile-booking{transition:opacity var(--motion-base),transform var(--motion-base) var(--ease-standard),visibility var(--motion-base)}
+@keyframes enter{from{opacity:.25;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes title-enter{from{opacity:.5;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes photo-enter{from{transform:scale(1.045)}to{transform:scale(1)}}
+@keyframes shine{to{transform:translateX(120%)}}
+@keyframes reading-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:no-preference){
+  .motion-ready .hero-copy>.eyebrow{animation:enter 520ms var(--ease-standard) both}
+  .motion-ready .hero-line{animation:title-enter var(--motion-enter) var(--ease-standard) both}
+  .motion-ready .hero-line:nth-child(2){animation-delay:80ms}
+  .motion-ready .hero-line:nth-child(3){animation-delay:160ms}
+  .motion-ready .hero-description{animation:enter 640ms var(--ease-standard) 120ms both}
+  .motion-ready .hero-visual .media-image{animation:photo-enter 1100ms var(--ease-standard) both}
+  .motion-ready .catalog-hero h1{animation:title-enter var(--motion-enter) var(--ease-standard) both}
+  dialog[open]{animation:enter 320ms var(--ease-standard)}
+  .faq-list details[open] .faq-answer{animation:enter 320ms var(--ease-standard)}
+  @supports(animation-timeline:scroll()){
+    .site-header::after{content:"";position:absolute;bottom:-1px;left:0;width:100%;height:2px;background:var(--color-primary);transform-origin:left;animation:reading-progress linear both;animation-timeline:scroll(root)}
+  }
+  @media(hover:hover) and (pointer:fine){
+    .button:hover::after,.button:focus-visible::after{animation:shine 640ms var(--ease-standard)}
+    .button:hover .arrow{transform:translate(2px,-2px)}
+    .service-row:hover::before,.service-row:focus-visible::before{opacity:1;transform:none}
+    .service-row:hover .service-name{transform:translateX(8px)}
+    .service-row:hover .arrow{transform:translate(3px,-3px)}
+    .photo-trigger{cursor:zoom-in}
+    .photo-trigger:hover .photo-open{transform:rotate(45deg);background:var(--color-primary)}
+    .desktop-nav a:hover::after{transform:scaleX(1)}
+  }
+}
 @view-transition{navigation:auto}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:180ms}
 @media(prefers-reduced-motion:reduce){
   @view-transition{navigation:none}
   ::view-transition-old(root),::view-transition-new(root){animation:none}
+  *,*::before,*::after{animation:none!important;transition:none!important}
 }

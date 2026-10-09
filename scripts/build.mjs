@@ -1,6 +1,7 @@
 import { mkdir, writeFile, cp, readFile } from "node:fs/promises";
 import { renderPage } from "../src/pages.mjs";
 import { business } from "../src/data.mjs";
+import { createHash } from "node:crypto";
 let siteUrl =
   process.env.SITE_URL ||
   business.siteUrl ||
@@ -21,6 +22,11 @@ const styles = await Promise.all([
   readFile("public/assets/site.css", "utf8"),
   readFile("public/assets/motion.css", "utf8"),
 ]);
+// A new asset URL on each source change avoids stale CSS/JS after deployment.
+const assetVersion = createHash("sha256")
+  .update(styles.join("\n").replace(/\r\n/g, "\n"))
+  .update((await readFile("public/assets/site.js", "utf8")).replace(/\r\n/g, "\n"))
+  .digest("hex").slice(0, 12);
 await writeFile(
   "dist/assets/site.css",
   styles.join("\n")
@@ -34,7 +40,7 @@ for (const [name, path] of [
   ["rulos", "rulos/index.html"],
   ["productos", "productos/index.html"],
 ]) {
-  const html = renderPage(name, siteUrl).replace(/^[ \t]+$/gm, "");
+  const html = renderPage(name, siteUrl, assetVersion).replace(/^[ \t]+$/gm, "");
   const folder = path.split("/").slice(0, -1).join("/");
   if (folder) {
     await mkdir(folder, { recursive: true });

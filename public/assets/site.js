@@ -1,6 +1,18 @@
 (() => {
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const animations = new Set();
+  const elementAnimations = new WeakMap();
+  function reveal(target, delay = 0, photo = false) {
+    if (reducedMotion.matches || !target.animate) return;
+    elementAnimations.get(target)?.cancel();
+    const animation = target.animate(
+      [{opacity:photo ? .65 : .25,transform:`translateY(${photo ? 20 : 16}px)`},{opacity:1,transform:"none"}],
+      {duration:photo ? 780 : 600,delay,easing:"cubic-bezier(.16,1,.3,1)",fill:"backwards"},
+    );
+    animations.add(animation);
+    elementAnimations.set(target,animation);
+    animation.finished.then(() => animations.delete(animation)).catch(() => animations.delete(animation));
+  }
   function handlePageTransition(event) {
     const transition = event.viewTransition;
     if (!transition) return;
@@ -12,18 +24,16 @@
   if (!reducedMotion.matches) document.documentElement.classList.add("motion-ready");
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(({target,isIntersecting}) => {
+      entries.forEach(({target,isIntersecting},i) => {
         if (!isIntersecting) return;
         observer.unobserve(target);
-        if (reducedMotion.matches || !target.animate) return;
-        const animation = target.animate([{opacity:.85,transform:"translateY(8px)"},{opacity:1,transform:"none"}], {duration:420,easing:"cubic-bezier(.2,.7,.2,1)"});
-        animations.add(animation);
-        animation.finished.then(() => animations.delete(animation)).catch(() => animations.delete(animation));
+        reveal(target,Math.min(i,3)*60,target.matches("figure"));
       });
-    }, {threshold:.12});
-    document.querySelectorAll("main section:not(.hero) h2,.feature-photo,.service-row,.team-photo").forEach(el => observer.observe(el));
+    }, {threshold:.12,rootMargin:"0px 0px -24px 0px"});
+    document.querySelectorAll("main section:not(.hero) h2,.feature-photo,.service-row,.team-photo,.location-photo,.result-tile,.founder-names>div,.product-teaser,.consultation").forEach(el => observer.observe(el));
     // A floating action is useful only when an in-flow WhatsApp CTA isn't visible.
     const visibleActions = new Set();
+    document.body.classList.add("booking-managed");
     const bookingObserver = new IntersectionObserver(entries => {
       entries.forEach(({target,isIntersecting}) => isIntersecting ? visibleActions.add(target) : visibleActions.delete(target));
       document.body.classList.toggle("booking-visible", visibleActions.size === 0);
@@ -147,6 +157,7 @@
       status = player.querySelector("[data-reel-player-status]"),
       external = player.querySelector("[data-reel-player-external]"),
       close = player.querySelector("[data-reel-player-close]");
+    external.href = reelFacades[0].href;
     let reelOpener = null;
     function showReel(facade) {
       reelOpener = facade;
@@ -276,7 +287,10 @@
         document.querySelectorAll(itemSelector).forEach((item) => {
           item.hidden =
             value !== "Todos" && item.getAttribute(categoryAttribute) !== value;
-          if (!item.hidden) count++;
+          if (!item.hidden) {
+            reveal(item,count*45,true);
+            count++;
+          }
         });
         document.querySelector(statusSelector).textContent =
           `${count} ${attribute === "data-gallery-filter" ? "resultados" : "productos"}: ${value}`;
