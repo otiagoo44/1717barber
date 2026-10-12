@@ -4,7 +4,9 @@ import {resolve} from 'node:path';
 import {mkdir,writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {services,business} from '../src/data.mjs';
+import {configureBooking} from './booking-config.mjs';
 import {serviceDuration,serviceBookingLink} from '../src/utils.mjs';
+await configureBooking();
 const require=createRequire(resolve(process.env.QA_TOOLS_DIR,'qa.cjs'));
 const {AxePuppeteer}=require('@axe-core/puppeteer');
 const browser=await require('puppeteer-core').launch({executablePath:process.env.CHROME_PATH,headless:true});
@@ -69,12 +71,12 @@ try {
     await page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:mode==='reduce'?'reduce':'no-preference'}]);
     await page.setJavaScriptEnabled(mode!=='no-js');
     await page.goto(base+'/reservar',{waitUntil:'networkidle0'});
-    assert.equal(await page.$$eval('.booking-service',els=>els.length),7);
+    assert.equal(await page.$$eval('.booking-service',els=>els.length),services.length);
     assert.equal(await page.$$eval('.reveal-pending',els=>els.length),0);
     if(mode==='reduce') assert.equal(await page.evaluate(()=>document.getAnimations().length),0);
     else assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('motion-ready')),false);
   }
-  report.checks.push('Local header navigates to service selection; mobile menu focus; seven correct contextual service destinations; no generic Cal fallback; reduced motion and no-JS; notebook width; stable service-detail columns; no initial video; Axe zero');
+  report.checks.push('Local header navigates to service selection; mobile menu focus; seven correct contextual service destinations; native CRM or pending WhatsApp coordination; reduced motion and no-JS; notebook width; stable service-detail columns; no initial video; Axe zero');
   assert.deepEqual(report.errors,[]);report.passed=true;
 }catch(e){report.passed=false;report.failure=e.stack;throw e;}
 finally{await writeFile(out+'/booking-services.json',JSON.stringify(report,null,2));await browser.close();}

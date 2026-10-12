@@ -4,7 +4,7 @@ Actualizado el 12 de octubre de 2026. Fotos actuales de cortes/rulos, cinco imá
 
 ## Necesario antes de la publicación comercial
 
-- **Cal.com:** 40 minutos confirmado para corte. Separar servicios: rulos/tinte 120 minutos, servicios cortos bloques de 40 y lavado 10. Cambiar Cal Video (videollamada) a presencial; configurar dos barberos, horarios independientes y asignación automática Round Robin/Maximize availability, con excepciones por fecha cuando trabaja el segundo. El acceso a `app.cal.com` fue denegado en el navegador; no se modificó la cuenta, compró plan ni creó reserva. [Pasos exactos y estructura](BOOKING_SETUP.md). Hasta verificar esos eventos, `/reservar` coordina cada servicio por WhatsApp y no usa el evento genérico de 40 minutos.
+- **Barbería OS:** desplegar el CRM, aplicar su migración de integración y crear organización 17:17, Luque, servicios, staff y horarios reales. Copiar los slugs públicos a Vercel; hoy no existen en la base auditada. Rulos requiere evaluación previa por WhatsApp. Tinte genérico no publica precio: confirmar Global y Mechas en el catálogo operativo. [Pasos y variables](BOOKING_SETUP.md).
 - **Retratos individuales actuales:** uno de Jonatan y otro de Esteban, con calidad y encuadre equivalentes. Los componentes ya tienen la misma jerarquía y señalan explícitamente que falta el retrato. La foto conjunta actual se conserva.
 
 ## Contenido opcional para completar después
@@ -17,7 +17,7 @@ Actualizado el 12 de octubre de 2026. Fotos actuales de cortes/rulos, cinco imá
 
 ## Información ya confirmada
 
-Rulos: **Gs. 180.000**, corte por separado, aproximadamente **2 horas**; evaluar largo y condiciones por consulta. Corte 40 minutos; tinte 2 horas; barba/infantil/cejas bloque de 40; lavado 10. Sin combinaciones. Asignación automática al barbero disponible. Agenda web `/reservar`; enlace recibido conservado como referencia de Cal.com. Consultas y productos: WhatsApp `0983 402 497`. Jonatan y Esteban: ambos cofundadores, con igual jerarquía.
+Rulos: **Gs. 180.000**, corte por separado, aproximadamente **2 horas**; evaluar largo y condiciones por consulta. Los datos confirmados se conservan durante la puesta en marcha; cuando el CRM esté operativo, precios y duraciones vendrán de su catálogo. Agenda web `/reservar`; consultas y productos: WhatsApp `0983 402 497`. Jonatan y Esteban: ambos cofundadores, con igual jerarquía.
 
 Las presentaciones ya están completadas desde los dos videos indicados por el usuario: primero Esteban (`08.01.33`), segundo Jonatan (`08.01.23`). Su evidencia y los textos están registrados en [FOUNDER_CONTENT.md](FOUNDER_CONTENT.md). No falta pedir bios de nuevo.
 
@@ -29,10 +29,10 @@ Los barberos no tienen horario individual fijo: se cubren según puedan. La agen
 
 Se completó el QA después de la última optimización de sizes/hero/observer: 18 combinaciones responsive, Axe sin hallazgos, enlaces, teclado/foco, diálogos, FAQ, no-JS, reduced motion, cinco reels reales y entradas animadas PASS. Se revisaron capturas nuevas y comparación con el diseño aprobado. Tests 7/7, build y DESIGN lint PASS. Evidencia en [qa/final-content/verified](qa/final-content/verified).
 
-Lighthouse local: Performance 85/85/98; accesibilidad, buenas prácticas y SEO 100 en Home/Rulos/Productos. CLS 0; LCP 2,56/2,72/1,89s, TBT 379/361/105ms. Validar luego en CDN y con datos reales; no se declara Core Web Vitals PASS. La inspección externa nueva confirma Cal.com todavía en 40m/Cal Video. El usuario autorizó push a main; Cal.com y los retratos siguen pendientes antes de publicación comercial.
+Lighthouse local: Performance 85/85/98; accesibilidad, buenas prácticas y SEO 100 en Home/Rulos/Productos. CLS 0; LCP 2,56/2,72/1,89s, TBT 379/361/105ms. Validar luego en CDN y con datos reales; no se declara Core Web Vitals PASS. El usuario autorizó push a main; el despliegue/configuración real del CRM y los retratos siguen pendientes antes de activar reservas públicas.
 
 ## QA vigente de servicios y galería ampliada
 
 Tests 8/8, build de cinco páginas y DESIGN lint sin errores/advertencias. Se comprobaron 18 casos Home/Rulos/Productos, 17 de servicios/notebook y ocho de Trabajos: sin errores de consola, desbordes ni hallazgos Axe. Los 16 videos reprodujeron con cuadros reales; filtros, Ver más, lightbox, teclado/foco, no-JS, reduced motion y motion PASS. Se inspeccionaron capturas comparativas y todos los encuadres. Evidencia: [qa/expanded-work/after](qa/expanded-work/after).
 
-Lighthouse final, Home/Rulos/Productos/Reservar/Trabajos: Performance **85/77/96/95/82**, accesibilidad/buenas prácticas/SEO **100 en las cinco**. LCP 2,63/2,68/1,98/1,81/2,68s; TBT 385/590/182/198/511ms; CLS prácticamente cero. Los resultados varían entre corridas; quedan performance de campo/CDN y configuración Cal.com pendientes. No se afirma Core Web Vitals PASS.
+Lighthouse final, Home/Rulos/Productos/Reservar/Trabajos: Performance **85/77/96/95/82**, accesibilidad/buenas prácticas/SEO **100 en las cinco**. LCP 2,63/2,68/1,98/1,81/2,68s; TBT 385/590/182/198/511ms; CLS prácticamente cero. Los resultados varían entre corridas; quedan performance de campo/CDN y activación del catálogo de Barbería OS pendientes. No se afirma Core Web Vitals PASS.

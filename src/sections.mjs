@@ -1,6 +1,6 @@
 import { business, media, results, services, products, founders, testimonials, rulosReels } from "./data.mjs";
 import { workAssets } from "./work-assets.mjs";
-import { escape as e, price, rulosPrice, whatsappLink } from "./utils.mjs";
+import { escape as e, price, rulosPrice, whatsappLink, serviceBookingLink, serviceDuration } from "./utils.mjs";
 import { image, wa, booking, link, arrow } from "./components.mjs";
 
 export function hero(rulos = false) {
@@ -8,7 +8,7 @@ export function hero(rulos = false) {
     <div class="hero-copy"><p class="eyebrow">17:17 BARBERÍA · LUQUE</p>
     <h1>${rulos ? '<span class="hero-line">Rulos con</span> <span class="hero-line hero-accent">tu estilo.</span>' : '<span class="hero-line">Tu próximo</span> <span class="hero-line">look empieza</span> <span class="hero-line hero-accent">acá.</span>'}</h1>
     <p class="hero-description">${rulos ? "Rulos permanentes. Mirá nuestros trabajos y consultá por el resultado que tenés en mente." : "Rulos permanentes, cortes y color.<br>Encontrá tu estilo en 17:17."}</p>
-    ${rulos ? `<div class="hero-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong><span>Corte por separado · Aproximadamente 2 horas</span></div>` : ""}
+    ${rulos ? `<div class="hero-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong><span>Corte por separado · Aproximadamente ${serviceDuration(services.find(s => s.id === "rulos"))}</span></div>` : ""}
     <div class="actions">${booking("Reservar turno")}${rulos ? wa("Consultar por rulos", "RULOS", "rulos", null, "outline") : link("Conocer Rulos 17:17", "/rulos")}</div>
     <p class="hero-hours">Luque · Lun–Sáb · 8:00–21:00</p></div>
     <figure class="hero-visual"><div class="image-crop">${image(rulos ? "rulosHero" : "hero", {eager: true, sizes: "(max-width: 700px) 90vw, 46vw"})}</div><figcaption><span>${rulos ? "Rulos 17:17" : "Cortes 17:17"}</span><span>Trabajo real</span></figcaption></figure>
@@ -18,12 +18,12 @@ export function hero(rulos = false) {
 export function featuredRulos() {
   return `<section class="featured-rulos" id="rulos"><div class="wrap feature-layout">
     <figure class="feature-photo"><div class="image-crop">${image("rulosFeatured")}</div><figcaption>El proceso de rulos en 17:17.</figcaption></figure>
-    <div class="feature-copy"><p class="eyebrow">NUESTRO DESTACADO</p><h2>Rulos.<br>Otra forma de llevar tu look.</h2><p>La textura es la protagonista. Mirá los resultados y consultá por tus rulos.</p><div class="feature-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong><span>Corte por separado · Aprox. 2 horas</span></div><div class="actions">${wa("Consultar por rulos", "RULOS", "rulos")}${link("Ver resultados y videos", "/rulos")}</div></div>
+    <div class="feature-copy"><p class="eyebrow">NUESTRO DESTACADO</p><h2>Rulos.<br>Otra forma de llevar tu look.</h2><p>La textura es la protagonista. Mirá los resultados y consultá por tus rulos.</p><div class="feature-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong><span>Corte por separado · Aprox. ${serviceDuration(services.find(s => s.id === "rulos"))}</span></div><div class="actions">${wa("Consultar por rulos", "RULOS", "rulos")}${link("Ver resultados y videos", "/rulos")}</div></div>
   </div></section>`;
 }
 
 export function servicesSection() {
-  return `<section class="section wrap services-section" id="servicios"><div class="section-intro"><p class="eyebrow">SERVICIOS Y PRECIOS</p><h2>Un buen corte.<br>Y mucho más.</h2><p>Elegí el servicio para coordinar tu turno. Para detalles, consultanos por WhatsApp.</p></div><div class="services-list">${booking("Elegir horario", "service-booking")}${services.filter(s => !s.complementary).map(s => `<a class="service-row ${s.featured ? "service-featured" : ""}" href="${e(whatsappLink({intent: s.intent, service: s.id}))}" target="_blank" rel="noopener noreferrer" data-cta="servicio" data-intent="${s.intent}" data-service="${s.id}"><span class="service-name">${e(s.name)}${s.featured ? "<small>Destacado</small>" : ""}</span><strong>${price(s.price)}</strong>${arrow}<span class="sr-only">Consultar por WhatsApp</span></a>`).join("")}<h3 class="list-label">Para completar</h3><div class="complementary-services">${services.filter(s => s.complementary).map(s => `<a href="${e(whatsappLink({intent:s.intent,service:s.id}))}" target="_blank" rel="noopener noreferrer" data-cta="servicio" data-intent="${s.intent}" data-service="${s.id}"><span>${e(s.name)}</span><strong>${price(s.price)}</strong><span class="sr-only">Consultar por WhatsApp</span></a>`).join("")}</div></div></section>`;
+  return `<section class="section wrap services-section" id="servicios"><div class="section-intro"><p class="eyebrow">SERVICIOS Y PRECIOS</p><h2>Un buen corte.<br>Y mucho más.</h2><p>Elegí el servicio para coordinar tu turno. Para detalles, consultanos por WhatsApp.</p></div><div class="services-list">${booking("Elegir horario", "service-booking")}${services.filter(s => !s.complementary).map(s => `<a class="service-row ${s.featured ? "service-featured" : ""}" href="${e(serviceBookingLink(s.id))}" target="_blank" rel="noopener noreferrer" data-cta="servicio" data-intent="${s.intent}" data-service="${s.id}"><span class="service-name">${e(s.name)}${s.featured ? "<small>Destacado</small>" : ""}</span><strong>${price(s.price)}</strong>${arrow}<span class="sr-only">${serviceBookingLink(s.id).startsWith("https://wa.me/") ? "Consultar por WhatsApp" : "Elegir horario"}</span></a>`).join("")}<h3 class="list-label">Para completar</h3><div class="complementary-services">${services.filter(s => s.complementary).map(s => `<a href="${e(serviceBookingLink(s.id))}" target="_blank" rel="noopener noreferrer" data-cta="servicio" data-intent="${s.intent}" data-service="${s.id}"><span>${e(s.name)}</span><strong>${price(s.price)}</strong><span class="sr-only">${serviceBookingLink(s.id).startsWith("https://wa.me/") ? "Consultar por WhatsApp" : "Elegir horario"}</span></a>`).join("")}</div></div></section>`;
 }
 
 export function resultTile(item, index, rulos = false) {

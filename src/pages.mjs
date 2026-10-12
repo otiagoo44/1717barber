@@ -1,5 +1,6 @@
+import { nativeBookingLink } from "./booking.mjs";
 import { business, services, homeFaq, rulosFaq, products, rulosDetails, rulosTestimonials, rulosReels } from "./data.mjs";
-import { escape as e, price, rulosPrice, serviceDuration, serviceBookingLink } from "./utils.mjs";
+import { escape as e, price, rulosPrice, serviceDuration, serviceBookingLink, whatsappLink } from "./utils.mjs";
 import { header, footer, lightbox, faq, finalCta, wa, link, mobileBooking } from "./components.mjs";
 import { hero, featuredRulos, servicesSection, gallery, socialProof, team, featuredProducts, location, reels, productCard, workGallery } from "./sections.mjs";
 
@@ -12,9 +13,9 @@ function productsPage() {
   return `<section class="wrap catalog-hero" id="inicio"><p class="eyebrow">PRODUCTOS · 17:17</p><h1>El último toque.<br>También en casa.</h1><p>Styling, textura y cuidado para acompañar tu look. Consultanos por el producto que buscás y su disponibilidad.</p>${wa("Consultar productos","PRODUCTOS")}</section>${available.length ? `<section class="section wrap catalog-section" aria-labelledby="catalog-title"><h2 id="catalog-title">Productos</h2><div class="product-grid">${available.map(productCard).join("")}</div></section>` : `<section class="wrap product-consult" aria-labelledby="product-help-title"><h2 id="product-help-title">Encontrá tu forma<br>de peinarte.</h2><div><p>Podés consultar por pomadas, ceras, productos de textura y cuidado para barba.</p><p>Te confirmamos las opciones, el precio y la disponibilidad por WhatsApp.</p><div class="product-categories"><span>Styling</span><span>Textura</span><span>Barba</span></div></div></section>`}<section class="wrap catalog-visit"><h2>También podés pasar por la barbería.</h2><p>${e(business.address)} · ${e(business.city)}<br>${e(business.hours)}</p>${link("Cómo llegar",business.maps)}</section>`;
 }
 function bookingPage() {
-  return `<section class="wrap catalog-hero booking-intro" id="inicio"><p class="eyebrow">TURNOS · 17:17</p><h1>Elegí tu<br>servicio.</h1><p>Coordiná tu turno según el tiempo que necesita cada servicio. Te esperamos en la barbería, en Luque.</p></section><section class="wrap booking-services" aria-labelledby="booking-services-title"><h2 class="sr-only" id="booking-services-title">Servicios para reservar</h2>${services.map(s => {
-    const url = serviceBookingLink(s.id), direct = url.startsWith("https://cal.com/");
-    return `<article class="booking-service"><div><h3>${e(s.name)}</h3><p>${e(serviceDuration(s))} · ${price(s.price)}</p>${s.consultationRequired ? '<p class="booking-note">Consultá primero por el largo y las condiciones de tu cabello. El corte se cobra por separado.</p>' : ''}</div>${link(s.consultationRequired ? "Consultar por rulos" : direct ? "Elegir horario" : "Coordinar por WhatsApp", url, "button outline")}</article>`;
+  return `<section class="wrap catalog-hero booking-intro" id="inicio"><p class="eyebrow">TURNOS · 17:17</p><h1>Elegí tu<br>servicio.</h1><p>Coordiná tu turno según el tiempo que necesita cada servicio. Te esperamos en la barbería, en Luque.</p><div class="actions">${link(nativeBookingLink() ? "Agendar" : "Coordinar por WhatsApp", nativeBookingLink() || whatsappLink({ intent:"AGENDA" }), "button")}</div></section><section class="wrap booking-services" aria-labelledby="booking-services-title"><h2 class="sr-only" id="booking-services-title">Servicios para reservar</h2>${services.map(s => {
+    const url = serviceBookingLink(s.id), direct = !url.startsWith("https://wa.me/");
+    return `<article class="booking-service"><div><h3>${e(s.name)}</h3><p>${e(serviceDuration(s))} · ${price(s.price)}</p>${s.consultationRequired ? s.id === 'rulos' ? '<p class="booking-note">Consultá primero por el largo y las condiciones de tu cabello. El corte se cobra por separado.</p>' : '<p class="booking-note">Consultá las condiciones del servicio antes de reservar.</p>' : ''}</div>${link(s.consultationRequired ? s.id === "rulos" ? "Consultar por rulos" : "Consultar servicio" : direct ? "Elegir horario" : "Coordinar por WhatsApp", url, "button outline")}</article>`;
   }).join("")}<p class="booking-address">Atención presencial · ${e(business.address)} · ${e(business.city)}</p></section>`;
 }
 export function renderPage(name, siteUrl = "", assetVersion = "") {
@@ -38,7 +39,7 @@ export function renderPage(name, siteUrl = "", assetVersion = "") {
     },
     reservar: {
       title: "Elegí tu servicio | Turnos 17:17 Barbería, Luque",
-      description: "Coordiná tu turno presencial en 17:17 según el servicio: corte 40 minutos, rulos y tinte 2 horas, lavado 10 minutos.",
+      description: "Reservá tu turno presencial en 17:17 con Barbería OS. Consultá primero por rulos; servicios y horarios según disponibilidad del local.",
       path: "/reservar",
     },
     trabajos: {

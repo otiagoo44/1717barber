@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "mode": "Actual Next API validation with gateway intentionally unconfigured; no database booking attempted",
+  "results": [
+    {
+      "name": "Forged source rejected",
+      "status": 400
+    },
+    {
+      "name": "Forged price rejected",
+      "status": 400
+    },
+    {
+      "name": "Forged tenant ID rejected",
+      "status": 400
+    },
+    {
+      "name": "Wrong origin rejected",
+      "status": 403
+    },
+    {
+      "name": "Valid website payload reaches gateway; deployment setup missing",
+      "status": 503
+    }
+  ]
+}

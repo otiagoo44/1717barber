@@ -3,6 +3,8 @@ import { readFile, stat } from "node:fs/promises";
 import { resolve, extname, sep } from "node:path";
 const root = resolve("dist"),
   port = Number(process.env.PORT || 4174);
+const vercel = JSON.parse(await readFile("vercel.json", "utf8"));
+const securityHeaders = Object.fromEntries(vercel.headers.find(rule => rule.source === "/(.*)" && !rule.has).headers.map(h => [h.key, h.value]));
 const types = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -28,6 +30,7 @@ createServer(async (req, res) => {
     const body = await readFile(path);
     res.writeHead(200, {
       "Content-Type": types[extname(path)] || "application/octet-stream",
+      ...securityHeaders,
     });
     res.end(body);
   } catch {

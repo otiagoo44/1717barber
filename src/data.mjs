@@ -1,19 +1,9 @@
 // Única fuente editorial. Reemplazar null con datos confirmados; no inferir claims.
 import { workAssets } from "./work-assets.mjs";
+import { bookingConfiguration } from "./booking.mjs";
 export const business = {
   slug: "1717",
-  booking: {
-    provider: "cal.com",
-    url: "https://cal.com/ezequiel-oviedo-dthlhd/barberia",
-    // Objetivo confirmado; no describe una configuración externa ya activada.
-    assignment: "automatic",
-    availabilityMode: "dateCoverage",
-    timezone: "America/Asuncion",
-    serviceEvents: {
-      corte: null, rulos: null, tinte: null, barba: null,
-      infantil: null, cejas: null, lavado: null,
-    },
-  },
+  booking: bookingConfiguration,
   name: "17:17 Barbería",
   phone: "0983 402 497",
   whatsapp: "595983402497",
@@ -182,7 +172,7 @@ export const services = [
     featured: true,
   },
   { id: "corte", name: "Corte masculino", price: 30000, intent: "CORTE", durationMinutes: 40 },
-  { id: "tinte", name: "Tinte", price: 200000, intent: "TINTE", durationMinutes: 120 },
+  { id: "tinte", name: "Tinte", price: null, intent: "TINTE", durationMinutes: null },
   { id: "barba", name: "Barba", price: 30000, intent: "BARBA", durationMinutes: 40 },
   {
     id: "infantil",
@@ -346,7 +336,10 @@ export const generalReel = {
 };
 export const rulosDetails = {
   includes: "Servicio de rulos permanentes. El corte no está incluido y se cobra por separado.",
-  duration: "Aproximadamente 2 horas.",
+  get duration() {
+    const minutes = services.find(s => s.id === "rulos").durationMinutes;
+    return `Aproximadamente ${minutes === 120 ? "2 horas" : minutes + " minutos"}.`;
+  },
   conditions: "Consultanos por WhatsApp por el largo y las condiciones de tu cabello. Evaluamos cada caso antes de reservar.",
   description: null,
   care: null,
@@ -364,16 +357,25 @@ export const rulosProcess = [
 }));
 export const homeFaq = [
   ["¿Cómo reservo un turno?", "Usá los botones de agenda para elegir el servicio y coordinar tu turno. Para rulos, consultá primero por el largo y las condiciones de tu cabello."],
-  ["¿Cuánto cuesta el corte?", `El corte masculino cuesta Gs. ${services.find(s => s.id === "corte").price.toLocaleString("es-PY")}.`],
-  ["¿Cuánto cuestan los rulos permanentes?", `Los rulos permanentes cuestan Gs. ${services.find(s => s.id === "rulos").price.toLocaleString("es-PY")}. El corte se cobra por separado. El servicio dura aproximadamente 2 horas; consultanos por el largo y las condiciones de tu cabello antes de reservar.`],
+  ["¿Cuánto cuesta el corte?", () => {
+    const amount = services.find(s => s.id === "corte").price;
+    return amount === null ? "Consultanos por el precio del corte masculino." : `El corte masculino cuesta Gs. ${amount.toLocaleString("es-PY")}.`;
+  }],
+  ["¿Cuánto cuestan los rulos permanentes?", () => {
+    const amount = services.find(s => s.id === "rulos").price;
+    return `${amount === null ? "Consultanos por el precio de los rulos permanentes." : "Los rulos permanentes cuestan Gs. " + amount.toLocaleString("es-PY") + "."} El corte se cobra por separado. El servicio dura ${rulosDetails.duration.toLowerCase().replace(/\.$/, "")}; consultanos por el largo y las condiciones de tu cabello antes de reservar.`;
+  }],
   ["¿Dónde queda la barbería?", `Estamos en ${business.address}, ${business.city}. Encontrás el enlace a Google Maps en la sección de ubicación.`],
   ["¿Qué días y horarios atienden?", "Atendemos de lunes a sábado, de 8:00 a 21:00."],
   ["¿Puedo consultar por productos para el cabello?", "Sí. Escribinos por los productos de styling y cuidado que buscás. Te confirmamos las opciones, el precio y la disponibilidad por WhatsApp."]
 ];
 export const rulosFaq = [
   homeFaq[2],
-  ["¿Los rulos incluyen corte?", "No. Los rulos cuestan Gs. 180.000 y el corte se cobra por separado."],
-  ["¿Cuánto tiempo lleva el servicio?", rulosDetails.duration],
+  ["¿Los rulos incluyen corte?", () => {
+    const amount = services.find(s => s.id === "rulos").price;
+    return amount === null ? "No. Consultanos el precio; el corte se cobra por separado." : `No. Los rulos cuestan Gs. ${amount.toLocaleString("es-PY")} y el corte se cobra por separado.`;
+  }],
+  ["¿Cuánto tiempo lleva el servicio?", () => rulosDetails.duration],
   ["¿Qué largo necesito y cuáles son las condiciones?", rulosDetails.conditions],
   homeFaq[0], homeFaq[3], homeFaq[4],
 ];

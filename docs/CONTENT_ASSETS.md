@@ -56,6 +56,6 @@ Actualización por nueva instrucción del dueño: ampliar la evidencia visual, n
 4. Cuidados posteriores y descripción técnica de rulos, si quieren publicarlos; no se inventan instrucciones.
 5. Testimonios verificables, si quieren agregarlos. No existen citas reales en los datos actuales; no bloquean el recorrido.
 
-6. Configurar eventos Cal.com por servicio y disponibilidad independiente de ambos barberos. 40m sí corresponde a corte, no a rulos/tinte (120m). Cambiar Cal Video a presencial y activar asignación automática verificada. Ver [BOOKING_SETUP.md](BOOKING_SETUP.md).
+6. Activar Barbería OS con organización, sucursal, servicios, staff, horarios y capacidades reales. Los precios y duraciones operativos provienen del catálogo público del CRM. Rulos conserva consulta previa. Ver [BOOKING_SETUP.md](BOOKING_SETUP.md).
 
 Mejoras opcionales: packshots originales de productos, fotos de rulos de mayor resolución en lugar de frames, logo vectorial. Las fotos actuales de cortes, vistas del local y presentaciones de ambos cofundadores ya no son pendientes. La existencia del enlace recibido no resuelve la configuración por servicio, ubicación presencial ni cobertura real de los barberos.

@@ -68,7 +68,7 @@ components:
 
 ## Overview
 
-17:17 Barbería, Luque. Presentación editorial, apoyada en trabajo real, precios claros y dos intenciones: agendar en Cal.com y consultar por WhatsApp. Se conserva el orden y Archivo Black del diseño aprobado. Público local que llega desde Instagram en celular. Taste: variance 5, motion 6, density 3.
+17:17 Barbería, Luque. Presentación editorial, apoyada en trabajo real, precios claros y dos intenciones: agendar en Barbería OS y consultar por WhatsApp. Se conserva el orden y Archivo Black del diseño aprobado. Público local que llega desde Instagram en celular. Taste: variance 5, motion 6, density 3.
 
 Una referencia de sistema: BMW Corporate del catálogo local Awesome Design MD. Sólo alineación, ritmo, fotografía sobria, tipografía legible y jerarquía de CTA; no paleta, fuentes propietarias, componentes o identidad. Las anteriores referencias de landings dejan de regir.
 
@@ -98,7 +98,7 @@ Fotos rectas: hero 1:1 desktop / 5:4 mobile, adaptado a 3:4 en tablet y 4:5 para
 
 ## Components
 
-CTA sólido ocre: Reservar turno/Agendar abre `/reservar`, selección del servicio y su duración. Cada servicio deriva sólo a su evento Cal.com verificado; hasta configurar el proveedor, coordina por WhatsApp. Rulos exige consulta previa. Configuración única en business.booking.serviceEvents, sin usar el evento genérico de 40 minutos para otros servicios. Productos siempre se consultan por WhatsApp. Exploración con enlace subordinado. Targets mínimo 44px, botón principal 52px. Servicios en lista con precio y consulta contextual. Galería sólo real, sin trabajos repetidos, filtros y lightbox con teclado/Escape/swipe/retorno de foco. FAQ details/summary sólo con respuestas verificadas. Menú dialog accesible.
+CTA sólido ocre: Reservar turno/Agendar abre `/reservar`, con acceso a la agenda pública de Barbería OS sin servicio preseleccionado. Los CTA específicos utilizan el slug real de public_catalog. Configuración pública de URL, organización y sucursal; precios/duraciones sincronizados durante el build. Hasta que exista el catálogo real, se coordina por WhatsApp. Rulos exige consulta previa; productos conservan WhatsApp. Exploración con enlace subordinado. Targets mínimo 44px, botón principal 52px. Servicios en lista con precio y consulta contextual. Galería sólo real, sin trabajos repetidos, filtros y lightbox con teclado/Escape/swipe/retorno de foco. FAQ details/summary sólo con respuestas verificadas. Menú dialog accesible.
 
 Jonatan y Esteban comparten foto y peso tipográfico, ambos cofundadores. No asignar identidades en la foto conjunta. Retratos individuales ausentes se señalan explícitamente; cada componente queda listo para recibir su imagen. Presentaciones breves sólo desde sus palabras verificadas, sin inventar trayectoria ni especialidades. Testimonios requieren quote/name/source; productos requieren imagen y ficha verificada. /productos conserva consulta sin afirmar stock.
 

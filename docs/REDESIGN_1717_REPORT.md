@@ -1,3 +1,5 @@
+> Reserva vigente: Barbería OS/PostgreSQL. Las referencias históricas a Cal.com quedaron obsoletas; ver [BOOKING_SETUP.md](BOOKING_SETUP.md).
+
 # Rediseño 17:17
 
 Las secciones iniciales conservan la auditoría y entrega de la primera pasada como registro histórico. El estado actual está en **SECOND PASS — VISUAL & MOTION ELEVATION** y la lista vigente para compartir está en [MATERIAL_PENDIENTE_1717.md](MATERIAL_PENDIENTE_1717.md). Los nombres y cinco URLs que antes faltaban ya fueron recibidos.

@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-12T22:47:44.907Z",
+  "landing": {
+    "tests": 15,
+    "build": true,
+    "distSecrets": "No private identifiers/values; synthetic secret canaries excluded",
+    "browser": 10
+  },
+  "crm": {
+    "lint": true,
+    "typecheck": true,
+    "unitTests": 7,
+    "postgresContracts": 51,
+    "build": true,
+    "browserFixtureCases": 12
+  },
+  "production": {
+    "publicUrl": "https://barberia-crm.vercel.app",
+    "organizationSlug": null,
+    "branchSlug": null,
+    "status": "Awaiting real tenant and deployment; no invented slugs"
+  }
+}

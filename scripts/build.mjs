@@ -2,6 +2,8 @@ import { mkdir, writeFile, cp, readFile } from "node:fs/promises";
 import { renderPage } from "../src/pages.mjs";
 import { business } from "../src/data.mjs";
 import { createHash } from "node:crypto";
+import { configureBooking } from "./booking-config.mjs";
+await configureBooking();
 let siteUrl =
   process.env.SITE_URL ||
   business.siteUrl ||

@@ -63,7 +63,7 @@ export function lightbox() {
   return `<dialog id="lightbox" class="lightbox" aria-labelledby="lightbox-title"><div class="lightbox-bar"><h2 id="lightbox-title">Resultado 17:17</h2><button data-lightbox-close aria-label="Cerrar foto">Cerrar <span aria-hidden="true">×</span></button></div><div class="lightbox-media"></div><div class="lightbox-controls"><button data-lightbox-prev aria-label="Foto anterior">← Anterior</button><span class="lightbox-count" aria-live="polite"></span><button data-lightbox-next aria-label="Foto siguiente">Siguiente →</button></div></dialog>`;
 }
 export function faq(items, title = "Antes de venir.", id = "faq") {
-  const answered = items.filter(([,answer]) => answer);
+  const answered = items.map(([q, answer]) => [q, typeof answer === "function" ? answer() : answer]).filter(([,answer]) => answer);
   if (!answered.length) return "";
   return `<section id="${id}" class="section wrap faq-section"><div><p class="eyebrow">PREGUNTAS FRECUENTES</p><h2>${e(title)}</h2><p>Lo esencial para organizar tu visita.</p></div><div class="faq-list">${answered.map(([q,a]) => `<details><summary>${e(q)}<span aria-hidden="true">+</span></summary><div class="faq-answer">${e(a)}</div></details>`).join("")}</div></section>`;
 }

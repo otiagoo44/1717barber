@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "mode": "Isolated configured build with public catalog fixtures; never production tenant configuration",
+  "checks": [
+    "General booking without service",
+    "Canonical cut slug",
+    "Distinct color services and catalog prices",
+    "Consultation-only curls",
+    "No secret canaries in dist",
+    "Five static routes and canonical SEO"
+  ]
+}

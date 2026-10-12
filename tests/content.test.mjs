@@ -23,7 +23,7 @@ test("Datos comerciales preservados y precios actuales", () => {
     [
       ["rulos", 180000],
       ["corte", 30000],
-      ["tinte", 200000],
+      ["tinte", null],
       ["barba", 30000],
       ["infantil", 30000],
       ["cejas", 10000],
@@ -127,32 +127,20 @@ test("Cinco páginas estáticas con semántica, SEO y carga ligera", async () =>
     );
   }
 });
-test("Agenda selecciona servicio antes de abrir un evento externo", () => {
+test("Agenda sin configurar conserva coordinación y no publica enlaces ficticios", () => {
   assert.equal(bookingLink(), "/reservar");
-  for (const name of ["home", "rulos", "productos"]) {
+  for (const name of ["home", "rulos", "productos", "reservar", "trabajos"]) {
     const html = renderPage(name);
-    const links = [...html.matchAll(/<a\b([^>]+)>/g)].map(([, attrs]) => attrs);
-    assert.ok(links.some(a => a.includes('data-cta="reservar"')));
-    for (const attrs of links) {
+    assert.doesNotMatch(html, /cal\.com|serviceEvents|Round Robin|barberia_id|service_role|BOOKING_GATEWAY_SECRET/);
+    for (const [,attrs] of html.matchAll(/<a\b([^>]+)>/g)) {
       if (attrs.includes('data-cta="reservar"')) assert.ok(attrs.includes('href="/reservar"'));
-      if (attrs.includes('data-cta="producto"') || attrs.includes('data-cta="servicio"')) assert.match(attrs, /href="https:\/\/wa\.me\//);
     }
-    assert.doesNotMatch(html, /barberia_id|service_role|CAL_API_KEY|CAL_SECRET|landing_token/);
   }
-  assert.deepEqual(services.map(s => [s.id,s.durationMinutes]), [["rulos",120],["corte",40],["tinte",120],["barba",40],["infantil",40],["cejas",40],["lavado",10]]);
   for (const service of services) assert.match(serviceBookingLink(service.id), /^https:\/\/wa\.me\/595983402497/);
-  const event = {url:business.booking.url,durationMinutes:40,location:"inPerson",assignment:"roundRobin",verified:true};
-  const config = {serviceEvents:{corte:event,rulos:{...event,durationMinutes:120}}};
-  assert.equal(serviceBookingLink("corte",config),business.booking.url);
-  assert.match(serviceBookingLink("rulos",config),/wa\.me/);
-  for (const invalid of [{durationMinutes:120},{location:"calVideo"},{assignment:"collective"},{verified:false},{url:"https://example.test"},{url:"https://cal.com.evil.test/corte"},{url:"http://cal.com/corte"}]) {
-    assert.throws(() => serviceBookingLink("corte",{serviceEvents:{corte:{...event,...invalid}}}));
-  }
-  assert.throws(() => serviceBookingLink("rulos+corte"),/desconocido/);
-  const html = renderPage("reservar");
-  assert.equal((html.match(/class="booking-service"/g)||[]).length,7);
-  assert.doesNotMatch(html, /Cal Video|barberia_id|service_role|CAL_API_KEY/);
-  assert.ok(html.includes("2 horas"));
+  assert.throws(() => serviceBookingLink("inexistente"), /desconocido/);
+  assert.equal(services.find(s=>s.id==="rulos").consultationRequired,true);
+  assert.ok(renderPage("reservar").includes("Consultar precio"));
+  assert.equal((renderPage("reservar").match(/class="booking-service"/g)||[]).length,services.length);
 });
 test("Galería ampliada publica material real sin reseñas inventadas ni video inicial", async () => {
   assert.equal(workAssets.filter(w=>w.type==='photo').length,24);
