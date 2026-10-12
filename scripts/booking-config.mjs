@@ -28,6 +28,8 @@ export async function configureBooking(env = process.env, request = fetch) {
     url.searchParams.set("branch", config.branchSlug);
     const response = await request(url, { signal: AbortSignal.timeout(15000), redirect: "error" });
     if (!response.ok) throw new Error(`Catálogo del CRM no disponible (${response.status}). No se publicaron datos inventados.`);
+    if (!response.headers.get("content-type")?.includes("application/json"))
+      throw new Error("La URL pública no sirve un catálogo JSON de Barbería OS.");
     const catalog = await response.json();
     const projected = projectServices(catalog, config);
     config.catalog = catalog;

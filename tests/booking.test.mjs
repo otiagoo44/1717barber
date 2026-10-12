@@ -80,3 +80,9 @@ test("FAQ y destacados no conservan importes/duración anteriores al catálogo",
     assert.doesNotMatch(rulos,/Gs\. 180\.000|2 horas/);
   } finally {services.splice(0,services.length,...original);}
 });
+test("HTTP 200 con un starter HTML no habilita el booking del CRM",async()=>{
+  await assert.rejects(()=>configureBooking(env,async()=>({
+    ok:true, headers:new Headers({"content-type":"text/html"}),
+    json:async()=>{throw new Error("No debería intentar interpretar HTML como catálogo");},
+  })),/no sirve un catálogo JSON/);
+});

@@ -8,6 +8,8 @@ El código real auditado es `otiagoo44/barberia-crm`, commit `922df3e`. La base 
 
 ## Activación
 
+La comprobación pública final encontró un starter NextSpark en la URL prevista; su endpoint catalog devuelve HTML. Hace falta asociar ese dominio al CRM real. Un HTTP 200 por sí solo no certifica el contrato: el build exige JSON compatible.
+
 1. Desplegar el CRM y aplicar su migración `20261012210000_website_booking.sql` mediante su procedimiento normal. No hace falta acceso de la landing a Supabase ni al gateway.
 2. Crear la organización 17:17 y sucursal Luque desde el CRM con sus slugs definitivos. Habilitar reservas, horarios, staff, capacidades y servicios del local.
 3. En cada servicio asignar `website_category`: corte, rulos, tinte, barba, infantil, cejas o lavado. Es una clasificación editorial explícita; el identificador de reserva siempre es el slug canónico del servicio. Dos servicios de tinte pueden compartir categoría. Corte y Rulos requieren un servicio canónico cada uno para sus CTA editoriales actuales.
