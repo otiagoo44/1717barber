@@ -11,7 +11,7 @@ const browser = await puppeteer.launch({executablePath:process.env.CHROME_PATH,h
 const out = process.env.QA_OUT || 'docs/qa/refinement';
 const base = process.env.QA_URL || 'http://127.0.0.1:4174';
 await mkdir(out,{recursive:true});
-const report = {pages:[],interactions:[],errors:[],limitations:['Chrome viewport/touch emulation; no physical phone.','External link clicks intercepted; no WhatsApp messages or real bookings sent.','Native MP4 playback is tested separately.']};
+const report = {date:new Date().toISOString(),browser:await browser.version(),pages:[],interactions:[],errors:[],limitations:['Chrome viewport/touch emulation; no physical phone.','External link clicks intercepted; no WhatsApp messages or real bookings sent.','Native MP4 playback is tested separately.']};
 if(process.env.QA_INTERACTIONS_ONLY) report.pages=JSON.parse(await readFile(`${out}/qa.json`,'utf8')).pages;
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
 try {
@@ -35,17 +35,28 @@ try {
       // Let decoding, reveal animations and the compositor finish before a
       // full-page capture; rapid sweep + 500ms produced blank offscreen tiles.
       await sleep(1300);
+      // Layout/image settling can move a reveal past a sweep position. Visit
+      // any remaining target in a real viewport so IO completes naturally.
+      for (const target of await page.$$('.reveal-pending')) {
+        await target.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
+        await sleep(1100);
+        assert.equal(await target.evaluate(el=>el.classList.contains('reveal-pending')),false,'Reveal must complete in its real viewport');
+      }
+      await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
+      await sleep(1300);
       const metrics = await page.evaluate(()=>({
         overflow:document.documentElement.scrollWidth>innerWidth,
         h1:document.querySelectorAll('h1').length,
         placeholders:document.querySelectorAll('[data-placeholder]').length,
         iframes:document.querySelectorAll('iframe').length,
+        pendingReveals:document.querySelectorAll('.reveal-pending').length,
         images:[...document.images].filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src),
         requests:performance.getEntriesByType('resource').map(r=>r.name),
         headings:[...document.querySelectorAll('h1,h2')].map(h=>({text:h.textContent,width:h.getBoundingClientRect().width})),
       }));
       assert.equal(metrics.overflow,false,`${route}/${width}: overflow`);
       assert.equal(metrics.h1,1); assert.equal(metrics.placeholders,0); assert.equal(metrics.iframes,0); assert.deepEqual(metrics.images,[]);
+      assert.equal(metrics.pendingReveals,0);
       assert.ok(metrics.requests.every(u=>u.startsWith(locationOrigin(base))), 'No third-party initial requests');
       const axe = await new AxePuppeteer(page).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
       const violations=axe.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}));

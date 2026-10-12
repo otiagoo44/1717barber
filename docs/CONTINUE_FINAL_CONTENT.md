@@ -1,42 +1,30 @@
-# Prompt para continuar 17:17 en otra máquina
+# Continuar 17:17 después del QA final
 
-Copiar el siguiente bloque al iniciar Codex en el repositorio:
+Estado del 12 de octubre de 2026. La entrega técnica conserva el diseño aprobado y completa el QA del último ajuste de imágenes/JS. El usuario autorizó expresamente llevar la rama `feat/final-content-booking` a `main`; la entrega Git se comprueba con `git status`, `git log` y `git ls-remote origin`.
 
-```text
-Continuá la finalización de 17:17 Barbería desde la rama feat/final-content-booking de otiagoo44/1717barber.
+## Alcance preservado
 
-PRESERVAR EL DISEÑO APROBADO. No rehagas la landing, paleta, Archivo Black/Inter, orden de secciones ni motion. Esta es una pasada de contenido, integración y QA. No crear barberia-crm ni Supabase todavía.
+- Archivo Black/Inter, negro/marfil/ocre, orden de secciones, composición y motion permanecen aprobados. No rediseñar.
+- Agenda real única en `business.booking.url`: `https://cal.com/ezequiel-oviedo-dthlhd/barberia`. Consultas contextuales a WhatsApp `595983402497`.
+- Rulos Gs. 180.000, corte separado, aproximadamente dos horas. Largo/condiciones por consulta individual antes de reservar.
+- Cinco reels locales bajo interacción, cinco fichas de productos, tres destacados en Home, tres vistas del local y trabajos distintos por página. Originales conservados fuera de dist.
+- Jonatan y Esteban, ambos Cofundador: bios/headlines ya verificados desde sus videos. No pedirlos otra vez ni asignar identidades desde la foto conjunta.
+- Contrato futuro CRM multi-barbería en `BARBERIA_CRM_INTEGRATION.md`: backend autoritativo por webhook firmado Cal.com/API v2, tenant server-side, inbox/idempotencia y UID previo/nuevo. No crear CRM/Supabase todavía ni inserts/secretos desde la landing.
 
-Primero ejecutá git status, git branch --show-current y git log --oneline --decorate -n 15. Revisá el commit de esta rama y su diff contra su parent. No hagas checkout destructivo ni pises cambios locales. La base auditada de este trabajo fue 684688bfd8a4b023b347ed4405a4db4fba1ca6bc; su parent fue 7a18792786290b7f1a5e8953da8d58ebf84d2bd0.
+## Pendientes antes de publicación comercial
 
-Leé README.md, DESIGN.md, docs/REDESIGN_1717_REPORT.md (FINAL CONTENT PASS), docs/CONTENT_ASSETS.md/json, docs/FOUNDER_CONTENT.md, docs/BARBERIA_CRM_INTEGRATION.md y docs/MATERIAL_PENDIENTE_1717.md. Buscá .agents/skills y leé las de diseño realmente instaladas (impeccable, taste, google-design-md, awesome-design-md, ui-ux-pro-max si existen). Usarlas para preservar/pulir y comprobar, no rediseñar. No asumir que una skill viajó a esta máquina.
+1. El dueño debe corregir/confirmar en Cal.com servicio reservable, duración y atención presencial. La inspección actual a 390/1440 muestra horarios, HTTP 200 y todavía **40m / Cal Video**. No modificar su cuenta ni crear reservas reales sin instrucciones específicas.
+2. Recibir retratos individuales actuales de Jonatan y Esteban con calidad/encuadre equivalentes, completar `founders[].image` y regenerar build. Las presentaciones ya están listas y los retratos faltantes se señalan explícitamente.
+3. Validar performance en CDN y con datos de campo. Lighthouse local: 85/85/98, accesibilidad/buenas prácticas/SEO 100; LCP 2,56/2,72/1,89s, TBT 379/361/105ms, CLS 0. No afirmar Core Web Vitals PASS ni atribuir la variación entre corridas a cambios nuevos de JS/CSS.
 
-YA IMPLEMENTADO:
-- Selección real sin fotos/trabajos repetidos dentro de cada página. Rulos protagonistas, cortes actuales y color histórico limpio. Capturas/UI ajenas y clips extra excluidos; originales en img/fotos-* conservados y fuera de dist.
-- Cinco productos identificados con WebP/AVIF y Consultar por WhatsApp; tres destacados en home, catálogo /productos. No ecommerce, precios/stock/claims inventados. Producto de barba aún no identificado, sin ficha publicada.
-- Tres vistas actuales del local (fachada, interior, puesto).
-- Rulos Gs. 180.000, NO incluye corte, aproximadamente 2 horas. Evaluar largo/condiciones individualmente por WhatsApp antes de reservar. No publicar cuidados inventados.
-- Exactamente cinco reels, REEL_RULOS_01..05, MP4/posters existentes bajo interacción. Sin sexto, autoplay simultáneo ni descargas iniciales de video.
-- Agenda real https://cal.com/ezequiel-oviedo-dthlhd/barberia centralizada en business.booking.url de src/data.mjs. Header/hero/servicios/barra mobile/ubicación/cierre usan Cal.com. Consultas de rulos/servicios/productos/contacto siguen por WhatsApp 595983402497 con mensajes contextuales.
-- Jonatan y Esteban, ambos Cofundador y misma jerarquía, tienen textos breves extraídos de sus videos. Jonatan: El oficio se construye. Esteban: Crecer mano a mano. docs/FOUNDER_CONTENT.md registra evidencia/intervalos. No volver a pedir bios ni inventarlas. Retratos individuales aún null y señalados como pendientes; textos ya quedan debajo del retrato futuro. No usar la foto conjunta para adjudicar identidades.
-- Contrato futuro CRM multi-barbería documentado: landing externa; reservas autoritativas por webhook firmado Cal.com/API v2; tenant server-side por integración/event type/team; idempotencia/inbox/UID previo y nuevo en reprogramación; RLS/contactos/citas/historial. No tenant UUID confiado al frontend, claves privadas, service role ni inserts desde la landing.
+Producto de barba sin identificar, cuidados, testimonios y mejores packshots son opcionales; no inventarlos. Canonical actual `1717barber.vercel.app`, dominio definitivo mediante SITE_URL.
 
-PENDIENTE ANTES DE PUBLICACIÓN COMERCIAL:
-1. Cal.com EXTERNO abre y muestra horarios, pero el evento recibido dice 40m y Cal Video. El dueño debe confirmar/corregir servicio reservable, duración y atención presencial; rulos son ~2h y requieren consulta. No inventes otro link ni crees reservas reales para probar. No se modificó su cuenta.
-2. Recibir retratos individuales actuales de ambos y sustituir founders[].image con igual calidad/encuadre. El componente ya funciona con placeholders explícitos.
-3. QA final tras la ÚLTIMA optimización de imágenes/JS: se ajustó sizes de galería a columnas reales, hero tiene variantes 600/900/1200, y páginas sin barra flotante no inicializan su observer. npm test (7/7), build, design:lint y sintaxis pasaron. Repetir QA browser/motion/reels y las capturas después de esa optimización. Las 18 combinaciones anteriores pasaron, pero no afirmar que son una prueba del último ajuste sin repetirlo.
-4. Revisar performance: último Lighthouse con Chrome limpio por ruta dio Home 79, Rulos 76, Productos 83; accesibilidad/best practices/SEO 100 en las tres. LCP 2.71/2.72/1.91s, TBT 635/673/547ms, CLS ~0. Hay variación importante entre corridas. No prometer Core Web Vitals PASS. Home bajó de 528 a 336 KiB y rulos a 401 KiB. Evaluar TBT y validar luego en CDN real, conservando el motion. Baseline e intentos previos están en docs/qa/final-content.
+## QA ya completado
 
-QA A COMPLETAR:
-- Leer package.json y ejecutar comandos existentes: npm test, npm run build, npm run design:lint. No hay lint de código ni typecheck definidos.
-- Entorno de QA aparte del runtime: instalar puppeteer-core, @axe-core/puppeteer y lighthouse en un directorio externo, definir QA_TOOLS_DIR, CHROME_PATH, QA_URL y QA_OUT. README documenta scripts/qa-refinement.mjs, qa-reels-native.mjs, qa-scroll-entry.mjs, qa-performance.mjs. Ejecutar Lighthouse/motion solos, sin otros navegadores de QA/transcripción concurrentes.
-- Capturas obligatorias Home,/rulos,/productos a 390,768,1440 (altura 900), comparar con docs/qa/final-content/before. QA responsive adicional 375,430,1024. Revisar composición, galerías, productos, perfiles, local, teclado, foco, diálogos, lightbox, FAQ, reduced motion, no-JS y consola.
-- El harness de captura debe decodificar imágenes ANTES del barrido y recorrer a 500px/160ms, esperar compositor/reveals. Barridos rápidos generaban fotos vacías sólo en screenshots; en viewport real se comprobó que aparecen. No quitar el motion para arreglar capturas. scripts/qa-refinement.mjs contiene el ajuste.
-- Todos los enlaces visibles en desktop/mobile: Cal.com, WhatsApp, Instagram, Maps, Inicio,Rulos,Productos. WhatsApp/Instagram/Maps respondieron HTTP200 y Cal fue inspeccionado a390/1440; no se enviaron mensajes ni reservas. Maps sigue siendo búsqueda de la dirección existente, no pin nuevo.
-- Buscar precio viejo como valor independiente (80000/80.000/80,000) sin confundirlo con 180000/180.000; buscar sexto reel, secretos, barberia_id en código público, TODO/placeholder/pending. Los null reales de portraits, cuidados/testimonios opcionales y producto de barba son honestos, no regresiones.
-- No publicar testimonios/ratings inexistentes. Canonical actual 1717barber.vercel.app; SITE_URL permite dominio definitivo. No usar la producción vieja como referencia visual.
+Tests 7/7, build, DESIGN lint sin errores/advertencias y sintaxis PASS. QA browser/Axe en 18 combinaciones, enlaces desktop/mobile, teclado/foco y tres diálogos, lightbox, filtros, FAQ, no-JS y reduced motion PASS. Cinco reels reproducidos realmente; ocho entradas animadas sin parpadeo/replay PASS. Capturas nuevas comparadas con las nueve de `before/`, incluyendo viewports reales de equipo/perfiles/local. Precio viejo independiente, sexto reel, secretos/tenant público, TODO y ratings ficticios ausentes. 71 originales presentes, 59 hashes disponibles coincidentes.
 
-Actualizá los informes con resultados reales, commit claro y push de la rama después del QA. No merge a main ni despliegue comercial hasta resolver Cal.com y confirmar los pendientes. No declarar terminado si queda QA crítico o configuración externa incorrecta.
-```
+Evidencia vigente: `docs/qa/final-content/verified/`. Las carpetas before/after y sus informes anteriores son históricos. `README.md` documenta comandos/env de QA. Instalar herramientas en un directorio externo; ejecutar los scripts secuencialmente, Lighthouse/motion sin otros navegadores de QA concurrentes. El harness decodifica antes del barrido a 500px/160ms, espera compositor y visita cualquier reveal restante antes de capturar; no quitar motion para arreglar screenshots.
 
-Si el push de esta sesión quedó bloqueado por red, el respaldo `1717-final-content-booking-2026-10-12.bundle` contiene la rama y su historia. Tras copiarlo a la otra máquina: `git clone --branch feat/final-content-booking <ruta-al-bundle> 1717barber`, entrar al repo y cambiar origin al repositorio GitHub original antes de hacer push. Los videos originales de presentación siguen en Downloads de esta máquina; no son necesarios para conservar los textos verificados y no viajaron al repo.
+Primero revisar Git sin checkout destructivo ni pisar ediciones. Leer README, DESIGN, el final del REDESIGN_1717_REPORT, CONTENT_ASSETS.md/json, FOUNDER_CONTENT, BARBERIA_CRM_INTEGRATION y MATERIAL_PENDIENTE. Comprobar que las skills de diseño existen en esta máquina antes de usarlas para preservar/pulir. La base de contenido fue `ae7a8ea`, parent `684688b`; el parent de la base auditada fue `7a18792`. No usar la producción histórica como referencia visual. No declarar publicación comercial resuelta mientras Cal.com/retratos sigan pendientes.
+
+El bundle anterior `1717-final-content-booking-2026-10-12.bundle` es respaldo histórico de la sesión previa: no asumir que contiene este QA. Los videos privados de presentación no viajaron al repositorio; sus textos/evidencia ya están documentados y no requieren volver a transcribirlos.

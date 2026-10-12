@@ -12,4 +12,16 @@ for(const route of ['home','rulos','productos']) {
     layers.push({input:label,left:i*320,top:0},{input:tile,left:i*320+10,top:40});
   }
   await sharp({create:{width:1920,height:1840,channels:3,background:'#303030'}}).composite(layers).png().toFile(`${out}/${route}-review-board.png`);
+  if(process.env.QA_BEFORE) {
+    const comparison=[];
+    for(const [i,width] of [390,768,1440].entries()) {
+      for(const [j,[label,path]] of [['before',`${process.env.QA_BEFORE}/${route}-${width}.png`],['verified',`${out}/${route}-${width}-full.png`]].entries()) {
+        const left=(i*2+j)*320;
+        const tile=await sharp(path).resize({width:300,height:1800,fit:'inside'}).toBuffer();
+        const title=Buffer.from(`<svg width="320" height="30"><rect width="100%" height="100%" fill="white"/><text x="10" y="21" font-size="16">${route} ${width} · ${label}</text></svg>`);
+        comparison.push({input:title,left,top:0},{input:tile,left:left+10,top:40});
+      }
+    }
+    await sharp({create:{width:1920,height:1840,channels:3,background:'#303030'}}).composite(comparison).png().toFile(`${out}/${route}-comparison-board.png`);
+  }
 }

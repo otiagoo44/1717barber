@@ -321,3 +321,40 @@ Capturas antes: `qa/final-content/before/{home,rulos,productos}-{390,768,1440}.p
 Pendientes: configuración externa Cal.com (40m/Cal Video frente a servicio presencial y rulos ~2h), dos retratos individuales, último ciclo de QA/performance. Producto de barba, cuidados técnicos, testimonios y packshots mejores son contenido opcional todavía no confirmado. Bios, enlace real, cortes, rulos y local ya están integrados.
 
 Prompt de continuación completo: [CONTINUE_FINAL_CONTENT.md](CONTINUE_FINAL_CONTENT.md). Rama de entrega: `feat/final-content-booking`. Sin merge a main ni deploy comercial. La conexión HTTPS directa a GitHub agotó timeout en las comprobaciones preliminares; el resultado definitivo del push se informa en la entrega, sin afirmar que ocurrió si falló.
+
+### Continuación y QA del último ajuste — 2026-10-12
+
+Esta continuación parte de `ae7a8ea9308a4079414a4f66a1771b461f1b4429`, parent `684688bfd8a4b023b347ed4405a4db4fba1ca6bc`. Se ejecutaron primero status/branch/log; la rama estaba limpia. Se revisaron su diff y el de la base contra `7a18792786290b7f1a5e8953da8d58ebf84d2bd0`, se leyeron los contratos de contenido/integración y las cinco skills realmente presentes. La última instrucción del usuario autoriza expresamente push a main; reemplaza la restricción anterior de merge, sin convertir los pendientes externos en resueltos.
+
+Se preservaron los HTML comerciales, imágenes, CSS, tokens, fuentes y JS del sitio. Sólo se actualizó un comentario de datos que todavía presentaba duración/inclusión de corte como no verificadas. El acabado aprobado sirve al público local que llega por Instagram y necesita ver trabajos reales, consultar y agendar; se conservan los diales documentados 5/6/3 y la referencia editorial existente, sin nueva dirección visual.
+
+Se instalaron Puppeteer Core, Axe y Lighthouse en `C:/Users/User/AppData/Local/Temp/1717-final-qa`, fuera del runtime. Se usó Chrome headless y `QA_URL=http://127.0.0.1:4174` sobre dist. Todas las pruebas de navegador se ejecutaron secuencialmente; Lighthouse arrancó después de cerrar los navegadores de captura/reels/motion. No se transcribió contenido ni se creó CRM/Supabase.
+
+Resultados reales del último ajuste, evidencia nueva en [qa/final-content/verified](qa/final-content/verified):
+
+- `npm test`: 7/7; build PASS; DESIGN lint: cero errores/advertencias, una información de resumen. Sintaxis de módulos y JS PASS. No hay lint de código ni typecheck definidos.
+- [qa.json](qa/final-content/verified/qa.json): **18 combinaciones** Home/Rulos/Productos × 375/390/430/768/1024/1440, altura 900. Sin overflow, imágenes rotas, iframes, errores de consola o hallazgos WCAG A/AA de Axe. Menú, filtros, lightbox, FAQ, enlaces interceptados desktop/mobile, reduced motion y no-JS PASS.
+- [final-content.json](qa/final-content/verified/final-content.json): capturas de perfiles/equipo/local/galería a 390/768/1440. Misma jerarquía y rol Cofundador; ambas bios verificadas y retratos pendientes explícitos. Skip link, foco visible, Tab/Shift+Tab en menú/lightbox/reproductor, navegación del lightbox filtrado y todos los enlaces del menú móvil PASS. Tres rutas sin animaciones con reduced motion; cinco fichas y ausencia de observer de barra flotante en catálogo PASS.
+- [native-reels.json](qa/final-content/verified/native-reels.json): cinco MP4 reproducidos realmente a 390, más primer reel a 1440 y 844×390. Cuadros reales, sonido, controles, playsinline, pausa/seek, cierre con liberación de src y retorno de foco PASS. Cero solicitudes iniciales de MP4/Instagram y cero popups.
+- [scroll-entry.json](qa/final-content/verified/scroll-entry.json): ocho entradas a 390/1440, opacidad creciente con cuadros intermedios, sin parpadeo ni replay al regresar. Cambio dinámico a reduced motion y render sin JS PASS.
+- [source-audit.json](qa/final-content/verified/source-audit.json): precio viejo independiente/sexto reel/TODO/secretos/tenant frontend/ratings ficticios ausentes. 71 originales presentes, 59 hashes disponibles coincidentes; cinco MP4 en dist. Fotos distintas dentro de cada recorrido. Null de retratos, cuidados, producto de barba y testimonios sigue siendo falta de material honesta.
+
+La primera captura larga de esta continuación volvió a mostrar algunos tiles vacíos, mientras que los viewports reales mostraron imágenes y perfiles completos. Se reforzó `qa-refinement.mjs`: decodificación antes de barrido a 500px/160ms, espera de 1300ms y visita de cualquier reveal restante en viewport real durante 1100ms. Se verifica cero `.reveal-pending` antes de la captura final. No se cancelaron animaciones ni se modificó el motion para obtener screenshots. Se repitieron las 18 combinaciones con este harness y pasaron; las capturas anteriores de `after/` quedan históricas.
+
+La emulación de viewport/touch no equivale a probar un teléfono físico. Axe y Lighthouse no certifican WCAG ni Core Web Vitals de campo. Los clics externos del QA funcional se interceptaron y no enviaron mensajes ni reservas.
+
+**Comparación visual:** se inspeccionaron las tres rutas completas a 390/768/1440 y los viewports de perfiles/equipo/local. Los [boards Home](qa/final-content/verified/home-comparison-board.png), [Rulos](qa/final-content/verified/rulos-comparison-board.png) y [Productos](qa/final-content/verified/productos-comparison-board.png) contrastan las nueve capturas obligatorias con `before/`. Se conservan paleta, Archivo Black/Inter, orden, encuadres y composición aprobados; las diferencias de longitud vienen del contenido real integrado en la pasada anterior. Los seis tamaños probados por ruta están en los review boards. No se usó la producción histórica como referencia.
+
+**Performance vigente:** [performance-summary.json](qa/final-content/verified/performance-summary.json) y los tres Lighthouse completos. Lighthouse 13.5.0, Chrome 154, perfiles fríos independientes por ruta, mobile simulado/local. No hubo otro navegador de QA ni transcripción concurrente.
+
+| Ruta | Performance | A11y / Best Practices / SEO | LCP | TBT | CLS | Transferencia |
+| --- | --- | --- | --- | --- | --- | --- |
+| Home | 85 | 100 / 100 / 100 | 2,56 s | 379 ms | 0 | 336 KiB |
+| Rulos | 85 | 100 / 100 / 100 | 2,72 s | 361 ms | 0 | 401 KiB |
+| Productos | 98 | 100 / 100 / 100 | 1,89 s | 105 ms | 0 | 180 KiB |
+
+La diferencia frente a 79/76/83 de la sesión anterior es variación entre corridas: no se cambió el JS/CSS del sitio en esta continuación. No se atribuye esa mejora a una optimización nueva. TBT se evaluó: predominan Style & Layout (921/774/602ms) frente a Script Evaluation (69/59/47ms). Lighthouse señala la lectura inicial `getBoundingClientRect()` de preparación de reveals en site.js, con reflow de 154/138/106ms. Queda una oportunidad de optimización del layout inicial, pero no se reprogramó el motion aprobado para perseguir un puntaje local. Home/Rulos todavía superan el objetivo LCP 2,5s; validar en CDN real y con datos de campo. **No se afirma Core Web Vitals PASS.**
+
+**Enlaces externos actuales:** [external-links.json](qa/final-content/verified/external-links.json). WhatsApp/Instagram/Maps respondieron GET 200; Maps conserva búsqueda de la dirección existente. Cal.com respondió 200 a 390/1440, sin overflow, con horarios y timezone America/Asuncion. Sus [capturas mobile](qa/final-content/verified/cal-390.png) y [desktop](qa/final-content/verified/cal-1440.png) confirman que **sigue mostrando 40m y Cal Video**. Sólo se leyó el calendario; no se eligió horario, envió formulario ni modificó la cuenta.
+
+El QA técnico solicitado quedó completado sobre el último ajuste. La publicación comercial sigue pendiente de confirmar/corregir servicio reservable, duración y atención presencial en Cal.com, y de recibir ambos retratos individuales. Producto de barba, cuidados y testimonios permanecen opcionales. El push a main está autorizado por la última instrucción; no significa que la configuración comercial externa sea correcta. No se ejecutó un despliegue manual ni se creó infraestructura nueva.

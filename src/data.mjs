@@ -364,5 +364,5 @@ export const rulosFaq = [
   ["¿Qué largo necesito y cuáles son las condiciones?", rulosDetails.conditions],
   homeFaq[0], homeFaq[3], homeFaq[4],
 ];
-// Campos técnicos por validar: largo, compatibilidad, duración, tiempo,
-// cuidados e inclusión de corte. No publicar FAQ sin una respuesta confirmada.
+// Compatibilidad técnica y cuidados siguen sin confirmar. Largo/condiciones
+// se evalúan individualmente; duración e inclusión de corte ya están verificadas.

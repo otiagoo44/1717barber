@@ -22,3 +22,9 @@ Rulos: **Gs. 180.000**, corte por separado, aproximadamente **2 horas**; evaluar
 Las presentaciones ya están completadas desde los dos videos indicados por el usuario: primero Esteban (`08.01.33`), segundo Jonatan (`08.01.23`). Su evidencia y los textos están registrados en [FOUNDER_CONTENT.md](FOUNDER_CONTENT.md). No falta pedir bios de nuevo.
 
 El contenido público se mantiene en `src/data.mjs`. Reemplazar ambos `founders[].image` con retratos equivalentes y ejecutar `npm run build`; no es necesario rehacer la sección. El contrato futuro del CRM vive en [BARBERIA_CRM_INTEGRATION.md](BARBERIA_CRM_INTEGRATION.md).
+
+## QA actualizado de esta continuación
+
+Se completó el QA después de la última optimización de sizes/hero/observer: 18 combinaciones responsive, Axe sin hallazgos, enlaces, teclado/foco, diálogos, FAQ, no-JS, reduced motion, cinco reels reales y entradas animadas PASS. Se revisaron capturas nuevas y comparación con el diseño aprobado. Tests 7/7, build y DESIGN lint PASS. Evidencia en [qa/final-content/verified](qa/final-content/verified).
+
+Lighthouse local: Performance 85/85/98; accesibilidad, buenas prácticas y SEO 100 en Home/Rulos/Productos. CLS 0; LCP 2,56/2,72/1,89s, TBT 379/361/105ms. Validar luego en CDN y con datos reales; no se declara Core Web Vitals PASS. La inspección externa nueva confirma Cal.com todavía en 40m/Cal Video. El usuario autorizó push a main; Cal.com y los retratos siguen pendientes antes de publicación comercial.

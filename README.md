@@ -35,12 +35,16 @@ Las herramientas de QA no están en el bundle. Instalar `puppeteer-core`, `@axe-
 ```powershell
 $env:QA_TOOLS_DIR='C:/ruta/herramientas-qa'
 $env:CHROME_PATH='C:/Program Files/Google/Chrome/Application/chrome.exe'
+$env:QA_URL='http://127.0.0.1:4174'
+$env:QA_OUT='docs/qa/final-content/verified'
 node scripts/qa-refinement.mjs
+node scripts/qa-final-content.mjs
 node scripts/qa-reels-native.mjs
 node scripts/qa-scroll-entry.mjs
 node scripts/qa-performance.mjs
+node scripts/qa-external-links.mjs
 ```
 
-Resultados actuales: `docs/qa/final-content/`, con capturas antes/después. Las capturas anteriores son históricas. `QA_OUT` y `QA_URL` permiten cambiar destinos; definir `QA_URL=http://127.0.0.1:4174` para los scripts de reels/motion. Informe: `docs/REDESIGN_1717_REPORT.md`. Motion existente con CSS, IntersectionObserver y WAAPI. Fuentes actuales: Archivo Black + Inter locales, sin cambios de paleta/tokens.
+Evidencia de la continuación: `docs/qa/final-content/verified/`, con capturas de las tres rutas a 375/390/430/768/1024/1440 y viewports reales de perfiles, equipo, galería y local. `before/` y `after/` conservan la evidencia histórica. El harness decodifica imágenes, barre a 500px/160ms y visita cualquier reveal restante antes de capturar, sin cancelar el motion. `qa-final-content.mjs` añade teclado/foco en los tres diálogos y enlaces del menú móvil; `qa-external-links.mjs` sólo realiza GET e inspección de Cal.com, sin enviar mensajes ni reservas. `QA_OUT` y `QA_URL` permiten cambiar destinos. Informe: `docs/REDESIGN_1717_REPORT.md`. Fuentes actuales: Archivo Black + Inter locales, sin cambios de paleta/tokens.
 
-Lista lista para compartir al cliente: `docs/MATERIAL_PENDIENTE_1717.md`. Ejecutar Lighthouse solo, sin capturas u otras tareas de navegador simultáneas para evitar sesgo por carga de CPU.
+Lista para compartir al cliente: `docs/MATERIAL_PENDIENTE_1717.md`. Ejecutar cada script secuencialmente y Lighthouse solo, sin capturas u otras tareas de navegador simultáneas para evitar sesgo por carga de CPU. El push a main autorizado no resuelve la configuración externa de Cal.com ni los retratos pendientes; esos puntos siguen siendo necesarios antes de la publicación comercial.

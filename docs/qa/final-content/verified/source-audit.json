@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-12T12:56:54.695Z",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "81ce4f5ae4c84d8c4267ac69e68c453852a7d8e87e5b34e6ae37ed7e621a6b33",
+      "independentOldPrice": false,
+      "secretsOrTenant": false,
+      "todo": false
+    },
+    {
+      "path": "rulos/index.html",
+      "sha256": "f3a4c7dcb8e32ef7eac07616776e65abe12324f92841285ef786407206b13855",
+      "independentOldPrice": false,
+      "secretsOrTenant": false,
+      "todo": false
+    },
+    {
+      "path": "productos/index.html",
+      "sha256": "d6478909cbc43210a60aaac02be63bad3a7c6f0fbf272aa750ff5b9cc76352f0",
+      "independentOldPrice": false,
+      "secretsOrTenant": false,
+      "todo": false
+    },
+    {
+      "path": "public/assets/site.js",
+      "sha256": "353c2652a2f8a9aaf20e5cbfa6761c9c520ce04329ed0651de74aed6095ffeae",
+      "independentOldPrice": false,
+      "secretsOrTenant": false,
+      "todo": false
+    },
+    {
+      "path": "public/assets/site.css",
+      "sha256": "4cdb9d168035b6507a4a565ebe92beacc6cc87931b367db8e00c101878cff7c6",
+      "independentOldPrice": false,
+      "secretsOrTenant": false,
+      "todo": false
+    },
+    {
+      "path": "src/data.mjs",
+      "sha256": "c692206788b46f404be1b933a10c0433c9502cb656f64199b64d58a5de9d02e7",
+      "independentOldPrice": false,
+      "secretsOrTenant": false,
+      "todo": false
+    },
+    {
+      "path": "src/components.mjs",
+      "sha256": "2618104a4146aec9c7f6608d10e10309b362626e1b067a6ac94a8676eb1a5107",
+      "independentOldPrice": false,
+      "secretsOrTenant": false,
+      "todo": false
+    },
+    {
+      "path": "src/sections.mjs",
+      "sha256": "2d2460ddfd36deb30a2ccc2036f1c5bd584a89e784780d2e4ab42d49a2b7074d",
+      "independentOldPrice": false,
+      "secretsOrTenant": false,
+      "todo": false
+    },
+    {
+      "path": "src/pages.mjs",
+      "sha256": "9a9e75eb373ef7208622bcd716ccde9812c0086047361ae44538f2e2142409a0",
+      "independentOldPrice": false,
+      "secretsOrTenant": false,
+      "todo": false
+    },
+    {
+      "path": "src/utils.mjs",
+      "sha256": "652e53d47bf0dff70da9ed9d34d7a622c396f5ccb7e95b2e1795d99bdeebdacc",
+      "independentOldPrice": false,
+      "secretsOrTenant": false,
+      "todo": false
+    }
+  ],
+  "assets": [
+    {
+      "route": "home",
+      "uniquePhotos": 12
+    },
+    {
+      "route": "rulos",
+      "uniquePhotos": 3
+    }
+  ],
+  "pending": {
+    "portraits": [
+      "Jonatan",
+      "Esteban"
+    ],
+    "care": null,
+    "unpublishedProducts": [
+      "barba"
+    ],
+    "testimonials": 0
+  },
+  "manifestHashesVerified": 59,
+  "originalsPresent": 71,
+  "mp4s": [
+    "DceM8azzYuV.mp4",
+    "Dcl55RjxJrK.mp4",
+    "Dd903THBe7y.mp4",
+    "DdrxU3CBZ2A.mp4",
+    "DeDQr0cuhey.mp4"
+  ],
+  "passed": true
+}
