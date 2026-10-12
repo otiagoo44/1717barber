@@ -88,6 +88,8 @@ Nav: Inicio, Rulos, Servicios, Nosotros, Ubicación y Agendar. Logo oficial úni
 
 ## Elevation & Depth
 
+La galería del inicio presenta diez trabajos seleccionados: dos fotos destacadas en la primera fila y ocho resultados en dos filas de cuatro en escritorio. En celular, las destacadas ocupan el ancho completo y el resto sigue en dos columnas. El catálogo reúne 24 fotos y 16 videos; se excluyen el mullet retirado y las dos tomas previas al corte con peine rosa. Todos los videos publicados se reproducen sin audio.
+
 Planos limpios y divisores, sin sombras decorativas. Ninguna foto flotante ni rotada. Header sticky de 80px con progreso de lectura ocre como mejora progresiva; diálogos nativos en top layer. Barra de agenda mobile con safe area y espacio inferior reservado. Diálogos ocultan la barra y bloquean el scroll sólo mientras están abiertos.
 
 ## Shapes

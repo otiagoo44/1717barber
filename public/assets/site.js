@@ -187,6 +187,8 @@
       status.textContent = "Cargando video…";
       const video = document.createElement("video");
       video.controls = true;
+      video.defaultMuted = true;
+      video.muted = true;
       video.playsInline = true;
       video.preload = "none";
       video.poster = facade.querySelector("img").src;

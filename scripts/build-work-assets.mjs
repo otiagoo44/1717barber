@@ -9,14 +9,14 @@ const root='img/fotos-cortes-rulos/',out='public/assets/work';
 await mkdir(out,{recursive:true});
 const photoNames=[
   ['14.20.50','Rulos','Rulos en proceso'],['14.21.06','Cortes','Corte con textura'],
-  ['14.21.14 (2)','Cortes','Vista posterior del corte'],['14.21.14','Cortes','Taper lateral'],
+  ['14.21.14 (2)','Cortes','Vista posterior del corte'],['14.21.14','Cortes','Mohicano lateral'],
   ['14.21.16 (2)','Cortes','Degradado lateral'],['14.21.16','Cortes','Resultado del corte'],
   ['14.21.17 (1)','Cortes','Corte con volumen'],['14.21.17 (2)','Cortes','Otro ángulo del corte'],['14.21.17','Cortes','Perfilado lateral'],
   ['14.21.18 (1)','Cortes','Textura y forma'],['14.21.18 (2)','Cortes','Textura desde otro ángulo'],['14.21.18','Cortes','Vista posterior'],
   ['14.21.19 (1)','Cortes','Detalle posterior'],['14.21.19 (2)','Cortes','Detalle de la terminación'],['14.21.19','Cortes','Perfil del resultado'],
   ['14.21.20 (1)','Cortes','Terminación desde atrás'],['14.21.20','Cortes','Corte y perfilado'],
   ['14.21.21 (1)','Cortes','Degradado y textura'],['14.21.21','Cortes','Degradado de cerca'],
-  ['14.21.22 (1)','Rulos','Textura y volumen'],['14.21.22','Proceso','En el puesto de trabajo'],['14.21.35','Cortes','Vista del perfil'],
+  ['14.21.22 (1)','Cortes','Afro con perfilado'],['14.21.22','Proceso','En el puesto de trabajo'],['14.21.35','Cortes','Vista del perfil'],
   ['foto_barbero_trabajando','Proceso','Rulos en el puesto'],['foto_corte_diseño','Cortes','Detalle del corte lateral'],
   ['foto_corte_rulos','Rulos','Rulos de cerca'],['foto_corte_tinte','Color','Color y textura'],
 ];
@@ -30,15 +30,18 @@ const videoNames=[
 const records=[];
 for(const [type,entries] of [['photo',photoNames],['video',videoNames]]) for(const [index,[name,category,title,time]] of entries.entries()) {
   const id=`${type}-${String(index+1).padStart(2,'0')}`;
+  // Withdrawn before-cut photos. Keep stable IDs for all other published assets.
+  if(type==='photo' && ['photo-07','photo-08'].includes(id)) continue;
   const source=root+(name.startsWith('foto_')?name+'.jpeg':`WhatsApp ${type==='photo'?'Image':'Video'} 2026-10-11 at ${name}.${type==='photo'?'jpeg':'mp4'}`);
   const record={id,type,category,title,source,sourceSha256:createHash('sha256').update(await readFile(source)).digest('hex')};
   let input=source;
   if(type==='video') {
     const meta=JSON.parse(execFileSync('ffprobe',['-v','error','-show_entries','format=duration','-of','json',source],{encoding:'utf8'}));
     record.durationSeconds=Number(meta.format.duration);
-    const path=out+'/'+id+'.mp4';
-    execFileSync('ffmpeg',['-v','error','-y','-i',source,'-vf',"scale='min(720,iw)':'min(1280,ih)':force_original_aspect_ratio=decrease:force_divisible_by=2",'-c:v','libx264','-crf','23','-preset','medium','-pix_fmt','yuv420p','-c:a','aac','-b:a','96k','-movflags','+faststart',path]);
+    const path=out+'/'+id+'-silent.mp4';
+    execFileSync('ffmpeg',['-v','error','-y','-i',source,'-vf',"scale='min(720,iw)':'min(1280,ih)':force_original_aspect_ratio=decrease:force_divisible_by=2",'-c:v','libx264','-crf','23','-preset','medium','-pix_fmt','yuv420p','-an','-movflags','+faststart',path]);
     record.video=path.replace('public','');record.videoBytes=(await stat(path)).size;
+    record.audioTracks=0;
     input=resolve(process.env.TEMP,`1717-work-${id}.png`);
     execFileSync('ffmpeg',['-v','error','-y','-ss',String(time),'-i',path,'-frames:v','1',input]);
   }

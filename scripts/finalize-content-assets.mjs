@@ -29,11 +29,6 @@ const entries = [
       "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.22 (1).jpeg",
   },
   {
-    name: "corte-mullet-actual",
-    input:
-      "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.16 (1).jpeg",
-  },
-  {
     name: "corte-fade-actual",
     input:
       "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.21 (1).jpeg",

@@ -15,18 +15,18 @@ try{
   if(!process.env.QA_INTERACTIONS_ONLY) for(const width of [375,390,430,768,1024,1366,1440,1920]){
     await page.setViewport({width,height:900,isMobile:width<500,hasTouch:width<500});
     await page.goto(base+'/trabajos',{waitUntil:'networkidle0'});
-    assert.equal(await page.$$eval('.work-card',els=>els.length),43);
+    assert.equal(await page.$$eval('.work-card',els=>els.length),40);
     assert.equal(await page.$$eval('.work-card',els=>els.filter(e=>!e.hidden).length),12);
     assert.equal(await page.evaluate(()=>performance.getEntriesByType('resource').some(r=>/\.mp4/.test(r.name))),false);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
     await page.screenshot({path:`${out}/trabajos-${width}-viewport.png`});
     while(await page.$eval('[data-work-more]',e=>!e.hidden))await page.click('[data-work-more]');
-    assert.equal(await page.$$eval('.work-card',els=>els.filter(e=>!e.hidden).length),43);
+    assert.equal(await page.$$eval('.work-card',els=>els.filter(e=>!e.hidden).length),40);
     await settle(page);
     const axe=await new AxePuppeteer(page).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.map(v=>v.id),[]);
     await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await sleep(1100);
     await page.screenshot({path:`${out}/trabajos-${width}-full.png`,fullPage:true});
-    report.pages.push({width,cards:43,photos:27,videos:16,axe:0,overflow:false,initialVideoRequests:0});console.log(`Trabajos ${width}: PASS`);
+    report.pages.push({width,cards:40,photos:24,videos:16,axe:0,overflow:false,initialVideoRequests:0});console.log(`Trabajos ${width}: PASS`);
   }
   await page.setViewport({width:390,height:900,isMobile:true,hasTouch:true});await page.goto(base+'/trabajos',{waitUntil:'networkidle0'});
   for(const category of ['Todos','Cortes','Rulos','Color','Proceso'])for(const format of ['Todos','photo','video']){
@@ -48,7 +48,7 @@ try{
     await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.body.classList.contains('modal-open'));assert.equal(await page.$('#reel-player video'),null);assert.equal(await page.$eval(trigger,e=>e===document.activeElement),true);report.videos.push({id,...state});console.log(`${id}: native playback PASS`);
   }
   await page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);await page.goto(base+'/trabajos',{waitUntil:'networkidle0'});await page.click('[data-work-more]');assert.equal(await page.evaluate(()=>document.getAnimations().length),0);
-  await page.setJavaScriptEnabled(false);await page.goto(base+'/trabajos',{waitUntil:'networkidle0'});assert.equal(await page.$$eval('.work-card',els=>els.filter(e=>!e.hidden).length),43);assert.equal(await page.$eval('[data-work-category]',e=>e.getBoundingClientRect().width),0);
+  await page.setJavaScriptEnabled(false);await page.goto(base+'/trabajos',{waitUntil:'networkidle0'});assert.equal(await page.$$eval('.work-card',els=>els.filter(e=>!e.hidden).length),40);assert.equal(await page.$eval('[data-work-category]',e=>e.getBoundingClientRect().width),0);
   const photoUrl=await page.$eval('.photo-trigger',e=>e.href);await Promise.all([page.waitForNavigation({waitUntil:'networkidle0'}),page.click('.photo-trigger')]);assert.equal(page.url(),photoUrl);
   report.checks.push('15 category/format combinations; correct empty state; progressive show-more; prefiltered Rulos URL; filtered photo dialog/keyboard/focus; all sixteen videos really played and unload; no invented Instagram link for WhatsApp clips; reduced motion; all content and photo links usable without JS');
   assert.deepEqual(report.errors,[]);report.passed=true;

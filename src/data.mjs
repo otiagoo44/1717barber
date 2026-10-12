@@ -1,4 +1,5 @@
 // Única fuente editorial. Reemplazar null con datos confirmados; no inferir claims.
+import { workAssets } from "./work-assets.mjs";
 export const business = {
   slug: "1717",
   booking: {
@@ -86,16 +87,6 @@ export const media = {
     alt: "Barbero trabajando en el proceso de rulos permanentes con rodillos en 17:17",
     position: "50% 50%",
   },
-  corte: {
-    id: "CORTE_RESULTADO_01",
-    type: "result",
-    src: "/assets/media/corte-mullet-actual.webp",
-    avif: "/assets/media/corte-mullet-actual.avif",
-    width: 1200,
-    height: 1600,
-    alt: "Corte mullet con degradado lateral realizado en 17:17 Barbería",
-    position: "50% 48%",
-  },
   corte2: {
     id: "CORTE_RESULTADO_02",
     type: "result",
@@ -123,7 +114,7 @@ export const media = {
     avif: "/assets/media/corte-taper-actual.avif",
     width: 1200,
     height: 1600,
-    alt: "Detalle de corte taper realizado en 17:17 Barbería",
+    alt: "Mohicano con laterales rebajados realizado en 17:17 Barbería",
     position: "50% 42%",
   },
   team: {
@@ -163,25 +154,22 @@ export const media = {
     alt: "Puesto de trabajo con sillón y espejo en 17:17 Barbería",
   },
 };
+// Reuse the catalog's optimized photographs as the source for the home selection.
+for (const item of workAssets.filter(item => item.type === "photo")) {
+  media[item.id] = { ...item, src: item.image, alt: `${item.title} realizado en 17:17 Barbería` };
+}
+media["photo-18"].position = "50% 25%";
 export const results = [
-  { media: "rulos", category: "Rulos", title: "Rulos + corte lateral" },
-  { media: "corte", category: "Cortes", title: "Mullet + degradado" },
+  { media: "photo-18", category: "Cortes", title: "Fade + textura", featured: true },
+  { media: "photo-24", category: "Cortes", title: "Diseño lateral", featured: true },
+  { media: "rulos2", category: "Rulos", title: "Rulos con volumen" },
+  { media: "photo-19", category: "Cortes", title: "Degradado de perfil" },
+  { media: "detalle", category: "Cortes", title: "Mohicano" },
+  { media: "photo-15", category: "Cortes", title: "Textura + movimiento" },
+  { media: "photo-05", category: "Cortes", title: "Degradado corto" },
+  { media: "photo-20", category: "Cortes", title: "Afro + perfilado" },
   { media: "color", category: "Color", title: "Color en primer plano" },
-  {
-    media: "rulos2",
-    category: "Rulos",
-    title: "Rulos con volumen",
-  },
-  {
-    media: "corte2",
-    category: "Cortes",
-    title: "Fade de perfil",
-  },
-  {
-    media: "detalle",
-    category: "Cortes",
-    title: "Detalle de taper",
-  },
+  { media: "rulos", category: "Rulos", title: "Rulos + corte lateral" },
 ];
 export const services = [
   {
@@ -347,7 +335,7 @@ const reelAlt = [
 export const rulosReels = reelCodes.map((code, i) => ({
   id: `REEL_RULOS_0${i + 1}`,
   url: `https://www.instagram.com/reel/${code}/`,
-  video: `/assets/videos/${code}.mp4`,
+  video: `/assets/videos/${code}-silent.mp4`,
   thumbnail: `/assets/media/reel-rulos-0${i + 1}.webp`,
   thumbnailAlt: reelAlt[i],
   title: `Rulos en movimiento · ${String(i + 1).padStart(2, "0")}`,

@@ -55,7 +55,7 @@ export const workAssets = [
     "id": "photo-04",
     "type": "photo",
     "category": "Cortes",
-    "title": "Taper lateral",
+    "title": "Mohicano lateral",
     "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.14.jpeg",
     "sourceSha256": "a7805a5865793c22d3f580573714da53885de90b37d6d32fa5601bbab9422c40",
     "width": 1200,
@@ -96,40 +96,6 @@ export const workAssets = [
     "height": 1316,
     "image": "/assets/work/photo-06.webp",
     "avif": "/assets/work/photo-06.avif",
-    "variants": [
-      360,
-      600
-    ],
-    "position": "50% 50%"
-  },
-  {
-    "id": "photo-07",
-    "type": "photo",
-    "category": "Cortes",
-    "title": "Corte con volumen",
-    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.17 (1).jpeg",
-    "sourceSha256": "a993fae98186448762fd33c4cae22be90421853f80199387b9c5d1b566dd7713",
-    "width": 1200,
-    "height": 1600,
-    "image": "/assets/work/photo-07.webp",
-    "avif": "/assets/work/photo-07.avif",
-    "variants": [
-      360,
-      600
-    ],
-    "position": "50% 50%"
-  },
-  {
-    "id": "photo-08",
-    "type": "photo",
-    "category": "Cortes",
-    "title": "Otro ángulo del corte",
-    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.17 (2).jpeg",
-    "sourceSha256": "e01f2e72dc177a0e350e607a53c47b8ede325f60f332870c2faa2c3dde2d0071",
-    "width": 1200,
-    "height": 1600,
-    "image": "/assets/work/photo-08.webp",
-    "avif": "/assets/work/photo-08.avif",
     "variants": [
       360,
       600
@@ -326,8 +292,8 @@ export const workAssets = [
   {
     "id": "photo-20",
     "type": "photo",
-    "category": "Rulos",
-    "title": "Textura y volumen",
+    "category": "Cortes",
+    "title": "Afro con perfilado",
     "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.22 (1).jpeg",
     "sourceSha256": "eff8715463c0a7b9c1a1740fcecece3aef8a1c80edabcc004dba41f933e17ea7",
     "width": 1200,
@@ -338,7 +304,7 @@ export const workAssets = [
       360,
       600
     ],
-    "position": "50% 65%"
+    "position": "50% 50%"
   },
   {
     "id": "photo-21",
@@ -450,8 +416,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.20.57.mp4",
     "sourceSha256": "c2193c41b35b3da981836e161f7288b1f47c8f6a071905de5f61a0bee816969d",
     "durationSeconds": 24.615011,
-    "video": "/assets/work/video-01.mp4",
-    "videoBytes": 3456376,
+    "video": "/assets/work/video-01-silent.mp4",
+    "videoBytes": 3141996,
     "width": 576,
     "height": 1024,
     "image": "/assets/work/video-01.webp",
@@ -459,7 +425,8 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 65%"
+    "position": "50% 65%",
+    "audioTracks": 0
   },
   {
     "id": "video-02",
@@ -469,8 +436,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.20.59.mp4",
     "sourceSha256": "5df1bcc5cca9cb5b5b4b849e4994ebd22717227475a3b9166cc23a79116990a4",
     "durationSeconds": 5.1,
-    "video": "/assets/work/video-02.mp4",
-    "videoBytes": 1015522,
+    "video": "/assets/work/video-02-silent.mp4",
+    "videoBytes": 949971,
     "width": 576,
     "height": 1024,
     "image": "/assets/work/video-02.webp",
@@ -478,7 +445,8 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 65%"
+    "position": "50% 65%",
+    "audioTracks": 0
   },
   {
     "id": "video-03",
@@ -488,8 +456,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.05.mp4",
     "sourceSha256": "2412f37d8357ba0a58670748f186295412930dff1956c493d8e49e2c250a5a23",
     "durationSeconds": 38.988333,
-    "video": "/assets/work/video-03.mp4",
-    "videoBytes": 3977375,
+    "video": "/assets/work/video-03-silent.mp4",
+    "videoBytes": 3469865,
     "width": 464,
     "height": 832,
     "image": "/assets/work/video-03.webp",
@@ -497,7 +465,8 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 65%"
+    "position": "50% 65%",
+    "audioTracks": 0
   },
   {
     "id": "video-04",
@@ -507,8 +476,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.07.mp4",
     "sourceSha256": "dca1536b11cf953d57e06a16ab26521e599ba13df61b8dbee9e2cc73e4f43860",
     "durationSeconds": 4.566667,
-    "video": "/assets/work/video-04.mp4",
-    "videoBytes": 788841,
+    "video": "/assets/work/video-04-silent.mp4",
+    "videoBytes": 729796,
     "width": 576,
     "height": 768,
     "image": "/assets/work/video-04.webp",
@@ -516,7 +485,8 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 50%"
+    "position": "50% 50%",
+    "audioTracks": 0
   },
   {
     "id": "video-05",
@@ -526,8 +496,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.13.mp4",
     "sourceSha256": "afa1941231cefcd8a0114af1f8b0eee5d326c59ef36a066cc11bc9e00df77f7a",
     "durationSeconds": 2.166667,
-    "video": "/assets/work/video-05.mp4",
-    "videoBytes": 314938,
+    "video": "/assets/work/video-05-silent.mp4",
+    "videoBytes": 286594,
     "width": 576,
     "height": 768,
     "image": "/assets/work/video-05.webp",
@@ -535,7 +505,8 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 50%"
+    "position": "50% 50%",
+    "audioTracks": 0
   },
   {
     "id": "video-06",
@@ -545,8 +516,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.15.mp4",
     "sourceSha256": "8e09322233129bd992bdb037a6a15e6e3bfb0f58af8f3a444e528b18e32c87a3",
     "durationSeconds": 2.668333,
-    "video": "/assets/work/video-06.mp4",
-    "videoBytes": 304830,
+    "video": "/assets/work/video-06-silent.mp4",
+    "videoBytes": 269819,
     "width": 464,
     "height": 832,
     "image": "/assets/work/video-06.webp",
@@ -554,7 +525,8 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 65%"
+    "position": "50% 65%",
+    "audioTracks": 0
   },
   {
     "id": "video-07",
@@ -564,8 +536,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.20.mp4",
     "sourceSha256": "217864c05547af3d766c52459589098df19819007aaa045703cfb8fa0bb37afa",
     "durationSeconds": 5.633333,
-    "video": "/assets/work/video-07.mp4",
-    "videoBytes": 1014472,
+    "video": "/assets/work/video-07-silent.mp4",
+    "videoBytes": 941939,
     "width": 576,
     "height": 768,
     "image": "/assets/work/video-07.webp",
@@ -573,7 +545,8 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 50%"
+    "position": "50% 50%",
+    "audioTracks": 0
   },
   {
     "id": "video-08",
@@ -583,8 +556,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.21.mp4",
     "sourceSha256": "fc2a32de0d7282a45e9c312aff1165b17c72e6ff99f448dbac8e9d2d5890f444",
     "durationSeconds": 5.033333,
-    "video": "/assets/work/video-08.mp4",
-    "videoBytes": 847746,
+    "video": "/assets/work/video-08-silent.mp4",
+    "videoBytes": 782863,
     "width": 576,
     "height": 768,
     "image": "/assets/work/video-08.webp",
@@ -592,7 +565,8 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 50%"
+    "position": "50% 50%",
+    "audioTracks": 0
   },
   {
     "id": "video-09",
@@ -602,8 +576,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.34.mp4",
     "sourceSha256": "d4938a1d3d19b253e7bb7be7c9c382f99157fae5c32f5897d9e27c1654723a5a",
     "durationSeconds": 98.465,
-    "video": "/assets/work/video-09.mp4",
-    "videoBytes": 9785820,
+    "video": "/assets/work/video-09-silent.mp4",
+    "videoBytes": 8796428,
     "width": 576,
     "height": 1024,
     "image": "/assets/work/video-09.webp",
@@ -611,7 +585,8 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 65%"
+    "position": "50% 65%",
+    "audioTracks": 0
   },
   {
     "id": "video-10",
@@ -621,8 +596,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.36.mp4",
     "sourceSha256": "03498aa7c7a681679e02dccd68e38750f168569cf72924f381b30094d2029225",
     "durationSeconds": 3.6,
-    "video": "/assets/work/video-10.mp4",
-    "videoBytes": 519416,
+    "video": "/assets/work/video-10-silent.mp4",
+    "videoBytes": 472933,
     "width": 576,
     "height": 768,
     "image": "/assets/work/video-10.webp",
@@ -630,7 +605,8 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 50%"
+    "position": "50% 50%",
+    "audioTracks": 0
   },
   {
     "id": "video-11",
@@ -640,8 +616,8 @@ export const workAssets = [
     "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.38.mp4",
     "sourceSha256": "62007d74e84cddf99a09b800192c9435f71ce9577cd6212816b1f7062e3a20d1",
     "durationSeconds": 9.498333,
-    "video": "/assets/work/video-11.mp4",
-    "videoBytes": 730622,
+    "video": "/assets/work/video-11-silent.mp4",
+    "videoBytes": 609163,
     "width": 464,
     "height": 832,
     "image": "/assets/work/video-11.webp",
@@ -649,6 +625,7 @@ export const workAssets = [
     "variants": [
       360
     ],
-    "position": "50% 50%"
+    "position": "50% 50%",
+    "audioTracks": 0
   }
 ];

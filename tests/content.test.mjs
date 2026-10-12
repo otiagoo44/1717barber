@@ -155,22 +155,28 @@ test("Agenda selecciona servicio antes de abrir un evento externo", () => {
   assert.ok(html.includes("2 horas"));
 });
 test("Galería ampliada publica material real sin reseñas inventadas ni video inicial", async () => {
-  assert.equal(workAssets.filter(w=>w.type==='photo').length,26);
+  assert.equal(workAssets.filter(w=>w.type==='photo').length,24);
   assert.equal(workAssets.filter(w=>w.type==='video').length,11);
   assert.equal(new Set(workAssets.map(w=>w.source)).size,workAssets.length);
   for (const item of workAssets) {
     await access(item.source);
     await access('public'+item.image);
     await access('public'+item.avif);
-    if(item.type==='video'){await access('public'+item.video);assert.ok(item.durationSeconds>0);}
+    if(item.type==='video'){await access('public'+item.video);assert.ok(item.durationSeconds>0);assert.equal(item.audioTracks,0);assert.ok(item.video.endsWith('-silent.mp4'));}
   }
   const html=renderPage('trabajos');
-  assert.equal((html.match(/class="result-tile work-card"/g)||[]).length,43);
+  assert.equal((html.match(/class="result-tile work-card"/g)||[]).length,40);
   assert.equal((html.match(/class="reel-facade"/g)||[]).length,16);
   assert.doesNotMatch(html,/<video|autoplay|aggregateRating|reviewCount|<blockquote|testimonio/);
   assert.ok(html.includes('data-work-more hidden'));
   assert.ok(renderPage('home').includes('href="/trabajos"'));
   assert.ok(renderPage('rulos').includes('/trabajos?categoria=Rulos'));
+  for (const page of ['home', 'rulos', 'trabajos']) {
+    assert.doesNotMatch(renderPage(page), /corte-mullet-actual|published-mullet|photo-07[.-]|photo-08[.-]|Detalle de taper|Taper lateral/);
+  }
+  assert.equal(results.length, 10);
+  assert.equal(results.filter(item => item.featured).length, 2);
+  assert.ok(renderPage('home').includes('Ampliar: Mohicano'));
 });
 test("Tokens publicados corresponden a DESIGN.md", async () => {
   const design = await readFile("DESIGN.md", "utf8"),
