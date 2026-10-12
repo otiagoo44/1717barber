@@ -82,7 +82,7 @@ Archivo Black local 400 en H1/H2, recuperada de la versión anterior por pedido 
 
 ## Layout
 
-Contenedor máximo 1440px, márgenes laterales 5vw limitados a 72px y mínimo 20px. Home: hero → Rulos → servicios → trabajo real → equipo → productos → local → FAQ → cierre. Hero sin superposición, una imagen a la derecha y texto a la izquierda; mobile en flujo vertical. Servicios antes de galería. Sin secciones numeradas. Separación 104px desktop, 64px mobile.
+Contenedor máximo 1680px, márgenes laterales 3vw limitados a 48px y mínimo 20px, ampliados por pedido del dueño para aprovechar notebook. Home: hero → Rulos → servicios → trabajo real → equipo → productos → local → FAQ → cierre. Hero sin superposición, una imagen a la derecha y texto a la izquierda; mobile en flujo vertical. Servicios antes de galería. Sin secciones numeradas. Separación 104px desktop, 64px mobile. Galería de rulos a todo el ancho útil y centrada. Detalles del servicio con columnas estables y divisores, apilados en celular.
 
 Nav: Inicio, Rulos, Servicios, Nosotros, Ubicación y Agendar. Logo oficial único, sin wordmark duplicado. Regreso explícito en secundarias. Reels sólo en /rulos. Productos visibles en el recorrido y catálogo de consulta separado. No renderizar secciones vacías.
 
@@ -96,11 +96,13 @@ Fotos rectas: hero 1:1 desktop / 5:4 mobile, adaptado a 3:4 en tablet y 4:5 para
 
 ## Components
 
-CTA sólido ocre: Reservar turno/Agendar en Cal.com, o Consultar por rulos en contexto por WhatsApp. Productos siempre se consultan por WhatsApp. URL de agenda única en business.booking; fallback sólo si falta esa URL. Exploración con enlace subordinado. Targets mínimo 44px, botón principal 52px. Servicios en lista con precio y consulta contextual. Galería sólo real, sin trabajos repetidos, filtros y lightbox con teclado/Escape/swipe/retorno de foco. FAQ details/summary sólo con respuestas verificadas. Menú dialog accesible.
+CTA sólido ocre: Reservar turno/Agendar abre `/reservar`, selección del servicio y su duración. Cada servicio deriva sólo a su evento Cal.com verificado; hasta configurar el proveedor, coordina por WhatsApp. Rulos exige consulta previa. Configuración única en business.booking.serviceEvents, sin usar el evento genérico de 40 minutos para otros servicios. Productos siempre se consultan por WhatsApp. Exploración con enlace subordinado. Targets mínimo 44px, botón principal 52px. Servicios en lista con precio y consulta contextual. Galería sólo real, sin trabajos repetidos, filtros y lightbox con teclado/Escape/swipe/retorno de foco. FAQ details/summary sólo con respuestas verificadas. Menú dialog accesible.
 
 Jonatan y Esteban comparten foto y peso tipográfico, ambos cofundadores. No asignar identidades en la foto conjunta. Retratos individuales ausentes se señalan explícitamente; cada componente queda listo para recibir su imagen. Presentaciones breves sólo desde sus palabras verificadas, sin inventar trayectoria ni especialidades. Testimonios requieren quote/name/source; productos requieren imagen y ficha verificada. /productos conserva consulta sin afirmar stock.
 
 Cinco reels con portadas auténticas, scroll horizontal nativo y reproductor HTML video bajo demanda. Los MP4 públicos de 17:17 se sirven desde /assets/videos; no se necesita iframe, login ni script de Instagram. No se descarga video al inicio. Controles nativos, sonido y playsinline; al cerrar se pausa, se libera el src y se devuelve el foco. Enlace opcional a la publicación original. Imágenes responsive AVIF/WebP con dimensiones, hero eager/high priority.
+
+Ampliación pedida por el dueño: `/trabajos` reúne 27 fotos y 16 videos, incluidos los once clips de WhatsApp disponibles y los cinco reels, como trabajos reales y proceso. No son reseñas escritas ni un conteo de clientes: también hay ángulos complementarios. Home y Rulos enlazan “Ver más cortes y rulos”; la selección breve y orden originales siguen en la landing. Grid fotográfico sin tarjetas decorativas, formato 4:5, filtros por servicio/formato, 12 piezas iniciales y Ver más, lightbox de imagen completa, un solo reproductor bajo interacción. Sin JS se muestran todas las piezas y las fotos/videos tienen enlaces nativos. Cinco reels destacados se mantienen en su sección; la galería adicional no amplía esa secuencia.
 
 ## Do's and Don'ts
 

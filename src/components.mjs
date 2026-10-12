@@ -11,7 +11,7 @@ export function wa(
   return `<a class="button ${extra}" href="${e(whatsappLink({ intent, service, product }))}" target="_blank" rel="noopener noreferrer" data-cta="${product ? "producto" : intent === "GENERAL" ? "consulta" : "servicio"}" data-intent="${product ? "PRODUCTO_" + product.id.toUpperCase() : intent}" ${service ? `data-service="${e(service)}"` : ""}>${e(label)}${arrow}</a>`;
 }
 export function booking(label = "Reservar turno", extra = "") {
-  return `<a class="button ${extra}" href="${e(bookingLink())}" target="_blank" rel="noopener noreferrer" data-cta="reservar" data-intent="AGENDA">${e(business.booking.url ? label : "Reservar por WhatsApp")}${arrow}</a>`;
+  return `<a class="button ${extra}" href="${e(bookingLink())}" data-cta="reservar" data-intent="AGENDA">${e(label)}${arrow}</a>`;
 }
 export const link = (label, url, classes = "text-link") =>
   `<a class="${classes}" href="${e(url)}" ${url.startsWith("https:") ? 'target="_blank" rel="noopener noreferrer"' : ""}>${e(label)}${arrow}</a>`;
@@ -54,7 +54,7 @@ export function header(active = "home") {
   return `<a class="skip-link" href="#main">Saltar al contenido</a><header class="site-header"><div class="header-inner"><a class="wordmark" href="/" aria-label="17:17 BARBERÍA, inicio"><img class="brand-logo" src="/assets/brand-logo.jpg" alt="" width="150" height="150"></a><nav class="desktop-nav" aria-label="Principal">${list()}</nav><div class="header-actions">${booking("Agendar", "header-cta")}<button class="menu-toggle" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false">Menú<span class="menu-lines" aria-hidden="true"></span></button></div></div></header><dialog id="mobile-menu" class="menu-dialog" aria-labelledby="menu-title"><div class="menu-top"><span id="menu-title">17:17 · Luque</span><button class="close-menu" aria-label="Cerrar menú">Cerrar <span aria-hidden="true">×</span></button></div><nav aria-label="Navegación móvil">${list()}</nav><p>${e(business.hours)}</p>${booking("Elegir horario")}</dialog>`;
 }
 export function footer() {
-  return `<footer class="site-footer wrap"><div class="footer-top"><a class="footer-name" href="/">17:17 Barbería<span>Luque, Paraguay</span></a><nav aria-label="Enlaces del pie">${link("Instagram", business.instagram)}${link("WhatsApp",whatsappLink())}${link("Productos","/productos")}${link("Ubicación","/#ubicacion")}</nav></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} 17:17 Barbería</span><a class="text-link" href="/#inicio">Volver al inicio ↑</a></div></footer>`;
+  return `<footer class="site-footer wrap"><div class="footer-top"><a class="footer-name" href="/">17:17 Barbería<span>Luque, Paraguay</span></a><nav aria-label="Enlaces del pie">${link("Instagram", business.instagram)}${link("WhatsApp",whatsappLink())}${link("Productos","/productos")}${link("Trabajos","/trabajos")}${link("Ubicación","/#ubicacion")}</nav></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} 17:17 Barbería</span><a class="text-link" href="/#inicio">Volver al inicio ↑</a></div></footer>`;
 }
 export function mobileBooking(rulos = false) {
   return `<div class="mobile-booking" aria-label="Reserva rápida">${booking("Elegir horario")}</div>`;

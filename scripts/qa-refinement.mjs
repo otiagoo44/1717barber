@@ -122,7 +122,7 @@ try {
   assert.ok(destinations.some(u=>u.includes('wa.me/595983402497')));
   assert.ok(destinations.some(u=>u.includes('google.com/maps/')));
   assert.ok(destinations.some(u=>u.includes('instagram.com/1717barberia')));
-  assert.ok(destinations.includes(business.booking.url));
+  assert.ok(destinations.includes(base+'/reservar'));
   await page.goto(base+'/rulos',{waitUntil:'networkidle0'});
   const originalReels = await page.evaluate(() => [...document.querySelectorAll('[data-reel-source]')].map(el => el.dataset.reelSource));
   assert.equal(originalReels.length, 5);

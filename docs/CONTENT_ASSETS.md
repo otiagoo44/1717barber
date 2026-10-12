@@ -33,7 +33,7 @@ Derivados anteriores `hero-rulos*`, `hero-corte*`, `corte*` histórico, `local*`
 
 ## Tratamiento de imágenes
 
-WebP/AVIF, orientación normalizada, sin deformación. Variantes de 600px sólo cuando el original es mayor; hero también tiene variante de 900px para pantallas con mayor densidad. No se inventa una versión de 600px para imágenes más pequeñas. `sizes` de la galería corresponde a sus columnas reales, evitando descargar el original para una miniatura. Hero prioritario; galería, productos y local lazy con dimensiones reservadas. Los frames conservan su resolución real, sin afirmar calidad de cámara original.
+WebP/AVIF, orientación normalizada, sin deformación. El hero actual usa el fotograma final del quinto reel, por pedido del dueño, con resolución nativa 720×1280 y variantes 360/600; no se amplía artificialmente. `scripts/extract-hero-reel.mjs` lo reproduce con FFmpeg/Sharp externos. Fuente/hash: `docs/qa/booking-services/hero-source.json`. La foto anterior y sus variantes 600/900/1200 se conservan archivadas. `sizes` de galería corresponde a sus columnas reales. Hero prioritario; galería, productos y local lazy con dimensiones reservadas. Los frames conservan su resolución real, sin afirmar calidad de cámara original.
 
 Productos: recortes del envase recibido, sin UI de Google/catálogo, precios ni claims promocionales externos. No se reconstruye ni genera un envase. Algunos recortes siguen limitados por la calidad de las fuentes de catálogo. Se recomienda fotografía original limpia para mejorar calidad más adelante, pero las cinco fichas ya tienen imagen. `One Million Dollars` no se usa como sustituto de `One in a Million`. No se identificó un producto de barba de forma verificable.
 
@@ -48,12 +48,14 @@ Local: se retiraron los bordes negros de las fuentes verticales de fachada/inter
 
 ## Pendientes reales
 
+Actualización por nueva instrucción del dueño: ampliar la evidencia visual, no limitarla a la selección breve. `/trabajos` publica las **26 fotos y 11 videos disponibles** del directorio de cortes/rulos, más una foto de corte ya publicada y los cinco reels existentes: 27 fotos/16 videos. Los ángulos complementarios antes marcados DUPLICATE y material excluido sólo por brevedad pasan a KEEP para esta galería. Fuentes y hashes en `docs/qa/expanded-work/sources.json`; generación reproducible con `scripts/build-work-assets.mjs`. Las dos fotos eliminadas localmente y la grabación de pantalla no se restauraron; la foto del collage ajeno y la grabación no se incorporan, y el corte cuya fuente falta conserva su derivado ya publicado. El grid puede repetir un trabajo desde ángulos diferentes por esta nueva instrucción, pero no duplica el mismo archivo y no cuenta medios como clientes/testimonios. Fotos con bordes negros se limpiaron conservando el contenido y originales. Videos completos con orientación normalizada, H.264/AAC, faststart, sin descarga inicial. La secuencia destacada sigue siendo de cinco reels.
+
 1. Retrato individual actual de Jonatan.
 2. Retrato individual actual de Esteban.
 3. Nombre/presentación e imagen verificables del producto Immortal para barba; ficha aún sin publicar.
 4. Cuidados posteriores y descripción técnica de rulos, si quieren publicarlos; no se inventan instrucciones.
 5. Testimonios verificables, si quieren agregarlos. No existen citas reales en los datos actuales; no bloquean el recorrido.
 
-6. Revisar configuración externa de Cal.com: evento recibido muestra 40m y Cal Video; ajustar duración/atención presencial y servicio reservable antes de publicación comercial.
+6. Configurar eventos Cal.com por servicio y disponibilidad independiente de ambos barberos. 40m sí corresponde a corte, no a rulos/tinte (120m). Cambiar Cal Video a presencial y activar asignación automática verificada. Ver [BOOKING_SETUP.md](BOOKING_SETUP.md).
 
-Mejoras opcionales: packshots originales de productos, fotos de rulos de mayor resolución en lugar de frames, logo vectorial. El enlace de agenda, fotos actuales de cortes, vistas del local y presentaciones de ambos cofundadores ya no son pendientes.
+Mejoras opcionales: packshots originales de productos, fotos de rulos de mayor resolución en lugar de frames, logo vectorial. Las fotos actuales de cortes, vistas del local y presentaciones de ambos cofundadores ya no son pendientes. La existencia del enlace recibido no resuelve la configuración por servicio, ubicación presencial ni cobertura real de los barberos.

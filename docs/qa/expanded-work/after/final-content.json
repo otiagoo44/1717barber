@@ -1,0 +1,226 @@
+{
+  "date": "2026-10-12T16:45:55.773Z",
+  "sections": [
+    {
+      "width": 390,
+      "pendingAfterSweep": []
+    },
+    {
+      "width": 390,
+      "name": "founders",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      },
+      "profiles": [
+        {
+          "name": "Jonatan",
+          "role": "Cofundador",
+          "headline": "El oficio se construye.",
+          "bio": "Jonatan fue construyendo su oficio con práctica, incluso cortando en plazas y calles. Hoy ese camino continúa en 17:17, junto a su hermano.",
+          "font": "24px"
+        },
+        {
+          "name": "Esteban",
+          "role": "Cofundador",
+          "headline": "Crecer mano a mano.",
+          "bio": "Para Esteban, 17:17 significa apoyarse entre hermanos, complementar sus fortalezas y crecer mano a mano. Un proyecto en el que cada uno cuenta con el otro.",
+          "font": "24px"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "name": "team",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      }
+    },
+    {
+      "width": 390,
+      "name": "local",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      }
+    },
+    {
+      "width": 390,
+      "name": "gallery",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      }
+    },
+    {
+      "width": 768,
+      "pendingAfterSweep": []
+    },
+    {
+      "width": 768,
+      "name": "founders",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      },
+      "profiles": [
+        {
+          "name": "Jonatan",
+          "role": "Cofundador",
+          "headline": "El oficio se construye.",
+          "bio": "Jonatan fue construyendo su oficio con práctica, incluso cortando en plazas y calles. Hoy ese camino continúa en 17:17, junto a su hermano.",
+          "font": "24px"
+        },
+        {
+          "name": "Esteban",
+          "role": "Cofundador",
+          "headline": "Crecer mano a mano.",
+          "bio": "Para Esteban, 17:17 significa apoyarse entre hermanos, complementar sus fortalezas y crecer mano a mano. Un proyecto en el que cada uno cuenta con el otro.",
+          "font": "24px"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "name": "team",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      }
+    },
+    {
+      "width": 768,
+      "name": "local",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      }
+    },
+    {
+      "width": 768,
+      "name": "gallery",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      }
+    },
+    {
+      "width": 1440,
+      "pendingAfterSweep": []
+    },
+    {
+      "width": 1440,
+      "name": "founders",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      },
+      "profiles": [
+        {
+          "name": "Jonatan",
+          "role": "Cofundador",
+          "headline": "El oficio se construye.",
+          "bio": "Jonatan fue construyendo su oficio con práctica, incluso cortando en plazas y calles. Hoy ese camino continúa en 17:17, junto a su hermano.",
+          "font": "26px"
+        },
+        {
+          "name": "Esteban",
+          "role": "Cofundador",
+          "headline": "Crecer mano a mano.",
+          "bio": "Para Esteban, 17:17 significa apoyarse entre hermanos, complementar sus fortalezas y crecer mano a mano. Un proyecto en el que cada uno cuenta con el otro.",
+          "font": "26px"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "name": "team",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      }
+    },
+    {
+      "width": 1440,
+      "name": "local",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      }
+    },
+    {
+      "width": 1440,
+      "name": "gallery",
+      "state": {
+        "opacity": "1",
+        "pending": false,
+        "broken": []
+      }
+    }
+  ],
+  "menus": [
+    {
+      "route": "/",
+      "links": [
+        "http://127.0.0.1:4174/#inicio",
+        "http://127.0.0.1:4174/#rulos",
+        "http://127.0.0.1:4174/#servicios",
+        "http://127.0.0.1:4174/#nosotros",
+        "http://127.0.0.1:4174/#ubicacion",
+        "http://127.0.0.1:4174/reservar"
+      ],
+      "focus": {
+        "outline": "solid",
+        "visible": true
+      }
+    },
+    {
+      "route": "rulos",
+      "links": [
+        "http://127.0.0.1:4174/#inicio",
+        "http://127.0.0.1:4174/rulos",
+        "http://127.0.0.1:4174/#servicios",
+        "http://127.0.0.1:4174/#nosotros",
+        "http://127.0.0.1:4174/#ubicacion",
+        "http://127.0.0.1:4174/reservar"
+      ],
+      "focus": {
+        "outline": "solid",
+        "visible": true
+      }
+    },
+    {
+      "route": "productos",
+      "links": [
+        "http://127.0.0.1:4174/#inicio",
+        "http://127.0.0.1:4174/rulos",
+        "http://127.0.0.1:4174/#servicios",
+        "http://127.0.0.1:4174/#nosotros",
+        "http://127.0.0.1:4174/#ubicacion",
+        "http://127.0.0.1:4174/reservar"
+      ],
+      "focus": {
+        "outline": "solid",
+        "visible": true
+      }
+    }
+  ],
+  "checks": [
+    "Skip link, visible focus, all mobile menu links, forward/reverse Tab cycles in menu/lightbox/reel player, filtered lightbox keyboard navigation",
+    "All three routes static with reduced motion; five catalog products and no floating-booking observer on catalog"
+  ],
+  "errors": [],
+  "passed": true
+}

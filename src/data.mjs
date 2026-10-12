@@ -4,6 +4,14 @@ export const business = {
   booking: {
     provider: "cal.com",
     url: "https://cal.com/ezequiel-oviedo-dthlhd/barberia",
+    // Objetivo confirmado; no describe una configuración externa ya activada.
+    assignment: "automatic",
+    availabilityMode: "dateCoverage",
+    timezone: "America/Asuncion",
+    serviceEvents: {
+      corte: null, rulos: null, tinte: null, barba: null,
+      infantil: null, cejas: null, lavado: null,
+    },
   },
   name: "17:17 Barbería",
   phone: "0983 402 497",
@@ -19,13 +27,13 @@ export const media = {
   hero: {
     id: "HERO_FOTO_PRINCIPAL",
     type: "hero",
-    src: "/assets/media/rulos-actual.webp",
-    avif: "/assets/media/rulos-actual.avif",
-    variants: [600, 900],
-    width: 1200,
-    height: 1600,
-    alt: "Resultado de rulos y degradado lateral realizado en 17:17 Barbería",
-    position: "50% 42%",
+    src: "/assets/media/rulos-hero-final.webp",
+    avif: "/assets/media/rulos-hero-final.avif",
+    variants: [360, 600],
+    width: 720,
+    height: 1280,
+    alt: "Cliente con su resultado de rulos junto a un barbero de 17:17, fotograma final del quinto reel",
+    position: "50% 20%",
   },
   heroCut: {
     id: "HERO_CORTE",
@@ -45,7 +53,7 @@ export const media = {
     width: 1200,
     height: 1600,
     alt: "Detalle de rulos y corte lateral realizado en 17:17",
-    position: "50% 62%",
+    position: "50% 70%",
   },
   rulos2: {
     id: "RULOS_RESULTADO_02",
@@ -55,7 +63,7 @@ export const media = {
     width: 576,
     height: 1024,
     alt: "Rulos con volumen realizados en 17:17 Barbería, fotograma de un video recibido",
-    position: "50% 42%",
+    position: "50% 70%",
   },
   rulosFeatured: {
     id: "RULOS_DESTACADO_ACTUAL",
@@ -64,7 +72,7 @@ export const media = {
     width: 464,
     height: 832,
     alt: "Resultado de rulos en 17:17 Barbería, fotograma de un video recibido",
-    position: "50% 35%",
+    position: "50% 50%",
   },
   corte: {
     id: "CORTE_RESULTADO_01",
@@ -169,16 +177,19 @@ export const services = [
     name: "Rulos permanentes",
     price: 180000,
     intent: "RULOS",
+    durationMinutes: 120,
+    consultationRequired: true,
     featured: true,
   },
-  { id: "corte", name: "Corte masculino", price: 30000, intent: "CORTE" },
-  { id: "tinte", name: "Tinte", price: 200000, intent: "TINTE" },
-  { id: "barba", name: "Barba", price: 30000, intent: "BARBA" },
+  { id: "corte", name: "Corte masculino", price: 30000, intent: "CORTE", durationMinutes: 40 },
+  { id: "tinte", name: "Tinte", price: 200000, intent: "TINTE", durationMinutes: 120 },
+  { id: "barba", name: "Barba", price: 30000, intent: "BARBA", durationMinutes: 40 },
   {
     id: "infantil",
     name: "Corte infantil",
     price: 30000,
     intent: "INFANTIL",
+    durationMinutes: 40,
     complementary: true,
   },
   {
@@ -186,6 +197,7 @@ export const services = [
     name: "Perfilado de cejas",
     price: 10000,
     intent: "CEJAS",
+    durationMinutes: 40,
     complementary: true,
   },
   {
@@ -193,6 +205,7 @@ export const services = [
     name: "Lavado",
     price: 10000,
     intent: "LAVADO",
+    durationMinutes: 10,
     complementary: true,
   },
 ];
@@ -350,7 +363,7 @@ export const rulosProcess = [
   copy: null,
 }));
 export const homeFaq = [
-  ["¿Cómo reservo un turno?", business.booking.url ? "Elegí tu horario desde los botones de agenda en Cal.com. Para dudas sobre un servicio, escribinos por WhatsApp al 0983 402 497." : "Escribinos por WhatsApp al 0983 402 497 para coordinar tu turno."],
+  ["¿Cómo reservo un turno?", "Usá los botones de agenda para elegir el servicio y coordinar tu turno. Para rulos, consultá primero por el largo y las condiciones de tu cabello."],
   ["¿Cuánto cuesta el corte?", `El corte masculino cuesta Gs. ${services.find(s => s.id === "corte").price.toLocaleString("es-PY")}.`],
   ["¿Cuánto cuestan los rulos permanentes?", `Los rulos permanentes cuestan Gs. ${services.find(s => s.id === "rulos").price.toLocaleString("es-PY")}. El corte se cobra por separado. El servicio dura aproximadamente 2 horas; consultanos por el largo y las condiciones de tu cabello antes de reservar.`],
   ["¿Dónde queda la barbería?", `Estamos en ${business.address}, ${business.city}. Encontrás el enlace a Google Maps en la sección de ubicación.`],

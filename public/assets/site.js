@@ -33,7 +33,7 @@
     }, {threshold:0,rootMargin:"0px 0px -32px 0px"});
     // Prepare only content below the fold, before it can be seen. Never dim
     // content already on screen (including hash links and restored scroll).
-    const upcoming = [...document.querySelectorAll("main section:not(.hero) h2,.feature-photo,.service-row,.team-photo,.location-photo,.result-tile,.founder-names>div,.product-item")]
+    const upcoming = [...document.querySelectorAll("main section:not(.hero) h2:not(.sr-only),.feature-photo,.service-row,.team-photo,.location-photo,.result-tile,.founder-names>div,.product-item")]
       .filter(el => el.getBoundingClientRect().top >= innerHeight);
     if (!reducedMotion.matches) upcoming.forEach(el => {
       el.classList.add("reveal-pending");
@@ -172,13 +172,18 @@
       status = player.querySelector("[data-reel-player-status]"),
       external = player.querySelector("[data-reel-player-external]"),
       close = player.querySelector("[data-reel-player-close]");
-    external.href = reelFacades[0].dataset.reelSource;
+    const initialSource = reelFacades.find(facade => facade.dataset.reelSource)?.dataset.reelSource;
+    external.hidden = !initialSource;
+    if (initialSource) external.href = initialSource;
     let reelOpener = null;
     function showReel(facade) {
       reelOpener = facade;
       frame.replaceChildren();
       title.textContent = facade.getAttribute("aria-label")?.replace(/^Reproducir\s+/i, "") || "Reel de 17:17";
-      external.href = facade.dataset.reelSource;
+      external.hidden = !facade.dataset.reelSource;
+      if (facade.dataset.reelSource) external.href = facade.dataset.reelSource;
+      else external.removeAttribute('href');
+      player.querySelector('.eyebrow').textContent = `${facade.dataset.videoCategory || 'Rulos'} / EN MOVIMIENTO`;
       status.textContent = "Cargando video…";
       const video = document.createElement("video");
       video.controls = true;
@@ -328,6 +333,41 @@
     "data-product-category",
     "[data-product-status]",
   );
+  const workCards = [...document.querySelectorAll('.work-card')];
+  if (workCards.length) {
+    document.querySelector('.work-portfolio').classList.add('work-ready');
+    const categoryButtons = [...document.querySelectorAll('[data-work-category]')];
+    const formatButtons = [...document.querySelectorAll('[data-work-format]')];
+    const more = document.querySelector('[data-work-more]');
+    const status = document.querySelector('[data-work-status]');
+    let category = new URL(location.href).searchParams.get('categoria') || 'Todos';
+    if (!categoryButtons.some(b => b.dataset.workCategory === category)) category = 'Todos';
+    let format = 'Todos', limit = 12;
+    function updateWorks(animate = false) {
+      const matches = workCards.filter(card => (category === 'Todos' || card.dataset.category === category) && (format === 'Todos' || card.dataset.workType === format));
+      const shown = new Set(matches.slice(0,limit));
+      workCards.forEach(card => {
+        const wasHidden = card.hidden;
+        card.hidden = !shown.has(card);
+        if (animate && wasHidden && !card.hidden) reveal(card,Math.min([...shown].indexOf(card),2)*70,true);
+      });
+      categoryButtons.forEach(b => b.setAttribute('aria-pressed',String(b.dataset.workCategory===category)));
+      formatButtons.forEach(b => b.setAttribute('aria-pressed',String(b.dataset.workFormat===format)));
+      status.textContent = `${shown.size} de ${matches.length} trabajos · ${category} · ${format === 'Todos' ? 'Fotos y videos' : format === 'photo' ? 'Fotos' : 'Videos'}`;
+      document.querySelector('[data-work-empty]').hidden = matches.length !== 0;
+      more.hidden = matches.length <= limit;
+      more.textContent = `Ver más trabajos (${Math.min(12,Math.max(0,matches.length-limit))})`;
+    }
+    categoryButtons.forEach(b => b.addEventListener('click',()=>{category=b.dataset.workCategory;limit=12;updateWorks(true);}));
+    formatButtons.forEach(b => b.addEventListener('click',()=>{format=b.dataset.workFormat;limit=12;updateWorks(true);}));
+    more.addEventListener('click',()=>{
+      const previous = new Set(workCards.filter(c=>!c.hidden));
+      limit+=12;updateWorks(true);
+      const first = workCards.find(c=>!c.hidden&&!previous.has(c));
+      first?.querySelector('a,button')?.focus({preventScroll:true});
+    });
+    updateWorks();
+  }
   const lightbox = document.querySelector("#lightbox");
   if (!lightbox) return;
   let photos = [],
@@ -356,7 +396,8 @@
     render();
   }
   document.querySelectorAll(".photo-trigger").forEach((button) =>
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
       photos = [...document.querySelectorAll(".photo-trigger")].filter(
         (p) => !p.closest("figure").hidden,
       );

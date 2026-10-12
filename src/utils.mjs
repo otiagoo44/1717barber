@@ -31,8 +31,19 @@ export function whatsappLink({ intent = "GENERAL", service, product } = {}) {
   return `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(message)}`;
 }
 export function bookingLink() {
-  if (!business.booking.url) return whatsappLink({ intent: "AGENDA" });
-  const url = new URL(business.booking.url);
+  return "/reservar";
+}
+export const serviceDuration = (service) => service.durationMinutes === 120 ? "2 horas" : `${service.durationMinutes} minutos`;
+export function serviceBookingLink(serviceId, configuration = business.booking) {
+  const service = services.find(s => s.id === serviceId);
+  if (!service) throw new Error("Servicio de agenda desconocido.");
+  const event = configuration.serviceEvents[serviceId];
+  // Rulos exige evaluación previa, incluso cuando existe su evento de 120 min.
+  if (service.consultationRequired || !event) return whatsappLink({intent:service.intent, service:service.id});
+  if (event.durationMinutes !== service.durationMinutes || event.location !== "inPerson" || event.assignment !== "roundRobin" || event.verified !== true) {
+    throw new Error(`Configuración Cal.com sin verificar o incompatible: ${serviceId}`);
+  }
+  const url = new URL(event.url);
   if (url.protocol !== "https:" || url.hostname !== "cal.com") {
     throw new Error("La agenda debe ser una URL HTTPS real de Cal.com.");
   }

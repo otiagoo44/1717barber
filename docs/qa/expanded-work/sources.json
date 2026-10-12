@@ -1,0 +1,653 @@
+[
+  {
+    "id": "photo-01",
+    "type": "photo",
+    "category": "Rulos",
+    "title": "Rulos en proceso",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.20.50.jpeg",
+    "sourceSha256": "0dd0028792e47e458472c2429694318e77b59acc538b28c5f3488fa59884c01c",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-01.webp",
+    "avif": "/assets/work/photo-01.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 65%"
+  },
+  {
+    "id": "photo-02",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Corte con textura",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.06.jpeg",
+    "sourceSha256": "05899c2b1b85cfc1af75da17e08bbd8bc24c47130dc7806010cfaa0db364b559",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-02.webp",
+    "avif": "/assets/work/photo-02.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-03",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Vista posterior del corte",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.14 (2).jpeg",
+    "sourceSha256": "defbda45839b9db0ed6fd24392780cc683e2c010b0c2867d463402afc34b6572",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-03.webp",
+    "avif": "/assets/work/photo-03.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-04",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Taper lateral",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.14.jpeg",
+    "sourceSha256": "a7805a5865793c22d3f580573714da53885de90b37d6d32fa5601bbab9422c40",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-04.webp",
+    "avif": "/assets/work/photo-04.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-05",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Degradado lateral",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.16 (2).jpeg",
+    "sourceSha256": "a855741e3243c0833f21404cb7e1017cdad4665d20c35c3e067844cdfd651735",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-05.webp",
+    "avif": "/assets/work/photo-05.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-06",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Resultado del corte",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.16.jpeg",
+    "sourceSha256": "ed78c9d8547d69dae7db4dddc17128663bec1ac88451f19fa453f9584866186f",
+    "width": 739,
+    "height": 1316,
+    "image": "/assets/work/photo-06.webp",
+    "avif": "/assets/work/photo-06.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-07",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Corte con volumen",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.17 (1).jpeg",
+    "sourceSha256": "a993fae98186448762fd33c4cae22be90421853f80199387b9c5d1b566dd7713",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-07.webp",
+    "avif": "/assets/work/photo-07.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-08",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Otro ángulo del corte",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.17 (2).jpeg",
+    "sourceSha256": "e01f2e72dc177a0e350e607a53c47b8ede325f60f332870c2faa2c3dde2d0071",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-08.webp",
+    "avif": "/assets/work/photo-08.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-09",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Perfilado lateral",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.17.jpeg",
+    "sourceSha256": "4c83e906a82478f997d79e817d739e138ce805cf4b46d523ac60386279b9014b",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-09.webp",
+    "avif": "/assets/work/photo-09.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-10",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Textura y forma",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.18 (1).jpeg",
+    "sourceSha256": "9e948ba52c0954a963b31053a9e260a7c4014b128a7135487533241cb08fd35d",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-10.webp",
+    "avif": "/assets/work/photo-10.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-11",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Textura desde otro ángulo",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.18 (2).jpeg",
+    "sourceSha256": "7271d95d1b4d9a7e0f50268b476d3da7331dfc4321bf39f87cc0bb28718cf190",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-11.webp",
+    "avif": "/assets/work/photo-11.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-12",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Vista posterior",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.18.jpeg",
+    "sourceSha256": "c8db10ea8e312a275582ecbd9a1a1be6f3521797d3dd29eac1a602d2e342935d",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-12.webp",
+    "avif": "/assets/work/photo-12.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-13",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Detalle posterior",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.19 (1).jpeg",
+    "sourceSha256": "1f5047af7af250fc8325c46e3c08bf29ed377e8f9d7886140b6b73846416c26a",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-13.webp",
+    "avif": "/assets/work/photo-13.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-14",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Detalle de la terminación",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.19 (2).jpeg",
+    "sourceSha256": "988d31647552e1ddfff1a0f74e7259f1526bc5fbab9068e7378e1c53fa3501aa",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-14.webp",
+    "avif": "/assets/work/photo-14.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-15",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Perfil del resultado",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.19.jpeg",
+    "sourceSha256": "e0c7a2ae8d1964e166a1ef45f572663572709627a84b05cb7a9c904d358c6130",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-15.webp",
+    "avif": "/assets/work/photo-15.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-16",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Terminación desde atrás",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.20 (1).jpeg",
+    "sourceSha256": "a8a7d59e1b6b2e260c2c9fa708c3ea5b670449141d2c781b0c8bcc6127a3d3a4",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-16.webp",
+    "avif": "/assets/work/photo-16.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-17",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Corte y perfilado",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.20.jpeg",
+    "sourceSha256": "22729299f7083e59638841e52286ab1577e56ae92930cf3de0f973e462170bc3",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-17.webp",
+    "avif": "/assets/work/photo-17.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-18",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Degradado y textura",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.21 (1).jpeg",
+    "sourceSha256": "55d1f69e1a761b477f12f06317f53b686f99c69b7a08c96f12ea69718026bfb9",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-18.webp",
+    "avif": "/assets/work/photo-18.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-19",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Degradado de cerca",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.21.jpeg",
+    "sourceSha256": "a67ac9535da49e7b63d86314902e1381e74bed81fd0baef03f996bb71415dcce",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-19.webp",
+    "avif": "/assets/work/photo-19.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-20",
+    "type": "photo",
+    "category": "Rulos",
+    "title": "Textura y volumen",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.22 (1).jpeg",
+    "sourceSha256": "eff8715463c0a7b9c1a1740fcecece3aef8a1c80edabcc004dba41f933e17ea7",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-20.webp",
+    "avif": "/assets/work/photo-20.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 65%"
+  },
+  {
+    "id": "photo-21",
+    "type": "photo",
+    "category": "Proceso",
+    "title": "En el puesto de trabajo",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.22.jpeg",
+    "sourceSha256": "d71e08f24e2958196b4b280c78e3d6804b68aeb757ce0932f369167c35376662",
+    "width": 756,
+    "height": 1600,
+    "image": "/assets/work/photo-21.webp",
+    "avif": "/assets/work/photo-21.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-22",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Vista del perfil",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.35.jpeg",
+    "sourceSha256": "c4948148516afedd34701a3f8a325c304823d7f093d4ee8c77d683fe74eddac1",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-22.webp",
+    "avif": "/assets/work/photo-22.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-23",
+    "type": "photo",
+    "category": "Proceso",
+    "title": "Rulos en el puesto",
+    "source": "img/fotos-cortes-rulos/foto_barbero_trabajando.jpeg",
+    "sourceSha256": "3ab7462c6b6cde188aecd7a975c9d4c9f61659e429cd2baa039e7446bd83afc1",
+    "width": 720,
+    "height": 900,
+    "image": "/assets/work/photo-23.webp",
+    "avif": "/assets/work/photo-23.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-24",
+    "type": "photo",
+    "category": "Cortes",
+    "title": "Detalle del corte lateral",
+    "source": "img/fotos-cortes-rulos/foto_corte_diseño.jpeg",
+    "sourceSha256": "b19dec0d581ebafbed45e8b35827839d3cec8f45cebec088e1b34ee6f6120cf3",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-24.webp",
+    "avif": "/assets/work/photo-24.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "photo-25",
+    "type": "photo",
+    "category": "Rulos",
+    "title": "Rulos de cerca",
+    "source": "img/fotos-cortes-rulos/foto_corte_rulos.jpeg",
+    "sourceSha256": "903bff19bc7e775e6a030dcfb9622eb064ffe8fd50d78919b1247a4f7a658b19",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-25.webp",
+    "avif": "/assets/work/photo-25.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 65%"
+  },
+  {
+    "id": "photo-26",
+    "type": "photo",
+    "category": "Color",
+    "title": "Color y textura",
+    "source": "img/fotos-cortes-rulos/foto_corte_tinte.jpeg",
+    "sourceSha256": "11ec7e7ab4021b8334194550877e8da0261ca4828adb46ec7e038f84b7b11dea",
+    "width": 1200,
+    "height": 1600,
+    "image": "/assets/work/photo-26.webp",
+    "avif": "/assets/work/photo-26.avif",
+    "variants": [
+      360,
+      600
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "video-01",
+    "type": "video",
+    "category": "Rulos",
+    "title": "Rulos: proceso y resultado",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.20.57.mp4",
+    "sourceSha256": "c2193c41b35b3da981836e161f7288b1f47c8f6a071905de5f61a0bee816969d",
+    "durationSeconds": 24.615011,
+    "video": "/assets/work/video-01.mp4",
+    "videoBytes": 3456376,
+    "width": 576,
+    "height": 1024,
+    "image": "/assets/work/video-01.webp",
+    "avif": "/assets/work/video-01.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 65%"
+  },
+  {
+    "id": "video-02",
+    "type": "video",
+    "category": "Rulos",
+    "title": "Rulos con volumen",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.20.59.mp4",
+    "sourceSha256": "5df1bcc5cca9cb5b5b4b849e4994ebd22717227475a3b9166cc23a79116990a4",
+    "durationSeconds": 5.1,
+    "video": "/assets/work/video-02.mp4",
+    "videoBytes": 1015522,
+    "width": 576,
+    "height": 1024,
+    "image": "/assets/work/video-02.webp",
+    "avif": "/assets/work/video-02.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 65%"
+  },
+  {
+    "id": "video-03",
+    "type": "video",
+    "category": "Rulos",
+    "title": "Rulos en movimiento",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.05.mp4",
+    "sourceSha256": "2412f37d8357ba0a58670748f186295412930dff1956c493d8e49e2c250a5a23",
+    "durationSeconds": 38.988333,
+    "video": "/assets/work/video-03.mp4",
+    "videoBytes": 3977375,
+    "width": 464,
+    "height": 832,
+    "image": "/assets/work/video-03.webp",
+    "avif": "/assets/work/video-03.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 65%"
+  },
+  {
+    "id": "video-04",
+    "type": "video",
+    "category": "Cortes",
+    "title": "Corte desde varios ángulos",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.07.mp4",
+    "sourceSha256": "dca1536b11cf953d57e06a16ab26521e599ba13df61b8dbee9e2cc73e4f43860",
+    "durationSeconds": 4.566667,
+    "video": "/assets/work/video-04.mp4",
+    "videoBytes": 788841,
+    "width": 576,
+    "height": 768,
+    "image": "/assets/work/video-04.webp",
+    "avif": "/assets/work/video-04.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "video-05",
+    "type": "video",
+    "category": "Cortes",
+    "title": "Resultado del corte",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.13.mp4",
+    "sourceSha256": "afa1941231cefcd8a0114af1f8b0eee5d326c59ef36a066cc11bc9e00df77f7a",
+    "durationSeconds": 2.166667,
+    "video": "/assets/work/video-05.mp4",
+    "videoBytes": 314938,
+    "width": 576,
+    "height": 768,
+    "image": "/assets/work/video-05.webp",
+    "avif": "/assets/work/video-05.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "video-06",
+    "type": "video",
+    "category": "Rulos",
+    "title": "Resultado de rulos",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.15.mp4",
+    "sourceSha256": "8e09322233129bd992bdb037a6a15e6e3bfb0f58af8f3a444e528b18e32c87a3",
+    "durationSeconds": 2.668333,
+    "video": "/assets/work/video-06.mp4",
+    "videoBytes": 304830,
+    "width": 464,
+    "height": 832,
+    "image": "/assets/work/video-06.webp",
+    "avif": "/assets/work/video-06.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 65%"
+  },
+  {
+    "id": "video-07",
+    "type": "video",
+    "category": "Cortes",
+    "title": "Corte y terminación lateral",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.20.mp4",
+    "sourceSha256": "217864c05547af3d766c52459589098df19819007aaa045703cfb8fa0bb37afa",
+    "durationSeconds": 5.633333,
+    "video": "/assets/work/video-07.mp4",
+    "videoBytes": 1014472,
+    "width": 576,
+    "height": 768,
+    "image": "/assets/work/video-07.webp",
+    "avif": "/assets/work/video-07.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "video-08",
+    "type": "video",
+    "category": "Cortes",
+    "title": "Perfilado y peinado",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.21.mp4",
+    "sourceSha256": "fc2a32de0d7282a45e9c312aff1165b17c72e6ff99f448dbac8e9d2d5890f444",
+    "durationSeconds": 5.033333,
+    "video": "/assets/work/video-08.mp4",
+    "videoBytes": 847746,
+    "width": 576,
+    "height": 768,
+    "image": "/assets/work/video-08.webp",
+    "avif": "/assets/work/video-08.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "video-09",
+    "type": "video",
+    "category": "Rulos",
+    "title": "Trabajo de rulos paso a paso",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.34.mp4",
+    "sourceSha256": "d4938a1d3d19b253e7bb7be7c9c382f99157fae5c32f5897d9e27c1654723a5a",
+    "durationSeconds": 98.465,
+    "video": "/assets/work/video-09.mp4",
+    "videoBytes": 9785820,
+    "width": 576,
+    "height": 1024,
+    "image": "/assets/work/video-09.webp",
+    "avif": "/assets/work/video-09.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 65%"
+  },
+  {
+    "id": "video-10",
+    "type": "video",
+    "category": "Cortes",
+    "title": "Detalle del corte",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.36.mp4",
+    "sourceSha256": "03498aa7c7a681679e02dccd68e38750f168569cf72924f381b30094d2029225",
+    "durationSeconds": 3.6,
+    "video": "/assets/work/video-10.mp4",
+    "videoBytes": 519416,
+    "width": 576,
+    "height": 768,
+    "image": "/assets/work/video-10.webp",
+    "avif": "/assets/work/video-10.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 50%"
+  },
+  {
+    "id": "video-11",
+    "type": "video",
+    "category": "Cortes",
+    "title": "Degradado en movimiento",
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.38.mp4",
+    "sourceSha256": "62007d74e84cddf99a09b800192c9435f71ce9577cd6212816b1f7062e3a20d1",
+    "durationSeconds": 9.498333,
+    "video": "/assets/work/video-11.mp4",
+    "videoBytes": 730622,
+    "width": 464,
+    "height": 832,
+    "image": "/assets/work/video-11.webp",
+    "avif": "/assets/work/video-11.avif",
+    "variants": [
+      360
+    ],
+    "position": "50% 50%"
+  }
+]

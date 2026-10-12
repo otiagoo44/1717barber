@@ -12,7 +12,7 @@ const { launch } = await import(
 const out = process.env.QA_OUT || "docs/qa/second-pass";
 await mkdir(out, { recursive: true });
 const summary = [];
-for (const path of ["/", "/rulos", "/productos"]) {
+for (const path of (process.env.QA_ROUTES || "/,/rulos,/productos").split(",")) {
   // Isolate each route's cold profile and renderer from the previous audit.
   const chrome = await launch({
     chromePath: process.env.CHROME_PATH,

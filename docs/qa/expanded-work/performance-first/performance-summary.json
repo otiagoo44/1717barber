@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-12T16:52:39.733Z",
+  "profile": "Lighthouse default mobile simulation on localhost, not field data",
+  "pages": [
+    {
+      "path": "/",
+      "scores": {
+        "performance": 66,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 2514.8305923792745,
+      "tbt": 2106.766118475855,
+      "cls": 0,
+      "bytes": 341339
+    },
+    {
+      "path": "/rulos",
+      "scores": {
+        "performance": 78,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "lcp": 2605.4096250000002,
+      "tbt": 608.3638500000002,
+      "cls": 0,
+      "bytes": 408232
+    },
+    {
+      "path": "/productos",
+      "scores": {
+        "performance": 91,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 2300.8173,
+      "tbt": 297.43910000000005,
+      "cls": 0.00009576137133283108,
+      "bytes": 188179
+    },
+    {
+      "path": "/reservar",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 1822.336,
+      "tbt": 154,
+      "cls": 0,
+      "bytes": 127727
+    },
+    {
+      "path": "/trabajos",
+      "scores": {
+        "performance": 78,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 92
+      },
+      "lcp": 2573.0356,
+      "tbt": 616.4999999999998,
+      "cls": 0,
+      "bytes": 343452
+    }
+  ]
+}

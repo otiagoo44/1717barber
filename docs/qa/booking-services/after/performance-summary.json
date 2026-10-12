@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-12T16:08:39.517Z",
+  "profile": "Lighthouse default mobile simulation on localhost, not field data",
+  "pages": [
+    {
+      "path": "/",
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 2494.7812999999996,
+      "tbt": 68,
+      "cls": 0,
+      "bytes": 337946
+    },
+    {
+      "path": "/rulos",
+      "scores": {
+        "performance": 90,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 2562.7603,
+      "tbt": 295.309925,
+      "cls": 0.0003340438471576683,
+      "bytes": 404823
+    },
+    {
+      "path": "/productos",
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 1893.3161,
+      "tbt": 96,
+      "cls": 0,
+      "bytes": 184938
+    },
+    {
+      "path": "/reservar",
+      "scores": {
+        "performance": 78,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "lcp": 1659.0969,
+      "tbt": 839,
+      "cls": 0,
+      "bytes": 124486
+    }
+  ]
+}

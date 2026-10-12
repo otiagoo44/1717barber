@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-12T16:47:08.339Z",
+  "pages": [
+    {
+      "route": "/",
+      "width": 1366,
+      "wrap": {
+        "width": 1284.03125,
+        "left": 40.984375
+      },
+      "axe": 0
+    },
+    {
+      "route": "/",
+      "width": 1920,
+      "wrap": {
+        "width": 1680,
+        "left": 120
+      },
+      "axe": 0
+    },
+    {
+      "route": "rulos",
+      "width": 1366,
+      "wrap": {
+        "width": 1284.03125,
+        "left": 40.984375
+      },
+      "axe": 0
+    },
+    {
+      "route": "rulos",
+      "width": 1920,
+      "wrap": {
+        "width": 1680,
+        "left": 120
+      },
+      "axe": 0
+    },
+    {
+      "route": "productos",
+      "width": 1366,
+      "wrap": {
+        "width": 1284.03125,
+        "left": 40.984375
+      },
+      "axe": 0
+    },
+    {
+      "route": "productos",
+      "width": 1920,
+      "wrap": {
+        "width": 1440,
+        "left": 240
+      },
+      "axe": 0
+    },
+    {
+      "route": "reservar",
+      "width": 1366,
+      "wrap": {
+        "width": 1284.03125,
+        "left": 40.984375
+      },
+      "axe": 0
+    },
+    {
+      "route": "reservar",
+      "width": 1920,
+      "wrap": {
+        "width": 1440,
+        "left": 240
+      },
+      "axe": 0
+    },
+    {
+      "route": "reservar",
+      "width": 375,
+      "wrap": {
+        "width": 335,
+        "left": 20
+      },
+      "axe": 0
+    },
+    {
+      "route": "reservar",
+      "width": 390,
+      "wrap": {
+        "width": 350,
+        "left": 20
+      },
+      "axe": 0
+    },
+    {
+      "route": "reservar",
+      "width": 430,
+      "wrap": {
+        "width": 390,
+        "left": 20
+      },
+      "axe": 0
+    },
+    {
+      "route": "reservar",
+      "width": 768,
+      "wrap": {
+        "width": 721.90625,
+        "left": 23.046875
+      },
+      "axe": 0
+    },
+    {
+      "route": "reservar",
+      "width": 1024,
+      "wrap": {
+        "width": 962.546875,
+        "left": 30.71875
+      },
+      "axe": 0
+    },
+    {
+      "route": "reservar",
+      "width": 1440,
+      "wrap": {
+        "width": 1353.59375,
+        "left": 43.203125
+      },
+      "axe": 0
+    },
+    {
+      "route": "rulos",
+      "width": 390,
+      "wrap": {
+        "width": 350,
+        "left": 20
+      },
+      "axe": 0
+    },
+    {
+      "route": "rulos",
+      "width": 768,
+      "wrap": {
+        "width": 721.90625,
+        "left": 23.046875
+      },
+      "axe": 0
+    },
+    {
+      "route": "rulos",
+      "width": 1440,
+      "wrap": {
+        "width": 1353.59375,
+        "left": 43.203125
+      },
+      "axe": 0
+    }
+  ],
+  "checks": [
+    "Local header navigates to service selection; mobile menu focus; seven correct contextual service destinations; no generic Cal fallback; reduced motion and no-JS; notebook width; stable service-detail columns; no initial video; Axe zero"
+  ],
+  "errors": [],
+  "passed": true
+}

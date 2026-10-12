@@ -15,6 +15,7 @@ if (siteUrl) {
 }
 await mkdir("dist", { recursive: true });
 await cp("public/assets", "dist/assets", { recursive: true });
+await cp("public/favicon.ico", "dist/favicon.ico");
 // Un único CSS evita la cadena bloqueante de @import sin añadir un bundler.
 const styles = await Promise.all([
   readFile("public/assets/fonts/fonts.css", "utf8"),
@@ -39,6 +40,8 @@ for (const [name, path] of [
   ["home", "index.html"],
   ["rulos", "rulos/index.html"],
   ["productos", "productos/index.html"],
+  ["reservar", "reservar/index.html"],
+  ["trabajos", "trabajos/index.html"],
 ]) {
   const html = renderPage(name, siteUrl, assetVersion).replace(/^[ \t]+$/gm, "");
   const folder = path.split("/").slice(0, -1).join("/");
@@ -58,7 +61,7 @@ await writeFile(
 if (siteUrl)
   await writeFile(
     "dist/sitemap.xml",
-    `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${["/", "/rulos", "/productos"].map((path) => `<url><loc>${siteUrl + path}</loc></url>`).join("")}</urlset>`,
+    `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${["/", "/rulos", "/productos", "/reservar", "/trabajos"].map((path) => `<url><loc>${siteUrl + path}</loc></url>`).join("")}</urlset>`,
   );
 else {
   const { rm } = await import("node:fs/promises");

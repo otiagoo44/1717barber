@@ -1,0 +1,5 @@
+{
+  "entries": [],
+  "passed": false,
+  "failure": "Error: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4175\n    at navigate (file:///C:/Users/User/AppData/Local/Temp/1717-final-qa/node_modules/puppeteer-core/lib/puppeteer/cdp/Frame.js:187:27)\n    at async Deferred.race (file:///C:/Users/User/AppData/Local/Temp/1717-final-qa/node_modules/puppeteer-core/lib/puppeteer/util/Deferred.js:33:20)\n    at async CdpFrame.goto (file:///C:/Users/User/AppData/Local/Temp/1717-final-qa/node_modules/puppeteer-core/lib/puppeteer/cdp/Frame.js:153:25)\n    at async CdpPage.goto (file:///C:/Users/User/AppData/Local/Temp/1717-final-qa/node_modules/puppeteer-core/lib/puppeteer/api/Page.js:582:20)\n    at async file:///C:/htdocs/1717barber/scripts/qa-scroll-entry.mjs:16:7"
+}

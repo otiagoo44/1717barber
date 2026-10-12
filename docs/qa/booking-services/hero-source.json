@@ -1,0 +1,34 @@
+{
+  "source": "public/assets/videos/DceM8azzYuV.mp4",
+  "reelId": "REEL_RULOS_05",
+  "extraction": "Final decoded video frame; no photographic crop, retouch or upscale",
+  "sourceSha256": "4bfdf52d87d1948fd22b5a1662f1afcc735dcf45e47d0329255ce14a0f5d0858",
+  "width": 720,
+  "height": 1280,
+  "files": [
+    {
+      "path": "public/assets/media/rulos-hero-final-360.webp",
+      "bytes": 35702
+    },
+    {
+      "path": "public/assets/media/rulos-hero-final-360.avif",
+      "bytes": 22923
+    },
+    {
+      "path": "public/assets/media/rulos-hero-final-600.webp",
+      "bytes": 68150
+    },
+    {
+      "path": "public/assets/media/rulos-hero-final-600.avif",
+      "bytes": 45860
+    },
+    {
+      "path": "public/assets/media/rulos-hero-final.webp",
+      "bytes": 84578
+    },
+    {
+      "path": "public/assets/media/rulos-hero-final.avif",
+      "bytes": 57506
+    }
+  ]
+}

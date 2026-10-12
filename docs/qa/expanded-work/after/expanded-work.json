@@ -1,0 +1,196 @@
+{
+  "date": "2026-10-12T16:54:31.037Z",
+  "pages": [
+    {
+      "width": 375,
+      "cards": 43,
+      "photos": 27,
+      "videos": 16,
+      "axe": 0,
+      "overflow": false,
+      "initialVideoRequests": 0
+    },
+    {
+      "width": 390,
+      "cards": 43,
+      "photos": 27,
+      "videos": 16,
+      "axe": 0,
+      "overflow": false,
+      "initialVideoRequests": 0
+    },
+    {
+      "width": 430,
+      "cards": 43,
+      "photos": 27,
+      "videos": 16,
+      "axe": 0,
+      "overflow": false,
+      "initialVideoRequests": 0
+    },
+    {
+      "width": 768,
+      "cards": 43,
+      "photos": 27,
+      "videos": 16,
+      "axe": 0,
+      "overflow": false,
+      "initialVideoRequests": 0
+    },
+    {
+      "width": 1024,
+      "cards": 43,
+      "photos": 27,
+      "videos": 16,
+      "axe": 0,
+      "overflow": false,
+      "initialVideoRequests": 0
+    },
+    {
+      "width": 1366,
+      "cards": 43,
+      "photos": 27,
+      "videos": 16,
+      "axe": 0,
+      "overflow": false,
+      "initialVideoRequests": 0
+    },
+    {
+      "width": 1440,
+      "cards": 43,
+      "photos": 27,
+      "videos": 16,
+      "axe": 0,
+      "overflow": false,
+      "initialVideoRequests": 0
+    },
+    {
+      "width": 1920,
+      "cards": 43,
+      "photos": 27,
+      "videos": 16,
+      "axe": 0,
+      "overflow": false,
+      "initialVideoRequests": 0
+    }
+  ],
+  "videos": [
+    {
+      "id": "video-01",
+      "time": 0.481794,
+      "frames": 20,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "id": "video-02",
+      "time": 0.441962,
+      "frames": 19,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "id": "video-03",
+      "time": 0.421553,
+      "frames": 18,
+      "width": 464,
+      "height": 832
+    },
+    {
+      "id": "video-04",
+      "time": 0.421677,
+      "frames": 18,
+      "width": 576,
+      "height": 768
+    },
+    {
+      "id": "video-05",
+      "time": 0.427398,
+      "frames": 17,
+      "width": 576,
+      "height": 768
+    },
+    {
+      "id": "video-06",
+      "time": 0.40847,
+      "frames": 30,
+      "width": 464,
+      "height": 832
+    },
+    {
+      "id": "video-07",
+      "time": 0.41877,
+      "frames": 18,
+      "width": 576,
+      "height": 768
+    },
+    {
+      "id": "video-08",
+      "time": 0.408277,
+      "frames": 18,
+      "width": 576,
+      "height": 768
+    },
+    {
+      "id": "video-09",
+      "time": 0.42496,
+      "frames": 16,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "id": "video-10",
+      "time": 0.428224,
+      "frames": 18,
+      "width": 576,
+      "height": 768
+    },
+    {
+      "id": "video-11",
+      "time": 0.427723,
+      "frames": 18,
+      "width": 464,
+      "height": 832
+    },
+    {
+      "id": "REEL_RULOS_01",
+      "time": 0.468149,
+      "frames": 19,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "id": "REEL_RULOS_02",
+      "time": 0.416076,
+      "frames": 18,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "id": "REEL_RULOS_03",
+      "time": 0.445478,
+      "frames": 19,
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "id": "REEL_RULOS_04",
+      "time": 0.417317,
+      "frames": 18,
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "id": "REEL_RULOS_05",
+      "time": 0.414464,
+      "frames": 18,
+      "width": 720,
+      "height": 1280
+    }
+  ],
+  "checks": [
+    "15 category/format combinations; correct empty state; progressive show-more; prefiltered Rulos URL; filtered photo dialog/keyboard/focus; all sixteen videos really played and unload; no invented Instagram link for WhatsApp clips; reduced motion; all content and photo links usable without JS"
+  ],
+  "errors": [],
+  "passed": true
+}

@@ -67,7 +67,7 @@ try {
     });
     for(const a of await page.$$('#mobile-menu a')) await a.click();
     const links=await page.evaluate(()=>window.qaMenuClicks);
-    assert.ok(links.includes(business.booking.url));
+    assert.ok(links.includes(base+'/reservar'));
     assert.ok(links.includes(base+(route?'/rulos':'/#rulos')));
     await page.keyboard.press('Escape');
     assert.equal(await page.evaluate(()=>document.activeElement.matches('.menu-toggle')),true);

@@ -1,6 +1,6 @@
 /* 17:17 — one layout system. Tokens originate in DESIGN.md. */
 *{box-sizing:border-box}
-:root{color-scheme:dark;--gutter:clamp(20px,5vw,72px);--divider:rgba(244,240,232,.16);--header-height:80px}
+:root{color-scheme:dark;--gutter:clamp(20px,3vw,48px);--divider:rgba(244,240,232,.16);--header-height:80px}
 html{scroll-behavior:smooth;scroll-padding-top:120px;scroll-padding-bottom:100px}
 body{margin:0;background:var(--color-background);color:var(--color-paper);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 body.modal-open{overflow:hidden}
@@ -19,7 +19,7 @@ h1{font-size:clamp(44px,5vw,72px);line-height:1.08;letter-spacing:-.045em;text-w
 h2{font-size:clamp(32px,3.2vw,46px);line-height:1.15;letter-spacing:-.035em;text-wrap:balance}
 h3{font-size:22px;line-height:1.3;letter-spacing:-.025em}
 p{max-width:48ch;color:var(--color-muted)}
-.wrap{width:calc(100% - var(--gutter)*2);max-width:1440px;margin-inline:auto}
+.wrap{width:calc(100% - var(--gutter)*2);max-width:1680px;margin-inline:auto}
 .section{padding-block:104px}
 .eyebrow{font-size:13px;font-weight:500;letter-spacing:.1em;line-height:1.5;text-transform:uppercase;color:var(--color-primary);margin-bottom:24px}
 .section-heading{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:40px}
@@ -35,7 +35,7 @@ p{max-width:48ch;color:var(--color-muted)}
 .skip-link{position:fixed;top:12px;left:12px;transform:translateY(-180%);background:var(--color-paper);color:var(--color-ink);padding:12px;z-index:100}
 .skip-link:focus{transform:none}
 .site-header{position:sticky;top:0;z-index:20;background:var(--color-background);border-bottom:1px solid var(--divider)}
-.header-inner{width:calc(100% - var(--gutter)*2);max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:28px;min-height:var(--header-height)}
+.header-inner{width:calc(100% - var(--gutter)*2);max-width:1680px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:28px;min-height:var(--header-height)}
 .wordmark{display:inline-flex;flex-shrink:0;align-items:center}
 .brand-logo{width:62px;height:62px;border-radius:50%;object-fit:cover}
 .desktop-nav{display:flex;gap:clamp(20px,2.8vw,40px);align-items:center}
@@ -93,12 +93,23 @@ figcaption{display:flex;justify-content:space-between;gap:16px;font-size:13px;li
 .filters button{border:1px solid transparent;background:none;padding:10px 18px;min-height:44px;font-size:14px;border-radius:3px;color:var(--color-muted)}
 .filters button[aria-pressed="true"]{border-color:var(--color-primary);background:var(--color-primary);color:var(--color-ink)}
 .portfolio-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
-.portfolio-grid.rulos-results{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1050px}
+.portfolio-grid.rulos-results{grid-template-columns:repeat(2,minmax(0,1fr));margin-inline:auto}
 .photo-trigger{position:relative;display:block;width:100%;border:0;padding:0;background:none;aspect-ratio:4/5;overflow:hidden;text-align:left}
 .photo-trigger .media-image{transition:transform var(--motion-base) var(--ease-standard)}
 .photo-open{position:absolute;bottom:12px;right:12px;background:var(--color-paper);color:var(--color-ink);width:32px;height:32px;display:grid;place-items:center;font-size:18px;border-radius:50%}
 .result-tile figcaption{display:block}
 .result-tile figcaption small{display:block;color:var(--color-muted);font-size:12px;margin-top:4px}
+.gallery-more{display:flex;justify-content:center;margin-top:36px}
+.work-status{font-size:14px;margin-bottom:28px;min-height:24px}
+.work-formats{margin-top:-12px}
+.work-portfolio .filters{display:none}
+.work-portfolio.work-ready .filters{display:flex}
+.work-card .reel-facade{aspect-ratio:4/5}
+.work-card .reel-facade img{transform:none}
+.work-card .reel-play{width:48px;height:48px;font-size:26px}
+.work-portfolio .section-heading p{margin-top:20px}
+body[data-page="trabajos"] .catalog-hero{padding-block:40px 32px;max-width:1680px}
+.work-portfolio{padding-block:24px 80px}
 .team-section{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,8vw,120px);align-items:center;border-top:1px solid var(--divider)}
 .team-photo{max-width:530px}
 .team-photo .image-crop{aspect-ratio:4/5}
@@ -195,7 +206,16 @@ figcaption{display:flex;justify-content:space-between;gap:16px;font-size:13px;li
 .social-proof{border-top:1px solid var(--divider)}
 .testimonial-list{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px}
 .testimonial-list blockquote{margin:0;font-size:22px}
-.includes-list>div{display:flex;gap:24px;padding:16px 0}
+.includes-list{margin-top:36px;border-bottom:1px solid var(--divider)}
+.includes-list>div{display:grid;grid-template-columns:minmax(160px,.35fr) 1fr;gap:32px;padding:28px 0;border-top:1px solid var(--divider)}
+.includes-list dt{font-weight:500;color:var(--color-paper)}
+.includes-list dd{max-width:58ch;color:var(--color-muted)}
+.booking-services{padding-bottom:80px}
+.booking-service{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:28px 0;border-top:1px solid var(--divider)}
+.booking-service p{font-size:15px;margin-top:10px}
+.booking-service .booking-note{max-width:52ch}
+.booking-service .button{flex-shrink:0}
+.booking-address{font-size:14px;margin-top:32px}
 dialog{background:var(--color-surface);color:var(--color-paper);border:1px solid var(--color-line);padding:24px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);overscroll-behavior:contain}
 dialog::backdrop{background:rgba(0,0,0,.82)}
 dialog button{background:none;border:1px solid var(--color-line);border-radius:3px;min-height:44px;padding:8px 16px;font-size:14px}
@@ -270,6 +290,10 @@ dialog button{background:none;border:1px solid var(--color-line);border-radius:3
   .reel-item{flex-basis:260px}
 }
 @media(max-width:700px){
+  .includes-list>div{grid-template-columns:1fr;gap:10px;padding:24px 0}
+  .booking-service{align-items:start;flex-direction:column;gap:20px}
+  .booking-service .button{width:100%;justify-content:space-between}
+  body[data-page="reservar"]{padding-bottom:0}
   html{scroll-padding-top:100px}
   body{font-size:16px}
   h1,.hero h1{font-size:clamp(36px,10.8vw,62px)}
@@ -325,7 +349,7 @@ dialog button{background:none;border:1px solid var(--color-line);border-radius:3
   .footer-top{flex-direction:column;gap:28px}
   .footer-top nav{gap:12px 24px}
   .footer-bottom{align-items:start;flex-direction:column;gap:8px;margin-top:28px}
-  body:not([data-page="productos"]){padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  body:not([data-page="productos"]):not([data-page="reservar"]){padding-bottom:calc(80px + env(safe-area-inset-bottom))}
   .mobile-booking{display:block;visibility:visible;position:fixed;bottom:0;left:0;right:0;z-index:25;background:var(--color-background);border-top:1px solid var(--divider);padding:12px var(--gutter) calc(12px + env(safe-area-inset-bottom))}
   .booking-managed:not(.booking-visible) .mobile-booking{visibility:hidden;opacity:0;transform:translateY(12px)}
   .booking-visible .mobile-booking{visibility:visible}

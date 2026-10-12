@@ -1,0 +1,1121 @@
+{
+  "date": "2026-10-12T13:30:17.616Z",
+  "browser": "Chrome/154.0.8037.99",
+  "pages": [
+    {
+      "route": "/",
+      "width": 375,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-360.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-destacado-actual.avif",
+        "http://127.0.0.1:4174/assets/favicon.svg",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-mullet-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/color-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif",
+        "http://127.0.0.1:4174/assets/media/corte-taper-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-fade-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/equipo-600.avif",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/local-fachada.avif",
+        "http://127.0.0.1:4174/assets/media/local-interior.avif",
+        "http://127.0.0.1:4174/assets/media/local-puesto-600.avif"
+      ],
+      "headings": [
+        {
+          "text": "Tu próximo look empieza acá.",
+          "width": 335
+        },
+        {
+          "text": "Rulos.Otra forma de llevar tu look.",
+          "width": 332.109375
+        },
+        {
+          "text": "Un buen corte.Y mucho más.",
+          "width": 335
+        },
+        {
+          "text": "Hecho en 17:17.",
+          "width": 258.078125
+        },
+        {
+          "text": "Dos hermanos.Una barbería.",
+          "width": 335
+        },
+        {
+          "text": "El look sigue en casa.",
+          "width": 335
+        },
+        {
+          "text": "Acá está 17:17.",
+          "width": 335
+        },
+        {
+          "text": "Antes de venir.",
+          "width": 335
+        },
+        {
+          "text": "Tu próximo lookte espera.",
+          "width": 335
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-360.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-destacado-actual.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/color-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-mullet-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif",
+        "http://127.0.0.1:4174/assets/media/corte-fade-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-taper-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/equipo-600.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/local-fachada.avif",
+        "http://127.0.0.1:4174/assets/media/local-interior.avif",
+        "http://127.0.0.1:4174/assets/media/local-puesto-600.avif"
+      ],
+      "headings": [
+        {
+          "text": "Tu próximo look empieza acá.",
+          "width": 350
+        },
+        {
+          "text": "Rulos.Otra forma de llevar tu look.",
+          "width": 345.4375
+        },
+        {
+          "text": "Un buen corte.Y mucho más.",
+          "width": 350
+        },
+        {
+          "text": "Hecho en 17:17.",
+          "width": 268.453125
+        },
+        {
+          "text": "Dos hermanos.Una barbería.",
+          "width": 350
+        },
+        {
+          "text": "El look sigue en casa.",
+          "width": 350
+        },
+        {
+          "text": "Acá está 17:17.",
+          "width": 350
+        },
+        {
+          "text": "Antes de venir.",
+          "width": 350
+        },
+        {
+          "text": "Tu próximo lookte espera.",
+          "width": 350
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 430,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-destacado-actual.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-mullet-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/color-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif",
+        "http://127.0.0.1:4174/assets/media/corte-fade-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-taper-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/equipo-600.avif",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/local-fachada.avif",
+        "http://127.0.0.1:4174/assets/media/local-interior.avif",
+        "http://127.0.0.1:4174/assets/media/local-puesto-600.avif"
+      ],
+      "headings": [
+        {
+          "text": "Tu próximo look empieza acá.",
+          "width": 390
+        },
+        {
+          "text": "Rulos.Otra forma de llevar tu look.",
+          "width": 380.765625
+        },
+        {
+          "text": "Un buen corte.Y mucho más.",
+          "width": 390
+        },
+        {
+          "text": "Hecho en 17:17.",
+          "width": 295.890625
+        },
+        {
+          "text": "Dos hermanos.Una barbería.",
+          "width": 390
+        },
+        {
+          "text": "El look sigue en casa.",
+          "width": 390
+        },
+        {
+          "text": "Acá está 17:17.",
+          "width": 390
+        },
+        {
+          "text": "Antes de venir.",
+          "width": 390
+        },
+        {
+          "text": "Tu próximo lookte espera.",
+          "width": 390
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-360.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-destacado-actual.avif",
+        "http://127.0.0.1:4174/assets/favicon.svg",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-mullet-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/color-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif",
+        "http://127.0.0.1:4174/assets/media/corte-fade-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-taper-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/equipo-600.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/local-fachada.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/local-interior.avif",
+        "http://127.0.0.1:4174/assets/media/local-puesto-600.avif"
+      ],
+      "headings": [
+        {
+          "text": "Tu próximo look empieza acá.",
+          "width": 344.953125
+        },
+        {
+          "text": "Rulos.Otra forma de llevar tu look.",
+          "width": 320.15625
+        },
+        {
+          "text": "Un buen corte.Y mucho más.",
+          "width": 721.90625
+        },
+        {
+          "text": "Hecho en 17:17.",
+          "width": 265.390625
+        },
+        {
+          "text": "Dos hermanos.Una barbería.",
+          "width": 344.953125
+        },
+        {
+          "text": "El look sigue en casa.",
+          "width": 465.703125
+        },
+        {
+          "text": "Acá está 17:17.",
+          "width": 361.375
+        },
+        {
+          "text": "Antes de venir.",
+          "width": 721.90625
+        },
+        {
+          "text": "Tu próximo lookte espera.",
+          "width": 721.90625
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 1024,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-destacado-actual.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-mullet-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/color-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif",
+        "http://127.0.0.1:4174/assets/media/corte-fade-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-taper-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/equipo-600.avif",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/local-fachada.avif",
+        "http://127.0.0.1:4174/assets/media/local-interior.avif",
+        "http://127.0.0.1:4174/assets/media/local-puesto-600.avif"
+      ],
+      "headings": [
+        {
+          "text": "Tu próximo look empieza acá.",
+          "width": 461.265625
+        },
+        {
+          "text": "Rulos.Otra forma de llevar tu look.",
+          "width": 327.75
+        },
+        {
+          "text": "Un buen corte.Y mucho más.",
+          "width": 395.375
+        },
+        {
+          "text": "Hecho en 17:17.",
+          "width": 271.6875
+        },
+        {
+          "text": "Dos hermanos.Una barbería.",
+          "width": 457.28125
+        },
+        {
+          "text": "El look sigue en casa.",
+          "width": 465.703125
+        },
+        {
+          "text": "Acá está 17:17.",
+          "width": 479.046875
+        },
+        {
+          "text": "Antes de venir.",
+          "width": 395.375
+        },
+        {
+          "text": "Tu próximo lookte espera.",
+          "width": 962.546875
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-destacado-actual.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-mullet-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/color-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif",
+        "http://127.0.0.1:4174/assets/media/corte-fade-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/corte-taper-actual-600.avif",
+        "http://127.0.0.1:4174/assets/media/equipo-600.avif",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/local-fachada.avif",
+        "http://127.0.0.1:4174/assets/media/local-interior.avif",
+        "http://127.0.0.1:4174/assets/media/local-puesto-600.avif"
+      ],
+      "headings": [
+        {
+          "text": "Tu próximo look empieza acá.",
+          "width": 640.796875
+        },
+        {
+          "text": "Rulos.Otra forma de llevar tu look.",
+          "width": 460.21875
+        },
+        {
+          "text": "Un buen corte.Y mucho más.",
+          "width": 526.96875
+        },
+        {
+          "text": "Hecho en 17:17.",
+          "width": 381.484375
+        },
+        {
+          "text": "Dos hermanos.Una barbería.",
+          "width": 619.203125
+        },
+        {
+          "text": "El look sigue en casa.",
+          "width": 465.703125
+        },
+        {
+          "text": "Acá está 17:17.",
+          "width": 648.6875
+        },
+        {
+          "text": "Antes de venir.",
+          "width": 526.96875
+        },
+        {
+          "text": "Tu próximo lookte espera.",
+          "width": 1353.59375
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "rulos",
+      "width": 375,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-360.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final.avif",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-01.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-02.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-03.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-04.webp",
+        "http://127.0.0.1:4174/assets/favicon.svg",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-05.webp",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif"
+      ],
+      "headings": [
+        {
+          "text": "Rulos con tu estilo.",
+          "width": 335
+        },
+        {
+          "text": "Miralos en movimiento.",
+          "width": 335
+        },
+        {
+          "text": "La textura, de cerca.",
+          "width": 333.546875
+        },
+        {
+          "text": "Contanos quétenés en mente.",
+          "width": 335
+        },
+        {
+          "text": "El servicio",
+          "width": 335
+        },
+        {
+          "text": "Antes de hacerte los rulos.",
+          "width": 335
+        },
+        {
+          "text": "¿Vamos por esos rulos?",
+          "width": 335
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        },
+        {
+          "text": "Reel de 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "rulos",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-360.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final.avif",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-01.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-02.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-03.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-04.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-05.webp",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif"
+      ],
+      "headings": [
+        {
+          "text": "Rulos con tu estilo.",
+          "width": 350
+        },
+        {
+          "text": "Miralos en movimiento.",
+          "width": 350
+        },
+        {
+          "text": "La textura, de cerca.",
+          "width": 346.953125
+        },
+        {
+          "text": "Contanos quétenés en mente.",
+          "width": 350
+        },
+        {
+          "text": "El servicio",
+          "width": 350
+        },
+        {
+          "text": "Antes de hacerte los rulos.",
+          "width": 350
+        },
+        {
+          "text": "¿Vamos por esos rulos?",
+          "width": 350
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        },
+        {
+          "text": "Reel de 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "rulos",
+      "width": 430,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final.avif",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-01.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-02.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-03.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-04.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-05.webp",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif"
+      ],
+      "headings": [
+        {
+          "text": "Rulos con tu estilo.",
+          "width": 390
+        },
+        {
+          "text": "Miralos en movimiento.",
+          "width": 390
+        },
+        {
+          "text": "La textura, de cerca.",
+          "width": 382.421875
+        },
+        {
+          "text": "Contanos quétenés en mente.",
+          "width": 390
+        },
+        {
+          "text": "El servicio",
+          "width": 390
+        },
+        {
+          "text": "Antes de hacerte los rulos.",
+          "width": 390
+        },
+        {
+          "text": "¿Vamos por esos rulos?",
+          "width": 390
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        },
+        {
+          "text": "Reel de 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "rulos",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-360.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final.avif",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-01.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-02.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-03.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-04.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-05.webp",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif",
+        "http://127.0.0.1:4174/assets/favicon.svg"
+      ],
+      "headings": [
+        {
+          "text": "Rulos con tu estilo.",
+          "width": 344.953125
+        },
+        {
+          "text": "Miralos en movimiento.",
+          "width": 381.359375
+        },
+        {
+          "text": "La textura, de cerca.",
+          "width": 342.984375
+        },
+        {
+          "text": "Contanos quétenés en mente.",
+          "width": 328.953125
+        },
+        {
+          "text": "El servicio",
+          "width": 721.90625
+        },
+        {
+          "text": "Antes de hacerte los rulos.",
+          "width": 721.90625
+        },
+        {
+          "text": "¿Vamos por esos rulos?",
+          "width": 721.90625
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        },
+        {
+          "text": "Reel de 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "rulos",
+      "width": 1024,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final.avif",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-01.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-02.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-03.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-05.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-04.webp",
+        "http://127.0.0.1:4174/assets/media/rulos-600.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif"
+      ],
+      "headings": [
+        {
+          "text": "Rulos con tu estilo.",
+          "width": 461.265625
+        },
+        {
+          "text": "Miralos en movimiento.",
+          "width": 390.40625
+        },
+        {
+          "text": "La textura, de cerca.",
+          "width": 351.125
+        },
+        {
+          "text": "Contanos quétenés en mente.",
+          "width": 449.265625
+        },
+        {
+          "text": "El servicio",
+          "width": 962.546875
+        },
+        {
+          "text": "Antes de hacerte los rulos.",
+          "width": 395.375
+        },
+        {
+          "text": "¿Vamos por esos rulos?",
+          "width": 962.546875
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        },
+        {
+          "text": "Reel de 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "rulos",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-final.avif",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-01.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-02.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-03.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-04.webp",
+        "http://127.0.0.1:4174/assets/media/reel-rulos-05.webp",
+        "http://127.0.0.1:4174/assets/media/rulos.avif",
+        "http://127.0.0.1:4174/assets/media/rulos-hero-actual.avif"
+      ],
+      "headings": [
+        {
+          "text": "Rulos con tu estilo.",
+          "width": 640.796875
+        },
+        {
+          "text": "Miralos en movimiento.",
+          "width": 548.1875
+        },
+        {
+          "text": "La textura, de cerca.",
+          "width": 493.03125
+        },
+        {
+          "text": "Contanos quétenés en mente.",
+          "width": 644.796875
+        },
+        {
+          "text": "El servicio",
+          "width": 1353.59375
+        },
+        {
+          "text": "Antes de hacerte los rulos.",
+          "width": 526.96875
+        },
+        {
+          "text": "¿Vamos por esos rulos?",
+          "width": 1353.59375
+        },
+        {
+          "text": "Resultado 17:17",
+          "width": 0
+        },
+        {
+          "text": "Reel de 17:17",
+          "width": 0
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "productos",
+      "width": 375,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/favicon.svg",
+        "http://127.0.0.1:4174/assets/media/producto-manifesto.avif",
+        "http://127.0.0.1:4174/assets/media/producto-million.avif"
+      ],
+      "headings": [
+        {
+          "text": "El último toque.También en casa.",
+          "width": 335
+        },
+        {
+          "text": "Productos",
+          "width": 335
+        },
+        {
+          "text": "También podés pasar por la barbería.",
+          "width": 335
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "productos",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/producto-manifesto.avif",
+        "http://127.0.0.1:4174/assets/media/producto-million.avif"
+      ],
+      "headings": [
+        {
+          "text": "El último toque.También en casa.",
+          "width": 350
+        },
+        {
+          "text": "Productos",
+          "width": 350
+        },
+        {
+          "text": "También podés pasar por la barbería.",
+          "width": 350
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "productos",
+      "width": 430,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/producto-manifesto.avif",
+        "http://127.0.0.1:4174/assets/media/producto-million.avif"
+      ],
+      "headings": [
+        {
+          "text": "El último toque.También en casa.",
+          "width": 390
+        },
+        {
+          "text": "Productos",
+          "width": 390
+        },
+        {
+          "text": "También podés pasar por la barbería.",
+          "width": 390
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "productos",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/producto-manifesto.avif",
+        "http://127.0.0.1:4174/assets/media/producto-million.avif",
+        "http://127.0.0.1:4174/assets/favicon.svg"
+      ],
+      "headings": [
+        {
+          "text": "El último toque.También en casa.",
+          "width": 721.90625
+        },
+        {
+          "text": "Productos",
+          "width": 721.90625
+        },
+        {
+          "text": "También podés pasar por la barbería.",
+          "width": 721.90625
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "productos",
+      "width": 1024,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/producto-manifesto.avif",
+        "http://127.0.0.1:4174/assets/media/producto-million.avif"
+      ],
+      "headings": [
+        {
+          "text": "El último toque.También en casa.",
+          "width": 962.546875
+        },
+        {
+          "text": "Productos",
+          "width": 962.546875
+        },
+        {
+          "text": "También podés pasar por la barbería.",
+          "width": 962.546875
+        }
+      ],
+      "violations": []
+    },
+    {
+      "route": "productos",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "placeholders": 0,
+      "iframes": 0,
+      "pendingReveals": 0,
+      "images": [],
+      "requests": [
+        "http://127.0.0.1:4174/assets/fonts/archivo-black-latin.woff2",
+        "http://127.0.0.1:4174/assets/fonts/inter-latin.woff2",
+        "http://127.0.0.1:4174/assets/site.css?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/site.js?v=e680904cc950",
+        "http://127.0.0.1:4174/assets/brand-logo.jpg",
+        "http://127.0.0.1:4174/assets/media/producto-iconic.avif",
+        "http://127.0.0.1:4174/assets/media/producto-matte.avif",
+        "http://127.0.0.1:4174/assets/media/producto-polvo.avif",
+        "http://127.0.0.1:4174/assets/media/producto-manifesto.avif",
+        "http://127.0.0.1:4174/assets/media/producto-million.avif"
+      ],
+      "headings": [
+        {
+          "text": "El último toque.También en casa.",
+          "width": 1000
+        },
+        {
+          "text": "Productos",
+          "width": 1353.59375
+        },
+        {
+          "text": "También podés pasar por la barbería.",
+          "width": 1353.59375
+        }
+      ],
+      "violations": []
+    }
+  ],
+  "interactions": [
+    "Mobile menu: open, Escape, focus return, anchor navigation",
+    "All gallery filters, photo open, arrow navigation, Escape, close and focus return",
+    "Every FAQ opens and has a real answer",
+    "All visible links clicked with interception; WhatsApp number/messages, Maps and Instagram profile destinations validated; five reel sources verified separately",
+    "Reels controls/keyboard and reduced motion with zero active animations",
+    "All pages visible and WhatsApp usable without JavaScript"
+  ],
+  "errors": [],
+  "limitations": [
+    "Chrome viewport/touch emulation; no physical phone.",
+    "External link clicks intercepted; no WhatsApp messages or real bookings sent.",
+    "Native MP4 playback is tested separately."
+  ],
+  "clickedDestinations": [
+    "http://127.0.0.1:4174/",
+    "http://127.0.0.1:4174/reservar",
+    "http://127.0.0.1:4174/rulos",
+    "https://wa.me/595983402497?text=Hola%2C%20vi%20Rulos%2017%3A17%20en%20la%20web%20y%20quiero%20consultar%20por%20el%20largo%20y%20las%20condiciones%20de%20mi%20cabello.",
+    "https://wa.me/595983402497?text=Hola%2C%20quiero%20consultar%20un%20turno%20para%20corte.",
+    "https://wa.me/595983402497?text=Hola%2C%20vi%20el%20servicio%20de%20tinte%20y%20quiero%20consultar.",
+    "https://wa.me/595983402497?text=Hola%2C%20quiero%20consultar%20un%20turno%20para%20barba.",
+    "https://wa.me/595983402497?text=Hola%2C%20quiero%20consultar%20un%20turno%20para%20corte%20infantil.",
+    "https://wa.me/595983402497?text=Hola%2C%20quiero%20consultar%20por%20perfilado%20de%20cejas.",
+    "https://wa.me/595983402497?text=Hola%2C%20quiero%20consultar%20por%20lavado.",
+    "https://www.instagram.com/1717barberia",
+    "http://127.0.0.1:4174/productos",
+    "https://wa.me/595983402497?text=Hola%2C%20vi%20Iconic%20Men%20Cream%20Pomade%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+    "https://wa.me/595983402497?text=Hola%2C%20vi%20Hair%20Wax%20Matte%20Look%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+    "https://wa.me/595983402497?text=Hola%2C%20vi%20Polvo%20Texturizador%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+    "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20vi%20la%20web%20y%20quiero%20hacer%20una%20consulta.",
+    "https://www.google.com/maps/search/Cap.+Dado+esquina+Gobernador+Irala+Luque+Paraguay",
+    "http://127.0.0.1:4174/#ubicacion",
+    "http://127.0.0.1:4174/#inicio",
+    "http://127.0.0.1:4174/assets/videos/DeDQr0cuhey.mp4",
+    "http://127.0.0.1:4174/assets/videos/Dd903THBe7y.mp4",
+    "http://127.0.0.1:4174/assets/videos/DdrxU3CBZ2A.mp4",
+    "http://127.0.0.1:4174/assets/videos/Dcl55RjxJrK.mp4",
+    "http://127.0.0.1:4174/assets/videos/DceM8azzYuV.mp4",
+    "https://wa.me/595983402497?text=Hola%2017%3A17%2C%20quiero%20consultar%20por%20productos%20de%20styling%20y%20cuidado.%20%C2%BFQu%C3%A9%20opciones%20y%20precios%20tienen%20disponibles%3F",
+    "https://wa.me/595983402497?text=Hola%2C%20vi%20Matte%20Pomade%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+    "https://wa.me/595983402497?text=Hola%2C%20vi%20One%20in%20a%20Million%20en%20la%20web%20de%2017%3A17.%20%C2%BFTienen%20disponible%3F",
+    "http://127.0.0.1:4174/#rulos",
+    "http://127.0.0.1:4174/#servicios",
+    "http://127.0.0.1:4174/#nosotros"
+  ],
+  "passed": true
+}

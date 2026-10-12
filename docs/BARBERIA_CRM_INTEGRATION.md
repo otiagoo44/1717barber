@@ -26,9 +26,9 @@ Extender `business` en `src/data.mjs`, que ya centralizaba marca, contactos, ubi
 
 https://cal.com/ezequiel-oviedo-dthlhd/barberia
 
-`bookingLink()` valida HTTPS y dominio Cal.com. `booking()` genera CTAs de agenda; `wa()` genera consultas contextuales. Con URL ausente, agenda conserva fallback a WhatsApp. No se descarga un calendario embebido.
+Actualización 2026-10-12: `bookingLink()` lleva a `/reservar`. `serviceBookingLink()` resuelve exclusivamente el evento verificado de ese servicio; valida HTTPS, Cal.com, duración, presencial y Round Robin. Sin evento verificado, coordina por WhatsApp contextual. Rulos siempre exige consulta previa. El enlace genérico se conserva como referencia histórica y no se usa como fallback. No se descarga un calendario embebido. Duraciones confirmadas y configuración externa: [BOOKING_SETUP.md](BOOKING_SETUP.md).
 
-QA del enlace real: responde 200 y presenta horarios en 390/1440px; título `Barberia | Jonatan Ramos | Cal.com`. Actualmente el proveedor muestra **40m / Cal Video**. Corregir en la cuenta de Cal.com la ubicación presencial y la duración/servicios antes de publicación comercial. Para rulos, el propietario confirmó aproximadamente 2 horas y corte separado; el evento genérico de 40 minutos no se debe interpretar como una reserva válida de rulos. Esta landing no cambia ajustes de la cuenta externa.
+QA anterior del enlace real: responde 200 y presenta horarios en 390/1440px; título `Barberia | Jonatan Ramos | Cal.com`, **40m / Cal Video**. El dueño aclaró que **40 minutos sí es correcto para corte**; rulos y tinte necesitan eventos de 120 minutos, lavado de 10 y otros servicios cortos bloques de 40. Cal Video es una ubicación de videollamada que debe cambiarse a presencial. Asignación automática solicitada; falta configurar equipo, calendarios y horarios de ambos. El acceso a la cuenta fue denegado en el navegador, no se aplicaron cambios externos.
 
 Publicable: slug, booking URL, WhatsApp, branding, ubicación, horarios, Instagram, Maps. Si se habilita un formulario futuro, también endpoint público y token específico del formulario. Hoy no hay formulario ni token.
 
@@ -51,8 +51,26 @@ Modelo propuesto:
 | `cal_integrations` | Barbería, proveedor, event type/team/organizador, servicio y secret reference |
 | `integration_events` | Inbox durable, deduplicación, estado, intentos y error sanitizado |
 | `appointment_external_refs` | UIDs actuales y anteriores de Cal.com vinculados a la misma cita |
+| `barber_service_capabilities` | Servicios que puede atender cada barbero, activos dentro del tenant |
+| `barber_availability_schedules`, `barber_availability_overrides` | Horario recurrente y excepciones por fecha, con zona horaria; proveedor autoritativo mientras se use Cal.com |
+| `cal_host_mappings` | Host/usuario verificado del proveedor a barbero interno, scoped por integración y tenant |
+| `barber_coverage_windows` | Cobertura confirmada por fecha/barbero/franja; operación sin horarios individuales fijos |
 
 No usar NestJS, Redis ni BullMQ para este MVP. El inbox en Postgres y un worker/Edge Function con reintentos persistidos cubren el contrato inicial sin infraestructura extra.
+
+### Servicio, duración y capacidad variable
+
+Las duraciones editoriales actuales viven en `services[].durationMinutes`; no son una autorización de reserva. El backend mapeará el **event type autenticado** a un servicio y el host realmente asignado por Cal.com a un barbero. No basta el organizador del equipo ni el texto de una pregunta del cliente. En Round Robin verificar el anfitrión de la reserva usando el payload versionado/API v2; no asumir que `organizer` siempre es el host seleccionado. Host desconocido, ausencia de host o varios hosts inesperados se ponen en cuarentena para reconciliación, sin adjudicar una identidad por nombre/foto.
+
+Guardar `service_id`, `barber_id`, `starts_at`, `ends_at`, duración real derivada y duración esperada al crear la cita; conservar esos valores y sus cambios en historial. Cambio de duración del catálogo no reescribe citas históricas. Event type/host/servicio y relaciones deben pertenecer al mismo tenant. Si el intervalo real no coincide con el servicio configurado, registrar discrepancia y reconciliar, sin truncarlo ni recalcular el fin desde el navegador.
+
+Capacidad es cantidad de barberos elegibles libres para **todo** el intervalo, no un `capacity=2` constante por barbería ni dos asistentes sobre un mismo host. Los intervalos son `[inicio, fin)` para permitir corte 10:00–10:40 seguido por otro a las 10:40; incluir buffers confirmados cuando existan. Cualquier reserva/ausencia del barbero bloquea sus servicios solapados. Descansos, excepciones por fecha, cierres, cambio de host y reprogramaciones afectan esa disponibilidad. Cambiar horas de trabajo no cancela ni reasigna automáticamente citas ya confirmadas.
+
+Mientras Cal.com sea autoritativo, el CRM sincroniza y muestra su estado; no ejecuta un segundo motor de booking desde la landing. Detectar/reconciliar anomalías con Cal.com. Si en el futuro el backend propio pasa a ser autoridad de reservas, las escrituras de asignación requieren una transacción y restricción de solapamiento por `(barberia_id, barber_id)` para citas activas, incluyendo buffers, más validación de horario/servicio. Cal.com y ese backend no pueden aceptar reservas de manera independiente sin coordinación. Ese motor no está implementado en esta entrega.
+
+Operación confirmada: Jonatan y Esteban se cubren según puedan, sin horario individual fijo. Pantalla futura **Cobertura del día**: fecha, barbero(s), inicio/fin y descansos; uno habilitado abre capacidad de uno, ambos sólo en el solapamiento de sus franjas abren capacidad de dos. Fechas sin cobertura confirmada no generan disponibilidad automática. Una cobertura no es un turno reservado: su ocupación se calcula por cada servicio y reservas existentes.
+
+Los cambios de cobertura del CRM deberán actualizar las excepciones del proveedor mediante backend/API v2 y reconciliar lectura posterior. Guardar actor, estado `pending/synced/failed` y referencia externa; no anunciar una franja como activa antes de que Cal.com confirme el cambio. Detectar citas afectadas antes de retirar/reemplazar cobertura y exigir resolución explícita de esas citas (reasignación compatible, reprogramación o coordinación), conservando historial y notificaciones. No cancelar reservas automáticamente por apagar la disponibilidad de un barbero. La UI, almacenamiento y sincronización son contrato futuro, no funcionalidades implementadas en la landing.
 
 ## Aislamiento y RLS
 
@@ -114,5 +132,8 @@ Propuesta: landing → endpoint público compartido → `barberia_slug` + `landi
 - Cancelación sin borrar historial; cancelación del UID anterior; igualdad de tenant en relaciones.
 - Contactos separados por barbería, aislamiento RLS/Realtime y roles.
 - Booking real controlado de QA, source/UTMs comprobados y recuperación del inbox.
+- Un barbero disponible frente a dos; host realmente asignado en Round Robin; host ajeno/inactivo; servicios habilitados por barbero.
+- Rulos/tinte 120 min bloqueando corte del mismo host pero dejando libre al otro; lavado 10 min; reservas contiguas, cierre, descansos y excepciones por fecha.
+- Dos solicitudes concurrentes: nunca dos citas solapadas para el mismo barbero; reprogramación con cambio de host y liberación correcta del intervalo previo.
 
 No se ejecutan esos flujos en esta entrega: pertenecen al repositorio `barberia-crm` futuro. Los secrets/API keys se guardarán exclusivamente en backend/Supabase secrets.

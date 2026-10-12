@@ -11,8 +11,9 @@ import {
   founders,
   testimonials,
 } from "../src/data.mjs";
-import { whatsappLink, bookingLink } from "../src/utils.mjs";
+import { whatsappLink, bookingLink, serviceBookingLink } from "../src/utils.mjs";
 import { renderPage } from "../src/pages.mjs";
+import {workAssets} from "../src/work-assets.mjs";
 
 test("Datos comerciales preservados y precios actuales", () => {
   assert.equal(business.whatsapp, "595983402497");
@@ -102,8 +103,8 @@ test("Recorrido enfocado y regreso al inicio en páginas secundarias", () => {
     if (name !== "home") assert.ok(html.includes("Volver a 17:17"));
   }
 });
-test("Tres páginas estáticas con semántica, SEO y carga ligera", async () => {
-  for (const name of ["home", "rulos", "productos"]) {
+test("Cinco páginas estáticas con semántica, SEO y carga ligera", async () => {
+  for (const name of ["home", "rulos", "productos", "reservar", "trabajos"]) {
     const html = renderPage(name);
     assert.equal((html.match(/<h1\b/g) || []).length, 1);
     assert.ok(html.includes("application/ld+json"));
@@ -126,26 +127,50 @@ test("Tres páginas estáticas con semántica, SEO y carga ligera", async () => 
     );
   }
 });
-test("Agenda Cal.com y consultas WhatsApp mantienen intenciones separadas", () => {
-  assert.equal(bookingLink(), business.booking.url);
+test("Agenda selecciona servicio antes de abrir un evento externo", () => {
+  assert.equal(bookingLink(), "/reservar");
   for (const name of ["home", "rulos", "productos"]) {
     const html = renderPage(name);
     const links = [...html.matchAll(/<a\b([^>]+)>/g)].map(([, attrs]) => attrs);
     assert.ok(links.some(a => a.includes('data-cta="reservar"')));
     for (const attrs of links) {
-      if (attrs.includes('data-cta="reservar"')) assert.ok(attrs.includes(`href="${business.booking.url}"`));
+      if (attrs.includes('data-cta="reservar"')) assert.ok(attrs.includes('href="/reservar"'));
       if (attrs.includes('data-cta="producto"') || attrs.includes('data-cta="servicio"')) assert.match(attrs, /href="https:\/\/wa\.me\//);
     }
     assert.doesNotMatch(html, /barberia_id|service_role|CAL_API_KEY|CAL_SECRET|landing_token/);
   }
-  const original = business.booking.url;
-  try {
-    business.booking.url = null;
-    assert.match(bookingLink(), /^https:\/\/wa\.me\//);
-    assert.ok(renderPage("home").includes("Reservar por WhatsApp"));
-    business.booking.url = "https://example.test";
-    assert.throws(() => bookingLink(), /Cal\.com/);
-  } finally { business.booking.url = original; }
+  assert.deepEqual(services.map(s => [s.id,s.durationMinutes]), [["rulos",120],["corte",40],["tinte",120],["barba",40],["infantil",40],["cejas",40],["lavado",10]]);
+  for (const service of services) assert.match(serviceBookingLink(service.id), /^https:\/\/wa\.me\/595983402497/);
+  const event = {url:business.booking.url,durationMinutes:40,location:"inPerson",assignment:"roundRobin",verified:true};
+  const config = {serviceEvents:{corte:event,rulos:{...event,durationMinutes:120}}};
+  assert.equal(serviceBookingLink("corte",config),business.booking.url);
+  assert.match(serviceBookingLink("rulos",config),/wa\.me/);
+  for (const invalid of [{durationMinutes:120},{location:"calVideo"},{assignment:"collective"},{verified:false},{url:"https://example.test"},{url:"https://cal.com.evil.test/corte"},{url:"http://cal.com/corte"}]) {
+    assert.throws(() => serviceBookingLink("corte",{serviceEvents:{corte:{...event,...invalid}}}));
+  }
+  assert.throws(() => serviceBookingLink("rulos+corte"),/desconocido/);
+  const html = renderPage("reservar");
+  assert.equal((html.match(/class="booking-service"/g)||[]).length,7);
+  assert.doesNotMatch(html, /Cal Video|barberia_id|service_role|CAL_API_KEY/);
+  assert.ok(html.includes("2 horas"));
+});
+test("Galería ampliada publica material real sin reseñas inventadas ni video inicial", async () => {
+  assert.equal(workAssets.filter(w=>w.type==='photo').length,26);
+  assert.equal(workAssets.filter(w=>w.type==='video').length,11);
+  assert.equal(new Set(workAssets.map(w=>w.source)).size,workAssets.length);
+  for (const item of workAssets) {
+    await access(item.source);
+    await access('public'+item.image);
+    await access('public'+item.avif);
+    if(item.type==='video'){await access('public'+item.video);assert.ok(item.durationSeconds>0);}
+  }
+  const html=renderPage('trabajos');
+  assert.equal((html.match(/class="result-tile work-card"/g)||[]).length,43);
+  assert.equal((html.match(/class="reel-facade"/g)||[]).length,16);
+  assert.doesNotMatch(html,/<video|autoplay|aggregateRating|reviewCount|<blockquote|testimonio/);
+  assert.ok(html.includes('data-work-more hidden'));
+  assert.ok(renderPage('home').includes('href="/trabajos"'));
+  assert.ok(renderPage('rulos').includes('/trabajos?categoria=Rulos'));
 });
 test("Tokens publicados corresponden a DESIGN.md", async () => {
   const design = await readFile("DESIGN.md", "utf8"),
