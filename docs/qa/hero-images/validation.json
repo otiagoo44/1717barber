@@ -1,0 +1,84 @@
+{
+  "pages": [
+    {
+      "route": "/",
+      "width": 390,
+      "hero": {
+        "src": "http://127.0.0.1:4174/assets/media/hero-corte-principal-360.avif",
+        "alt": "Corte masculino visto de atrás con degradado en la nuca, realizado en 17:17",
+        "position": "50% 30%",
+        "loaded": true
+      },
+      "axeViolations": 0,
+      "overflow": false,
+      "initialVideo": false
+    },
+    {
+      "route": "rulos",
+      "width": 390,
+      "hero": {
+        "src": "http://127.0.0.1:4174/assets/media/rulos-hero-ultimo-segundo-360.avif",
+        "alt": "Resultado de rulos visto de perfil en 17:17, fotograma del último segundo del video",
+        "position": "50% 25%",
+        "loaded": true
+      },
+      "axeViolations": 0,
+      "overflow": false,
+      "initialVideo": false
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "hero": {
+        "src": "http://127.0.0.1:4174/assets/media/hero-corte-principal-360.avif",
+        "alt": "Corte masculino visto de atrás con degradado en la nuca, realizado en 17:17",
+        "position": "50% 30%",
+        "loaded": true
+      },
+      "axeViolations": 0,
+      "overflow": false,
+      "initialVideo": false
+    },
+    {
+      "route": "rulos",
+      "width": 768,
+      "hero": {
+        "src": "http://127.0.0.1:4174/assets/media/rulos-hero-ultimo-segundo-360.avif",
+        "alt": "Resultado de rulos visto de perfil en 17:17, fotograma del último segundo del video",
+        "position": "50% 25%",
+        "loaded": true
+      },
+      "axeViolations": 0,
+      "overflow": false,
+      "initialVideo": false
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "hero": {
+        "src": "http://127.0.0.1:4174/assets/media/hero-corte-principal-900.avif",
+        "alt": "Corte masculino visto de atrás con degradado en la nuca, realizado en 17:17",
+        "position": "50% 30%",
+        "loaded": true
+      },
+      "axeViolations": 0,
+      "overflow": false,
+      "initialVideo": false
+    },
+    {
+      "route": "rulos",
+      "width": 1440,
+      "hero": {
+        "src": "http://127.0.0.1:4174/assets/media/rulos-hero-ultimo-segundo.avif",
+        "alt": "Resultado de rulos visto de perfil en 17:17, fotograma del último segundo del video",
+        "position": "50% 25%",
+        "loaded": true
+      },
+      "axeViolations": 0,
+      "overflow": false,
+      "initialVideo": false
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

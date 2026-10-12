@@ -11,13 +11,13 @@ export function hero(rulos = false) {
     ${rulos ? `<div class="hero-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong><span>Corte por separado · Aproximadamente 2 horas</span></div>` : ""}
     <div class="actions">${booking("Reservar turno")}${rulos ? wa("Consultar por rulos", "RULOS", "rulos", null, "outline") : link("Conocer Rulos 17:17", "/rulos")}</div>
     <p class="hero-hours">Luque · Lun–Sáb · 8:00–21:00</p></div>
-    <figure class="hero-visual"><div class="image-crop">${image("hero", {eager: true, sizes: "(max-width: 700px) 90vw, 46vw"})}</div><figcaption><span>Rulos 17:17</span><span>Trabajo real</span></figcaption></figure>
+    <figure class="hero-visual"><div class="image-crop">${image(rulos ? "rulosHero" : "hero", {eager: true, sizes: "(max-width: 700px) 90vw, 46vw"})}</div><figcaption><span>${rulos ? "Rulos 17:17" : "Cortes 17:17"}</span><span>Trabajo real</span></figcaption></figure>
   </section>`;
 }
 
 export function featuredRulos() {
   return `<section class="featured-rulos" id="rulos"><div class="wrap feature-layout">
-    <figure class="feature-photo"><div class="image-crop">${image("rulosFeatured")}</div><figcaption>Resultado de rulos realizado en 17:17.</figcaption></figure>
+    <figure class="feature-photo"><div class="image-crop">${image("rulosFeatured")}</div><figcaption>El proceso de rulos en 17:17.</figcaption></figure>
     <div class="feature-copy"><p class="eyebrow">NUESTRO DESTACADO</p><h2>Rulos.<br>Otra forma de llevar tu look.</h2><p>La textura es la protagonista. Mirá los resultados y consultá por tus rulos.</p><div class="feature-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong><span>Corte por separado · Aprox. 2 horas</span></div><div class="actions">${wa("Consultar por rulos", "RULOS", "rulos")}${link("Ver resultados y videos", "/rulos")}</div></div>
   </div></section>`;
 }
