@@ -1,5 +1,10 @@
 // Única fuente editorial. Reemplazar null con datos confirmados; no inferir claims.
 export const business = {
+  slug: "1717",
+  booking: {
+    provider: "cal.com",
+    url: "https://cal.com/ezequiel-oviedo-dthlhd/barberia",
+  },
   name: "17:17 Barbería",
   phone: "0983 402 497",
   whatsapp: "595983402497",
@@ -14,12 +19,13 @@ export const media = {
   hero: {
     id: "HERO_FOTO_PRINCIPAL",
     type: "hero",
-    src: "/assets/media/hero-rulos.webp",
-    avif: "/assets/media/hero-rulos.avif",
+    src: "/assets/media/rulos-actual.webp",
+    avif: "/assets/media/rulos-actual.avif",
+    variants: [600, 900],
     width: 1200,
-    height: 1200,
-    alt: "Rulos y degradado lateral en un trabajo publicado por 17:17",
-    position: "50% 62%",
+    height: 1600,
+    alt: "Resultado de rulos y degradado lateral realizado en 17:17 Barbería",
+    position: "50% 42%",
   },
   heroCut: {
     id: "HERO_CORTE",
@@ -44,30 +50,41 @@ export const media = {
   rulos2: {
     id: "RULOS_RESULTADO_02",
     type: "result",
-    src: "/assets/media/rulos-reel04.webp",
-    avif: "/assets/media/rulos-reel04.avif",
-    width: 1170,
-    height: 2080,
-    alt: "Resultado de rulos de un cliente frente al espejo, fotograma real de un reel de 17:17",
-    position: "50% 40%",
-    source: "https://www.instagram.com/reel/Dcl55RjxJrK/",
+    src: "/assets/media/rulos-hero-actual.webp",
+    avif: "/assets/media/rulos-hero-actual.avif",
+    width: 576,
+    height: 1024,
+    alt: "Rulos con volumen realizados en 17:17 Barbería, fotograma de un video recibido",
+    position: "50% 42%",
+  },
+  rulosFeatured: {
+    id: "RULOS_DESTACADO_ACTUAL",
+    src: "/assets/media/rulos-destacado-actual.webp",
+    avif: "/assets/media/rulos-destacado-actual.avif",
+    width: 464,
+    height: 832,
+    alt: "Resultado de rulos en 17:17 Barbería, fotograma de un video recibido",
+    position: "50% 35%",
   },
   corte: {
     id: "CORTE_RESULTADO_01",
     type: "result",
-    src: "/assets/media/corte.webp",
-    avif: "/assets/media/corte.avif",
+    src: "/assets/media/corte-mullet-actual.webp",
+    avif: "/assets/media/corte-mullet-actual.avif",
     width: 1200,
     height: 1600,
-    alt: "Corte con línea de diseño en el lateral realizado en 17:17",
+    alt: "Corte mullet con degradado lateral realizado en 17:17 Barbería",
     position: "50% 48%",
   },
   corte2: {
     id: "CORTE_RESULTADO_02",
     type: "result",
-    src: null,
-    label: "Próximo corte 17:17",
-    ratio: "3/4",
+    src: "/assets/media/corte-fade-actual.webp",
+    avif: "/assets/media/corte-fade-actual.avif",
+    width: 1200,
+    height: 1600,
+    alt: "Corte fade visto de perfil realizado en 17:17 Barbería",
+    position: "50% 45%",
   },
   color: {
     id: "COLOR_RESULTADO_01",
@@ -82,9 +99,12 @@ export const media = {
   detalle: {
     id: "DETALLE_RESULTADO_01",
     type: "result",
-    src: null,
-    label: "Los detalles del próximo look",
-    ratio: "3/4",
+    src: "/assets/media/corte-taper-actual.webp",
+    avif: "/assets/media/corte-taper-actual.avif",
+    width: 1200,
+    height: 1600,
+    alt: "Detalle de corte taper realizado en 17:17 Barbería",
+    position: "50% 42%",
   },
   team: {
     id: "EQUIPO_EXISTENTE",
@@ -99,32 +119,48 @@ export const media = {
   local: {
     id: "LOCAL_FOTO_01",
     type: "result",
-    src: "/assets/media/local.webp",
-    avif: "/assets/media/local.avif",
+    src: "/assets/media/local-fachada.webp",
+    avif: "/assets/media/local-fachada.avif",
+    width: 591,
+    height: 795,
+    alt: "Fachada y entrada de 17:17 Barbería en Luque",
+    position: "50% 45%",
+  },
+  localInterior: {
+    id: "LOCAL_INTERIOR",
+    src: "/assets/media/local-interior.webp",
+    avif: "/assets/media/local-interior.avif",
+    width: 591,
+    height: 800,
+    alt: "Interior de 17:17 Barbería con iluminación de techo y puestos de trabajo",
+  },
+  localStation: {
+    id: "LOCAL_PUESTO",
+    src: "/assets/media/local-puesto.webp",
+    avif: "/assets/media/local-puesto.avif",
     width: 960,
     height: 1280,
-    alt: "Estación de lavado y espejo en el interior de 17:17",
-    position: "50% 45%",
+    alt: "Puesto de trabajo con sillón y espejo en 17:17 Barbería",
   },
 };
 export const results = [
   { media: "rulos", category: "Rulos", title: "Rulos + corte lateral" },
-  { media: "corte", category: "Cortes", title: "Corte con diseño" },
+  { media: "corte", category: "Cortes", title: "Mullet + degradado" },
   { media: "color", category: "Color", title: "Color en primer plano" },
   {
     media: "rulos2",
     category: "Rulos",
-    title: "Rulos frente al espejo",
+    title: "Rulos con volumen",
   },
   {
     media: "corte2",
     category: "Cortes",
-    title: "Corte · nueva foto pendiente",
+    title: "Fade de perfil",
   },
   {
     media: "detalle",
     category: "Cortes",
-    title: "Detalle · nueva foto pendiente",
+    title: "Detalle de taper",
   },
 ];
 export const services = [
@@ -199,7 +235,7 @@ export const products = [
     name: "One in a Million",
     category: "Pomadas / Ceras",
     use: "Styling",
-    summary: "Línea de styling. Presentación exacta pendiente de confirmar.",
+    summary: "Consultá por One in a Million y la presentación disponible.",
   },
   {
     id: "barba",
@@ -212,26 +248,37 @@ export const products = [
   },
 ].map((p) => ({
   ...p,
-  image: null,
-  verified: false,
+  image: p.id === "barba" ? null : `/assets/media/producto-${p.id}.webp`,
+  verified: p.id !== "barba",
   price: null,
   availability: "Consultar",
   shine: null,
   hold: null,
-  photoId: "PRODUCT_PHOTO_PENDING_" + p.id.toUpperCase(),
+  photoId: p.id === "barba" ? "PRODUCT_PHOTO_PENDING_BARBA" : "PRODUCT_" + p.id.toUpperCase(),
 }));
-export const founders = [1, 2].map((n) => ({
-  id: "FUNDADOR_0" + n,
-  name: n === 1 ? "Jonatan" : "Esteban",
-  role: "Cofundador",
-  specialty: null,
-  bio: null,
-  image: null,
-  placeholders: {
-    bio: `FUNDADOR_0${n}_BIO_PENDIENTE`,
-    image: `FUNDADOR_0${n}_FOTO_PENDIENTE`,
+// Síntesis editorial de sus videos, no citas textuales. Evidencia: docs/FOUNDER_CONTENT.md.
+export const founders = [
+  {
+    id: "FUNDADOR_01",
+    name: "Jonatan",
+    role: "Cofundador",
+    specialty: null,
+    headline: "El oficio se construye.",
+    bio: "Jonatan fue construyendo su oficio con práctica, incluso cortando en plazas y calles. Hoy ese camino continúa en 17:17, junto a su hermano.",
+    bioSource: { video: "WhatsApp Video 2026-10-12 at 08.01.23.mp4", interval: "00:07–00:22; 00:56–01:01" },
+    image: null,
   },
-}));
+  {
+    id: "FUNDADOR_02",
+    name: "Esteban",
+    role: "Cofundador",
+    specialty: null,
+    headline: "Crecer mano a mano.",
+    bio: "Para Esteban, 17:17 significa apoyarse entre hermanos, complementar sus fortalezas y crecer mano a mano. Un proyecto en el que cada uno cuenta con el otro.",
+    bioSource: { video: "WhatsApp Video 2026-10-12 at 08.01.33.mp4", interval: "00:28–00:54" },
+    image: null,
+  },
+];
 export const testimonials = [1, 2].map((n) => ({
   id: `TESTIMONIO_REAL_0${n}_PENDIENTE`,
   quote: null,
@@ -285,9 +332,9 @@ export const generalReel = {
   title: "Ver un trabajo publicado",
 };
 export const rulosDetails = {
-  includes: null,
-  duration: null,
-  conditions: null,
+  includes: "Servicio de rulos permanentes. El corte no está incluido y se cobra por separado.",
+  duration: "Aproximadamente 2 horas.",
+  conditions: "Consultanos por WhatsApp por el largo y las condiciones de tu cabello. Evaluamos cada caso antes de reservar.",
   description: null,
   care: null,
 };
@@ -303,13 +350,19 @@ export const rulosProcess = [
   copy: null,
 }));
 export const homeFaq = [
-  ["¿Cómo reservo un turno?", "Escribinos por WhatsApp al 0983 402 497 e indicá qué servicio querés. Consultamos el horario disponible y coordinamos tu turno."],
+  ["¿Cómo reservo un turno?", business.booking.url ? "Elegí tu horario desde los botones de agenda en Cal.com. Para dudas sobre un servicio, escribinos por WhatsApp al 0983 402 497." : "Escribinos por WhatsApp al 0983 402 497 para coordinar tu turno."],
   ["¿Cuánto cuesta el corte?", `El corte masculino cuesta Gs. ${services.find(s => s.id === "corte").price.toLocaleString("es-PY")}.`],
-  ["¿Cuánto cuestan los rulos permanentes?", `Los rulos permanentes cuestan Gs. ${services.find(s => s.id === "rulos").price.toLocaleString("es-PY")}. Para conocer los detalles del servicio, consultanos antes de reservar.`],
+  ["¿Cuánto cuestan los rulos permanentes?", `Los rulos permanentes cuestan Gs. ${services.find(s => s.id === "rulos").price.toLocaleString("es-PY")}. El corte se cobra por separado. El servicio dura aproximadamente 2 horas; consultanos por el largo y las condiciones de tu cabello antes de reservar.`],
   ["¿Dónde queda la barbería?", `Estamos en ${business.address}, ${business.city}. Encontrás el enlace a Google Maps en la sección de ubicación.`],
   ["¿Qué días y horarios atienden?", "Atendemos de lunes a sábado, de 8:00 a 21:00."],
   ["¿Puedo consultar por productos para el cabello?", "Sí. Escribinos por los productos de styling y cuidado que buscás. Te confirmamos las opciones, el precio y la disponibilidad por WhatsApp."]
 ];
-export const rulosFaq = [homeFaq[2], homeFaq[0], homeFaq[3], homeFaq[4]];
+export const rulosFaq = [
+  homeFaq[2],
+  ["¿Los rulos incluyen corte?", "No. Los rulos cuestan Gs. 180.000 y el corte se cobra por separado."],
+  ["¿Cuánto tiempo lleva el servicio?", rulosDetails.duration],
+  ["¿Qué largo necesito y cuáles son las condiciones?", rulosDetails.conditions],
+  homeFaq[0], homeFaq[3], homeFaq[4],
+];
 // Campos técnicos por validar: largo, compatibilidad, duración, tiempo,
 // cuidados e inclusión de corte. No publicar FAQ sin una respuesta confirmada.

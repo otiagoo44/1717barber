@@ -3,6 +3,7 @@ import { createRequire } from 'node:module';
 import { resolve } from 'node:path';
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
+import { results, media, business } from '../src/data.mjs';
 const require = createRequire(resolve(process.env.QA_TOOLS_DIR, 'qa.cjs'));
 const puppeteer = require('puppeteer-core');
 const { AxePuppeteer } = require('@axe-core/puppeteer');
@@ -10,12 +11,15 @@ const browser = await puppeteer.launch({executablePath:process.env.CHROME_PATH,h
 const out = process.env.QA_OUT || 'docs/qa/refinement';
 const base = process.env.QA_URL || 'http://127.0.0.1:4174';
 await mkdir(out,{recursive:true});
-const report = {pages:[],interactions:[],errors:[],limitations:['Chrome viewport/touch emulation; no physical phone.','External link clicks intercepted; no WhatsApp messages sent.','Instagram playback is tested separately because it depends on a third-party embed.']};
+const report = {pages:[],interactions:[],errors:[],limitations:['Chrome viewport/touch emulation; no physical phone.','External link clicks intercepted; no WhatsApp messages or real bookings sent.','Native MP4 playback is tested separately.']};
 if(process.env.QA_INTERACTIONS_ONLY) report.pages=JSON.parse(await readFile(`${out}/qa.json`,'utf8')).pages;
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
 try {
   const page = await browser.newPage();
   page.on('pageerror',e=>report.errors.push(e.message));
+  page.on('console',message=>{if(message.type()==='error') report.errors.push(message.text());});
+  page.on('response',response=>{if(response.status()>=400&&response.url().startsWith(base)) report.errors.push(`HTTP ${response.status()}: ${response.url()}`);});
+  page.on('requestfailed',request=>{if(request.failure()?.errorText!=='net::ERR_ABORTED') report.errors.push(`${request.failure()?.errorText}: ${request.url()}`);});
   if(!process.env.QA_INTERACTIONS_ONLY) for (const route of ['','rulos','productos']) {
     for (const width of [375,390,430,768,1024,1440]) {
       await page.setViewport({width,height:900,isMobile:width<500,hasTouch:width<500});
@@ -23,12 +27,14 @@ try {
       await page.evaluate(()=>document.fonts.ready);
       await page.screenshot({path:`${out}/${route||'home'}-${width}-viewport.png`});
       await page.evaluate(async()=>{
-        for(let y=0;y<document.body.scrollHeight;y+=650){window.scrollTo({top:y,behavior:'instant'});await new Promise(r=>setTimeout(r,50));}
         document.querySelectorAll('img').forEach(i=>i.loading='eager');
         await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));
+        for(let y=0;y<document.body.scrollHeight;y+=500){window.scrollTo({top:y,behavior:'instant'});await new Promise(r=>setTimeout(r,160));}
         window.scrollTo({top:0,behavior:'instant'});
       });
-      await sleep(500);
+      // Let decoding, reveal animations and the compositor finish before a
+      // full-page capture; rapid sweep + 500ms produced blank offscreen tiles.
+      await sleep(1300);
       const metrics = await page.evaluate(()=>({
         overflow:document.documentElement.scrollWidth>innerWidth,
         h1:document.querySelectorAll('h1').length,
@@ -63,19 +69,19 @@ try {
   for(const category of ['Rulos','Cortes','Color','Todos']) {
     await page.click(`[data-gallery-filter="${category}"]`);
     const visible=await page.$$eval('.result-tile',els=>els.filter(el=>!el.hidden).map(el=>el.dataset.category));
-    assert.equal(visible.length,category==='Todos'?4:category==='Rulos'?2:1);
+    assert.equal(visible.length,results.filter(r=>media[r.media].src&&(category==='Todos'||r.category===category)).length);
     if(category!=='Todos') assert.ok(visible.every(c=>c===category));
   }
   await page.click('.photo-trigger');
   assert.ok(await page.$eval('#lightbox',d=>d.open));
   await page.keyboard.press('ArrowRight');
-  assert.match(await page.$eval('.lightbox-count',e=>e.textContent),/2 \/ 4/);
+  assert.equal(await page.$eval('.lightbox-count',e=>e.textContent),`2 / ${results.filter(r=>media[r.media].src).length}`);
   await page.keyboard.press('Escape');
   await page.waitForFunction(()=>!document.body.classList.contains('modal-open'));
   assert.equal(await page.evaluate(()=>document.body.classList.contains('modal-open')),false);
   assert.equal(await page.evaluate(()=>document.activeElement.matches('.photo-trigger')),true);
-  await page.click('[data-photo-crop="frame"]');
-  await page.screenshot({path:`${out}/lightbox-frame-390.png`});
+  await page.click('[data-result-index="3"] .photo-trigger');
+  await page.screenshot({path:`${out}/lightbox-rulos-390.png`});
   await page.click('[data-lightbox-close]');
   await page.waitForFunction(()=>!document.body.classList.contains('modal-open'));
   report.interactions.push('All gallery filters, photo open, arrow navigation, Escape, close and focus return');
@@ -86,7 +92,8 @@ try {
   }
   report.interactions.push('Every FAQ opens and has a real answer');
   const destinations=[];
-  for (const route of ['','rulos','productos']) {
+  for (const width of [390,1440]) for (const route of ['','rulos','productos']) {
+    await page.setViewport({width,height:900,isMobile:width===390,hasTouch:width===390});
     await page.goto(base+'/'+route,{waitUntil:'networkidle0'});
     await page.evaluate(()=>{
       window.qaClicks=[];
@@ -104,13 +111,24 @@ try {
   assert.ok(destinations.some(u=>u.includes('wa.me/595983402497')));
   assert.ok(destinations.some(u=>u.includes('google.com/maps/')));
   assert.ok(destinations.some(u=>u.includes('instagram.com/1717barberia')));
+  assert.ok(destinations.includes(business.booking.url));
   await page.goto(base+'/rulos',{waitUntil:'networkidle0'});
   const originalReels = await page.evaluate(() => [...document.querySelectorAll('[data-reel-source]')].map(el => el.dataset.reelSource));
   assert.equal(originalReels.length, 5);
   assert.ok(originalReels.every(u => u.includes('instagram.com/reel/')));
   for(const u of destinations.filter(u=>u.includes('wa.me'))){assert.equal(new URL(u).pathname,'/595983402497');assert.ok(new URL(u).searchParams.get('text'));}
+  for(const url of [...new Set(destinations)].filter(u=>u.startsWith(base)&&!u.includes('/assets/'))) {
+    // A same-document hash navigation has no HTTP response in Puppeteer.
+    // Check the route independently, then verify the real anchor in Chrome.
+    const response=await fetch(url);
+    assert.equal(response.status,200);
+    await page.goto(url,{waitUntil:'domcontentloaded'});
+    const hash=new URL(url).hash;
+    if(hash) assert.ok(await page.$(hash),`Missing anchor ${url}`);
+  }
   report.clickedDestinations=[...new Set(destinations)];
   report.interactions.push('All visible links clicked with interception; WhatsApp number/messages, Maps and Instagram profile destinations validated; five reel sources verified separately');
+  await page.setViewport({width:390,height:844,isMobile:true,hasTouch:true});
   await page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
   await page.goto(base+'/rulos',{waitUntil:'networkidle0'});
   await page.click('[data-reel-next]'); await sleep(200);

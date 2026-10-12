@@ -13,10 +13,10 @@ export const rulosPrice = () =>
   price(services.find((s) => s.id === "rulos").price);
 export function whatsappLink({ intent = "GENERAL", service, product } = {}) {
   const messages = {
-    GENERAL:
-      "Hola 17:17, quiero consultar disponibilidad para reservar un turno.",
+    GENERAL: "Hola 17:17, vi la web y quiero hacer una consulta.",
+    AGENDA: "Hola 17:17, quiero coordinar un turno.",
     CORTE: "Hola, quiero consultar un turno para corte.",
-    RULOS: "Hola, vi Rulos 17:17 en la web y quiero consultar disponibilidad.",
+    RULOS: "Hola, vi Rulos 17:17 en la web y quiero consultar por el largo y las condiciones de mi cabello.",
     TINTE: "Hola, vi el servicio de tinte y quiero consultar.",
     BARBA: "Hola, quiero consultar un turno para barba.",
     INFANTIL: "Hola, quiero consultar un turno para corte infantil.",
@@ -29,4 +29,12 @@ export function whatsappLink({ intent = "GENERAL", service, product } = {}) {
     : messages[intent] ||
       `Hola, quiero consultar por ${service || "un turno"}.`;
   return `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(message)}`;
+}
+export function bookingLink() {
+  if (!business.booking.url) return whatsappLink({ intent: "AGENDA" });
+  const url = new URL(business.booking.url);
+  if (url.protocol !== "https:" || url.hostname !== "cal.com") {
+    throw new Error("La agenda debe ser una URL HTTPS real de Cal.com.");
+  }
+  return url.href;
 }

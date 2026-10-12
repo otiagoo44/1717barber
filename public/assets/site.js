@@ -33,7 +33,7 @@
     }, {threshold:0,rootMargin:"0px 0px -32px 0px"});
     // Prepare only content below the fold, before it can be seen. Never dim
     // content already on screen (including hash links and restored scroll).
-    const upcoming = [...document.querySelectorAll("main section:not(.hero) h2,.feature-photo,.service-row,.team-photo,.location-photo,.result-tile,.founder-names>div")]
+    const upcoming = [...document.querySelectorAll("main section:not(.hero) h2,.feature-photo,.service-row,.team-photo,.location-photo,.result-tile,.founder-names>div,.product-item")]
       .filter(el => el.getBoundingClientRect().top >= innerHeight);
     if (!reducedMotion.matches) upcoming.forEach(el => {
       el.classList.add("reveal-pending");
@@ -43,7 +43,8 @@
       const target = event.target.closest(".reveal-pending");
       if (target) {target.classList.remove("reveal-pending");observer.unobserve(target);}
     });
-    // A floating action is useful only when an in-flow WhatsApp CTA isn't visible.
+    // Manage visibility only on pages that actually have a floating booking bar.
+    if (document.querySelector(".mobile-booking")) {
     const visibleActions = new Set();
     document.body.classList.add("booking-managed");
     const bookingObserver = new IntersectionObserver(entries => {
@@ -51,6 +52,7 @@
       document.body.classList.toggle("booking-visible", visibleActions.size === 0);
     }, {rootMargin:"-96px 0px -80px 0px"});
     document.querySelectorAll("main .button[data-intent]:not(.outline)").forEach(el => bookingObserver.observe(el));
+    }
   }
   function settleMotion() {
     document.documentElement.classList.remove("motion-ready");

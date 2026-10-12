@@ -1,21 +1,24 @@
-# Material que falta pedir a 17:17
+﻿# Material y ajustes pendientes de 17:17
 
-Ya recibimos los cinco enlaces de reels, sus portadas reales, el logo oficial y los nombres de Jonatan y Esteban. Un fotograma original del cuarto reel completa provisionalmente el segundo resultado de rulos. Está confirmado que son hermanos y ambos cofundadores. No hace falta enviar eso otra vez.
+Actualizado en la pasada de finalización del 12 de octubre de 2026. Fotos actuales de cortes/rulos, cinco imágenes de productos, tres vistas del local y enlace real de agenda ya están integrados. No hace falta pedirlos de nuevo.
 
-## Mensaje para compartir
+## Necesario antes de la publicación comercial
 
-Para completar la web necesitamos:
+- **Cal.com:** el enlace recibido abre y ofrece horarios, pero el evento externo muestra **40 minutos** y **Cal Video**. Revisar duración, atención presencial y qué servicio se puede reservar. Rulos dura aproximadamente dos horas, no incluye corte y requiere consulta individual por largo/condiciones. No se modificó la cuenta de Cal.com desde esta landing ni se creó una reserva de prueba.
+- **Retratos individuales actuales:** uno de Jonatan y otro de Esteban, con calidad y encuadre equivalentes. Los componentes ya tienen la misma jerarquía y señalan explícitamente que falta el retrato. La foto conjunta actual se conserva.
 
-1. **Fotos actuales de trabajos:** dos resultados excelentes para la portada —rulos y corte— y seis fotos distintas para la galería: dos de rulos, dos de cortes, una de color y un detalle. Mandar archivos originales, sin interfaz de Instagram, idealmente verticales de 1200px o más. Confirmar permiso de publicación. Si hay antes/después, que sean del mismo trabajo real.
-2. **Jonatan y Esteban:** un retrato individual de cada uno, con el mismo encuadre y calidad; especialidad de cada uno y una bio de dos o tres frases en su propia voz. La foto conjunta existente ya se usa; una versión reciente con ambos estaría mejor. Los dos aparecen como cofundadores, con igual espacio.
-3. **Testimonios reales:** dos de la barbería en general y dos específicamente de rulos. Texto literal, nombre que se puede publicar y fuente o captura para verificar. Foto o video opcional y permiso del cliente. Si tienen, un video testimonial general y uno de rulos.
-4. **Productos:** una foto limpia por producto, marca y nombre exactos, uso confirmado y si se vende o solamente se utiliza. Estamos preparando Iconic Men Cream Pomade, Hair Wax Matte Look, Polvo Texturizador, Manifesto Matte Pomade, One in a Million y el producto de barba. El último necesita nombre/presentación exactos. Precio solamente si quieren publicarlo; disponibilidad sigue siendo «Consultar». Confirmar cuáles recomiendan para rulos y cómo, sin asumir que son obligatorios.
-5. **Servicio de rulos:** confirmar qué incluye Gs. 180.000, si incluye corte, tiempo estimado, condiciones, largo necesario, qué cabellos deben evaluarse, duración orientativa y cuidados posteriores. Confirmar también las etapas consulta/referencia → evaluación → proceso → resultado y cuidado. Hasta recibir esas respuestas, la web muestra pendientes.
-6. **Local:** fotos actuales de fachada, interior y puestos de trabajo. Pin exacto de Google Maps si el enlace actual no lleva correctamente. Confirmar dirección, lunes a sábado 8:00–21:00 y WhatsApp 0983 402 497.
-7. **Marca y publicación:** logo en SVG o PNG de buena resolución; el recibido es un JPG de 150×150px y ya está integrado con forma circular. Los cinco reels públicos ya se reproducen dentro del sitio mediante archivos MP4 locales. Opcional: los archivos originales de cámara para mejorar su calidad, sin que esto bloquee la reproducción actual.
+## Contenido opcional para completar después
 
-No necesitamos números de clientes, años de experiencia, estrellas ni claims inventados. Mejor pocos archivos buenos y datos confirmados.
+- Nombre/presentación exactos e imagen del producto Immortal para barba. No se publicó una ficha sin identificar.
+- Fotografías originales limpias de los productos para mejorar los recortes existentes, sin cambiar su identidad.
+- Cuidados posteriores o descripción técnica del servicio de rulos, sólo si los confirma 17:17.
+- Testimonios reales con texto, nombre publicable y fuente verificable. No se inventaron reseñas ni estrellas.
+- Logo vectorial y fotos de rulos de mayor resolución como mejoras de calidad.
 
-## Reemplazo en la web
+## Información ya confirmada
 
-El contenido se centraliza en `src/data.mjs`: `media`, `founders`, `testimonials`, `rulosTestimonials`, `products`, `rulosDetails`, `rulosProcess` y FAQ. Los campos `null` son pendientes. Las fotos individuales se reemplazan en `founders[].image`; completar ambos perfiles juntos ayuda a mantener su igualdad visual. Ejecutar `npm run build` después de actualizar.
+Rulos: **Gs. 180.000**, corte por separado, aproximadamente **2 horas**; evaluar largo y condiciones por consulta. Agenda: `https://cal.com/ezequiel-oviedo-dthlhd/barberia`. Consultas y productos: WhatsApp `0983 402 497`. Jonatan y Esteban: ambos cofundadores, con igual jerarquía.
+
+Las presentaciones ya están completadas desde los dos videos indicados por el usuario: primero Esteban (`08.01.33`), segundo Jonatan (`08.01.23`). Su evidencia y los textos están registrados en [FOUNDER_CONTENT.md](FOUNDER_CONTENT.md). No falta pedir bios de nuevo.
+
+El contenido público se mantiene en `src/data.mjs`. Reemplazar ambos `founders[].image` con retratos equivalentes y ejecutar `npm run build`; no es necesario rehacer la sección. El contrato futuro del CRM vive en [BARBERIA_CRM_INTEGRATION.md](BARBERIA_CRM_INTEGRATION.md).

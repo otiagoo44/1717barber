@@ -68,7 +68,7 @@ components:
 
 ## Overview
 
-17:17 Barbería, Luque. Presentación editorial, apoyada en trabajo real, precios claros y una acción comercial: consultar/reservar por WhatsApp. Se conserva el orden actual y se recupera Archivo Black, confirmado por el usuario. Público local que llega desde Instagram en celular. Taste: variance 5, motion 6, density 3.
+17:17 Barbería, Luque. Presentación editorial, apoyada en trabajo real, precios claros y dos intenciones: agendar en Cal.com y consultar por WhatsApp. Se conserva el orden y Archivo Black del diseño aprobado. Público local que llega desde Instagram en celular. Taste: variance 5, motion 6, density 3.
 
 Una referencia de sistema: BMW Corporate del catálogo local Awesome Design MD. Sólo alineación, ritmo, fotografía sobria, tipografía legible y jerarquía de CTA; no paleta, fuentes propietarias, componentes o identidad. Las anteriores referencias de landings dejan de regir.
 
@@ -84,28 +84,28 @@ Archivo Black local 400 en H1/H2, recuperada de la versión anterior por pedido 
 
 Contenedor máximo 1440px, márgenes laterales 5vw limitados a 72px y mínimo 20px. Home: hero → Rulos → servicios → trabajo real → equipo → productos → local → FAQ → cierre. Hero sin superposición, una imagen a la derecha y texto a la izquierda; mobile en flujo vertical. Servicios antes de galería. Sin secciones numeradas. Separación 104px desktop, 64px mobile.
 
-Nav: Inicio, Rulos, Servicios, Nosotros, Ubicación y Reservar. Logo oficial único, sin wordmark duplicado. Regreso explícito en secundarias. Reels sólo en /rulos. No renderizar secciones vacías.
+Nav: Inicio, Rulos, Servicios, Nosotros, Ubicación y Agendar. Logo oficial único, sin wordmark duplicado. Regreso explícito en secundarias. Reels sólo en /rulos. Productos visibles en el recorrido y catálogo de consulta separado. No renderizar secciones vacías.
 
 ## Elevation & Depth
 
-Planos limpios y divisores, sin sombras decorativas. Ninguna foto flotante ni rotada. Header sticky de 80px con progreso de lectura ocre como mejora progresiva; diálogos nativos en top layer. Barra WhatsApp mobile con safe area y espacio inferior reservado. Diálogos ocultan la barra y bloquean el scroll sólo mientras están abiertos.
+Planos limpios y divisores, sin sombras decorativas. Ninguna foto flotante ni rotada. Header sticky de 80px con progreso de lectura ocre como mejora progresiva; diálogos nativos en top layer. Barra de agenda mobile con safe area y espacio inferior reservado. Diálogos ocultan la barra y bloquean el scroll sólo mientras están abiertos.
 
 ## Shapes
 
-Fotos rectas: hero 1:1 desktop / 5:4 mobile, adaptado a 3:4 en tablet y 4:5 para Rulos mobile; resultados, equipo y local 4:5; reels 9:16. Fotograma con esquinas negras encuadrado mediante object-fit/recorte CSS, incluyendo lightbox; conservar el original y el resultado del cabello. Botones con radio {rounded.control}, logo circular; sin radios grandes repetidos.
+Fotos rectas: hero 1:1 desktop / 5:4 mobile, adaptado a 3:4 en tablet y 4:5 para Rulos mobile; resultados, equipo y local 4:5; reels 9:16. Nuevos fotogramas limpios sin recorte CSS heredado. Productos sobre plano marfil cuadrado; local con una fachada dominante y dos vistas menores. Conservar originales y resultado del cabello. Botones con radio {rounded.control}, logo circular; sin radios grandes repetidos.
 
 ## Components
 
-CTA sólido ocre: Reservar por WhatsApp, o Consultar por rulos en contexto. Exploración con enlace subordinado. Targets mínimo 44px, botón principal 52px. Servicios en lista con precio y enlace contextual. Galería sólo real, filtros y lightbox con teclado/Escape/swipe/retorno de foco. FAQ details/summary sólo con respuestas verificadas. Menú dialog accesible.
+CTA sólido ocre: Reservar turno/Agendar en Cal.com, o Consultar por rulos en contexto por WhatsApp. Productos siempre se consultan por WhatsApp. URL de agenda única en business.booking; fallback sólo si falta esa URL. Exploración con enlace subordinado. Targets mínimo 44px, botón principal 52px. Servicios en lista con precio y consulta contextual. Galería sólo real, sin trabajos repetidos, filtros y lightbox con teclado/Escape/swipe/retorno de foco. FAQ details/summary sólo con respuestas verificadas. Menú dialog accesible.
 
-Jonatan y Esteban comparten foto y peso tipográfico, ambos cofundadores. No asignar identidades en la foto. Datos desconocidos siguen en src/data.mjs fuera de la UI. Testimonios requieren quote/name/source; productos requieren imagen y ficha verificada. /productos conserva consulta sin afirmar stock.
+Jonatan y Esteban comparten foto y peso tipográfico, ambos cofundadores. No asignar identidades en la foto conjunta. Retratos individuales ausentes se señalan explícitamente; cada componente queda listo para recibir su imagen. Presentaciones breves sólo desde sus palabras verificadas, sin inventar trayectoria ni especialidades. Testimonios requieren quote/name/source; productos requieren imagen y ficha verificada. /productos conserva consulta sin afirmar stock.
 
 Cinco reels con portadas auténticas, scroll horizontal nativo y reproductor HTML video bajo demanda. Los MP4 públicos de 17:17 se sirven desde /assets/videos; no se necesita iframe, login ni script de Instagram. No se descarga video al inicio. Controles nativos, sonido y playsinline; al cerrar se pausa, se libera el src y se devuelve el foco. Enlace opcional a la publicación original. Imágenes responsive AVIF/WebP con dimensiones, hero eager/high priority.
 
 ## Do's and Don'ts
 
 - Alinear fotos, títulos y acciones; cada sección responde una pregunta concreta.
-- Mantener Rulos Gs. 180.000, precios y contactos confirmados.
+- Mantener Rulos Gs. 180.000, corte separado, aproximadamente dos horas y evaluación individual del largo/condiciones por consulta; precios y contactos confirmados.
 - Publicar contenido real y respondido; registrar faltantes internamente.
 - No duplicar el logo, apilar CTAs equivalentes o numerar capítulos.
 - No inventar stock, duración, reviews, experiencia, cuidados ni precios «desde».

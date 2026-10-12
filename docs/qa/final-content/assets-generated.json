@@ -1,0 +1,167 @@
+[
+  {
+    "name": "rulos-hero-actual",
+    "time": 1.02,
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.20.59.mp4",
+    "width": 576,
+    "height": 1024,
+    "webpBytes": 33394,
+    "avifBytes": 25201
+  },
+  {
+    "name": "rulos-destacado-actual",
+    "time": 1.3341665,
+    "source": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.15.mp4",
+    "width": 464,
+    "height": 832,
+    "webpBytes": 28364,
+    "avifBytes": 21053
+  },
+  {
+    "name": "rulos-actual",
+    "variants": [
+      600,
+      900
+    ],
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.22 (1).jpeg",
+    "width": 1200,
+    "height": 1600,
+    "webpBytes": 148402,
+    "avifBytes": 103869
+  },
+  {
+    "name": "corte-mullet-actual",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.16 (1).jpeg",
+    "width": 1200,
+    "height": 1600,
+    "webpBytes": 214028,
+    "avifBytes": 132840
+  },
+  {
+    "name": "corte-fade-actual",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.21 (1).jpeg",
+    "width": 1200,
+    "height": 1600,
+    "webpBytes": 154948,
+    "avifBytes": 111820
+  },
+  {
+    "name": "corte-taper-actual",
+    "source": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.14.jpeg",
+    "width": 1200,
+    "height": 1600,
+    "webpBytes": 167790,
+    "avifBytes": 110786
+  },
+  {
+    "name": "local-fachada",
+    "crop": {
+      "left": 0,
+      "top": 242,
+      "width": 591,
+      "height": 795
+    },
+    "source": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (4).jpeg",
+    "width": 591,
+    "height": 795,
+    "webpBytes": 58810,
+    "avifBytes": 36461
+  },
+  {
+    "name": "local-interior",
+    "crop": {
+      "left": 0,
+      "top": 240,
+      "width": 591,
+      "height": 800
+    },
+    "source": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (6).jpeg",
+    "width": 591,
+    "height": 800,
+    "webpBytes": 47006,
+    "avifBytes": 30405
+  },
+  {
+    "name": "local-puesto",
+    "source": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (1).jpeg",
+    "width": 960,
+    "height": 1280,
+    "webpBytes": 102442,
+    "avifBytes": 69218
+  },
+  {
+    "name": "producto-iconic",
+    "crop": {
+      "left": 28,
+      "top": 22,
+      "width": 558,
+      "height": 323
+    },
+    "product": true,
+    "source": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (6).jpeg",
+    "width": 600,
+    "height": 600,
+    "webpBytes": 11532,
+    "avifBytes": 8624
+  },
+  {
+    "name": "producto-manifesto",
+    "crop": {
+      "left": 28,
+      "top": 8,
+      "width": 529,
+      "height": 359
+    },
+    "product": true,
+    "source": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (7).jpeg",
+    "width": 600,
+    "height": 600,
+    "webpBytes": 20926,
+    "avifBytes": 13829
+  },
+  {
+    "name": "producto-matte",
+    "crop": {
+      "left": 33,
+      "top": 188,
+      "width": 637,
+      "height": 510
+    },
+    "product": true,
+    "source": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (10).jpeg",
+    "width": 600,
+    "height": 600,
+    "webpBytes": 18414,
+    "avifBytes": 11177
+  },
+  {
+    "name": "producto-million",
+    "crop": {
+      "left": 142,
+      "top": 539,
+      "width": 542,
+      "height": 326
+    },
+    "product": true,
+    "source": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (5).jpeg",
+    "width": 600,
+    "height": 600,
+    "webpBytes": 21498,
+    "avifBytes": 12626
+  },
+  {
+    "name": "producto-polvo",
+    "crop": {
+      "left": 75,
+      "top": 624,
+      "width": 361,
+      "height": 342
+    },
+    "product": true,
+    "source": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (4).jpeg",
+    "width": 600,
+    "height": 600,
+    "webpBytes": 16778,
+    "avifBytes": 10309
+  }
+]

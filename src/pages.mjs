@@ -16,12 +16,12 @@ export function renderPage(name, siteUrl = "", assetVersion = "") {
   const meta = {
     home: {
       title: "17:17 Barbería | Cortes, Rulos y Color en Luque",
-      description: `Cortes, rulos permanentes a ${rulosPrice()}, barba y color en Luque, Paraguay. Mirá trabajos de 17:17 y consultá tu turno por WhatsApp.`,
+      description: `Cortes, rulos permanentes a ${rulosPrice()}, barba y color en Luque, Paraguay. Mirá trabajos de 17:17 y reservá tu turno en Cal.com.`,
       path: "/",
     },
     rulos: {
       title: `Rulos 17:17 | ${rulosPrice()} · Luque, Paraguay`,
-      description: `Mirá resultados de rulos de 17:17 Barbería en Luque. Rulos permanentes a ${rulosPrice()}. Consultá disponibilidad y detalles por WhatsApp.`,
+      description: `Mirá resultados de rulos de 17:17 Barbería en Luque. Rulos permanentes a ${rulosPrice()}. Reservá en Cal.com y consultá detalles por WhatsApp.`,
       path: "/rulos",
     },
     productos: {

@@ -245,3 +245,79 @@ El click de cada portada monta sólo entonces el embed oficial `https://www.inst
 ### Publicación y pendientes
 
 La rama de trabajo es `feat/refine-1717-elegant`. Después de este cierre se integrará en `main` y se hará push, sin modificar otras ediciones del cliente. Quedan para una siguiente tanda: comparar la tipografía anterior contra Inter, recibir retratos individuales/bios, testimonios, fotos definitivas de productos y local, respuestas técnicas verificadas de rulos y reemplazar las portadas por videos originales si 17:17 los facilita.
+
+## FINAL CONTENT PASS — 2026-10-12
+
+Esta sección es el estado vigente y reemplaza los pendientes y decisiones de publicación de las pasadas anteriores. Alcance: contenido real, agenda, integración futura y QA; se preservó el diseño aprobado.
+
+### Auditoría Git antes de escribir código
+
+Se ejecutaron `git status`, `git branch --show-current`, `git log --oneline --decorate -n 15`, `git diff HEAD^..HEAD --stat` y el diff completo. Rama inicial: `main`; HEAD/origin/main auditado: `684688bfd8a4b023b347ed4405a4db4fba1ca6bc`; parent: `7a18792786290b7f1a5e8953da8d58ebf84d2bd0`. El parent es el commit anterior al HEAD publicado; Git local no prueba cuántos commits integraron el último push. Se estudiaron también `7e94a9b`, `652cd0d`, el rediseño `4d49675` y la base `c08044f` con show/diff, sin checkout destructivo.
+
+El último commit había reemplazado el embed por cinco MP4 nativos bajo interacción y corregido reveals, crop de un frame y reduced motion. El anterior recuperó Archivo Black y motion mobile; los siguientes refinamientos consolidaron la composición editorial vigente. No eran una invitación a rehacer la landing. El estado inicial tenía cinco originales reorganizados por el usuario y carpetas nuevas de material; se conservó esa reorganización.
+
+Pendiente entonces: imágenes de productos (ninguna ficha publicada), dos resultados adicionales de cortes, mejores fotos del local, portraits/bios individuales y condiciones detalladas de rulos. Ya finalizados: orden de secciones, Archivo Black/Inter, negro/marfil/ocre, hero de una imagen, navegación, filtros, diálogos, cinco reels, reveals y sistema de reduced motion. Esas decisiones se preservaron.
+
+Se creó `feat/final-content-booking` desde el HEAD auditado. No se trabajó directamente sobre main, ni se creó barberia-crm, Supabase o un backend nuevo.
+
+### Contenido y assets
+
+Se inspeccionaron visualmente todas las imágenes recibidas y fotogramas de los doce videos de trabajos. [CONTENT_ASSETS.json](CONTENT_ASSETS.json) registra KEEP/REPLACE/REMOVE/DUPLICATE/LOW QUALITY por archivo. [CONTENT_ASSETS.md](CONTENT_ASSETS.md) registra selección, procedencia y pendientes reales. REMOVE significa no publicar, no borrar originales.
+
+Hero actual de rulos, destacado diferente, galería de seis trabajos distintos (dos rulos, tres cortes, un color), cinco fichas de producto y tres vistas del local. No se repite una foto/trabajo en varios slots de una misma página. El catálogo y el hero reutilizan sus datos entre rutas de forma coherente. No se amplió la secuencia de reels con clips extra. Se preservaron resultados históricos limpios de rulos/color y foto conjunta de equipo que siguen siendo útiles.
+
+Los recortes de productos muestran los envases identificados, sin UI de Google ni precio/claims publicitarios. One in a Million no se sustituyó por One Million Dollars. Producto de barba sin identidad verificable permanece sin publicar. Consultar es la única disponibilidad afirmada. No ecommerce/carrito/stock inventado.
+
+Catorce derivados nuevos AVIF/WebP, dimensiones reservadas, orientación correcta, variantes 600px sólo cuando corresponde y originales conservados fuera de dist. Hero eager/high priority; productos, galería y local lazy. Cinco videos existentes con posters, carga/reproducción por interacción, pausa/liberación al cerrar. Sin autoplay ni video/Instagram en carga inicial. [assets-generated.json](qa/final-content/assets-generated.json) registra tamaños/crops/fuentes; `scripts/finalize-content-assets.mjs` permite reproducirlos con herramientas externas al runtime.
+
+Rulos: **Gs. 180.000**, corte separado, aproximadamente **2 horas**; largo y condiciones se consultan individualmente antes de reservar. Home, /rulos, FAQ y metadata usan los datos actuales. No se publicaron cuidados, testimonios, especialidades ni credenciales inventadas.
+
+### Agenda y consultas
+
+URL real recibida: `https://cal.com/ezequiel-oviedo-dthlhd/barberia`, única fuente pública en `business.booking.url` de `src/data.mjs`. Helper `bookingLink()` compartido, sin embed ni keys. Agendar del header, hero, Elegir horario en servicios/barra mobile, ubicación y cierre van a Cal.com. Consultas de rulos/servicios, productos y contacto siguen a WhatsApp contextual. No se envían reservas al CRM desde el navegador.
+
+Cal.com abre HTTP 200 y muestra disponibilidad a 390/1440, timezone America/Asuncion. **Configuración externa pendiente:** el evento muestra 40m y Cal Video. Corregir duración/atención presencial y servicio reservable antes de publicación comercial, especialmente para rulos de aproximadamente dos horas. No se modificó esa cuenta ni se creó una reserva. Evidencia: [cal-link.json](qa/final-content/cal-link.json), [cal-390.png](qa/final-content/cal-390.png), [cal-1440.png](qa/final-content/cal-1440.png).
+
+WhatsApp, Instagram y Maps respondieron HTTP 200 mediante GET. No se enviaron mensajes. Destinos y mensajes se comprueban por clicks interceptados; un HTTP 200 no prueba una reserva/conversación efectiva. [external-links.json](qa/final-content/external-links.json). La producción histórica no pudo consultarse por timeout en esta sesión y no se usó como fuente visual.
+
+### Skills y preservación
+
+Se comprobaron y leyeron las cinco skills instaladas en `.agents/skills`: awesome-design-md, google-design-md, impeccable, taste, ui-ux-pro-max y las referencias pertinentes. No existe Landing Elevator instalada. Se usaron para auditoría, jerarquía, responsive, imágenes, foco y acabado; no para sustituir el diseño. Se mantuvieron tokens, tipografías, ritmo, estructura y motion. DESIGN.md sólo actualiza el contrato editorial vigente. Impeccable es una adaptación de revisión, no se afirma haber ejecutado una CLI inexistente.
+
+### Preparación de integración
+
+[BARBERIA_CRM_INTEGRATION.md](BARBERIA_CRM_INTEGRATION.md) define una aplicación/backend/base compartidos para múltiples barberías, workspace≈barbería, tenant server-side, membership/RLS, contactos/appointments/activity, formularios públicos futuros y secretos sólo backend. Se estudió el principio slug+token→tenant server-side de dental-crm, sin copiar entidades odontológicas.
+
+Cal.com es fuente autoritativa por webhook firmado. API v2, eventos creados/reprogramados/cancelados, raw-body HMAC, integration/event type/team mapping, inbox durable, deduplicación, transacciones y referencias a UID previo/nuevo para mantener una misma cita tras reprogramar. Historial preservado; cancelación no borra la cita. UTM se documenta con soporte oficial; no se inventa metadata ni se etiqueta website sin evidencia. No hay barberia_id confiado al navegador ni claves privadas en el bundle.
+
+### Cofundadores desde sus videos
+
+Se pudieron abrir y examinar ambos videos indicados. Con autorización del usuario se instaló transcripción local. WhisperX no pudo descargar su modelo desde el CDN; OpenAI Whisper oficial small, CPU y español completó ambos videos sin subir audio. La transcripción contiene frases ruidosas, por lo que se eligieron ideas claras y no se publicó texto literal dudoso. [FOUNDER_CONTENT.md](FOUNDER_CONTENT.md) documenta intervalos y procedencia.
+
+Jonatan: «El oficio se construye», síntesis de su práctica y del proyecto con su hermano. Esteban: «Crecer mano a mano», síntesis del apoyo y complemento mutuo. Son titulares editoriales, no citas atribuidas. Ambos Cofundador, sin cargos/especialidades inventados; idéntico tratamiento tipográfico, divisor y acento existente. Texto debajo del espacio para retrato; perfiles apilados en móvil/tablet para no comprimir la lectura. Sólo faltan retratos individuales, señalados explícitamente. Bios ya no son pendientes.
+
+### Archivos de esta pasada
+
+Contenido/componentes: `src/data.mjs`, `components.mjs`, `sections.mjs`, `pages.mjs`, `utils.mjs`. Acabado: `public/assets/site.css`, selector de reveals en `site.js`, 14 sets de imágenes en `public/assets/media`. No se cambió motion.css, tokens ni fuentes. HTML de las tres rutas regenerado.
+
+Validación: `tests/content.test.mjs`, `scripts/qa-refinement.mjs` y mantenimiento opcional `scripts/finalize-content-assets.mjs`. Documentación: README, DESIGN.md, este reporte, MATERIAL_PENDIENTE, CONTENT_ASSETS.md/json, FOUNDER_CONTENT y BARBERIA_CRM_INTEGRATION. Nuevos originales organizados por el usuario en `img/fotos-*` conservados; sin incluir los videos privados de presentación en dist ni el repo. Capturas y JSON de evidencia en `docs/qa/final-content`.
+
+La prueba de enlaces internos se corrigió porque Puppeteer devuelve null en navegación de hash dentro del mismo documento; ahora comprueba HTTP por GET y el anchor en el navegador. La captura full-page espera decodificación y compositor: la pasada demasiado rápida producía tiles vacíos en la captura, aunque las imágenes estaban cargadas y visibles al navegar. Se mantuvo el motion y se corrigió el harness.
+
+### Optimización específica tras medir
+
+Una medición inicial detectó que sizes genérico de la galería elegía originales de 1200px para thumbnails pequeños. Se ajustó sizes a las columnas reales y se añadió una variante intermedia de 900px al hero para densidad mobile. El catálogo sin barra flotante deja de inicializar el observer/clases de esa barra; no se cambió el motion/reveal aprobado. Los 14 derivados se regeneraron con el script reproducible.
+
+Se preparó una copia temporal del HEAD auditado mediante git show para medir su baseline con las mismas herramientas/entorno, sin checkout destructivo ni alterar la rama. El baseline local dio performance 81/83/91, LCP 2.91/2.91/2.71s, TBT 475/391/166ms; no se comparó con métricas antiguas como si fueran el mismo entorno. Primer resultado con todo el contenido: 73/79/76, CLS 0. Baseline e inicial se conservan en `qa/final-content/baseline-performance` e `initial-performance`; la medición vigente se registra debajo.
+
+### Estado al entregar para continuar en otra máquina
+
+El usuario pidió guardar y hacer push del avance antes de completar el último ciclo de QA. Tests 7/7, build y DESIGN lint (0 errores/advertencias) PASS; sintaxis y búsqueda de precio viejo como valor independiente/sexto reel/secretos en frontend PASS. La ronda previa de 18 combinaciones responsive/Axe, enlaces desktop/mobile, teclado, lightbox, FAQ, reduced motion y no-JS pasó sin errores. Reels nativos reales y motion pasaron antes del último ajuste de sizes/observer. **Falta repetir browser/motion/reels y capturas sobre ese último ajuste**, por lo que esta entrega no declara finalización comercial.
+
+Capturas antes: `qa/final-content/before/{home,rulos,productos}-{390,768,1440}.png`, altura 900. Después: `qa/final-content/after/*-full.png` y viewport. Se revisaron las tres rutas en mobile/tablet/desktop, preservando composición, tipografía y protagonismo de rulos; perfiles tienen igual jerarquía. Los frames vacíos de una captura rápida se comprobaron en viewport real y se resolvieron con decodificación previa/barrido lento; se conservó el motion. La última captura matched debe regenerarse tras sizes/observer.
+
+Último Lighthouse: navegador limpio por ruta, mobile simulado/local, no datos de campo. /: Performance 79, Accessibility/Best Practices/SEO 100; LCP 2.71s, TBT 635ms, CLS 0.000096, 336 KiB. /rulos: 76/100/100/100, LCP 2.72s, TBT 673ms, CLS 0, 401 KiB. /productos: 83/100/100/100, LCP 1.91s, TBT 547ms, CLS 0, 180 KiB. La carga de Home pasó de 528 a 336 KiB; no se afirma Core Web Vitals PASS. TBT permanece como optimización pendiente y varió mucho entre corridas. `after/performance-summary.json` y los tres Lighthouse JSON guardan evidencia.
+
+Pendientes: configuración externa Cal.com (40m/Cal Video frente a servicio presencial y rulos ~2h), dos retratos individuales, último ciclo de QA/performance. Producto de barba, cuidados técnicos, testimonios y packshots mejores son contenido opcional todavía no confirmado. Bios, enlace real, cortes, rulos y local ya están integrados.
+
+Prompt de continuación completo: [CONTINUE_FINAL_CONTENT.md](CONTINUE_FINAL_CONTENT.md). Rama de entrega: `feat/final-content-booking`. Sin merge a main ni deploy comercial. La conexión HTTPS directa a GitHub agotó timeout en las comprobaciones preliminares; el resultado definitivo del push se informa en la entrega, sin afirmar que ocurrió si falló.

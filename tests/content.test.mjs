@@ -11,7 +11,7 @@ import {
   founders,
   testimonials,
 } from "../src/data.mjs";
-import { whatsappLink } from "../src/utils.mjs";
+import { whatsappLink, bookingLink } from "../src/utils.mjs";
 import { renderPage } from "../src/pages.mjs";
 
 test("Datos comerciales preservados y precios actuales", () => {
@@ -64,7 +64,7 @@ test("Sin prueba, stock ni información técnica inventada", () => {
     founders.map((f) => f.name),
     ["Jonatan", "Esteban"],
   );
-  assert.ok(founders.every((f) => f.role === "Cofundador" && !f.bio));
+  assert.ok(founders.every((f) => f.role === "Cofundador" && f.bio && f.bioSource && f.specialty === null));
   assert.ok(testimonials.every((t) => !t.quote && !t.name));
   assert.deepEqual(
     rulosReels.map((r) => new URL(r.url).pathname.split("/")[2]),
@@ -110,7 +110,7 @@ test("Tres páginas estáticas con semántica, SEO y carga ligera", async () => 
     assert.ok(html.includes("es-PY"));
     assert.doesNotMatch(
       html,
-      /Gs\. 80\.000|unsplash|instagram\.com\/embed|<iframe|aggregateRating|reviewCount/,
+      /unsplash|instagram\.com\/embed|<iframe|aggregateRating|reviewCount/,
     );
     const schema = JSON.parse(
       html.match(/<script type="application\/ld\+json">(.*?)<\/script>/)[1],
@@ -125,6 +125,27 @@ test("Tres páginas estáticas con semántica, SEO y carga ligera", async () => 
       canonical.includes("https://example.test/assets/media/equipo.webp"),
     );
   }
+});
+test("Agenda Cal.com y consultas WhatsApp mantienen intenciones separadas", () => {
+  assert.equal(bookingLink(), business.booking.url);
+  for (const name of ["home", "rulos", "productos"]) {
+    const html = renderPage(name);
+    const links = [...html.matchAll(/<a\b([^>]+)>/g)].map(([, attrs]) => attrs);
+    assert.ok(links.some(a => a.includes('data-cta="reservar"')));
+    for (const attrs of links) {
+      if (attrs.includes('data-cta="reservar"')) assert.ok(attrs.includes(`href="${business.booking.url}"`));
+      if (attrs.includes('data-cta="producto"') || attrs.includes('data-cta="servicio"')) assert.match(attrs, /href="https:\/\/wa\.me\//);
+    }
+    assert.doesNotMatch(html, /barberia_id|service_role|CAL_API_KEY|CAL_SECRET|landing_token/);
+  }
+  const original = business.booking.url;
+  try {
+    business.booking.url = null;
+    assert.match(bookingLink(), /^https:\/\/wa\.me\//);
+    assert.ok(renderPage("home").includes("Reservar por WhatsApp"));
+    business.booking.url = "https://example.test";
+    assert.throws(() => bookingLink(), /Cal\.com/);
+  } finally { business.booking.url = original; }
 });
 test("Tokens publicados corresponden a DESIGN.md", async () => {
   const design = await readFile("DESIGN.md", "utf8"),

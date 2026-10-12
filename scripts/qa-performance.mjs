@@ -11,13 +11,14 @@ const { launch } = await import(
 );
 const out = process.env.QA_OUT || "docs/qa/second-pass";
 await mkdir(out, { recursive: true });
-const chrome = await launch({
-  chromePath: process.env.CHROME_PATH,
-  chromeFlags: ["--headless", "--disable-gpu"],
-});
 const summary = [];
-try {
-  for (const path of ["/", "/rulos", "/productos"]) {
+for (const path of ["/", "/rulos", "/productos"]) {
+  // Isolate each route's cold profile and renderer from the previous audit.
+  const chrome = await launch({
+    chromePath: process.env.CHROME_PATH,
+    chromeFlags: ["--headless", "--disable-gpu"],
+  });
+  try {
     const result = await lighthouse(
       (process.env.QA_URL || "http://127.0.0.1:4174") + path,
       {
@@ -51,7 +52,8 @@ try {
       bytes: lhr.audits["total-byte-weight"].numericValue,
     });
     console.log(JSON.stringify(summary.at(-1)));
-  }
+  } finally { await chrome.kill(); }
+}
   await writeFile(
     out + "/performance-summary.json",
     JSON.stringify(
@@ -65,6 +67,3 @@ try {
       2,
     ),
   );
-} finally {
-  await chrome.kill();
-}

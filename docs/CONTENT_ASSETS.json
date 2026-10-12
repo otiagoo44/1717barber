@@ -1,0 +1,779 @@
+{
+  "date": "2026-10-12",
+  "note": "Estado editorial; REMOVE significa excluido del sitio, no eliminación del original.",
+  "assets": [
+    {
+      "index": 1,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.20.50.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "0dd0028792e47e458472c2429694318e77b59acc538b28c5f3488fa59884c01c",
+      "published": []
+    },
+    {
+      "index": 2,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.06.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "05899c2b1b85cfc1af75da17e08bbd8bc24c47130dc7806010cfaa0db364b559",
+      "published": []
+    },
+    {
+      "index": 3,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.14 (1).jpeg",
+      "width": 1086,
+      "height": 1448,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Collage promocional ajeno a un resultado propio verificable.",
+      "sha256": "281d989cf235fcb96b7748f508e486701fa84dbfebad621b755ff4ab75af5a4d",
+      "published": []
+    },
+    {
+      "index": 4,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.14 (2).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "defbda45839b9db0ed6fd24392780cc683e2c010b0c2867d463402afc34b6572",
+      "published": []
+    },
+    {
+      "index": 5,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.14.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "a7805a5865793c22d3f580573714da53885de90b37d6d32fa5601bbab9422c40",
+      "published": [
+        "corte-taper-actual"
+      ]
+    },
+    {
+      "index": 6,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.16 (1).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "d5a199e23860892edd22d4c24888947b16d33a8f474ef7b32d7d78157484324d",
+      "published": [
+        "corte-mullet-actual"
+      ]
+    },
+    {
+      "index": 7,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.16 (2).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "a855741e3243c0833f21404cb7e1017cdad4665d20c35c3e067844cdfd651735",
+      "published": []
+    },
+    {
+      "index": 8,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.16.jpeg",
+      "width": 739,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "LOW QUALITY",
+      "reason": "Encuadre estrecho/captura con bordes o resultado poco útil para la galería.",
+      "sha256": "ed78c9d8547d69dae7db4dddc17128663bec1ac88451f19fa453f9584866186f",
+      "published": []
+    },
+    {
+      "index": 9,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.17 (1).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "a993fae98186448762fd33c4cae22be90421853f80199387b9c5d1b566dd7713",
+      "published": []
+    },
+    {
+      "index": 10,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.17 (2).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "DUPLICATE",
+      "reason": "Otro ángulo del mismo trabajo; se excluye para evitar repetición.",
+      "sha256": "e01f2e72dc177a0e350e607a53c47b8ede325f60f332870c2faa2c3dde2d0071",
+      "published": []
+    },
+    {
+      "index": 11,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.17.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "4c83e906a82478f997d79e817d739e138ce805cf4b46d523ac60386279b9014b",
+      "published": []
+    },
+    {
+      "index": 12,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.18 (1).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "9e948ba52c0954a963b31053a9e260a7c4014b128a7135487533241cb08fd35d",
+      "published": []
+    },
+    {
+      "index": 13,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.18 (2).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "7271d95d1b4d9a7e0f50268b476d3da7331dfc4321bf39f87cc0bb28718cf190",
+      "published": []
+    },
+    {
+      "index": 14,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.18.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "c8db10ea8e312a275582ecbd9a1a1be6f3521797d3dd29eac1a602d2e342935d",
+      "published": []
+    },
+    {
+      "index": 15,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.19 (1).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "DUPLICATE",
+      "reason": "Otro ángulo del mismo trabajo; se excluye para evitar repetición.",
+      "sha256": "1f5047af7af250fc8325c46e3c08bf29ed377e8f9d7886140b6b73846416c26a",
+      "published": []
+    },
+    {
+      "index": 16,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.19 (2).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "988d31647552e1ddfff1a0f74e7259f1526bc5fbab9068e7378e1c53fa3501aa",
+      "published": []
+    },
+    {
+      "index": 17,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.19.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "DUPLICATE",
+      "reason": "Otro ángulo del mismo trabajo; se excluye para evitar repetición.",
+      "sha256": "e0c7a2ae8d1964e166a1ef45f572663572709627a84b05cb7a9c904d358c6130",
+      "published": []
+    },
+    {
+      "index": 18,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.20 (1).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "DUPLICATE",
+      "reason": "Otro ángulo del mismo trabajo; se excluye para evitar repetición.",
+      "sha256": "a8a7d59e1b6b2e260c2c9fa708c3ea5b670449141d2c781b0c8bcc6127a3d3a4",
+      "published": []
+    },
+    {
+      "index": 19,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.20.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "22729299f7083e59638841e52286ab1577e56ae92930cf3de0f973e462170bc3",
+      "published": []
+    },
+    {
+      "index": 20,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.21 (1).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "55d1f69e1a761b477f12f06317f53b686f99c69b7a08c96f12ea69718026bfb9",
+      "published": [
+        "corte-fade-actual"
+      ]
+    },
+    {
+      "index": 21,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.21.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "a67ac9535da49e7b63d86314902e1381e74bed81fd0baef03f996bb71415dcce",
+      "published": []
+    },
+    {
+      "index": 22,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.22 (1).jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "eff8715463c0a7b9c1a1740fcecece3aef8a1c80edabcc004dba41f933e17ea7",
+      "published": [
+        "rulos-actual"
+      ]
+    },
+    {
+      "index": 23,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.22.jpeg",
+      "width": 756,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "LOW QUALITY",
+      "reason": "Encuadre estrecho/captura con bordes o resultado poco útil para la galería.",
+      "sha256": "d71e08f24e2958196b4b280c78e3d6804b68aeb757ce0932f369167c35376662",
+      "published": []
+    },
+    {
+      "index": 24,
+      "file": "img/fotos-cortes-rulos/WhatsApp Image 2026-10-11 at 14.21.35.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "c4948148516afedd34701a3f8a325c304823d7f093d4ee8c77d683fe74eddac1",
+      "published": []
+    },
+    {
+      "index": 25,
+      "file": "img/fotos-cortes-rulos/foto_barbero_trabajando.jpeg",
+      "width": 720,
+      "height": 900,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "3ab7462c6b6cde188aecd7a975c9d4c9f61659e429cd2baa039e7446bd83afc1",
+      "published": []
+    },
+    {
+      "index": 26,
+      "file": "img/fotos-cortes-rulos/foto_corte_diseño.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "b19dec0d581ebafbed45e8b35827839d3cec8f45cebec088e1b34ee6f6120cf3",
+      "published": []
+    },
+    {
+      "index": 27,
+      "file": "img/fotos-cortes-rulos/foto_corte_rulos.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "KEEP",
+      "reason": "Resultado antiguo limpio; conserva evidencia de rulos/color distinta de la selección nueva.",
+      "sha256": "903bff19bc7e775e6a030dcfb9622eb064ffe8fd50d78919b1247a4f7a658b19",
+      "published": []
+    },
+    {
+      "index": 28,
+      "file": "img/fotos-cortes-rulos/foto_corte_tinte.jpeg",
+      "width": 1200,
+      "height": 1600,
+      "group": "fotos-cortes-rulos",
+      "status": "KEEP",
+      "reason": "Resultado antiguo limpio; conserva evidencia de rulos/color distinta de la selección nueva.",
+      "sha256": "11ec7e7ab4021b8334194550877e8da0261ca4828adb46ec7e038f84b7b11dea",
+      "published": []
+    },
+    {
+      "index": 1,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.53.jpeg",
+      "width": 720,
+      "height": 1280,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Captura de catálogo con interfaz/precios o múltiples productos; se prefieren recortes limpios de fuentes mejores.",
+      "sha256": "c83b84be7e8e5a186f60ecf19f31cb59ec46af42850509bbada8296bdd14bece",
+      "published": []
+    },
+    {
+      "index": 2,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (1).jpeg",
+      "width": 720,
+      "height": 1280,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Captura de catálogo con interfaz/precios o múltiples productos; se prefieren recortes limpios de fuentes mejores.",
+      "sha256": "d47a7c14445ec967b927ea250fac00270b4ac25d0294f97cf422cffe47600649",
+      "published": []
+    },
+    {
+      "index": 3,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (10).jpeg",
+      "width": 720,
+      "height": 900,
+      "group": "fotos-productos",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "98aa803fc5f6debc7ec916a79dede629dc849b840d73be9f8b57406f8e49403d",
+      "published": [
+        "producto-matte"
+      ]
+    },
+    {
+      "index": 4,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (11).jpeg",
+      "width": 720,
+      "height": 900,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Producto/promoción fuera de las cinco fichas confirmadas seleccionadas.",
+      "sha256": "7ca16db80c07d184a4db86f2ae4cd2334b2a9dfb48114b542e7470ec2b731346",
+      "published": []
+    },
+    {
+      "index": 5,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (12).jpeg",
+      "width": 1080,
+      "height": 1080,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "One Million Dollars no se confunde con One in a Million ni con producto para barba.",
+      "sha256": "976b41a0080fd837312a9ab9f1aeafd7119e2f7b6b731cf6821b42b9a2a3be19",
+      "published": []
+    },
+    {
+      "index": 6,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (13).jpeg",
+      "width": 1080,
+      "height": 1080,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "One Million Dollars no se confunde con One in a Million ni con producto para barba.",
+      "sha256": "60a5097c65ee5caea1375112a55c2493512ec3e1ec260e0de73cfe7d7d2f2779",
+      "published": []
+    },
+    {
+      "index": 7,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (14).jpeg",
+      "width": 1024,
+      "height": 1280,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Producto/promoción fuera de las cinco fichas confirmadas seleccionadas.",
+      "sha256": "e3db7f3324f502561e7a881d085fa55febb1241177936b9cb45c6973609ef855",
+      "published": []
+    },
+    {
+      "index": 8,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (15).jpeg",
+      "width": 1024,
+      "height": 1280,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Producto/promoción fuera de las cinco fichas confirmadas seleccionadas.",
+      "sha256": "e4b8ecc4a79fbe548fe1e01b5e25eb5dff7a1c750e7a8cf212d4bc829b3bff07",
+      "published": []
+    },
+    {
+      "index": 9,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (16).jpeg",
+      "width": 781,
+      "height": 1280,
+      "group": "fotos-productos",
+      "status": "DUPLICATE",
+      "reason": "Iconic ya representado con un recorte más claro de la fuente 15.",
+      "sha256": "84a3424c1079b57f330d2e26d7ad5af33d4bd1e42fc5ebcf3ed3f01c5626ebca",
+      "published": []
+    },
+    {
+      "index": 10,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (17).jpeg",
+      "width": 1036,
+      "height": 1280,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Imagen de varios polvos con claims superpuestos; se usa recorte limpio de la fuente 13.",
+      "sha256": "794660118e6747104bb4c6c8320751e9a47db338d2d6ebe2fa4f13274c74783e",
+      "published": []
+    },
+    {
+      "index": 11,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (2).jpeg",
+      "width": 720,
+      "height": 1280,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Captura de catálogo con interfaz/precios o múltiples productos; se prefieren recortes limpios de fuentes mejores.",
+      "sha256": "98c1cf070bc015d58582327c38d63be1cda940b79f1ae62d8b9bece3c2e82666",
+      "published": []
+    },
+    {
+      "index": 12,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (3).jpeg",
+      "width": 720,
+      "height": 1280,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Captura de catálogo con interfaz/precios o múltiples productos; se prefieren recortes limpios de fuentes mejores.",
+      "sha256": "50a7316a26a189de8a672dabea6cd1243c794269c16b23e6888102592ab179af",
+      "published": []
+    },
+    {
+      "index": 13,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (4).jpeg",
+      "width": 1242,
+      "height": 1052,
+      "group": "fotos-productos",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "5ffe4bbf5f422c5911dd16cac6f7f316ea99a7540ccc1d8532eddfa78daad247",
+      "published": [
+        "producto-polvo"
+      ]
+    },
+    {
+      "index": 14,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (5).jpeg",
+      "width": 1170,
+      "height": 865,
+      "group": "fotos-productos",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "77cf752ba57911d6789f6ff6d4bb1eaca93cd03a957f4a771a9cfeba1737351f",
+      "published": [
+        "producto-million"
+      ]
+    },
+    {
+      "index": 15,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (6).jpeg",
+      "width": 629,
+      "height": 622,
+      "group": "fotos-productos",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "9c5067d4f9c036589a3ca1677f2028e0f00e03234d1a9e587951ae01aa452133",
+      "published": [
+        "producto-iconic"
+      ]
+    },
+    {
+      "index": 16,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (7).jpeg",
+      "width": 584,
+      "height": 620,
+      "group": "fotos-productos",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "253f180b35bddea7940053f99fa0a020cb5a5e5f14e3a8324a64ab482b7215bd",
+      "published": [
+        "producto-manifesto"
+      ]
+    },
+    {
+      "index": 17,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (8).jpeg",
+      "width": 720,
+      "height": 1280,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Captura de catálogo con interfaz/precios o múltiples productos; se prefieren recortes limpios de fuentes mejores.",
+      "sha256": "64ff4499128a6440bc0e64934a39c9202be25c6eb83bd270c0738cb8b9df664f",
+      "published": []
+    },
+    {
+      "index": 18,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55 (9).jpeg",
+      "width": 720,
+      "height": 900,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Producto/promoción fuera de las cinco fichas confirmadas seleccionadas.",
+      "sha256": "584b065622a1a2ff315c8b4d29a843ed3145abf04d58ec03d7f6f60ca5e27e94",
+      "published": []
+    },
+    {
+      "index": 19,
+      "file": "img/fotos-productos/WhatsApp Image 2026-10-11 at 14.02.55.jpeg",
+      "width": 720,
+      "height": 1280,
+      "group": "fotos-productos",
+      "status": "REMOVE",
+      "reason": "Captura de catálogo con interfaz/precios o múltiples productos; se prefieren recortes limpios de fuentes mejores.",
+      "sha256": "b6dd761e7858f1a013ca06529db55f7fbba53c432ce437e3477b3bddf66ec7d9",
+      "published": []
+    },
+    {
+      "index": 1,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (1).jpeg",
+      "width": 960,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "3e0afcc009ce86588a98802884cf22b0bf1dca9aab9822f71018e82285560596",
+      "published": [
+        "local-puesto"
+      ]
+    },
+    {
+      "index": 2,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (10).jpeg",
+      "width": 960,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "8c39f6729aa7ad5ad534b6796a2d290ffd85672d5c1369fb0713a7619ddb40b7",
+      "published": []
+    },
+    {
+      "index": 3,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (2).jpeg",
+      "width": 591,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "REMOVE",
+      "reason": "Otra estación; se priorizan fachada, interior general y un puesto distinto.",
+      "sha256": "fb430a250211367f8e5c78889732f10cd266a5582e34305186763e1a524c334f",
+      "published": []
+    },
+    {
+      "index": 4,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (3).jpeg",
+      "width": 591,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "REMOVE",
+      "reason": "Captura con UI visible; hay una fuente limpia del mismo rincón.",
+      "sha256": "ff506e16e10306a630e4d475042c3490e8e06ccf7bfd2664a585e5724094a9e9",
+      "published": []
+    },
+    {
+      "index": 5,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (4).jpeg",
+      "width": 591,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "614e8f068674380e9fab830a59e68ca6568902fdfb4719f9621868e0074ca12e",
+      "published": [
+        "local-fachada"
+      ]
+    },
+    {
+      "index": 6,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (5).jpeg",
+      "width": 591,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "REMOVE",
+      "reason": "Otra estación; se priorizan fachada, interior general y un puesto distinto.",
+      "sha256": "9fc58fc022674163c6f9f2de3ec4fc46d53273869587c328a59725cfd9000534",
+      "published": []
+    },
+    {
+      "index": 7,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (6).jpeg",
+      "width": 591,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "REPLACE",
+      "reason": "Selección publicada; original conservado.",
+      "sha256": "007fdfb4aba1dcb3c88f7a69b6a2ab85eb1d1b53736eddef9cc4a250f52ee05d",
+      "published": [
+        "local-interior"
+      ]
+    },
+    {
+      "index": 8,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (7).jpeg",
+      "width": 591,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "DUPLICATE",
+      "reason": "Mismo puesto/fachada; se publica una sola vista por tema.",
+      "sha256": "840f4d56144a1e8f2993831f40743ada564570b50c9ff9ba38114bc03ae9c6d8",
+      "published": []
+    },
+    {
+      "index": 9,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (8).jpeg",
+      "width": 591,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "DUPLICATE",
+      "reason": "Mismo puesto/fachada; se publica una sola vista por tema.",
+      "sha256": "22f8554a9c9f731a9e085d00f9ef9bb1747624537f46036fd328d7ff232ff76b",
+      "published": []
+    },
+    {
+      "index": 10,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19 (9).jpeg",
+      "width": 720,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "REMOVE",
+      "reason": "Fuera de la selección: priorizar variedad y evitar redundancia.",
+      "sha256": "635e53d2b792f798ac55d3cee26ce1b94956abe6221f01aa9e56e7e1fc57c0b1",
+      "published": []
+    },
+    {
+      "index": 11,
+      "file": "img/fotos-local/WhatsApp Image 2026-10-11 at 19.13.19.jpeg",
+      "width": 960,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "DUPLICATE",
+      "reason": "Mismo puesto/fachada; se publica una sola vista por tema.",
+      "sha256": "c2eeb7cc2ae51c6882a80e8bb950fb10446ad4dc0eeec6196555ebe88a5126c6",
+      "published": []
+    },
+    {
+      "index": 12,
+      "file": "img/fotos-local/foto_local.jpeg",
+      "width": 960,
+      "height": 1280,
+      "group": "fotos-local",
+      "status": "REPLACE",
+      "reason": "Estación histórica sustituida por fachada actual en ubicación; original preservado.",
+      "sha256": "28b1daa711904308e407dd30a180685151dc19dfd440aa98e30fe48565a09ba6",
+      "published": []
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.20.57.mp4",
+      "group": "videos-recibidos",
+      "index": 1,
+      "status": "REMOVE",
+      "reason": "Material adicional no publicado: conservar exactamente los cinco reels existentes.",
+      "published": []
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.20.59.mp4",
+      "group": "videos-recibidos",
+      "index": 2,
+      "status": "KEEP",
+      "reason": "Sólo se usa un fotograma, no se publica el MP4 adicional.",
+      "published": [
+        "rulos-hero-actual"
+      ]
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.05.mp4",
+      "group": "videos-recibidos",
+      "index": 3,
+      "status": "REMOVE",
+      "reason": "Material adicional no publicado: conservar exactamente los cinco reels existentes.",
+      "published": []
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.07.mp4",
+      "group": "videos-recibidos",
+      "index": 4,
+      "status": "REMOVE",
+      "reason": "Material adicional no publicado: conservar exactamente los cinco reels existentes.",
+      "published": []
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.12.mp4",
+      "group": "videos-recibidos",
+      "index": 5,
+      "status": "REMOVE",
+      "reason": "Grabación de pantalla con interfaz social; excluida.",
+      "published": []
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.13.mp4",
+      "group": "videos-recibidos",
+      "index": 6,
+      "status": "REMOVE",
+      "reason": "Material adicional no publicado: conservar exactamente los cinco reels existentes.",
+      "published": []
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.15.mp4",
+      "group": "videos-recibidos",
+      "index": 7,
+      "status": "KEEP",
+      "reason": "Sólo se usa un fotograma, no se publica el MP4 adicional.",
+      "published": [
+        "rulos-destacado-actual"
+      ]
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.20.mp4",
+      "group": "videos-recibidos",
+      "index": 8,
+      "status": "REMOVE",
+      "reason": "Material adicional no publicado: conservar exactamente los cinco reels existentes.",
+      "published": []
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.21.mp4",
+      "group": "videos-recibidos",
+      "index": 9,
+      "status": "REMOVE",
+      "reason": "Material adicional no publicado: conservar exactamente los cinco reels existentes.",
+      "published": []
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.34.mp4",
+      "group": "videos-recibidos",
+      "index": 10,
+      "status": "REMOVE",
+      "reason": "Material adicional no publicado: conservar exactamente los cinco reels existentes.",
+      "published": []
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.36.mp4",
+      "group": "videos-recibidos",
+      "index": 11,
+      "status": "REMOVE",
+      "reason": "Material adicional no publicado: conservar exactamente los cinco reels existentes.",
+      "published": []
+    },
+    {
+      "file": "img/fotos-cortes-rulos/WhatsApp Video 2026-10-11 at 14.21.38.mp4",
+      "group": "videos-recibidos",
+      "index": 12,
+      "status": "REMOVE",
+      "reason": "Material adicional no publicado: conservar exactamente los cinco reels existentes.",
+      "published": []
+    }
+  ]
+}

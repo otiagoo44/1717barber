@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-12",
+  "method": "Read-only HTTP GET; Cal.com inspected with Chrome at 390 and 1440. No messages or bookings created.",
+  "links": [
+    { "name": "Cal.com", "url": "https://cal.com/ezequiel-oviedo-dthlhd/barberia", "status": 200, "scheduleVisible": true, "configurationIssue": "40m / Cal Video; review service duration and in-person location before publication" },
+    { "name": "WhatsApp", "url": "https://wa.me/595983402497", "status": 200, "redirect": "https://api.whatsapp.com/send/?phone=595983402497&text&type=phone_number&app_absent=0" },
+    { "name": "Instagram", "url": "https://www.instagram.com/1717barberia/", "status": 200 },
+    { "name": "Maps", "url": "https://www.google.com/maps/search/Cap.+Dado+esquina+Gobernador+Irala+Luque+Paraguay", "status": 200 }
+  ],
+  "limitations": ["HTTP success does not verify a real conversation or completed booking.", "Maps is the existing address search URL; no new exact pin was supplied."]
+}
