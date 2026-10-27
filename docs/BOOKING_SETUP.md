@@ -1,5 +1,7 @@
 # Reservas nativas de Barbería OS
 
+**Actualización posterior del 27/10:** el owner completó su respaldo MFA y habilitó organización/Luque por la interfaz. Catálogo productivo 200 JSON, ocho servicios y disponibilidad futura comprobados; build con variables reales aprobado. La revisión de 404 que sigue describe el estado anterior. [Ejecución y recibos actuales](GO_LIVE_20261027.md).
+
 La arquitectura existente se conserva: **landing → /reservar → booking alojado del CRM → cliente/cita en Supabase → Agenda**. La landing es estática; no calcula cupos ni envía POST cross-origin.
 
 ## Estado al 27/10/2026

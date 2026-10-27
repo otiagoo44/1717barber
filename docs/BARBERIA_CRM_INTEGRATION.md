@@ -1,5 +1,7 @@
 # Contrato entre 17:17 y Barbería OS
 
+Actualización posterior del 27/10: organización y Luque habilitadas con owner/MFA; catálogo productivo 200 JSON y disponibilidad futura verificados. Las menciones finales a 404 son históricas anteriores a esa activación. [Estado y evidencia actuales](GO_LIVE_20261027.md).
+
 Auditado contra el CRM productivo `cac194123ebfa779bafb344423f63b327c4dce7e`, sin modificar su código ni base. [Handoff versionado](https://github.com/otiagoo44/barberia-crm/blob/cac194123ebfa779bafb344423f63b327c4dce7e/docs/HANDOFF_LANDING_1717.md) y [contrato del CRM](https://github.com/otiagoo44/barberia-crm/blob/cac194123ebfa779bafb344423f63b327c4dce7e/docs/WEBSITE_INTEGRATION.md).
 
 Origen real: `https://barberia-crm-kappa.vercel.app`; organización `1717-barberia`; sucursal `luque`. Supabase productivo es `tbcfhagteyqufjkmbxzz`, pero la landing no accede a Supabase ni requiere sus claves.
