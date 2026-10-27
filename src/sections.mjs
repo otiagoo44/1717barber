@@ -9,8 +9,8 @@ export function hero(rulos = false) {
     <h1>${rulos ? '<span class="hero-line">Rulos con</span> <span class="hero-line hero-accent">tu estilo.</span>' : '<span class="hero-line">Tu próximo</span> <span class="hero-line">look empieza</span> <span class="hero-line hero-accent">acá.</span>'}</h1>
     <p class="hero-description">${rulos ? "Rulos permanentes. Mirá nuestros trabajos y consultá por el resultado que tenés en mente." : "Rulos permanentes, cortes y color.<br>Encontrá tu estilo en 17:17."}</p>
     ${rulos ? `<div class="hero-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong><span>Corte por separado · Aproximadamente ${serviceDuration(services.find(s => s.id === "rulos"))}</span></div>` : ""}
-    <div class="actions">${booking("Reservar turno")}${rulos ? wa("Consultar por rulos", "RULOS", "rulos", null, "outline") : link("Conocer Rulos 17:17", "/rulos")}</div>
-    <p class="hero-hours">Luque · Lun–Sáb · 8:00–21:00</p></div>
+    <div class="actions">${booking("Reservar turno")}${rulos ? wa("Consultar disponibilidad y evaluación", "RULOS", "rulos", null, "outline") : link("Conocer Rulos 17:17", "/rulos")}</div>
+    <p class="hero-hours">Luque · Lun–Sáb · 09:00–21:00</p></div>
     <figure class="hero-visual"><div class="image-crop">${image(rulos ? "rulosHero" : "hero", {eager: true, sizes: "(max-width: 700px) 90vw, 46vw"})}</div><figcaption><span>${rulos ? "Rulos 17:17" : "Cortes 17:17"}</span><span>Trabajo real</span></figcaption></figure>
   </section>`;
 }
@@ -18,7 +18,7 @@ export function hero(rulos = false) {
 export function featuredRulos() {
   return `<section class="featured-rulos" id="rulos"><div class="wrap feature-layout">
     <figure class="feature-photo"><div class="image-crop">${image("rulosFeatured")}</div><figcaption>El proceso de rulos en 17:17.</figcaption></figure>
-    <div class="feature-copy"><p class="eyebrow">NUESTRO DESTACADO</p><h2>Rulos.<br>Otra forma de llevar tu look.</h2><p>La textura es la protagonista. Mirá los resultados y consultá por tus rulos.</p><div class="feature-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong><span>Corte por separado · Aprox. ${serviceDuration(services.find(s => s.id === "rulos"))}</span></div><div class="actions">${wa("Consultar por rulos", "RULOS", "rulos")}${link("Ver resultados y videos", "/rulos")}</div></div>
+    <div class="feature-copy"><p class="eyebrow">NUESTRO DESTACADO</p><h2>Rulos.<br>Otra forma de llevar tu look.</h2><p>La textura es la protagonista. Mirá los resultados y consultá por tus rulos.</p><div class="feature-price"><span>Rulos permanentes</span><strong>${rulosPrice()}</strong><span>Corte por separado · Aprox. ${serviceDuration(services.find(s => s.id === "rulos"))}</span></div><div class="actions">${wa("Consultar disponibilidad y evaluación", "RULOS", "rulos")}${link("Ver resultados y videos", "/rulos")}</div></div>
   </div></section>`;
 }
 
@@ -72,5 +72,5 @@ export function featuredProducts() {
 }
 
 export function location() {
-  return `<section class="section wrap location-section" id="ubicacion"><div class="location-copy"><p class="eyebrow">TE ESPERAMOS EN LUQUE</p><h2>Acá está 17:17.</h2><address>${e(business.address)}<br>${e(business.city)}</address><dl><div><dt>Horario</dt><dd>Lunes–Sábado<br>8:00–21:00</dd></div><div><dt>WhatsApp</dt><dd>${link(business.phone,whatsappLink())}</dd></div></dl><div class="actions">${link("Cómo llegar",business.maps,"button outline")}${booking("Agendar")}</div></div><div class="location-photos"><figure class="location-photo"><div class="image-crop">${image("local")}</div><figcaption>La entrada de 17:17 en Luque.</figcaption></figure><div class="location-details">${[["localInterior","Interior de la barbería"],["localStation","Puesto de trabajo"]].map(([key,label])=>`<figure class="location-photo"><div class="image-crop">${image(key,{sizes:"(max-width: 700px) 42vw, 22vw"})}</div><figcaption>${label}</figcaption></figure>`).join("")}</div></div></section>`;
+  return `<section class="section wrap location-section" id="ubicacion"><div class="location-copy"><p class="eyebrow">TE ESPERAMOS EN LUQUE</p><h2>Acá está 17:17.</h2><address>${e(business.address)}<br>${e(business.city)}</address><dl><div><dt>Horario</dt><dd>Lunes–Sábado<br>09:00–21:00</dd></div><div><dt>WhatsApp</dt><dd>${link(business.phone,whatsappLink())}</dd></div></dl><div class="actions">${link("Cómo llegar",business.maps,"button outline")}${booking("Agendar")}</div></div><div class="location-photos"><figure class="location-photo"><div class="image-crop">${image("local")}</div><figcaption>La entrada de 17:17 en Luque.</figcaption></figure><div class="location-details">${[["localInterior","Interior de la barbería"],["localStation","Puesto de trabajo"]].map(([key,label])=>`<figure class="location-photo"><div class="image-crop">${image(key,{sizes:"(max-width: 700px) 42vw, 22vw"})}</div><figcaption>${label}</figcaption></figure>`).join("")}</div></div></section>`;
 }

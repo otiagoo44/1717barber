@@ -103,6 +103,19 @@ test("Recorrido enfocado y regreso al inicio en páginas secundarias", () => {
     if (name !== "home") assert.ok(html.includes("Volver a 17:17"));
   }
 });
+test("Horario confirmado 09:00–21:00 y domingo cerrado en todas las páginas", () => {
+  for (const name of ["home", "rulos", "productos", "reservar", "trabajos"]) {
+    const html = renderPage(name);
+    assert.doesNotMatch(html, /\b0?8:00\b/);
+    const schema = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/)[1]);
+    assert.equal(schema.openingHoursSpecification.opens, "09:00");
+    assert.equal(schema.openingHoursSpecification.closes, "21:00");
+    assert.equal(schema.openingHoursSpecification.dayOfWeek.includes("Sunday"), false);
+    assert.ok(html.includes("09:00–21:00"));
+  }
+  assert.match(renderPage("home"), /Los domingos permanecemos cerrados/);
+});
+
 test("Cinco páginas estáticas con semántica, SEO y carga ligera", async () => {
   for (const name of ["home", "rulos", "productos", "reservar", "trabajos"]) {
     const html = renderPage(name);
