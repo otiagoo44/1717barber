@@ -1,37 +1,52 @@
 # Reservas nativas de Barbería OS
 
-La arquitectura vigente es **17:17 landing → /reservar → /book/{organization}/{branch} del CRM → PostgreSQL/Supabase**. La landing permanece estática. No calcula cupos ni crea reservas, y Cal.com ya no forma parte del flujo.
+La arquitectura existente se conserva: **landing → /reservar → booking alojado del CRM → cliente/cita en Supabase → Agenda**. La landing es estática; no calcula cupos ni envía POST cross-origin.
 
-## Estado auditado
+## Estado al 27/10/2026
 
-El código real auditado es `otiagoo44/barberia-crm`, commit `922df3e`. La base conectada contiene el esquema operativo con RLS, pero ninguna organización, sucursal ni servicio. Los seeds son exclusivamente demostraciones locales. No existen slugs verificados de 17:17 o Luque. La URL prevista, confirmada por el usuario, es https://barberia-crm.vercel.app; aún no existe despliegue comprobable.
+CRM auditado: `cac194123ebfa779bafb344423f63b327c4dce7e`, deployment `dpl_44EraSc6jHx8WqbpF9iBN4tgwmEn`, origen `https://barberia-crm-kappa.vercel.app`. El catálogo público de `1717-barberia/luque` devuelve **404 JSON**. La página book responde HTML, pero eso no acredita catálogo ni disponibilidad operativa.
 
-## Activación
+El [handoff del CRM](https://github.com/otiagoo44/barberia-crm/blob/cac194123ebfa779bafb344423f63b327c4dce7e/docs/HANDOFF_LANDING_1717.md) informa que la configuración productiva existe y ambos flags de booking permanecen deshabilitados. No repetir onboarding, migraciones o carga de servicios basándose en auditorías históricas de una base vacía. La apertura depende de cuentas/confirmación/cambio de contraseña/MFA personales, controles operativos y piloto consentido según el handoff vigente.
 
-La comprobación pública final encontró un starter NextSpark en la URL prevista; su endpoint catalog devuelve HTML. Hace falta asociar ese dominio al CRM real. Un HTTP 200 por sí solo no certifica el contrato: el build exige JSON compatible.
+La landing productiva se conserva con WhatsApp. Las variables de Vercel quedan preparadas; **todo nuevo build con esos slugs fallará hasta recibir un catálogo válido**. No sustituir el fallo por un snapshot editorial ni activar reservas para desbloquear un deploy.
 
-1. Desplegar el CRM y aplicar su migración `20261012210000_website_booking.sql` mediante su procedimiento normal. No hace falta acceso de la landing a Supabase ni al gateway.
-2. Crear la organización 17:17 y sucursal Luque desde el CRM con sus slugs definitivos. Habilitar reservas, horarios, staff, capacidades y servicios del local.
-3. En cada servicio asignar `website_category`: corte, rulos, tinte, barba, infantil, cejas o lavado. Es una clasificación editorial explícita; el identificador de reserva siempre es el slug canónico del servicio. Dos servicios de tinte pueden compartir categoría. Corte y Rulos requieren un servicio canónico cada uno para sus CTA editoriales actuales.
-4. Rulos: activar consulta previa. La DB impide categorizarlo como rulos sin esa regla; disponibilidad y reserva públicas lo rechazan. Recepción puede reservar internamente luego de evaluar.
-5. Registrar precios confirmados en Servicios y precios del local. La diferencia entre tinte global (planilla: Gs. 250.000) y mechas (Gs. 180.000) requiere confirmación y carga real; estos montos no se copian automáticamente. Hasta entonces no se publica el precio genérico de Gs. 200.000.
-6. Comprobar GET `/api/public/catalog?organization=<slug-real>&branch=<slug-real>`. Debe devolver currency PYG, `website_booking_version: 1` y la sucursal correcta con sus servicios. No usar UUID.
-7. Configurar las tres variables públicas en Vercel y reconstruir la landing.
-8. Verificar Agendar sin selección, Corte con el slug real y Rulos por WhatsApp, además de una reserva de prueba autorizada en staging. No enviar reservas ficticias a producción.
+## Variables públicas
 
-## Variables de la landing
-
-| Variable pública | Valor |
+| Variable | Valor confirmado |
 | --- | --- |
-| BARBERIA_OS_PUBLIC_URL | https://barberia-crm.vercel.app |
-| BARBERIA_OS_ORGANIZATION_SLUG | Copiar el slug real de 17:17 del CRM; pendiente |
-| BARBERIA_OS_BRANCH_SLUG | Copiar el slug real de Luque del CRM; pendiente |
-| SITE_URL (opcional) | https://1717barber.vercel.app; cambiar sólo al confirmar nuevo canonical |
+| BARBERIA_OS_PUBLIC_URL | https://barberia-crm-kappa.vercel.app |
+| BARBERIA_OS_ORGANIZATION_SLUG | 1717-barberia |
+| BARBERIA_OS_BRANCH_SLUG | luque |
+| SITE_URL | https://1717barber.vercel.app |
 
-Sin slugs, WhatsApp conserva la coordinación. Configuración parcial, slugs inválidos, URL con credenciales y catálogo no compatible detienen el build. Con configuración completa, no se utiliza un catálogo editorial de respaldo ante errores del CRM. Los precios/duraciones visibles son un snapshot de su catálogo público al construir: reconstruir la landing después de modificarlos. La reserva siempre recalcula y valida los valores actuales en PostgreSQL.
+Configuradas como cuatro entradas únicas, cada una compartida por Production, Preview y Development, sin overrides por rama. SITE_URL es sólo SEO: se verificaron el alias productivo y su canonical antes de guardarlo. No cambia el dominio existente. `.env.example` es una plantilla y los scripts Node no la cargan automáticamente.
 
-## Seguridad y despliegue
+Para revisar localmente el estado histórico de contacto, un build sin ambos slugs conserva WhatsApp. Ese build local no certifica el catálogo ni se publica con las variables productivas sustituidas.
 
-Nunca copiar service_role, claves Supabase, DB password ni BOOKING_GATEWAY_SECRET a la landing. `dist` contiene sólo HTML y assets locales; no exporta el catálogo completo con staff ni datos privados. El navegador sale al CRM por un enlace HTTPS, sin proxy, embed, token ni PII en la query. Instagram, Maps y WhatsApp continúan como enlaces externos.
+## Activación pendiente
 
-El build sigue siendo `npm run build`, salida `dist`, cleanUrls y trailingSlash=false. CSP y nosniff se prueban también con preview local; HSTS sólo se configura para el host HTTPS de producción actual. Si cambia el dominio, actualizar la condición host en vercel.json junto a SITE_URL. Sintaxis de cabeceras condicionales: [documentación oficial de Vercel](https://vercel.com/docs/project-configuration/vercel-json#headers).
+1. Completar los gates del CRM con sus propietarios, sin sustituir su MFA ni abrir los flags desde la landing.
+2. Consultar exclusivamente `GET https://barberia-crm-kappa.vercel.app/api/public/catalog?organization=1717-barberia&branch=luque`: exigir HTTP correcto, JSON, versión 1, organización/sucursal, PYG, servicios y profesionales habilitados. 200 HTML, 404 o `branches: []` bloquean el build.
+3. Revisar Corte, Barba, Cejas, Lavado, Rulos, Combo y ambas variantes de Tinte según su publicación real. No publicar precios sacados del plan de onboarding ni del informe privado: sólo los del catálogo público válido. Las categorías editoriales no sustituyen slugs. Rulos y Combo pueden compartir `website_category=rulos`; el slug `rulos` conserva el destacado, Combo mantiene nombre/precio/duración propios sin sumar Corte.
+4. Verificar que Rulos, Combo y Tintes indiquen consulta previa y no sean reservables por URL/API. Comprobar además servicios inexistentes, domingo cerrado, pausa de Esteban y turnos de Jonatan. Revisar la diferencia histórica entre horario 08:00 de la landing y 09:00 confirmado en el handoff; no certificar horarios de agenda desde texto editorial.
+5. Ejecutar tests, build con configuración real, `node scripts/verify-dist.mjs` y QA móvil/escritorio. `QA_EXPECTED_SERVICE_COUNT` permite indicar la cantidad recibida; `QA_URL` permite comprobar producción con HSTS. La prueba de reservas de clientes ficticios debe ir exclusivamente a staging.
+6. Publicar sólo tras verificar catálogo, disponibilidad y gates. Probar en producción con una reserva real consentida y verificar cliente/contacto/servicio/profesional/fecha/hora/estado y atribución en Agenda, más reintento idempotente. No afirmar integración completa antes de esa comprobación.
+
+Enlaces preparados por el código, aún sin activar en la landing productiva:
+
+- General: `https://barberia-crm-kappa.vercel.app/book/1717-barberia/luque?source=website`
+- Corte: `https://barberia-crm-kappa.vercel.app/book/1717-barberia/luque?service=corte-de-pelo&source=website`
+
+## Actualizar el catálogo
+
+Los precios y las duraciones se incorporan **durante el build**. Cada cambio de servicios, clasificación, precio o duración en el CRM requiere reconstruir y desplegar la landing. No hay sincronización en tiempo real. Ante errores del CRM con slugs configurados, el build se detiene y el deployment anterior permanece vigente. La reserva recalcula los valores actuales en el servidor del CRM.
+
+## Seguridad y consultas
+
+La landing sólo requiere las cuatro variables públicas. No agregar credenciales Supabase, DB, gateway, SMTP, JWT privados ni sesiones. CSP conserva `connect-src 'self'`, `frame-src 'none'`, `form-action 'none'`; no se modifican Origin, CORS, rate limiting ni protección de despliegues.
+
+La consulta muestra: «Este servicio requiere evaluación previa. Escribinos para coordinarlo.» Abrir WhatsApp no registra un lead ni confirma una reserva. No se encontró un endpoint público de recepción de consultas en la API auditada; esa integración adicional queda pendiente. No hay mensajes automáticos.
+
+El formulario del CRM informa que usa los datos para gestionar la visita. Deben revisar los propietarios la información de privacidad aplicable antes de abrir al público. No añadir consentimiento comercial implícito ni colocar datos de clientes en URLs, analítica o logs.
+
+Evidencia y limitaciones de esta pasada: [informe](CRM_INTEGRATION_20261027.md).

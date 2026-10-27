@@ -1,40 +1,42 @@
-# Contrato real entre 17:17 y Barbería OS
+# Contrato entre 17:17 y Barbería OS
 
-17:17 landing → /reservar → booking público de barberia-crm → PostgreSQL/Supabase.
+Auditado contra el CRM productivo `cac194123ebfa779bafb344423f63b327c4dce7e`, sin modificar su código ni base. [Handoff versionado](https://github.com/otiagoo44/barberia-crm/blob/cac194123ebfa779bafb344423f63b327c4dce7e/docs/HANDOFF_LANDING_1717.md) y [contrato del CRM](https://github.com/otiagoo44/barberia-crm/blob/cac194123ebfa779bafb344423f63b327c4dce7e/docs/WEBSITE_INTEGRATION.md).
 
-## Fuente de verdad
-
-El contrato se auditó en el código del CRM, no en documentación de calendarios externos. `src/app/book/[organization]/[[...branch]]/page.tsx` resuelve la ruta pública; `src/features/booking/public-booking.tsx` consume el catálogo, disponibilidad y booking. `src/app/api/public/[resource]/route.ts` valida entradas, aplica rate limiting y llama a RPC usando credenciales confinadas al servidor del CRM.
+Origen real: `https://barberia-crm-kappa.vercel.app`; organización `1717-barberia`; sucursal `luque`. Supabase productivo es `tbcfhagteyqufjkmbxzz`, pero la landing no accede a Supabase ni requiere sus claves.
 
 | Recurso | Contrato |
 | --- | --- |
-| GET /api/public/catalog | organization y branch públicos. Respuesta directa JSON, sin envelope; org slug, moneda, sucursales y servicios/staff por slug. |
-| GET /api/public/availability | organization, branch, service repetido, date y staff opcional. Duración/capacidad desde PostgreSQL. |
-| POST /api/public/booking | organization, branch, services, staff, starts_at, customer, key, website honeypot y source opcional. Origen same-origin del CRM. No acepta precio/duración/tenant UUID. |
-| /book/{organization}/{branch?} | Página nativa. service opcional como slug público; source=website opcional. |
+| GET /api/public/catalog | organization y branch por slug; JSON directo con website_booking_version=1, currency=PYG, branches, services y staff. |
+| GET /api/public/availability | organization, branch, service repetido, date, staff opcional. Duración/capacidad decididas por el servidor. |
+| /book/1717-barberia/luque | Página alojada, service canónico opcional y source=website. |
+| POST /api/public/booking | Sólo desde el origen del CRM; organization, branch, services:[slug], staff:slug o null, starts_at:ISO8601, customer, key:UUID, website:"", source:"website". No acepta precio/duración/UUID de tenant. |
 
-Los eventos históricos permanecen append-only: se agrega booking.attributed, sin modificar appointment.created.
+## Catálogo y proyección editorial
 
-El catálogo incorpora `website_booking_version: 1`, `website_category` y `consultation_required`. La categoría asignada explícitamente en el CRM vincula cada sección editorial de la landing sin mapear por texto visible; no sustituye al slug de reserva. El build rechaza un contrato antiguo o una sucursal incorrecta. No utiliza endpoints internos ni public RPC directamente desde el navegador de la landing.
+El build consume únicamente el GET público. Rechaza fallo HTTP, HTML, versión/tenant/moneda/sucursal incorrectos, slugs duplicados, precios/duraciones inválidos y servicios reservables sin profesional habilitado. El endpoint del CRM filtra organizaciones/sucursales con booking y servicios/staff activos.
 
-## Preselección
+La categoría decide el lugar editorial; el slug decide la reserva. Si varios servicios comparten `rulos`, el slug explícito `rulos` conserva el destacado y Combo aparece separado con valores del CRM. Las variantes `tinte` conservan sus nombres y precios propios. Una categoría editorial requerida ambigua detiene el build, sin elegir por nombre, precio o duración. Servicios ausentes no se reintroducen desde el contenido antiguo.
 
-La ruta valida sintaxis y cardinalidad del parámetro service, y el selector lo verifica contra los servicios del public_catalog de esa sucursal. Servicios desconocidos, repetidos o de consulta previa no se preseleccionan. Los servicios compuestos utilizan las mismas reglas del ServicePicker existente y requieren su base pública reservable. Agendar general no incluye service. Cambiar de sucursal limpia la selección. La API/DB valida nuevamente todo: el query param nunca decide el precio, duración, staff compatible, permisos o tenant.
+Rulos, sus combos y tintes exigen consultation_required=true en la landing. No producen enlace de reserva directa. El CRM también rechaza servicios de consulta en disponibilidad y booking, independientemente del query string. Combo no agrega otro Corte ni suma minutos/precios locales.
 
-## Rulos
+La landing toma un snapshot al construir: reconstruir y desplegar después de cada cambio del catálogo. No tiene revalidación en tiempo real. El servidor del booking siempre recalcula sus valores actuales.
 
-La landing conserva consultationRequired=true y el CTA de WhatsApp. El CRM conserva la misma regla mediante consultation_required y website_category=rulos. La constraint evita desactivarla por error; resolve_public_request bloquea disponibilidad y booking públicos incluso con requests construidos manualmente. El motor interno autorizado sigue disponible para recepción tras evaluación. No se depende de esconder un checkbox como única defensa.
+## Datos del cliente e idempotencia
 
-## Atribución
+`src/features/booking/public-booking.tsx` solicita nombre, teléfono y correo opcional. Envía `customer:{name,normalized_phone,email}` en un cuerpo JSON al CRM. `customerInput` valida nombre recortado de 1–120 caracteres, teléfono internacional `+` seguido de 8–15 dígitos y correo válido de hasta 254 caracteres, vacío u omitido. El objeto y el payload de reserva son estrictos. No se envían datos personales por query string.
 
-La landing agrega únicamente source=website. El servidor acepta el enum website o ausencia; rechaza otros valores y propiedades desconocidas. La DB revalida el valor, registra appointments.booking_attribution y attribution en un domain event booking.attributed dentro de la misma transacción. appointments.source sigue siendo public: se conservan los controles de habilitación y lead time del motor público. No sustituir source por website en el motor interno.
+El formulario conserva una UUID durante los reintentos de esa visita; la transacción enlaza cliente y cita, y la clave impide duplicar la misma operación. Cambiar payload/atribución bajo la misma clave debe rechazarse. Tras error de red, reintentar sin recargar; una recarga genera una clave nueva y no constituye el mismo reintento idempotente.
 
-La atribución no contiene IP, campaña libre, PII ni secretos. El ledger privado enlaza organization/key con la atribución y rechaza cambiarla al reutilizar una clave de idempotencia. Reintentos devuelven la misma reserva sin duplicar audit/event. Los clientes previos que llaman a la RPC de nueve argumentos siguen funcionando sin atribución. La RPC nueva tiene diez argumentos, sin default para evitar ambigüedad de overload en PostgREST.
+## Atribución y seguridad
 
-## Catálogo y puesta en marcha
+La landing agrega únicamente source=website, sin autoridad sobre tenant, precio, duración o permisos. El CRM acepta sólo website o ausencia, valida nuevamente en DB y registra `appointments.booking_attribution=website` y el evento `booking.attributed` en la transacción. `appointments.source` continúa siendo `public` para conservar las reglas de agenda pública. No confundir esos dos campos.
 
-Ningún tenant o servicio productivo existe en la base auditada. Se conserva el contenido confirmado de Corte/Barba/Perfilado/Lavado/Rulos durante la puesta en marcha, con WhatsApp. El precio/duración dudosos de Tinte quedan sin publicar. Una vez activado el catálogo, sólo se muestran servicios clasificados y activos de esa sucursal y sus precios/duraciones efectivos. Global y Mechas se muestran por separado si ambos existen bajo categoría tinte. La disponibilidad no se duplica en la landing.
+`src/lib/http.ts` mantiene la comprobación de Origin contra APP_URL y Content-Type JSON, además del límite de cuerpo. La ruta pública aplica honeypot, rate limiting y RPC con secreto confinado al CRM. Los logs de error exponen código/request_id/estado, sin el cuerpo del cliente. La landing no hace POST, proxy ni embed y conserva su CSP.
 
-La URL pública prevista es https://barberia-crm.vercel.app. Variables públicas: BARBERIA_OS_PUBLIC_URL, BARBERIA_OS_ORGANIZATION_SLUG, BARBERIA_OS_BRANCH_SLUG; SITE_URL es opcional y pertenece sólo al SEO de la landing. Los slugs siguen pendientes hasta que el CRM los configure. [Activación](BOOKING_SETUP.md) y [auditoría](BOOKING_AUDIT.md).
+El aviso del formulario declara el uso de datos para gestionar la visita. La revisión de privacidad aplicable por los propietarios sigue pendiente antes de apertura; no se certifica cumplimiento jurídico ni consentimiento comercial.
 
-Verificación pública final: la URL prevista responde con un starter NextSpark; /api/public/catalog devuelve HTML de Not Found, no el contrato JSON del motor auditado. Desplegar/asociar el CRM real a la URL antes de activar 17:17. El build de la landing rechaza ese contenido aun con HTTP 200. La base remota sigue sin organizaciones, sucursales ni servicios.
+## Consulta previa y estado real
+
+WhatsApp sólo abre el contacto. No crea un cliente, consulta ni lead en el CRM y no confirma una reserva. La API pública auditada sólo ofrece catálogo/disponibilidad/booking; recepción segura de consultas es una mejora pendiente, sin nuevo endpoint de escritura abierto.
+
+Al 27/10/2026 el catálogo productivo devuelve 404 JSON. El handoff informa flags cerrados y gates humanos pendientes. No se ejecutaron reservas ficticias productivas. El código auditado y la evidencia histórica de staging no certifican una reserva desde la landing real ni su aparición en Agenda productiva. [Activación](BOOKING_SETUP.md) e [informe actual](CRM_INTEGRATION_20261027.md).

@@ -172,7 +172,7 @@ export const services = [
     featured: true,
   },
   { id: "corte", name: "Corte masculino", price: 30000, intent: "CORTE", durationMinutes: 40 },
-  { id: "tinte", name: "Tinte", price: null, intent: "TINTE", durationMinutes: null },
+  { id: "tinte", name: "Tinte", price: null, intent: "TINTE", durationMinutes: null, consultationRequired: true },
   { id: "barba", name: "Barba", price: 30000, intent: "BARBA", durationMinutes: 40 },
   {
     id: "infantil",

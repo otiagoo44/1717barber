@@ -1,6 +1,6 @@
 // Public configuration only. No credentials or internal IDs belong here.
 export const bookingConfiguration = {
-  publicUrl: "https://barberia-crm.vercel.app",
+  publicUrl: "https://barberia-crm-kappa.vercel.app",
   organizationSlug: null,
   branchSlug: null,
   catalog: null,
@@ -17,20 +17,31 @@ export function publicConfiguration(env = {}) {
   return { publicUrl: url.origin, organizationSlug, branchSlug, catalog: null };
 }
 export function validateCatalog(catalog, configuration) {
-  const branch = catalog?.branches?.find(b => b.slug === configuration.branchSlug);
+  const branch = Array.isArray(catalog?.branches) ? catalog.branches.find(b => b?.slug === configuration.branchSlug) : null;
   if (catalog?.slug !== configuration.organizationSlug || catalog?.currency !== "PYG" || catalog?.website_booking_version !== 1 || !branch || !Array.isArray(branch.services))
     throw new Error("Catálogo público incompatible, tenant/sucursal inexistente o migración pendiente.");
   const slugs = new Set();
   for (const service of branch.services) {
     if (!slugPattern.test(service.slug) || slugs.has(service.slug) || typeof service.name !== "string" || !service.name || typeof service.consultation_required !== "boolean" || !Number.isInteger(service.duration_minutes) || service.duration_minutes < 1 || service.duration_minutes > 480 || (service.price_minor !== null && (!Number.isSafeInteger(service.price_minor) || service.price_minor < 0)))
       throw new Error("Servicio público inválido.");
-    if (service.website_category === "rulos" && !service.consultation_required)
-      throw new Error("Rulos requiere evaluación previa.");
+    if (["rulos", "tinte"].includes(service.website_category) && !service.consultation_required)
+      throw new Error("Rulos, combos de rulos y tintes requieren evaluación previa.");
     slugs.add(service.slug);
   }
-  if (!["corte", "rulos"].every(key => branch.services.filter(s => s.website_category === key).length === 1))
-    throw new Error("Clasificá un servicio canónico de Corte y uno de Rulos en el catálogo del CRM.");
+  for (const category of ["corte", "rulos"]) editorialService(branch, category);
+  if (!Array.isArray(branch.staff) || !branch.staff.length || branch.staff.some(s => !slugPattern.test(s.slug) || typeof s.name !== "string" || !s.name.trim() || !Array.isArray(s.services) || s.services.some(slug => !slugPattern.test(slug))))
+    throw new Error("Profesionales públicos inválidos o no habilitados.");
+  if (branch.services.some(service => !service.consultation_required && !branch.staff.some(staff => staff.services.includes(service.slug))))
+    throw new Error("Hay servicios reservables sin un profesional habilitado.");
   return branch;
+}
+// Categories describe editorial placement, not identity. The confirmed canonical
+// slug owns the Rulos feature even if only its combo remains publicly active.
+export function editorialService(branch, category) {
+  const matches = branch.services.filter(s => s.website_category === category);
+  const canonical = category === "rulos" ? matches.find(s => s.slug === "rulos") : matches.length === 1 ? matches[0] : null;
+  if (!canonical) throw new Error(`Clasificá un servicio canónico de ${category} en el catálogo del CRM.`);
+  return canonical;
 }
 export function nativeBookingLink(serviceSlug, configuration = bookingConfiguration) {
   if (!configuration.organizationSlug || !configuration.branchSlug || !configuration.catalog) return null;
