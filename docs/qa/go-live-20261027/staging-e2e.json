@@ -1,0 +1,73 @@
+{
+  "checkedAt": "2026-10-27T21:54:38.739Z",
+  "stagingProject": "zdogqqmitpbwjgohwcww",
+  "landingSha": "1365712b6c693806d8ddc4c4a2f8ca21f8bd2936",
+  "crmSha": "c67522eb4c2271ed1350a3418a61ad428609df73",
+  "crmTreeEqualsProductionMain": true,
+  "checks": [
+    {
+      "name": "Protected preview access and real staging catalog",
+      "status": "PASS"
+    },
+    {
+      "name": "Build actual landing branch from authenticated staging catalog",
+      "status": "PASS"
+    },
+    {
+      "name": "Real landing to hosted booking, customer and appointment 1440",
+      "status": "PASS"
+    },
+    {
+      "name": "Real landing to hosted booking, customer and appointment 390",
+      "status": "PASS"
+    },
+    {
+      "name": "Simultaneous same-slot bookings produce one winner and useful conflict",
+      "status": "PASS"
+    },
+    {
+      "name": "Sunday, Esteban break, Jonatan hours and outside hours",
+      "status": "PASS"
+    },
+    {
+      "name": "Consultation and nonexistent services rejected by API and URL",
+      "status": "PASS"
+    },
+    {
+      "name": "Origin, honeypot, strict customer validation and inactive service",
+      "status": "PASS"
+    },
+    {
+      "name": "Connection error is useful and never reports a confirmed booking",
+      "status": "PASS"
+    },
+    {
+      "name": "Test owner logs in and verifies actual personal test MFA",
+      "status": "PASS"
+    },
+    {
+      "name": "Real appointment appears in authenticated Agenda and contact detail",
+      "status": "PASS"
+    },
+    {
+      "name": "Tenant isolation and cancellation release the slot",
+      "status": "PASS"
+    },
+    {
+      "name": "Rate limit rejects excess public writes",
+      "status": "PASS"
+    }
+  ],
+  "pageErrors": [],
+  "productionWrites": false,
+  "status": "PASS",
+  "mobileTouch": {
+    "status": "PASS",
+    "width": 390,
+    "touch": true,
+    "hostedBookingWidth": 390,
+    "professional": "jonatan",
+    "databaseAssociation": true,
+    "overflow": false
+  }
+}

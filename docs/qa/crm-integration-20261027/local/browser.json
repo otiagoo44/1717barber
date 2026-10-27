@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-27T20:56:25.324Z",
+  "routes": [
+    {
+      "route": "/",
+      "width": 390,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/rulos",
+      "width": 390,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/rulos",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/productos",
+      "width": 390,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/productos",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/reservar",
+      "width": 390,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/reservar",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/trabajos",
+      "width": 390,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/trabajos",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/rulos",
+      "width": 1440,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/rulos",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/productos",
+      "width": 1440,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/productos",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/reservar",
+      "width": 1440,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/reservar",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/trabajos",
+      "width": 1440,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/trabajos",
+      "overflow": false,
+      "axe": 0
+    }
+  ],
+  "errors": [],
+  "mode": "Read-only landing QA. No bookings submitted.",
+  "bookingLinks": [],
+  "passed": true
+}

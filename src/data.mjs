@@ -9,7 +9,8 @@ export const business = {
   whatsapp: "595983402497",
   address: "Cap. Dado esq. Gobernador Irala",
   city: "Luque, Paraguay",
-  hours: "Lunes–Sábado · 8:00–21:00",
+  hours: "Lunes–Sábado · 09:00–21:00 · Domingo cerrado",
+  openingHours: { opens: "09:00", closes: "21:00" },
   instagram: "https://www.instagram.com/1717barberia",
   maps: "https://www.google.com/maps/search/Cap.+Dado+esquina+Gobernador+Irala+Luque+Paraguay",
   siteUrl: "https://1717barber.vercel.app", // URL publicada en el análisis de Tiago.
@@ -172,7 +173,7 @@ export const services = [
     featured: true,
   },
   { id: "corte", name: "Corte masculino", price: 30000, intent: "CORTE", durationMinutes: 40 },
-  { id: "tinte", name: "Tinte", price: null, intent: "TINTE", durationMinutes: null },
+  { id: "tinte", name: "Tinte", price: null, intent: "TINTE", durationMinutes: null, consultationRequired: true },
   { id: "barba", name: "Barba", price: 30000, intent: "BARBA", durationMinutes: 40 },
   {
     id: "infantil",
@@ -325,7 +326,7 @@ const reelAlt = [
 export const rulosReels = reelCodes.map((code, i) => ({
   id: `REEL_RULOS_0${i + 1}`,
   url: `https://www.instagram.com/reel/${code}/`,
-  video: `/assets/videos/${code}-silent.mp4`,
+  video: `/assets/videos/${code}.mp4`,
   thumbnail: `/assets/media/reel-rulos-0${i + 1}.webp`,
   thumbnailAlt: reelAlt[i],
   title: `Rulos en movimiento · ${String(i + 1).padStart(2, "0")}`,
@@ -366,7 +367,7 @@ export const homeFaq = [
     return `${amount === null ? "Consultanos por el precio de los rulos permanentes." : "Los rulos permanentes cuestan Gs. " + amount.toLocaleString("es-PY") + "."} El corte se cobra por separado. El servicio dura ${rulosDetails.duration.toLowerCase().replace(/\.$/, "")}; consultanos por el largo y las condiciones de tu cabello antes de reservar.`;
   }],
   ["¿Dónde queda la barbería?", `Estamos en ${business.address}, ${business.city}. Encontrás el enlace a Google Maps en la sección de ubicación.`],
-  ["¿Qué días y horarios atienden?", "Atendemos de lunes a sábado, de 8:00 a 21:00."],
+  ["¿Qué días y horarios atienden?", "Atendemos de lunes a sábado, de 09:00 a 21:00. Los domingos permanecemos cerrados."],
   ["¿Puedo consultar por productos para el cabello?", "Sí. Escribinos por los productos de styling y cuidado que buscás. Te confirmamos las opciones, el precio y la disponibilidad por WhatsApp."]
 ];
 export const rulosFaq = [

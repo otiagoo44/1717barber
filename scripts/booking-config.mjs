@@ -1,4 +1,4 @@
-import { bookingConfiguration, publicConfiguration, validateCatalog } from "../src/booking.mjs";
+import { bookingConfiguration, publicConfiguration, validateCatalog, editorialService } from "../src/booking.mjs";
 import { services } from "../src/data.mjs";
 
 export function projectServices(catalog, configuration, editorial = services) {
@@ -8,11 +8,14 @@ export function projectServices(catalog, configuration, editorial = services) {
     const matches = branch.services.filter(s => s.website_category === template.id);
     // Missing services are not advertised as reservable or priced from an obsolete copy.
     if (!matches.length) continue;
+    const canonical = ["corte", "rulos"].includes(template.id) ? editorialService(branch, template.id) : matches.length === 1 ? matches[0] : null;
     for (const s of matches) result.push({ ...template,
-      id: matches.length === 1 ? template.id : s.slug,
+      id: s === canonical ? template.id : s.slug,
       category: template.id,
       slug: s.slug,
-      name: template.id === "tinte" || matches.length > 1 ? s.name : template.name,
+      name: s.name,
+      featured: s === canonical && template.featured === true,
+      intent: template.id === "rulos" && s !== canonical ? "CONSULTA" : template.intent,
       price: s.price_minor,
       durationMinutes: s.duration_minutes,
       consultationRequired: template.consultationRequired === true || s.consultation_required,

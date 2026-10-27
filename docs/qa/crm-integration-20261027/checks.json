@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-27T20:56:44.695Z",
+  "crmSha": "cac194123ebfa779bafb344423f63b327c4dce7e",
+  "landingUnit": {
+    "passed": 18,
+    "failed": 0
+  },
+  "crmUnit": {
+    "passed": 30,
+    "failed": 0
+  },
+  "crmDatabase": {
+    "environment": "Disposable embedded PostgreSQL; no external TEST_DATABASE_URL accepted",
+    "migrations": 43,
+    "securityContractsPassed": 51,
+    "confirmed1717Contracts": "PASS",
+    "covers": [
+      "customer appointment association",
+      "public customer deduplication",
+      "100 concurrent requests",
+      "100 retries using one key",
+      "website attribution event once",
+      "consultation required",
+      "Sunday closed",
+      "Esteban break",
+      "Jonatan availability"
+    ]
+  },
+  "productionBooking": "NOT_EXECUTED",
+  "cloudStagingE2E": "NOT_EXECUTED_THIS_PASS",
+  "build": {
+    "contactMode": "PASS",
+    "productionConfiguration": "BLOCKED_EXPECTED_CATALOG_404"
+  },
+  "dist": "PASS"
+}

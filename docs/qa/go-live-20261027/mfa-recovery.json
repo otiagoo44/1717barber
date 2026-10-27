@@ -1,0 +1,12 @@
+{
+  "project": "zdogqqmitpbwjgohwcww",
+  "syntheticOnly": true,
+  "status": "BLOCKED_LAST_FACTOR_PROTECTED",
+  "publicRecoveryRejected": true,
+  "authAdminLastFactorRemoval": "HTTP_500_DATABASE_ERROR",
+  "cause": "retain_verified_mfa_factor rejects removing the sole verified factor with mfa_last_factor; migration 20261021202056_audit_release_boundaries.sql",
+  "productionFactorsChanged": 0,
+  "protectionChanged": false,
+  "requiredAlternative": "Owner-controlled independently recoverable authenticator backup or another recoverable verified factor",
+  "recordedAt": "2026-10-27T22:25:18.767Z"
+}

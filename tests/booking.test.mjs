@@ -8,12 +8,13 @@ import { renderPage } from "../src/pages.mjs";
 
 // Isolated fixtures, never deployment configuration or verified production prices.
 const env = { BARBERIA_OS_PUBLIC_URL:"https://crm.fixture.invalid", BARBERIA_OS_ORGANIZATION_SLUG:"fixture-a", BARBERIA_OS_BRANCH_SLUG:"a1" };
-const service = (slug, website_category, price_minor, duration_minutes, extra={}) => ({slug,website_category,price_minor,duration_minutes,name:slug,consultation_required:website_category === "rulos",...extra});
-const catalog = { slug:"fixture-a",currency:"PYG",website_booking_version:1,branches:[{slug:"a1",services:[service("cut","corte",30000,40),service("curl","rulos",180000,120),service("global-fixture","tinte",250000,120),service("highlights-fixture","tinte",180000,90)]}] };
+const service = (slug, website_category, price_minor, duration_minutes, extra={}) => ({slug,website_category,price_minor,duration_minutes,name:slug,consultation_required:["rulos","tinte"].includes(website_category),...extra});
+const catalog = { slug:"fixture-a",currency:"PYG",website_booking_version:1,branches:[{slug:"a1",staff:[{slug:"fixture-staff",name:"Fixture staff",services:["cut"]}],services:[service("cut","corte",30000,40),service("rulos","rulos",180000,120),service("global-fixture","tinte",250000,120),service("highlights-fixture","tinte",180000,90)]}] };
 const config = {...publicConfiguration(env),catalog};
 
 test("Configuración pública rechaza credenciales, URL insegura y slugs parciales",()=>{
   assert.equal(publicConfiguration().organizationSlug,null);
+  assert.equal(publicConfiguration().publicUrl,"https://barberia-crm-kappa.vercel.app");
   for(const url of ["http://crm.fixture.invalid","https://user:secret@crm.fixture.invalid","https://crm.fixture.invalid/path","https://crm.fixture.invalid?token=secret"])
     assert.throws(()=>publicConfiguration({...env,BARBERIA_OS_PUBLIC_URL:url}));
   assert.throws(()=>publicConfiguration({...env,BARBERIA_OS_BRANCH_SLUG:""}));
@@ -26,7 +27,7 @@ test("CTA general y específico usan sólo tenant público y slug validado",()=>
   assert.equal(general.searchParams.has("service"),false);
   assert.equal(new URL(nativeBookingLink("cut",config)).searchParams.get("service"),"cut");
   assert.throws(()=>nativeBookingLink("missing",config),/inexistente/);
-  assert.equal(nativeBookingLink("curl",config),null);
+  assert.equal(nativeBookingLink("rulos",config),null);
   assert.equal(nativeBookingLink(),null);
 });
 test("Catálogo estricto: no confundir tenant, sucursal, versión, rulos ni precios",()=>{
@@ -42,6 +43,45 @@ test("Dos tintes se proyectan desde datos del CRM sin mapear nombres",()=>{
   assert.equal(projected.length,4);
   assert.deepEqual(projected.filter(s=>s.category==="tinte").map(s=>[s.slug,s.name,s.price]),[["global-fixture","global-fixture",250000],["highlights-fixture","highlights-fixture",180000]]);
   assert.equal(projected.find(s=>s.id==="rulos").consultationRequired,true);
+});
+
+test("Rulos y Combo comparten categoría sin reemplazar el destacado ni duplicar Corte",()=>{
+  const shared=structuredClone(catalog);
+  const branch=shared.branches[0];
+  branch.services[1].slug="rulos";
+  branch.services.push(service("combo-rulos-y-corte","rulos",200000,120,{name:"Combo fixture"}));
+  const configuration={...config,catalog:shared};
+  const projected=projectServices(shared,configuration);
+  assert.equal(projected.find(s=>s.id==="rulos").slug,"rulos");
+  const combo=projected.find(s=>s.slug==="combo-rulos-y-corte");
+  assert.deepEqual([combo.name,combo.price,combo.durationMinutes,combo.featured],["Combo fixture",200000,120,false]);
+  assert.equal(projected.filter(s=>s.featured).length,1);
+  for(const slug of ["rulos","combo-rulos-y-corte","global-fixture","highlights-fixture"])
+    assert.equal(nativeBookingLink(slug,configuration),null);
+  const original=services.slice(),previous={...bookingConfiguration};
+  try {
+    services.splice(0,services.length,...projected);Object.assign(bookingConfiguration,configuration);
+    const booking=renderPage("reservar");
+    assert.equal((booking.match(/Este servicio requiere evaluación previa\. Escribinos para coordinarlo\./g)||[]).length,4);
+    assert.match(serviceBookingLink(combo.id),/^https:\/\/wa\.me\//);
+    assert.ok(new URL(serviceBookingLink(combo.id)).searchParams.get("text").includes(combo.name));
+    assert.equal((booking.match(/El corte se cobra por separado/g)||[]).length,1);
+  } finally {services.splice(0,services.length,...original);Object.assign(bookingConfiguration,previous);}
+  branch.services[1].slug="ambiguous-curl";
+  assert.throws(()=>validateCatalog(shared,configuration),/canónico/);
+  branch.services.splice(1,1);
+  assert.throws(()=>validateCatalog(shared,configuration),/canónico/);
+});
+
+test("No publicar tintes directos ni servicios sin profesionales habilitados",()=>{
+  const invalid=structuredClone(catalog);
+  invalid.branches[0].services[2].consultation_required=false;
+  assert.throws(()=>validateCatalog(invalid,config),/evaluación previa/);
+  invalid.branches[0].services[2].consultation_required=true;
+  invalid.branches[0].staff=[];
+  assert.throws(()=>validateCatalog(invalid,config),/Profesionales/);
+  invalid.branches[0].staff=[{slug:"fixture-staff",name:"Fixture staff",services:[]}];
+  assert.throws(()=>validateCatalog(invalid,config),/sin un profesional/);
 });
 test("Render configurado mantiene canonical, CTA específico y consulta de rulos",()=>{
   const original=services.slice(), previous={...business.booking};

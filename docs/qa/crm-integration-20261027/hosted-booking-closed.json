@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-27T20:54:29.569Z",
+  "readOnly": true,
+  "responses": [
+    {
+      "path": "/api/public/catalog",
+      "status": 404
+    }
+  ],
+  "errors": [],
+  "text": "No encontramos este recurso.",
+  "forms": 0,
+  "fields": [],
+  "overflow": false
+}

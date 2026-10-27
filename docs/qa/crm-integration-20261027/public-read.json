@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-10-27T20:50:46.931Z",
+  "crmSha": "cac194123ebfa779bafb344423f63b327c4dce7e",
+  "method": "GET only; no production writes",
+  "results": [
+    {
+      "path": "/api/public/catalog?organization=1717-barberia&branch=luque",
+      "status": 404,
+      "contentType": "application/json",
+      "error": "No encontramos este recurso.",
+      "website_booking_version": null,
+      "organization": null,
+      "currency": null,
+      "branchCount": null
+    },
+    {
+      "path": "/api/public/availability?organization=1717-barberia&branch=luque&service=corte-de-pelo&date=2026-10-28&staff=esteban",
+      "status": 404,
+      "contentType": "application/json",
+      "error": "No encontramos este recurso.",
+      "website_booking_version": null,
+      "organization": null,
+      "currency": null,
+      "branchCount": null
+    },
+    {
+      "path": "/book/1717-barberia/luque?service=corte-de-pelo&source=website",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "hostedBooking": true
+    }
+  ]
+}
