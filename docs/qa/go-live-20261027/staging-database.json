@@ -1,0 +1,63 @@
+{
+  "project": "zdogqqmitpbwjgohwcww",
+  "appointments": [
+    {
+      "attribution_events": 1,
+      "booking_attribution": "website",
+      "customer_id": "dc6e51ca-5324-49f9-aac1-2b4239e539e3",
+      "duration_minutes": 40,
+      "id": "0c9c328a-d3b9-433c-9e17-d936879ebc5f",
+      "price": 30000,
+      "reference": "524583fb-8325-48de-aca5-7cb69a340ddb",
+      "source": "public",
+      "staff": "esteban",
+      "starts_at": "2026-11-02T12:00:00+00:00",
+      "status": "cancelled"
+    },
+    {
+      "attribution_events": 1,
+      "booking_attribution": "website",
+      "customer_id": "46f9a882-e53b-4663-8375-5f62300b9999",
+      "duration_minutes": 40,
+      "id": "7e075011-16d5-4b83-9ffe-824cd613c542",
+      "price": 30000,
+      "reference": "bc581e54-8a06-40c9-a643-1b6945ad861f",
+      "source": "public",
+      "staff": "esteban",
+      "starts_at": "2026-11-02T12:40:00+00:00",
+      "status": "scheduled"
+    },
+    {
+      "attribution_events": 1,
+      "booking_attribution": "website",
+      "customer_id": "5b004eaf-a2cd-4232-949c-e86fb4a7931e",
+      "duration_minutes": 40,
+      "id": "80ca7aed-af7f-4e56-84b8-60ce19f2f6a7",
+      "price": 30000,
+      "reference": "22994585-bdff-44c5-8484-e939a9ad7472",
+      "source": "public",
+      "staff": "esteban",
+      "starts_at": "2026-11-02T13:20:00+00:00",
+      "status": "scheduled"
+    },
+    {
+      "attribution_events": 1,
+      "booking_attribution": "website",
+      "customer_id": "61599b82-143d-46da-8c22-3611d58976d4",
+      "duration_minutes": 40,
+      "id": "2edbcaea-970e-4a36-95f8-e4744fc89266",
+      "price": 30000,
+      "reference": "1f29e22c-7369-46cf-847a-adbb2e5c1ed0",
+      "source": "public",
+      "staff": "jonatan",
+      "starts_at": "2026-11-02T16:00:00+00:00",
+      "status": "scheduled"
+    }
+  ],
+  "branch_id": "7c33a5c7-e74d-4c2f-8043-5e9ff9bc735d",
+  "checked_at": "2026-10-27T22:03:56.469578+00:00",
+  "customer_count": 4,
+  "duplicate_phones": 0,
+  "organization_id": "21afb25b-d34e-47cd-afdc-df14622adf87",
+  "staging_scheduler_active": 0
+}

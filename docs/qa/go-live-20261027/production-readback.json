@@ -1,0 +1,332 @@
+{
+  "branch": {
+    "active": true,
+    "booking_enabled": false,
+    "slug": "luque",
+    "timezone": "America/Asuncion"
+  },
+  "business_hours": [
+    {
+      "closes": "21:00:00",
+      "opens": "09:00:00",
+      "weekday": 1
+    },
+    {
+      "closes": "21:00:00",
+      "opens": "09:00:00",
+      "weekday": 2
+    },
+    {
+      "closes": "21:00:00",
+      "opens": "09:00:00",
+      "weekday": 3
+    },
+    {
+      "closes": "21:00:00",
+      "opens": "09:00:00",
+      "weekday": 4
+    },
+    {
+      "closes": "21:00:00",
+      "opens": "09:00:00",
+      "weekday": 5
+    },
+    {
+      "closes": "21:00:00",
+      "opens": "09:00:00",
+      "weekday": 6
+    }
+  ],
+  "checked_at": "2026-10-27T21:58:06.245965+00:00",
+  "gateway_credentials": [
+    {
+      "hash_configured": true,
+      "name": "booking"
+    },
+    {
+      "hash_configured": true,
+      "name": "worker"
+    }
+  ],
+  "migrations": {
+    "count": 43,
+    "latest": "20261026212415"
+  },
+  "organization": {
+    "active": true,
+    "booking_enabled": false,
+    "currency": "PYG",
+    "lead_minutes": 0,
+    "slug": "1717-barberia",
+    "timezone": "America/Asuncion"
+  },
+  "owners": [
+    {
+      "all_branches": true,
+      "email_confirmed": true,
+      "exists": true,
+      "last_sign_in_at": "2026-10-27T18:08:13.277979+00:00",
+      "linked_staff": "esteban",
+      "membership_active": true,
+      "owner": "esteban",
+      "password_change_completed_at": "2026-10-27T18:10:28.016801+00:00",
+      "password_change_required": false,
+      "profile_active": true,
+      "role": "organization_owner",
+      "verified_factors": 1
+    },
+    {
+      "all_branches": true,
+      "email_confirmed": false,
+      "exists": true,
+      "last_sign_in_at": null,
+      "linked_staff": "jonatan",
+      "membership_active": true,
+      "owner": "jonatan",
+      "password_change_completed_at": null,
+      "password_change_required": true,
+      "profile_active": true,
+      "role": "organization_owner",
+      "verified_factors": 0
+    }
+  ],
+  "public_definer_functions": 0,
+  "public_rpc": [
+    {
+      "args": 6,
+      "invoker": true,
+      "name": "public_availability"
+    },
+    {
+      "args": 9,
+      "invoker": true,
+      "name": "public_booking"
+    },
+    {
+      "args": 10,
+      "invoker": true,
+      "name": "public_booking"
+    },
+    {
+      "args": 3,
+      "invoker": true,
+      "name": "public_catalog"
+    }
+  ],
+  "scheduler": [
+    {
+      "active": true,
+      "jobname": "barberia-internal-worker",
+      "last_run": "2026-10-27T21:58:00.015309+00:00",
+      "last_status": "succeeded",
+      "schedule": "* * * * *"
+    }
+  ],
+  "services": [
+    {
+      "active": true,
+      "branch_active": true,
+      "consultation_required": false,
+      "duration_minutes": 40,
+      "name": "Barba",
+      "price_minor": 30000,
+      "slug": "barba",
+      "website_category": "barba"
+    },
+    {
+      "active": true,
+      "branch_active": true,
+      "consultation_required": true,
+      "duration_minutes": 120,
+      "name": "Combo rulos y corte",
+      "price_minor": 200000,
+      "slug": "combo-rulos-y-corte",
+      "website_category": "rulos"
+    },
+    {
+      "active": true,
+      "branch_active": true,
+      "consultation_required": false,
+      "duration_minutes": 40,
+      "name": "Corte de pelo",
+      "price_minor": 30000,
+      "slug": "corte-de-pelo",
+      "website_category": "corte"
+    },
+    {
+      "active": true,
+      "branch_active": true,
+      "consultation_required": false,
+      "duration_minutes": 10,
+      "name": "Lavado",
+      "price_minor": 10000,
+      "slug": "lavado",
+      "website_category": "lavado"
+    },
+    {
+      "active": true,
+      "branch_active": true,
+      "consultation_required": false,
+      "duration_minutes": 40,
+      "name": "Perfilado de cejas",
+      "price_minor": 10000,
+      "slug": "perfilado-de-cejas",
+      "website_category": "cejas"
+    },
+    {
+      "active": true,
+      "branch_active": true,
+      "consultation_required": true,
+      "duration_minutes": 120,
+      "name": "Rulos",
+      "price_minor": 180000,
+      "slug": "rulos",
+      "website_category": "rulos"
+    },
+    {
+      "active": true,
+      "branch_active": true,
+      "consultation_required": true,
+      "duration_minutes": 150,
+      "name": "Tinte global",
+      "price_minor": 250000,
+      "slug": "tinte-global",
+      "website_category": "tinte"
+    },
+    {
+      "active": true,
+      "branch_active": true,
+      "consultation_required": true,
+      "duration_minutes": 150,
+      "name": "Tinte mechas",
+      "price_minor": 180000,
+      "slug": "tinte-mechas",
+      "website_category": "tinte"
+    }
+  ],
+  "staff": [
+    {
+      "active": true,
+      "assigned": true,
+      "capabilities": 8,
+      "slug": "esteban"
+    },
+    {
+      "active": true,
+      "assigned": true,
+      "capabilities": 8,
+      "slug": "jonatan"
+    }
+  ],
+  "unprotected_public_tables": 0,
+  "weekly": [
+    {
+      "ends_at": "12:00:00",
+      "staff": "esteban",
+      "starts_at": "09:00:00",
+      "weekday": 1
+    },
+    {
+      "ends_at": "19:00:00",
+      "staff": "esteban",
+      "starts_at": "12:30:00",
+      "weekday": 1
+    },
+    {
+      "ends_at": "12:00:00",
+      "staff": "esteban",
+      "starts_at": "09:00:00",
+      "weekday": 2
+    },
+    {
+      "ends_at": "19:00:00",
+      "staff": "esteban",
+      "starts_at": "12:30:00",
+      "weekday": 2
+    },
+    {
+      "ends_at": "12:00:00",
+      "staff": "esteban",
+      "starts_at": "09:00:00",
+      "weekday": 3
+    },
+    {
+      "ends_at": "13:00:00",
+      "staff": "esteban",
+      "starts_at": "12:30:00",
+      "weekday": 3
+    },
+    {
+      "ends_at": "12:00:00",
+      "staff": "esteban",
+      "starts_at": "09:00:00",
+      "weekday": 4
+    },
+    {
+      "ends_at": "13:00:00",
+      "staff": "esteban",
+      "starts_at": "12:30:00",
+      "weekday": 4
+    },
+    {
+      "ends_at": "12:00:00",
+      "staff": "esteban",
+      "starts_at": "09:00:00",
+      "weekday": 5
+    },
+    {
+      "ends_at": "13:00:00",
+      "staff": "esteban",
+      "starts_at": "12:30:00",
+      "weekday": 5
+    },
+    {
+      "ends_at": "12:00:00",
+      "staff": "esteban",
+      "starts_at": "09:00:00",
+      "weekday": 6
+    },
+    {
+      "ends_at": "19:00:00",
+      "staff": "esteban",
+      "starts_at": "12:30:00",
+      "weekday": 6
+    },
+    {
+      "ends_at": "21:00:00",
+      "staff": "jonatan",
+      "starts_at": "13:00:00",
+      "weekday": 1
+    },
+    {
+      "ends_at": "21:00:00",
+      "staff": "jonatan",
+      "starts_at": "13:00:00",
+      "weekday": 2
+    },
+    {
+      "ends_at": "21:00:00",
+      "staff": "jonatan",
+      "starts_at": "13:00:00",
+      "weekday": 3
+    },
+    {
+      "ends_at": "21:00:00",
+      "staff": "jonatan",
+      "starts_at": "13:00:00",
+      "weekday": 4
+    },
+    {
+      "ends_at": "21:00:00",
+      "staff": "jonatan",
+      "starts_at": "13:00:00",
+      "weekday": 5
+    },
+    {
+      "ends_at": "21:00:00",
+      "staff": "jonatan",
+      "starts_at": "13:00:00",
+      "weekday": 6
+    }
+  ]
+}

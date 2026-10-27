@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-10-27T21:58:09.292Z",
+  "managed": {
+    "backups": [
+      {
+        "id": 2083092144,
+        "inserted_at": "2026-10-27T04:58:26.981Z",
+        "is_physical_backup": true,
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2073479768,
+        "inserted_at": "2026-10-26T05:00:37.345Z",
+        "is_physical_backup": true,
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2063922754,
+        "inserted_at": "2026-10-25T05:00:36.034Z",
+        "is_physical_backup": true,
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2054329547,
+        "inserted_at": "2026-10-24T04:56:10.921Z",
+        "is_physical_backup": true,
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2044770382,
+        "inserted_at": "2026-10-23T04:56:09.244Z",
+        "is_physical_backup": true,
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2035201251,
+        "inserted_at": "2026-10-22T05:04:43.245Z",
+        "is_physical_backup": true,
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2025703107,
+        "inserted_at": "2026-10-21T04:59:38.010Z",
+        "is_physical_backup": true,
+        "status": "COMPLETED"
+      },
+      {
+        "id": 2016114920,
+        "inserted_at": "2026-10-20T04:57:48.578Z",
+        "is_physical_backup": true,
+        "status": "COMPLETED"
+      }
+    ],
+    "physical_backup_data": {},
+    "pitr_enabled": false,
+    "region": "us-east-1",
+    "walg_enabled": true
+  },
+  "localEncryptedFiles": [
+    {
+      "name": "1717-2026-10-25T23-35-34.628Z.bkos",
+      "bytes": 2650229,
+      "sha256": "0d461bc913418ae64e645eda417601abae60bb6edeaea972e555d54976d9c45e",
+      "receiptAvailable": true,
+      "receiptTopLevelFields": [
+        "project",
+        "checked_at",
+        "encrypted_file",
+        "encryption",
+        "scope",
+        "source_snapshot",
+        "production_writes",
+        "restore"
+      ]
+    },
+    {
+      "name": "1717-2026-10-25T23-39-39.524Z.bkos",
+      "bytes": 2650229,
+      "sha256": "2f3a9970b698c9d7e6ccca5951e9a1459d310cb4fc3e82b25ad1ef60dea4b2c9",
+      "receiptAvailable": true,
+      "receiptTopLevelFields": [
+        "project",
+        "checked_at",
+        "encrypted_file",
+        "encryption",
+        "scope",
+        "source_snapshot",
+        "production_writes",
+        "restore"
+      ]
+    }
+  ],
+  "offsiteCopy": "USER_DEFERRED",
+  "restore": "HISTORICAL_ISOLATED_RESTORE_DOCUMENTED; not repeated; no production restore"
+}
