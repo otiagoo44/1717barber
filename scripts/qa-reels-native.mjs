@@ -26,8 +26,9 @@ try{
       await facades[i].click();
       await page.waitForSelector('#reel-player[open] video');
       await page.waitForFunction(()=>{const v=document.querySelector('#reel-player video');return v&&!v.paused&&v.currentTime>.8&&v.readyState>=2;},{timeout:20000});
-      const info=await page.$eval('#reel-player video',v=>({src:v.currentSrc,time:v.currentTime,duration:v.duration,muted:v.muted,controls:v.controls,inline:v.playsInline,frames:v.getVideoPlaybackQuality().totalVideoFrames}));
+      const info=await page.$eval('#reel-player video',v=>({src:v.currentSrc,time:v.currentTime,duration:v.duration,muted:v.muted,volume:v.volume,decodedAudioBytes:v.webkitAudioDecodedByteCount,controls:v.controls,inline:v.playsInline,frames:v.getVideoPlaybackQuality().totalVideoFrames}));
       assert.ok(info.frames>0);assert.ok(info.controls&&info.inline);assert.equal(info.muted,false);
+      assert.ok(info.volume>0);assert.ok(info.decodedAudioBytes>0,'Original audio is decoded during playback');
       assert.equal(await page.$$eval('iframe',els=>els.length),0);
       assert.equal(page.url(),base+'/rulos');
       if(i===0){
