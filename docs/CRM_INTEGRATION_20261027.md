@@ -17,6 +17,10 @@
 
 El cambio de landing queda en `fix/crm-booking-integration`; el SHA de entrega lo identifica el commit/PR. No se modificó el CRM. Se inspeccionó su SHA productivo en un worktree separado, pues el checkout local original estaba en una revisión anterior.
 
+Código y pruebas subidos en `bb7053e6cc295ded1488af112662bf7f64a12020`. El push disparó automáticamente el preview `dpl_AQPtqZsBgroHwSRovs1SNE2e7WGZ`, que terminó ERROR con el mensaje confirmado en sus logs: `Catálogo del CRM no disponible (404). No se publicaron datos inventados.` No se promovió. Se releyó el alias productivo después: conserva `dpl_9D6MnrRnHWETytURNJ3wamecFK3o`, READY y SHA `81dfa32`.
+
+**PR pendiente de creación manual.** El conector GitHub devolvió `403 Resource not accessible by integration`; el navegador denegó acceso al dominio por falta de autorización. No se intentó eludir ese bloqueo. [Abrir comparación](https://github.com/otiagoo44/1717barber/compare/main...fix/crm-booking-integration?expand=1); [texto del borrador preparado](PULL_REQUEST_CRM_INTEGRATION.md). No hacer merge mientras continúen los gates descritos abajo.
+
 ## Variables Vercel
 
 Se comprobó el proyecto por nombre, ID, repositorio y alias antes de escribir. No tenía variables de proyecto. Se crearon y releyeron exactamente cuatro entradas, cada una con targets Production, Preview y Development y sin override de rama:
