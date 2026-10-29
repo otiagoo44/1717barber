@@ -14,14 +14,6 @@
     elementAnimations.set(target,animation);
     animation.finished.then(() => animations.delete(animation)).catch(() => animations.delete(animation));
   }
-  function handlePageTransition(event) {
-    const transition = event.viewTransition;
-    if (!transition) return;
-    transition.ready.catch(() => {});
-    if (reducedMotion.matches) transition.skipTransition();
-  }
-  window.addEventListener("pagereveal",handlePageTransition);
-  window.addEventListener("pageswap",handlePageTransition);
   if (!reducedMotion.matches) document.documentElement.classList.add("motion-ready");
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(entries => {

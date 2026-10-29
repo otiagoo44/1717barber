@@ -29,6 +29,7 @@ const styles = await Promise.all([
 const assetVersion = createHash("sha256")
   .update(styles.join("\n").replace(/\r\n/g, "\n"))
   .update((await readFile("public/assets/site.js", "utf8")).replace(/\r\n/g, "\n"))
+  .update((await readFile("public/assets/page-transitions.js", "utf8")).replace(/\r\n/g, "\n"))
   .digest("hex").slice(0, 12);
 await writeFile(
   "dist/assets/site.css",

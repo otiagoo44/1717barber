@@ -1,5 +1,7 @@
 # Integración 17:17 — 27/10/2026
 
+**Informe histórico.** Catálogo y reservas se habilitaron después de esta auditoría. La landing se fusionó/publicó y una reserva real del usuario quedó verificada. Consultar el [cierre vigente del 29/10](CIERRE_INTEGRACION_20261029.md) antes de ejecutar acciones.
+
 Este informe conserva la pasada inicial con catálogo cerrado. La ejecución posterior habilitó el catálogo con owner/MFA y probó el E2E real de staging, además de corregir horario y audio. Ver [go-live y recibos actuales](GO_LIVE_20261027.md).
 
 **Preparada para revisión; reservas productivas cerradas.** El catálogo y la disponibilidad del CRM devuelven 404 JSON. No se publica una agenda inexistente ni se considera completada la integración productiva.

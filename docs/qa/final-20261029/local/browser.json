@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-29T21:12:00.182Z",
+  "routes": [
+    {
+      "route": "/",
+      "width": 390,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/rulos",
+      "width": 390,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/rulos",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/productos",
+      "width": 390,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/productos",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/reservar",
+      "width": 390,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/reservar",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/trabajos",
+      "width": 390,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/trabajos",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/rulos",
+      "width": 1440,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/rulos",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/productos",
+      "width": 1440,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/productos",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/reservar",
+      "width": 1440,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/reservar",
+      "overflow": false,
+      "axe": 0
+    },
+    {
+      "route": "/trabajos",
+      "width": 1440,
+      "status": 200,
+      "canonical": "https://1717barber.vercel.app/trabajos",
+      "overflow": false,
+      "axe": 0
+    }
+  ],
+  "errors": [],
+  "mode": "Read-only landing QA. No bookings submitted.",
+  "bookingLinks": [
+    "https://barberia-crm-kappa.vercel.app/book/1717-barberia/luque?service=corte-de-pelo&source=website",
+    "https://barberia-crm-kappa.vercel.app/book/1717-barberia/luque?service=barba&source=website",
+    "https://barberia-crm-kappa.vercel.app/book/1717-barberia/luque?service=perfilado-de-cejas&source=website",
+    "https://barberia-crm-kappa.vercel.app/book/1717-barberia/luque?service=lavado&source=website",
+    "https://barberia-crm-kappa.vercel.app/book/1717-barberia/luque?source=website"
+  ],
+  "navigationTransitions": {
+    "normal": 3,
+    "reducedMotion": 3,
+    "passed": true
+  },
+  "passed": true
+}

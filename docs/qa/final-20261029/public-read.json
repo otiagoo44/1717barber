@@ -1,0 +1,269 @@
+{
+  "checkedAt": "2026-10-29T21:08:06.477Z",
+  "mode": "Public GET only; no bookings or messages",
+  "checks": [
+    {
+      "path": "/api/public/catalog",
+      "query": {
+        "organization": "1717-barberia",
+        "branch": "luque"
+      },
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/api/health",
+      "query": {},
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/api/health/ready",
+      "query": {},
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/api/public/availability",
+      "query": {
+        "organization": "1717-barberia",
+        "branch": "luque",
+        "service": "corte-de-pelo",
+        "staff": "esteban",
+        "date": "2026-10-30"
+      },
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/api/public/availability",
+      "query": {
+        "organization": "1717-barberia",
+        "branch": "luque",
+        "service": "corte-de-pelo",
+        "staff": "jonatan",
+        "date": "2026-10-30"
+      },
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/api/public/availability",
+      "query": {
+        "organization": "1717-barberia",
+        "branch": "luque",
+        "service": "corte-de-pelo",
+        "date": "2026-11-01"
+      },
+      "status": 200,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/api/public/availability",
+      "query": {
+        "organization": "1717-barberia",
+        "branch": "luque",
+        "service": "combo-rulos-y-corte",
+        "date": "2026-10-30"
+      },
+      "status": 400,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/api/public/availability",
+      "query": {
+        "organization": "1717-barberia",
+        "branch": "luque",
+        "service": "rulos",
+        "date": "2026-10-30"
+      },
+      "status": 400,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/api/public/availability",
+      "query": {
+        "organization": "1717-barberia",
+        "branch": "luque",
+        "service": "tinte-global",
+        "date": "2026-10-30"
+      },
+      "status": 400,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/api/public/availability",
+      "query": {
+        "organization": "1717-barberia",
+        "branch": "luque",
+        "service": "tinte-mechas",
+        "date": "2026-10-30"
+      },
+      "status": 400,
+      "contentType": "application/json"
+    },
+    {
+      "path": "/api/public/availability",
+      "query": {
+        "organization": "1717-barberia",
+        "branch": "luque",
+        "service": "servicio-inexistente",
+        "date": "2026-10-30"
+      },
+      "status": 400,
+      "contentType": "application/json"
+    }
+  ],
+  "catalog": {
+    "name": "17:17 Barbería",
+    "slug": "1717-barberia",
+    "branches": [
+      {
+        "name": "Luque",
+        "slug": "luque",
+        "phone": "+595983402497",
+        "staff": [
+          {
+            "name": "Esteban",
+            "slug": "esteban",
+            "services": [
+              "combo-rulos-y-corte",
+              "barba",
+              "lavado",
+              "tinte-mechas",
+              "tinte-global",
+              "rulos",
+              "corte-de-pelo",
+              "perfilado-de-cejas"
+            ]
+          },
+          {
+            "name": "Jonatan",
+            "slug": "jonatan",
+            "services": [
+              "combo-rulos-y-corte",
+              "barba",
+              "lavado",
+              "tinte-mechas",
+              "tinte-global",
+              "rulos",
+              "corte-de-pelo",
+              "perfilado-de-cejas"
+            ]
+          }
+        ],
+        "address": "Cap. Dado esq. Gobernador Irala, Luque",
+        "services": [
+          {
+            "name": "Barba",
+            "slug": "barba",
+            "description": null,
+            "price_minor": 30000,
+            "composition_mode": "standalone",
+            "duration_minutes": 40,
+            "website_category": "barba",
+            "base_service_slug": null,
+            "consultation_required": false
+          },
+          {
+            "name": "Combo rulos y corte",
+            "slug": "combo-rulos-y-corte",
+            "description": null,
+            "price_minor": 200000,
+            "composition_mode": "standalone",
+            "duration_minutes": 120,
+            "website_category": "rulos",
+            "base_service_slug": null,
+            "consultation_required": true
+          },
+          {
+            "name": "Corte de pelo",
+            "slug": "corte-de-pelo",
+            "description": null,
+            "price_minor": 30000,
+            "composition_mode": "standalone",
+            "duration_minutes": 40,
+            "website_category": "corte",
+            "base_service_slug": null,
+            "consultation_required": false
+          },
+          {
+            "name": "Lavado",
+            "slug": "lavado",
+            "description": null,
+            "price_minor": 10000,
+            "composition_mode": "standalone",
+            "duration_minutes": 10,
+            "website_category": "lavado",
+            "base_service_slug": null,
+            "consultation_required": false
+          },
+          {
+            "name": "Perfilado de cejas",
+            "slug": "perfilado-de-cejas",
+            "description": null,
+            "price_minor": 10000,
+            "composition_mode": "standalone",
+            "duration_minutes": 40,
+            "website_category": "cejas",
+            "base_service_slug": null,
+            "consultation_required": false
+          },
+          {
+            "name": "Rulos",
+            "slug": "rulos",
+            "description": null,
+            "price_minor": 180000,
+            "composition_mode": "standalone",
+            "duration_minutes": 120,
+            "website_category": "rulos",
+            "base_service_slug": null,
+            "consultation_required": true
+          },
+          {
+            "name": "Tinte global",
+            "slug": "tinte-global",
+            "description": "Tinte global",
+            "price_minor": 250000,
+            "composition_mode": "standalone",
+            "duration_minutes": 150,
+            "website_category": "tinte",
+            "base_service_slug": null,
+            "consultation_required": true
+          },
+          {
+            "name": "Tinte mechas",
+            "slug": "tinte-mechas",
+            "description": null,
+            "price_minor": 180000,
+            "composition_mode": "standalone",
+            "duration_minutes": 150,
+            "website_category": "tinte",
+            "base_service_slug": null,
+            "consultation_required": true
+          }
+        ],
+        "timezone": "America/Asuncion"
+      }
+    ],
+    "currency": "PYG",
+    "logo_url": null,
+    "brand_color": "#d19900",
+    "website_booking_version": 1
+  },
+  "availability": [
+    {
+      "date": "2026-10-30",
+      "staff": "esteban",
+      "slots": 15,
+      "hoursAndBreakValid": true
+    },
+    {
+      "date": "2026-10-30",
+      "staff": "jonatan",
+      "slots": 45,
+      "hoursAndBreakValid": true
+    }
+  ],
+  "passed": true
+}

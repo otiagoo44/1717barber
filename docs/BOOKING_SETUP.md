@@ -1,5 +1,7 @@
 # Reservas nativas de Barbería OS
 
+**Estado vigente al 29/10:** la landing está publicada, catálogo y disponibilidad activos, y la reserva real del usuario está vinculada a cliente/Agenda con origen website. El CRM incorpora aviso manual por WhatsApp tras confirmar. [Cierre, versiones, pruebas y pendientes personales](CIERRE_INTEGRACION_20261029.md). Las secciones de activación del 27/10 que siguen se conservan como historial; no repetir onboarding ni cambiar flags activos.
+
 **Actualización posterior del 27/10:** el owner completó su respaldo MFA y habilitó organización/Luque por la interfaz. Catálogo productivo 200 JSON, ocho servicios y disponibilidad futura comprobados; build con variables reales aprobado. La revisión de 404 que sigue describe el estado anterior. [Ejecución y recibos actuales](GO_LIVE_20261027.md).
 
 La arquitectura existente se conserva: **landing → /reservar → booking alojado del CRM → cliente/cita en Supabase → Agenda**. La landing es estática; no calcula cupos ni envía POST cross-origin.

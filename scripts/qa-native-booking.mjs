@@ -42,5 +42,15 @@ for(const width of [390,1440]){
  await Promise.all([page.waitForNavigation({waitUntil:'networkidle0'}),page.click('.header-cta')]);assert.equal(new URL(page.url()).pathname,'/reservar');
  const noJsPage=await browser.newPage();await noJsPage.setJavaScriptEnabled(false);await noJsPage.setViewport({width,height:900});await noJsPage.goto(base+'/reservar',{waitUntil:'networkidle0'});assert.equal(await noJsPage.$$eval('.booking-service',s=>s.length),Number(process.env.QA_EXPECTED_SERVICE_COUNT||7));await noJsPage.close();
 }
+// Exercise real document transitions, including cancelling them for reduced motion.
+for(const value of ['reduce','no-preference']){
+ await page.emulateMediaFeatures([{name:'prefers-reduced-motion',value}]);
+ for(let attempt=0;attempt<3;attempt++){
+  await page.goto(base,{waitUntil:'networkidle0'});
+  await Promise.all([page.waitForNavigation({waitUntil:'networkidle0'}),page.click('.header-cta')]);
+  assert.equal(new URL(page.url()).pathname,'/reservar');
+ }
+}
+report.navigationTransitions={normal:3,reducedMotion:3,passed:true};
 assert.deepEqual(report.errors,[]);report.passed=true;console.log('Browser: 10 route/viewport combinations, CSP, links, SEO, no JS, Axe and no console errors PASS');
 }catch(e){report.passed=false;report.failure=e.stack;throw e;}finally{await writeFile(out+'/browser.json',JSON.stringify(report,null,2));await browser.close();}
