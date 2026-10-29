@@ -1,0 +1,96 @@
+{
+  "checkedAt": "2026-10-29T22:23:32.315Z",
+  "project": "zdogqqmitpbwjgohwcww",
+  "production": false,
+  "mode": "Optimized Next build; real isolated Supabase Auth/MFA and read-only setup/calendar endpoints",
+  "checks": [
+    "Actual staging Auth and MFA verified",
+    "Authenticated calendar status: unconfigured OAuth, no token exposure",
+    "Updated real Auth E2E assertions verified against live setup response",
+    "Live setup projection returns separate team/access and current public contract diagnostics",
+    "Foreign organization denied through actual HTTP session"
+  ],
+  "observations": {
+    "professionalsDetail": "2 de 2 profesionales activos están asignados y tienen servicios habilitados. 1 cuentas vinculadas. El acceso personal se comprueba por separado.",
+    "securitySteps": [
+      "Sesión verificada y 1 factor(es) MFA registrado(s).",
+      "No hay un segundo factor verificado. Comprobá tu recuperación independiente; este diagnóstico no la presume.",
+      "Entrega SMTP, recuperación independiente, respaldo recuperable y recepción de alertas requieren evidencia externa."
+    ]
+  },
+  "setup": [
+    {
+      "key": "account",
+      "status": "ready"
+    },
+    {
+      "key": "permissions",
+      "status": "ready"
+    },
+    {
+      "key": "branch",
+      "status": "ready"
+    },
+    {
+      "key": "services",
+      "status": "ready"
+    },
+    {
+      "key": "professionals",
+      "status": "ready",
+      "stepStatuses": [
+        "ready",
+        "ready"
+      ]
+    },
+    {
+      "key": "team_access",
+      "status": "pending",
+      "stepStatuses": [
+        "ready",
+        "pending"
+      ]
+    },
+    {
+      "key": "schedule",
+      "status": "ready",
+      "stepStatuses": [
+        "ready",
+        "ready"
+      ]
+    },
+    {
+      "key": "payments",
+      "status": "pending"
+    },
+    {
+      "key": "pos",
+      "status": "pending",
+      "stepStatuses": [
+        "pending",
+        "pending",
+        "pending",
+        "manual"
+      ]
+    },
+    {
+      "key": "booking",
+      "status": "ready",
+      "stepStatuses": [
+        "ready",
+        "ready",
+        "ready"
+      ]
+    },
+    {
+      "key": "security",
+      "status": "ready",
+      "stepStatuses": [
+        "ready",
+        "manual",
+        "manual"
+      ]
+    }
+  ],
+  "passed": true
+}

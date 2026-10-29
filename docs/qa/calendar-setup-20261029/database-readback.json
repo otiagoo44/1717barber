@@ -1,0 +1,31 @@
+{
+  "checkedOn": "2026-10-29",
+  "method": "Official Supabase CLI read-only query after forward migrations",
+  "staging": {
+    "project": "zdogqqmitpbwjgohwcww",
+    "migration_count": 46,
+    "calendar_role_migration": true,
+    "claim_role_filter": true,
+    "cron_active": true,
+    "pg_net": true,
+    "private_rls": true,
+    "public_definers": 0,
+    "connections": 0,
+    "jobs": 0,
+    "transport_configured": false
+  },
+  "production": {
+    "project": "tbcfhagteyqufjkmbxzz",
+    "migration_count": 46,
+    "calendar_role_migration": true,
+    "claim_role_filter": true,
+    "cron_active": true,
+    "pg_net": true,
+    "private_rls": true,
+    "public_definers": 0,
+    "connections": 0,
+    "jobs": 0,
+    "transport_configured": true
+  },
+  "googleOAuthConfigured": false
+}

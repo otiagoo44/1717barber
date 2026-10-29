@@ -1,0 +1,60 @@
+{
+  "checkedAt": "2026-10-29T22:40:54.775Z",
+  "origin": "https://barberia-crm-kappa.vercel.app",
+  "readOnly": true,
+  "googleOAuthConfigured": false,
+  "calendarWorkerAuthenticated": true,
+  "publicServices": 8,
+  "checks": [
+    {
+      "path": "/api/health",
+      "method": "GET",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/api/health/ready",
+      "method": "GET",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/api/calendar/status",
+      "method": "GET",
+      "status": 401,
+      "passed": true
+    },
+    {
+      "path": "/api/calendar/worker",
+      "method": "POST",
+      "status": 403,
+      "passed": true
+    },
+    {
+      "path": "/api/calendar/worker",
+      "method": "POST",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/api/public/catalog",
+      "method": "GET",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "path": "/api/public/availability",
+      "method": "GET",
+      "status": 200,
+      "passed": true
+    },
+    {
+      "origin": "https://1717barber.vercel.app",
+      "path": "/",
+      "method": "GET",
+      "status": 200,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-10-29T22:41:11.488Z",
+  "id": "dpl_FkkZMwyKennc7rvuL27gPbMZADab",
+  "project": "prj_5T3VMAuA8qXr3G6zzDSc94pHMpCQ",
+  "target": "production",
+  "readyState": "READY",
+  "githubCommitSha": "71b59fc17b2bc289e571686726e360afbe9b554c",
+  "githubCommitRef": "main",
+  "alias": [
+    "barberia-crm-kappa.vercel.app",
+    "barberia-crm-git-main-ortegatiago733-2656s-projects.vercel.app"
+  ]
+}

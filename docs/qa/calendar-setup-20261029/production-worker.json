@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-29T22:09:20.924Z",
+  "project": "tbcfhagteyqufjkmbxzz",
+  "environment": "production",
+  "origin": "https://barberia-crm-kappa.vercel.app",
+  "rows": [
+    {
+      "result": {
+        "gateway_configured": true,
+        "scheduler_configured": true,
+        "transport_configured": true
+      }
+    }
+  ]
+}
