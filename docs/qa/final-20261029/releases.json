@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-29T21:27:14.329Z",
+  "landing": {
+    "commit": "628eeae036a4274a921f1c5b52477d887382ccfb",
+    "deployment": "dpl_561vhda486j4Dh4CiDFsf5uvLW3m",
+    "url": "https://1717barber.vercel.app",
+    "state": "READY",
+    "branch": "main",
+    "repository": "otiagoo44/1717barber"
+  },
+  "crm": {
+    "commit": "a85adc819bbe6f4a38eb68bd1b0a7d5e219ea92b",
+    "deployment": "dpl_8EfaaNhKRrhid8PqmsnW4xYuuasE",
+    "url": "https://barberia-crm-kappa.vercel.app",
+    "state": "READY",
+    "branch": "main",
+    "repository": "otiagoo44/barberia-crm",
+    "pullRequest": "https://github.com/otiagoo44/barberia-crm/pull/10"
+  },
+  "ci": {
+    "run": "https://github.com/otiagoo44/barberia-crm/actions/runs/40955873716",
+    "testedHead": "27b17068e5fb80c740f186bb5ada44bbda0f6a46",
+    "mergeTreeMatchesTestedHead": true,
+    "jobs": [
+      {
+        "name": "visual-baseline",
+        "conclusion": "success"
+      },
+      {
+        "name": "quality",
+        "conclusion": "success"
+      },
+      {
+        "name": "supabase-e2e",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "publicConfiguration": {
+    "BARBERIA_OS_PUBLIC_URL": "https://barberia-crm-kappa.vercel.app",
+    "BARBERIA_OS_ORGANIZATION_SLUG": "1717-barberia",
+    "BARBERIA_OS_BRANCH_SLUG": "luque",
+    "SITE_URL": "https://1717barber.vercel.app"
+  },
+  "preview": {
+    "state": "ERROR",
+    "reason": "preview_database_boundary_not_configured",
+    "productionDatabaseUsed": false,
+    "promoted": false
+  },
+  "productionBookingWrites": 0,
+  "messagesSent": 0
+}

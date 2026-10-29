@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-29T21:27:09.650Z",
+  "mode": "Published booking read-only; no form submitted or messages sent",
+  "errors": [],
+  "views": [
+    {
+      "width": 390,
+      "organization": "17:17 Barbería",
+      "checkedServices": [
+        "Corte de pelo"
+      ],
+      "staff": [
+        "Cualquiera disponible",
+        "Esteban",
+        "Jonatan"
+      ],
+      "fields": [
+        "name",
+        "phone",
+        "email",
+        "website"
+      ],
+      "confirmation": false,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "organization": "17:17 Barbería",
+      "checkedServices": [
+        "Corte de pelo"
+      ],
+      "staff": [
+        "Cualquiera disponible",
+        "Esteban",
+        "Jonatan"
+      ],
+      "fields": [
+        "name",
+        "phone",
+        "email",
+        "website"
+      ],
+      "confirmation": false,
+      "overflow": false
+    }
+  ],
+  "writeRequests": 0,
+  "confirmationActionInPublishedBundle": true,
+  "passed": true
+}

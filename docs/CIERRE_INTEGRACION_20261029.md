@@ -25,13 +25,15 @@ Vercel publica desde el repositorio/rama de GitHub, no desde una carpeta local. 
 
 El CRM agrega **Avisar por WhatsApp** sólo después de recibir confirmación real del servidor. Usa el teléfono de Luque publicado en el catálogo: `+595983402497`, confirmado por el usuario como número de Esteban. El mensaje contiene servicios, profesional solicitado si se eligió uno, fecha/hora del local, duración y referencia. Con «Cualquiera disponible» no inventa el profesional asignado. No incorpora nombre/teléfono/correo del cliente. No abre WhatsApp solo ni envía mensajes automáticamente. Si falta un teléfono válido, la reserva sigue confirmada y el botón se omite.
 
-CRM PR: https://github.com/otiagoo44/barberia-crm/pull/10. El cambio usa el backend y catálogo existentes; no requiere migraciones, nuevos secretos ni relajar Origin/CORS/RLS.
+CRM PR fusionado: https://github.com/otiagoo44/barberia-crm/pull/10, main `a85adc819bbe6f4a38eb68bd1b0a7d5e219ea92b`. Los tres jobs del [CI 40955873716](https://github.com/otiagoo44/barberia-crm/actions/runs/40955873716) aprobaron: quality, supabase-e2e y visual-baseline. El merge respetó las protecciones y el HEAD verificado `27b1706`; no se cambiaron reglas ni permisos. El cambio usa el backend y catálogo existentes; no requiere migraciones, nuevos secretos ni relajar Origin/CORS/RLS.
 
 ## Pruebas de esta entrega
 
 - Landing: 19/19 unit tests, build con catálogo productivo, `verify-dist`; cinco rutas × móvil/escritorio, SEO/canonical/CSP/HSTS, enlaces seguros, sin JavaScript, Axe 0 y consola limpia. Se añadieron seis navegaciones con movimiento normal/reducido para la regresión de transición. [QA local](qa/final-20261029/local/browser.json), [QA publicado](qa/final-20261029/production/browser.json).
 - CRM: lint, typecheck, 32/32 unit tests, build Next optimizado y 18 escenarios de navegador en localhost. Confirma el aviso únicamente tras éxito, destino/contenido, ausencia sin teléfono, rechazo 409 sin éxito ficticio y una sola petición por intento. WhatsApp interceptado: cero mensajes enviados. [Evidencia CRM](https://github.com/otiagoo44/barberia-crm/tree/fix/booking-confirmation-whatsapp/docs/verification/booking-whatsapp-20261029).
 - La publicación definitiva se identifica por los SHA de main y recibos de deployment asociados a este cierre. No se confunde el preview/staging con el alias productivo.
+- Landing funcional publicada: `628eeae036a4274a921f1c5b52477d887382ccfb`, deployment `dpl_561vhda486j4Dh4CiDFsf5uvLW3m`, READY. El commit posterior agrega el recibo de cierre y la evidencia del mismo código publicado. [Deployments y commits comprobados](qa/final-20261029/releases.json). [Formulario CRM publicado, sin escrituras](qa/final-20261029/published-booking.json).
+- El preview automático de la rama del CRM fue rechazado por `preview_database_boundary_not_configured`: sólo las ramas de staging anteriores tienen ambiente configurado. No se conectó ese preview a producción ni se desactivó el control. El cambio se verificó con Next optimizado en localhost y el CI de Supabase aislado; el release productivo usa su ambiente propio existente.
 
 ## Qué queda para la operación completa
 
