@@ -5,6 +5,13 @@ const root = resolve("dist"),
   port = Number(process.env.PORT || 4174);
 const vercel = JSON.parse(await readFile("vercel.json", "utf8"));
 const securityHeaders = Object.fromEntries(vercel.headers.find(rule => rule.source === "/(.*)" && !rule.has).headers.map(h => [h.key, h.value]));
+// Local staging QA may call a local CRM. Production CSP remains fixed to the
+// reviewed public CRM origin; no URL supplied by a request can extend it.
+if(process.env.QA_BOOKING_ORIGIN) {
+  const u=new URL(process.env.QA_BOOKING_ORIGIN);
+  if(!["localhost","127.0.0.1"].includes(u.hostname))throw Error("Local QA origin required");
+  securityHeaders["Content-Security-Policy"]=securityHeaders["Content-Security-Policy"].replace("connect-src 'self'",`connect-src 'self' ${u.origin}`);
+}
 const types = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -27,7 +34,8 @@ createServer(async (req, res) => {
       return res.end();
     }
     if ((await stat(path)).isDirectory()) path = resolve(path, "index.html");
-    const body = await readFile(path);
+    let body = await readFile(path);
+    if(process.env.QA_BOOKING_ORIGIN && extname(path)===".html") body=Buffer.from(body.toString().replaceAll("https://barberia-crm-kappa.vercel.app",new URL(process.env.QA_BOOKING_ORIGIN).origin));
     res.writeHead(200, {
       "Content-Type": types[extname(path)] || "application/octet-stream",
       ...securityHeaders,

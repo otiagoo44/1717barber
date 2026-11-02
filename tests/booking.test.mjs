@@ -87,13 +87,14 @@ test("Render configurado mantiene canonical, CTA específico y consulta de rulos
   const original=services.slice(), previous={...business.booking};
   try {
     services.splice(0,services.length,...projectServices(catalog,config));Object.assign(bookingConfiguration,config);
-    assert.equal(new URL(serviceBookingLink("corte")).searchParams.get("service"),"cut");
+    assert.equal(serviceBookingLink("corte"),"/reservar?service=cut");
     assert.match(serviceBookingLink("rulos"),/^https:\/\/wa\.me\//);
     const booking=renderPage("reservar","https://1717barber.vercel.app");
     assert.ok(booking.includes('href="https://crm.fixture.invalid/book/fixture-a/a1?source=website"'));
     assert.ok(booking.includes("service=cut&amp;source=website"));
     assert.ok(booking.includes('rel="canonical" href="https://1717barber.vercel.app/reservar"'));
-    const home=renderPage("home");assert.ok(home.includes("service=cut&amp;source=website"));
+    const home=renderPage("home");assert.ok(home.includes('href="/reservar?service=cut"'));
+    assert.ok(booking.includes('data-booking data-origin="https://crm.fixture.invalid"'));
     assert.doesNotMatch(home+booking,/cal\.com|serviceEvents|Round Robin|service_role|BOOKING_GATEWAY_SECRET/);
   } finally { services.splice(0,services.length,...original);Object.assign(bookingConfiguration,previous); }
 });

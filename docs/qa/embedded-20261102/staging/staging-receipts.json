@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-11-02T22:11:44.419Z",
+  "realStaging": true,
+  "productionBookings": 0,
+  "receipts": [
+    {
+      "width": 390,
+      "reference": "4e933681-e530-4bf1-95ee-1daea70164e7",
+      "sameRequestAfterLostResponse": true,
+      "posts": 2,
+      "axe": 0,
+      "overflow": false,
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "reference": "c509ef8b-5aa7-4639-b63e-19f64937cd08",
+      "sameRequestAfterLostResponse": true,
+      "posts": 2,
+      "axe": 0,
+      "overflow": false,
+      "passed": true
+    },
+    {
+      "reference": "4c62add8-8a21-4a39-8a97-673c1576b212",
+      "concurrentSameKey": 2,
+      "competingBookingRejected": true,
+      "consultationRejected": 4,
+      "rateLimited": true,
+      "passed": true
+    }
+  ]
+}
