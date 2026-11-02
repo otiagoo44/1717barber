@@ -1,4 +1,5 @@
 import { nativeBookingLink } from "./booking.mjs";
+import { embeddedBooking } from "./booking-form.mjs";
 import { business, services, homeFaq, rulosFaq, products, rulosDetails, rulosTestimonials, rulosReels } from "./data.mjs";
 import { escape as e, price, rulosPrice, serviceDuration, serviceBookingLink, whatsappLink } from "./utils.mjs";
 import { header, footer, lightbox, faq, finalCta, wa, link, mobileBooking } from "./components.mjs";
@@ -13,10 +14,10 @@ function productsPage() {
   return `<section class="wrap catalog-hero" id="inicio"><p class="eyebrow">PRODUCTOS · 17:17</p><h1>El último toque.<br>También en casa.</h1><p>Styling, textura y cuidado para acompañar tu look. Consultanos por el producto que buscás y su disponibilidad.</p>${wa("Consultar productos","PRODUCTOS")}</section>${available.length ? `<section class="section wrap catalog-section" aria-labelledby="catalog-title"><h2 id="catalog-title">Productos</h2><div class="product-grid">${available.map(productCard).join("")}</div></section>` : `<section class="wrap product-consult" aria-labelledby="product-help-title"><h2 id="product-help-title">Encontrá tu forma<br>de peinarte.</h2><div><p>Podés consultar por pomadas, ceras, productos de textura y cuidado para barba.</p><p>Te confirmamos las opciones, el precio y la disponibilidad por WhatsApp.</p><div class="product-categories"><span>Styling</span><span>Textura</span><span>Barba</span></div></div></section>`}<section class="wrap catalog-visit"><h2>También podés pasar por la barbería.</h2><p>${e(business.address)} · ${e(business.city)}<br>${e(business.hours)}</p>${link("Cómo llegar",business.maps)}</section>`;
 }
 function bookingPage() {
-  return `<section class="wrap catalog-hero booking-intro" id="inicio"><p class="eyebrow">TURNOS · 17:17</p><h1>Elegí tu<br>servicio.</h1><p>Coordiná tu turno según el tiempo que necesita cada servicio. Te esperamos en la barbería, en Luque.</p><div class="actions">${link(nativeBookingLink() ? "Agendar" : "Coordinar por WhatsApp", nativeBookingLink() || whatsappLink({ intent:"AGENDA" }), "button")}</div></section><section class="wrap booking-services" aria-labelledby="booking-services-title"><h2 class="sr-only" id="booking-services-title">Servicios para reservar</h2>${services.map(s => {
-    const url = serviceBookingLink(s.id), direct = !url.startsWith("https://wa.me/");
+  return `<section class="wrap catalog-hero booking-intro" id="inicio"><p class="eyebrow">TURNOS · 17:17</p><h1>Tu turno,<br>en unos pasos.</h1><p>Elegí servicio, barbero y un horario disponible. La reserva se confirma acá, sin salir de la página.</p></section>${embeddedBooking()}<details class="wrap booking-backup" data-booking-backup open><summary>Servicios y agenda del local</summary><section class="booking-services" aria-labelledby="booking-services-title"><h2 class="sr-only" id="booking-services-title">Servicios para reservar</h2>${services.map(s => {
+    const url = nativeBookingLink(s.slug) || serviceBookingLink(s.id), direct = !url.startsWith("https://wa.me/");
     return `<article class="booking-service"><div><h3>${e(s.name)}</h3><p>${e(serviceDuration(s))} · ${price(s.price)}</p>${s.consultationRequired ? '<p class="booking-note">Este servicio requiere evaluación previa. Escribinos para coordinarlo.' + (s.id === 'rulos' ? ' El corte se cobra por separado.' : '') + '</p>' : ''}</div>${link(s.consultationRequired ? "Consultar disponibilidad y evaluación" : direct ? "Elegir horario" : "Coordinar por WhatsApp", url, "button outline")}</article>`;
-  }).join("")}<p class="booking-address">Atención presencial · ${e(business.address)} · ${e(business.city)}</p></section>`;
+  }).join("")}<p class="booking-address">Atención presencial · ${e(business.address)} · ${e(business.city)}</p></section></details>`;
 }
 export function renderPage(name, siteUrl = "", assetVersion = "") {
   const assetQuery = assetVersion ? `?v=${encodeURIComponent(assetVersion)}` : "";

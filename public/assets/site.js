@@ -1,4 +1,22 @@
 (() => {
+  // Queries and bookings have distinct outcomes. Warn before every consultation,
+  // including service links, footer and JavaScript-disabled fallback copy.
+  let consultationTarget;
+  const consultation = document.createElement("dialog");
+  consultation.className = "consultation-dialog";
+  consultation.setAttribute("aria-labelledby", "consultation-title");
+  consultation.innerHTML = '<h2 id="consultation-title">Consulta por WhatsApp</h2><p>Escribir por WhatsApp no confirma una reserva.</p><div class="actions"><a class="button" data-consult-continue target="_blank" rel="noopener noreferrer">Continuar a WhatsApp</a><button class="button outline" type="button" data-consult-close>Volver</button></div>';
+  document.body.append(consultation);
+  document.addEventListener("click", event => {
+    const link=event.target.closest('a[href^="https://wa.me/"]:not([data-booking-notify]):not([data-consult-continue])');
+    if(!link)return;
+    event.preventDefault();consultationTarget=link;
+    consultation.querySelector("[data-consult-continue]").href=link.href;
+    consultation.showModal();
+  });
+  consultation.querySelector("[data-consult-close]").addEventListener("click",()=>consultation.close());
+  consultation.querySelector("[data-consult-continue]").addEventListener("click",()=>consultation.close());
+  consultation.addEventListener("close",()=>consultationTarget?.focus({preventScroll:true}));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const animations = new Set();
   const elementAnimations = new WeakMap();

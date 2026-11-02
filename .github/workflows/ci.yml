@@ -1,0 +1,41 @@
+name: Landing verification
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: landing-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  booking:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BARBERIA_OS_PUBLIC_URL: https://barberia-crm-kappa.vercel.app
+      BARBERIA_OS_ORGANIZATION_SLUG: 1717-barberia
+      BARBERIA_OS_BRANCH_SLUG: luque
+      SITE_URL: https://1717barber.vercel.app
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: "24.15.0"
+          cache: npm
+      - run: npm ci
+      - run: npm audit --audit-level=high
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: embedded-booking-evidence
+          path: |
+            docs/qa/embedded-20261102/
+            playwright-report/
+            test-results/

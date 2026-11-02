@@ -39,5 +39,5 @@ export function serviceBookingLink(serviceId, configuration = business.booking) 
   const service = services.find(s => s.id === serviceId);
   if (!service) throw new Error("Servicio de agenda desconocido.");
   if (service.consultationRequired || !service.slug) return whatsappLink({intent:service.intent, service:service.name});
-  return nativeBookingLink(service.slug, configuration) || whatsappLink({intent:service.intent, service:service.name});
+  return nativeBookingLink(service.slug, configuration) ? `/reservar?service=${encodeURIComponent(service.slug)}` : whatsappLink({intent:service.intent, service:service.name});
 }
