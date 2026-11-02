@@ -1,0 +1,21 @@
+{
+  "checkedOn": "2026-11-02",
+  "project": "tbcfhagteyqufjkmbxzz",
+  "reference": "2f8f4061-d01c-4005-97cc-3975fb0d9e17",
+  "count_for_reference": 1,
+  "same_customer_time_active": 1,
+  "service": ["Corte de pelo"],
+  "professional": "Jonatan",
+  "starts_at": "2026-11-02T23:00:00+00:00",
+  "duration_minutes": 40,
+  "source": "public",
+  "attribution": "website",
+  "status": "scheduled",
+  "authorized_phone_matches": true,
+  "calendar_connections": 0,
+  "calendar_jobs": 0,
+  "migration_count": 47,
+  "private_rls": true,
+  "public_definers": 0,
+  "passed": true
+}

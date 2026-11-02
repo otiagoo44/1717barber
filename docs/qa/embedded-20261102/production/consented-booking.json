@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-11-02T22:19:21.501Z",
+  "consent": "User explicitly authorized one real haircut at 20:00 America/Asuncion on 2026-11-02, any professional",
+  "reference": "2f8f4061-d01c-4005-97cc-3975fb0d9e17",
+  "services": [
+    {
+      "name": "Corte de pelo"
+    }
+  ],
+  "staff": {
+    "name": "Jonatan",
+    "slug": "jonatan"
+  },
+  "starts_at": "2026-11-02T23:00:00+00:00",
+  "duration_minutes": 40,
+  "posts": 1,
+  "receiptSurvivesReload": true,
+  "whatsappOffered": true,
+  "whatsappSent": false,
+  "passed": true
+}

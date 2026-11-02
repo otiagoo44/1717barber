@@ -43,4 +43,20 @@ Esteban: cuenta vinculada, correo confirmado, contraseña inicial sustituida y u
 
 Sincronizar un evento no equivale a recibir un recordatorio ni un aviso inmediato. El código proyecta eventos CRM → Google; recordatorios y notificaciones del calendario/dispositivo requieren configuración y comprobación personal. No se implementó envío automático de WhatsApp/email/push por cada nueva reserva. [Diferencias documentadas por Google](https://developers.google.com/workspace/calendar/api/concepts/reminders).
 
-Alta, modificación y cancelación **en Google real** siguen pendientes de OAuth y consentimiento. Sólo se harán cambios sobre una visita real si se autoriza específicamente esa modificación/cancelación; en caso contrario, el ensayo completo corresponde a staging con sus propias cuentas OAuth. La reserva real autorizada se verificará después del despliegue y se documentará sin teléfono ni datos personales en el repositorio.
+Alta, modificación y cancelación **en Google real** siguen pendientes de OAuth y consentimiento. Sólo se harán cambios sobre una visita real si se autoriza específicamente esa modificación/cancelación; en caso contrario, el ensayo completo corresponde a staging con sus propias cuentas OAuth. La reserva real autorizada quedó verificada después del despliegue, sin teléfono ni datos personales en la evidencia del repositorio.
+
+## Publicación y reserva real consentida
+
+Landing [PR #2](https://github.com/otiagoo44/1717barber/pull/2), HEAD `7fcad8eade302ceab4ba5701b10a61492839f88c`, [CI aprobada](https://github.com/otiagoo44/1717barber/actions/runs/41535385098), merge `711305fbc30a91ba140ce0256ea7972d2abed6b5`. Producción READY `dpl_CKD6TyXqTMDDUczXozKkLWYFBNTm`. CRM READY `dpl_4i2727tXwYeELiCY91VUD3iegduz` sirve el merge `0e817a0`. Enlace público: https://1717barber.vercel.app/reservar. Preflight productivo desde la landing: 204 con ACAO exacto; origen ajeno: 403 sin ACAO.
+
+El usuario autorizó una única visita real: corte, cualquiera disponible, 2/11 a las 20:00 de Luque. Se realizó desde el formulario público, sin atajo por API: **Jonatan, 20:00–20:40**, referencia `2f8f4061-d01c-4005-97cc-3975fb0d9e17`. Un solo POST, respuesta 201 y misma confirmación después de recargar. WhatsApp se ofreció pero no se abrió ni se envió mensaje. No se modificó ni canceló la visita.
+
+La consulta posterior de la base confirmó **una fila por referencia y una cita activa del cliente en ese horario**, source public, attribution website y teléfono coincidente, sin publicar ese dato. [Recibo HTTP](qa/embedded-20261102/production/consented-booking.json), [lectura CRM](qa/embedded-20261102/production/crm-readback.json), [confirmación móvil](qa/embedded-20261102/production/confirmation-390.png). Los datos personales y el estado de recuperación del envío permanecen en archivos privados ignorados; no están en el repositorio.
+
+## Regresión de navegación
+
+La revisión ampliada reprodujo una cancelación nativa de Chromium que se notificaba después de perderse el handle de ViewTransition. El cierre reconoce exclusivamente dos DOMException InvalidStateError con los motivos exactos de cancelación `ViewTransition opt-in disabled` / `Page already revealed`. Mantiene las animaciones y CSS existentes, sin interceptar errores de aplicación ni otras excepciones. El caso añadido alterna movimiento normal/reducido durante doce navegaciones y comprueba además que un error de aplicación ajeno siga llegando al manejador de errores del navegador.
+
+Regresión completa aprobada: cinco páginas × móvil/escritorio, diez combinaciones; imágenes cargadas, SEO/canonical, CSP, enlaces, fallback sin JS, Axe 0, sin desbordes ni errores de consola. Además, tres navegaciones por modo normal/reducido aprobadas. [Reporte](qa/embedded-20261102/regression/browser.json).
+
+La auditoría final de Calendar comparó sin exponer valores el worker existente, hash gateway y secreto Vault: coinciden; origen productivo exacto y cron activos; cero conexiones/jobs. [Recibo sin secretos](qa/embedded-20261102/production/calendar-transport.json). Esto certifica el transporte preparado, no sustituye OAuth ni un consentimiento real de Google.
