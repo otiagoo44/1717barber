@@ -140,3 +140,19 @@ test("a throttled retry after an ambiguous response keeps the original request l
  await expect(page.getByRole("heading",{name:"Tu reserva está confirmada."})).toBeVisible();
  expect(sent).toHaveLength(3);expect(sent[1]).toEqual(sent[0]);expect(sent[2]).toEqual(sent[0]);
 });
+test("normal and reduced-motion page navigation keeps native transition cancellation handled",async({page})=>{
+ await mock(page);const errors=[];page.on("pageerror",error=>errors.push(error.message));
+ for(const motion of ["no-preference","reduce","no-preference","reduce"]){
+  await page.emulateMedia({reducedMotion:motion});
+  for(let i=0;i<3;i++){
+   await page.goto("/",{waitUntil:"networkidle"});
+   await page.locator(".header-cta").click();
+   await page.waitForURL("**/reservar",{waitUntil:"networkidle"});
+   await expect(page.locator('[name="service"]')).toHaveCount(1);
+  }
+ }
+ expect(errors).toEqual([]);
+ const unrelated=page.waitForEvent("pageerror");
+ await page.evaluate(()=>{void Promise.reject(new Error("Unrelated application error fixture"));});
+ expect((await unrelated).message).toBe("Unrelated application error fixture");
+});
